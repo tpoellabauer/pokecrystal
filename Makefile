@@ -166,7 +166,11 @@ $(foreach obj, $(pokecrystal11_vc_obj), $(eval $(call DEP,$(obj),$(obj:11_vc.o=.
 endif
 
 
-RGBFIXFLAGS += -Cjv -t PM_CRYSTAL -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+# Gen 1 Kanto on Crystal: migrate off stock Crystal's MBC3+TIMER (hardware RTC) to
+# MBC5+RAM+BATTERY for 8 MiB ROM headroom. MBC5 has no RTC crystal, so day/night is
+# kept via a software clock (see docs/MEMORY_MAP.md). -r 3 keeps 32 KiB SRAM (grow to
+# 4 = 128 KiB when content needs it). ROM-size byte is auto-derived by rgbfix (-p 0).
+RGBFIXFLAGS += -Cjv -t PM_CRYSTAL -k 01 -l 0x33 -m MBC5+RAM+BATTERY -r 3 -p 0
 pokecrystal.gbc:         RGBFIXFLAGS += -i BYTE -n 0
 pokecrystal11.gbc:       RGBFIXFLAGS += -i BYTE -n 1
 pokecrystal_au.gbc:      RGBFIXFLAGS += -i BYTU -n 0
