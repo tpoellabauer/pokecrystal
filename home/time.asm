@@ -28,42 +28,43 @@ UpdateTime::
 
 GetClock::
 ; store clock data in hRTCDayHi-hRTCSeconds
+;
+; Gen 1 Kanto on Crystal runs on MBC5, which has no hardware RTC, so the clock is a
+; SOFTWARE clock driven by play time (wGameTime*, which already ticks every frame and
+; is saved to SRAM). Day/night and time-based events therefore run on play-time: time
+; only advances while the game is on (no wall-clock catch-up across power-off). This
+; matches the target hardware (MBC5 repro cart / Analogue Pocket, no RTC crystal).
 
-; enable clock r/w
-	ld a, RAMG_SRAM_ENABLE
-	ld [rRAMG], a
-
-; clock data is 'backwards' in hram
-
-	call LatchClock
-	ld hl, rRAMB
-	ld de, rRTCREG
-
-	ld [hl], RAMB_RTC_S
-	ld a, [de]
-	maskbits 60
+	ld a, [wGameTimeSeconds]
 	ldh [hRTCSeconds], a
-
-	ld [hl], RAMB_RTC_M
-	ld a, [de]
-	maskbits 60
+	ld a, [wGameTimeMinutes]
 	ldh [hRTCMinutes], a
 
-	ld [hl], RAMB_RTC_H
-	ld a, [de]
-	maskbits 24
+; hours = wGameTimeHours (16-bit) split into hour-of-day (mod 24) and day count (/24)
+	ld a, [wGameTimeHours]     ; low
+	ld l, a
+	ld a, [wGameTimeHours + 1] ; high
+	ld h, a                    ; hl = total play hours
+	ld bc, 0                   ; bc = day count
+.divloop
+	ld a, l
+	sub 24
+	ld e, a
+	ld a, h
+	sbc 0
+	jr c, .done                ; hl < 24 -> l is the hour-of-day
+	ld h, a
+	ld l, e
+	inc bc
+	jr .divloop
+.done
+	ld a, l
 	ldh [hRTCHours], a
-
-	ld [hl], RAMB_RTC_DL
-	ld a, [de]
+	ld a, c
 	ldh [hRTCDayLo], a
-
-	ld [hl], RAMB_RTC_DH
-	ld a, [de]
+	ld a, b
+	and 1                      ; RTC DayHi uses bit 0 for day bit 8
 	ldh [hRTCDayHi], a
-
-; unlatch clock / disable clock r/w
-	call CloseSRAM
 	ret
 
 FixDays::
