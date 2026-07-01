@@ -168,6 +168,15 @@ INCLUDE "gfx/tilesets/gen1_underground_palette_map.asm"
 TilesetGen1MartPalMap:
 INCLUDE "gfx/tilesets/gen1_mart_palette_map.asm"
 
+TilesetGen1DojoPalMap:
+INCLUDE "gfx/tilesets/gen1_dojo_palette_map.asm"
+
+TilesetGen1MuseumPalMap:
+INCLUDE "gfx/tilesets/gen1_museum_palette_map.asm"
+
+TilesetGen1ForestGatePalMap:
+INCLUDE "gfx/tilesets/gen1_forest_gate_palette_map.asm"
+
 MapGroupPalettes: ; unreferenced
 ; entries correspond to MAPGROUP_* constants
 rept NUM_MAP_GROUPS

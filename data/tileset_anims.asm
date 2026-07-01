@@ -317,3 +317,12 @@ TilesetGen1UndergroundAnim:
 
 TilesetGen1MartAnim:
 	tileframe DoneTileAnimation
+
+TilesetGen1DojoAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1MuseumAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1ForestGateAnim:
+	tileframe DoneTileAnimation

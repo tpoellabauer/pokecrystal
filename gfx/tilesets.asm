@@ -548,3 +548,36 @@ INCBIN "data/tilesets/gen1_mart_metatiles.bin"
 
 TilesetGen1MartColl::
 INCLUDE "data/tilesets/gen1_mart_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_dojo", ROMX
+
+TilesetGen1DojoGFX::
+INCBIN "gfx/tilesets/gen1_dojo.2bpp.lz"
+
+TilesetGen1DojoMeta::
+INCBIN "data/tilesets/gen1_dojo_metatiles.bin"
+
+TilesetGen1DojoColl::
+INCLUDE "data/tilesets/gen1_dojo_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_museum", ROMX
+
+TilesetGen1MuseumGFX::
+INCBIN "gfx/tilesets/gen1_museum.2bpp.lz"
+
+TilesetGen1MuseumMeta::
+INCBIN "data/tilesets/gen1_museum_metatiles.bin"
+
+TilesetGen1MuseumColl::
+INCLUDE "data/tilesets/gen1_museum_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_forest_gate", ROMX
+
+TilesetGen1ForestGateGFX::
+INCBIN "gfx/tilesets/gen1_forest_gate.2bpp.lz"
+
+TilesetGen1ForestGateMeta::
+INCBIN "data/tilesets/gen1_forest_gate_metatiles.bin"
+
+TilesetGen1ForestGateColl::
+INCLUDE "data/tilesets/gen1_forest_gate_collision.asm"

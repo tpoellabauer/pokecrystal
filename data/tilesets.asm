@@ -70,4 +70,7 @@ Tilesets::
 	tileset TilesetGen1Plateau
 	tileset TilesetGen1Underground
 	tileset TilesetGen1Mart
+	tileset TilesetGen1Dojo
+	tileset TilesetGen1Museum
+	tileset TilesetGen1ForestGate
 	assert_table_length NUM_TILESETS + 1
