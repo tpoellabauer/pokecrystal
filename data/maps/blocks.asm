@@ -18,14 +18,8 @@ Route28_Blocks:
 BetaPlayersHouse2F_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaPlayersHouse2F.blk"
 
-CeladonCity_Blocks:
-	INCBIN "maps/CeladonCity.blk"
-
 SaffronCity_Blocks:
 	INCBIN "maps/SaffronCity.blk"
-
-Route2_Blocks:
-	INCBIN "maps/Route2.blk"
 
 ElmsHouse_Blocks:
 	INCBIN "maps/ElmsHouse.blk"
@@ -237,9 +231,6 @@ ViridianCity_Blocks:
 
 Route13_Blocks:
 	INCBIN "maps/Route13.blk"
-
-Route21_Blocks:
-	INCBIN "maps/Route21.blk"
 
 BetaSproutTower7_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower7.blk"
@@ -1045,5 +1036,18 @@ BetaBlank_Blocks: ; unreferenced
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.blk"
+
+ENDSECTION
+
+SECTION "Gen 1 Kanto Blocks", ROMX
+
+CeladonCity_Blocks:
+	INCBIN "maps/CeladonCity.blk"
+
+Route2_Blocks:
+	INCBIN "maps/Route2.blk"
+
+Route21_Blocks:
+	INCBIN "maps/Route21.blk"
 
 ENDSECTION
