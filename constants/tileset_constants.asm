@@ -37,6 +37,9 @@
 	const TILESET_OMANYTE_WORD_ROOM    ; 23
 	const TILESET_AERODACTYL_WORD_ROOM ; 24
 	const TILESET_GEN1_OVERWORLD       ; 25 ; ported Gen 1 Kanto overworld (grayscale)
+	const TILESET_GEN1_REDS_HOUSE
+	const TILESET_GEN1_HOUSE
+	const TILESET_GEN1_LAB
 DEF NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size

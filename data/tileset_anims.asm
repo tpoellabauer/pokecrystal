@@ -260,3 +260,12 @@ TilesetAerodactylWordRoomAnim:
 
 TilesetGen1OverworldAnim:
 	tileframe DoneTileAnimation
+
+TilesetGen1RedsHouseAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1HouseAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1LabAnim:
+	tileframe DoneTileAnimation

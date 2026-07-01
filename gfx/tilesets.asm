@@ -345,3 +345,30 @@ INCBIN "data/tilesets/gen1_overworld_metatiles.bin"
 
 TilesetGen1OverworldColl::
 INCLUDE "data/tilesets/gen1_overworld_collision.asm"
+
+TilesetGen1RedsHouseGFX::
+INCBIN "gfx/tilesets/gen1_reds_house.2bpp.lz"
+
+TilesetGen1RedsHouseMeta::
+INCBIN "data/tilesets/gen1_reds_house_metatiles.bin"
+
+TilesetGen1RedsHouseColl::
+INCLUDE "data/tilesets/gen1_reds_house_collision.asm"
+
+TilesetGen1HouseGFX::
+INCBIN "gfx/tilesets/gen1_house.2bpp.lz"
+
+TilesetGen1HouseMeta::
+INCBIN "data/tilesets/gen1_house_metatiles.bin"
+
+TilesetGen1HouseColl::
+INCLUDE "data/tilesets/gen1_house_collision.asm"
+
+TilesetGen1LabGFX::
+INCBIN "gfx/tilesets/gen1_lab.2bpp.lz"
+
+TilesetGen1LabMeta::
+INCBIN "data/tilesets/gen1_lab_metatiles.bin"
+
+TilesetGen1LabColl::
+INCLUDE "data/tilesets/gen1_lab_collision.asm"

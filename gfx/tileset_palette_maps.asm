@@ -111,6 +111,15 @@ INCLUDE "gfx/tilesets/battle_tower_outside_palette_map.asm"
 TilesetGen1OverworldPalMap:
 INCLUDE "gfx/tilesets/gen1_overworld_palette_map.asm"
 
+TilesetGen1RedsHousePalMap:
+INCLUDE "gfx/tilesets/gen1_reds_house_palette_map.asm"
+
+TilesetGen1HousePalMap:
+INCLUDE "gfx/tilesets/gen1_house_palette_map.asm"
+
+TilesetGen1LabPalMap:
+INCLUDE "gfx/tilesets/gen1_lab_palette_map.asm"
+
 MapGroupPalettes: ; unreferenced
 ; entries correspond to MAPGROUP_* constants
 rept NUM_MAP_GROUPS

@@ -51,4 +51,7 @@ Tilesets::
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
 	tileset TilesetGen1Overworld
+	tileset TilesetGen1RedsHouse
+	tileset TilesetGen1House
+	tileset TilesetGen1Lab
 	assert_table_length NUM_TILESETS + 1
