@@ -9,7 +9,12 @@
 	RGB 31,31,16, 31,31,16, 14,09,00, 00,00,00 ; text
 
 ; day
-	RGB 27,31,27, 21,21,21, 13,13,13, 07,07,07 ; gray
+	RGB 31,31,31, 21,21,21, 10,10,10, 00,00,00 ; gray -- canonical DMG levels: Gen 1
+	; ported tiles use this GRAY palette exclusively, so its 4 colors must be exact fixed
+	; points of _GrayscaleColorRamp's average+snap (white/light/dark/black), not an
+	; approximate near-gray -- averaging (27,31,27) etc. rounded the two darkest colors
+	; to the same snapped level, rendering Gen 1's solid-black border/shadow tiles as a
+	; visible dark gray instead of pure black.
 	RGB 27,31,27, 31,19,24, 30,10,06, 07,07,07 ; red
 	RGB 22,31,10, 12,25,01, 05,14,00, 07,07,07 ; green
 	RGB 31,31,31, 08,12,31, 01,04,31, 07,07,07 ; water
@@ -39,7 +44,7 @@
 	RGB 31,31,16, 31,31,16, 14,09,00, 00,00,00 ; text
 
 ; indoor
-	RGB 30,28,26, 19,19,19, 13,13,13, 07,07,07 ; gray
+	RGB 31,31,31, 21,21,21, 10,10,10, 00,00,00 ; gray -- canonical DMG levels (see "day" above)
 	RGB 30,28,26, 31,19,24, 30,10,06, 07,07,07 ; red
 	RGB 18,24,09, 15,20,01, 09,13,00, 07,07,07 ; green
 	RGB 30,28,26, 15,16,31, 09,09,31, 07,07,07 ; water
