@@ -69,4 +69,5 @@ Tilesets::
 	tileset TilesetGen1Facility
 	tileset TilesetGen1Plateau
 	tileset TilesetGen1Underground
+	tileset TilesetGen1Mart
 	assert_table_length NUM_TILESETS + 1

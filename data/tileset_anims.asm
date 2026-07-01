@@ -314,3 +314,6 @@ TilesetGen1PlateauAnim:
 
 TilesetGen1UndergroundAnim:
 	tileframe DoneTileAnimation
+
+TilesetGen1MartAnim:
+	tileframe DoneTileAnimation

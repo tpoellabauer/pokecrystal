@@ -537,3 +537,14 @@ INCBIN "data/tilesets/gen1_underground_metatiles.bin"
 
 TilesetGen1UndergroundColl::
 INCLUDE "data/tilesets/gen1_underground_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_mart", ROMX
+
+TilesetGen1MartGFX::
+INCBIN "gfx/tilesets/gen1_mart.2bpp.lz"
+
+TilesetGen1MartMeta::
+INCBIN "data/tilesets/gen1_mart_metatiles.bin"
+
+TilesetGen1MartColl::
+INCLUDE "data/tilesets/gen1_mart_collision.asm"

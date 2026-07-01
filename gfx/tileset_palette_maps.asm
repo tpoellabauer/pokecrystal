@@ -165,6 +165,9 @@ INCLUDE "gfx/tilesets/gen1_plateau_palette_map.asm"
 TilesetGen1UndergroundPalMap:
 INCLUDE "gfx/tilesets/gen1_underground_palette_map.asm"
 
+TilesetGen1MartPalMap:
+INCLUDE "gfx/tilesets/gen1_mart_palette_map.asm"
+
 MapGroupPalettes: ; unreferenced
 ; entries correspond to MAPGROUP_* constants
 rept NUM_MAP_GROUPS

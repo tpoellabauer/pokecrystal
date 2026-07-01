@@ -55,6 +55,7 @@
 	const TILESET_GEN1_FACILITY
 	const TILESET_GEN1_PLATEAU
 	const TILESET_GEN1_UNDERGROUND
+	const TILESET_GEN1_MART
 DEF NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size
