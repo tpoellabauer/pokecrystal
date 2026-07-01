@@ -964,7 +964,10 @@ DEF NUM_TITLESCREENOPTIONS EQU const_value
 IntroSequence:
 	callfar SplashScreen
 	jr c, StartTitleScreen
-	farcall CrystalIntro
+	; Gen 1 Kanto on Crystal: Gen 1 boots GameFreak splash -> title (no Suicune/Unown
+	; cinematic), so skip Crystal's CrystalIntro. The animated Nidorino-vs-Gengar
+	; intro is a separate asset+animation port (see engine/movie/, pokered intro.asm).
+	; farcall CrystalIntro
 
 	; fallthrough
 
