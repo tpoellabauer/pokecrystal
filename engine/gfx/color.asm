@@ -1342,8 +1342,12 @@ INCLUDE "gfx/slots/slots.pal"
 _GrayscaleColorRamp::
 ; Gen 1 Kanto on Crystal — grayscale-only look. Convert the staged CGB palettes
 ; (wBGPals2 + wOBPals2, 64 contiguous colors) to grayscale in place: each RGB555 color
-; becomes gray = (R + G + B) / 3 replicated to all three channels. Called (via farcall)
-; from ForceUpdateCGBPals with rWBK already set to BANK(wBGPals2).
+; becomes gray = (R + G + B) / 3, then snapped to the nearest of the 4 canonical DMG
+; levels {0,10,21,31} (white/light/dark/black) and replicated to all three channels.
+; The snap matters: plain (R+G+B)/3 of the tilesets' source colors never reaches pure
+; black or white (it compressed on hardware to ~56..224), washing the DMG look out and
+; breaking the Red-vs-port render match; snapping restores the full 0..255 Gen 1 ramp.
+; Called (via farcall) from ForceUpdateCGBPals with rWBK already set to BANK(wBGPals2).
 	ld hl, wBGPals2
 	ld c, 64             ; BG (32) + OBJ (32) colors, contiguous
 .loop
@@ -1386,7 +1390,27 @@ _GrayscaleColorRamp::
 	inc b
 	jr .div3
 .div3done
-	ld a, b              ; a = gray (0..31)
+	; snap gray (b) to the nearest canonical DMG level {0,10,21,31} (thresholds at the
+	; midpoints 5/16/26) so the ramp spans pure black..white like Gen 1's DMG shades.
+	ld a, b
+	cp 5
+	jr c, .snap0
+	cp 16
+	jr c, .snap10
+	cp 26
+	jr c, .snap21
+	ld b, 31
+	jr .snapped
+.snap21
+	ld b, 21
+	jr .snapped
+.snap10
+	ld b, 10
+	jr .snapped
+.snap0
+	ld b, 0
+.snapped
+	ld a, b              ; a = gray (0..31), snapped to a canonical level
 	; low byte = (gray & $1f) | ((gray & $07) << 5)
 	and $07
 	swap a               ; << 4
