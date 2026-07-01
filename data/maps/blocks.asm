@@ -27,20 +27,11 @@ ElmsHouse_Blocks:
 BetaSproutTower1_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower1.blk"
 
-Route11_Blocks:
-	INCBIN "maps/Route11.blk"
-
 BetaSproutTower5_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower5.blk"
 
-Route15_Blocks:
-	INCBIN "maps/Route15.blk"
-
 BetaSproutTower9_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower9.blk"
-
-Route19_Blocks:
-	INCBIN "maps/Route19.blk"
 
 BetaBlackthornCity_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaBlackthornCity.blk"
@@ -82,17 +73,8 @@ LavenderTown_Blocks:
 PalletTown_Blocks:
 	INCBIN "maps/PalletTown.blk"
 
-Route25_Blocks:
-	INCBIN "maps/Route25.blk"
-
-Route24_Blocks:
-	INCBIN "maps/Route24.blk"
-
 BetaVioletCity_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaVioletCity.blk"
-
-Route3_Blocks:
-	INCBIN "maps/Route3.blk"
 
 PewterCity_Blocks:
 	INCBIN "maps/PewterCity.blk"
@@ -103,14 +85,8 @@ BetaSilverCaveOutside_Blocks: ; unreferenced
 BetaSproutTower2_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower2.blk"
 
-Route12_Blocks:
-	INCBIN "maps/Route12.blk"
-
 BetaGoldenrodCity_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaGoldenrodCity.blk"
-
-Route20_Blocks:
-	INCBIN "maps/Route20.blk"
 
 BetaSproutTower6_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower6.blk"
@@ -217,26 +193,14 @@ BetaCherrygroveCity_Blocks: ; unreferenced
 CinnabarIsland_Blocks:
 	INCBIN "maps/CinnabarIsland.blk"
 
-Route4_Blocks:
-	INCBIN "maps/Route4.blk"
-
-Route8_Blocks:
-	INCBIN "maps/Route8.blk"
-
 BetaSproutTower3_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower3.blk"
 
 ViridianCity_Blocks:
 	INCBIN "maps/ViridianCity.blk"
 
-Route13_Blocks:
-	INCBIN "maps/Route13.blk"
-
 BetaSproutTower7_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower7.blk"
-
-Route17_Blocks:
-	INCBIN "maps/Route17.blk"
 
 BetaMahoganyTown_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaMahoganyTown.blk"
@@ -292,20 +256,11 @@ CeruleanCity_Blocks:
 Route1_Blocks:
 	INCBIN "maps/Route1.blk"
 
-Route5_Blocks:
-	INCBIN "maps/Route5.blk"
-
-Route9_Blocks:
-	INCBIN "maps/Route9.blk"
-
 Route22_Blocks:
 	INCBIN "maps/Route22.blk"
 
 
 SECTION "Map Blocks 2", ROMX
-
-Route14_Blocks:
-	INCBIN "maps/Route14.blk"
 
 BetaSproutTower8_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSproutTower8.blk"
@@ -549,18 +504,6 @@ BlackthornCity_Blocks:
 
 SilverCaveOutside_Blocks:
 	INCBIN "maps/SilverCaveOutside.blk"
-
-Route6_Blocks:
-	INCBIN "maps/Route6.blk"
-
-Route7_Blocks:
-	INCBIN "maps/Route7.blk"
-
-Route16_Blocks:
-	INCBIN "maps/Route16.blk"
-
-Route18_Blocks:
-	INCBIN "maps/Route18.blk"
 
 GoldenrodUnderground_Blocks:
 	INCBIN "maps/GoldenrodUnderground.blk"
@@ -1049,5 +992,66 @@ Route2_Blocks:
 
 Route21_Blocks:
 	INCBIN "maps/Route21.blk"
+
+ENDSECTION
+
+SECTION "Gen 1 Kanto Blocks 2", ROMX
+
+Route3_Blocks:
+	INCBIN "maps/Route3.blk"
+
+Route4_Blocks:
+	INCBIN "maps/Route4.blk"
+
+Route5_Blocks:
+	INCBIN "maps/Route5.blk"
+
+Route6_Blocks:
+	INCBIN "maps/Route6.blk"
+
+Route7_Blocks:
+	INCBIN "maps/Route7.blk"
+
+Route8_Blocks:
+	INCBIN "maps/Route8.blk"
+
+Route9_Blocks:
+	INCBIN "maps/Route9.blk"
+
+Route11_Blocks:
+	INCBIN "maps/Route11.blk"
+
+Route12_Blocks:
+	INCBIN "maps/Route12.blk"
+
+Route13_Blocks:
+	INCBIN "maps/Route13.blk"
+
+Route14_Blocks:
+	INCBIN "maps/Route14.blk"
+
+Route15_Blocks:
+	INCBIN "maps/Route15.blk"
+
+Route16_Blocks:
+	INCBIN "maps/Route16.blk"
+
+Route17_Blocks:
+	INCBIN "maps/Route17.blk"
+
+Route18_Blocks:
+	INCBIN "maps/Route18.blk"
+
+Route19_Blocks:
+	INCBIN "maps/Route19.blk"
+
+Route20_Blocks:
+	INCBIN "maps/Route20.blk"
+
+Route24_Blocks:
+	INCBIN "maps/Route24.blk"
+
+Route25_Blocks:
+	INCBIN "maps/Route25.blk"
 
 ENDSECTION
