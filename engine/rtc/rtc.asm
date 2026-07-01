@@ -24,6 +24,15 @@ StartRTC:
 
 GetTimeOfDay::
 ; get time of day based on the current hour
+	IF VANILLA_RED
+; Pokemon Red has no day/night cycle — every area uses one fixed palette. For pristine
+; Red parity the time of day is pinned to DAY regardless of the (software) clock, so
+; overworld palettes and time-gated encounters never shift. (The clock still runs for
+; anything that reads the raw hour; only the palette bucket is fixed.)
+	ld a, DAY_F
+	ld [wTimeOfDay], a
+	ret
+	ENDC
 	ldh a, [hHours] ; hour
 	ld hl, TimesOfDay
 
