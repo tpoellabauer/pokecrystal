@@ -24,6 +24,12 @@ ForceUpdateCGBPals::
 	ld a, BANK(wBGPals2)
 	ldh [rWBK], a
 
+	; Gen 1 Kanto on Crystal: overworld is grayscale-only. Convert every staged CGB
+	; color to a gray of equal luminance right before it is pushed to hardware, so the
+	; whole game renders in the DMG monochrome ramp despite the CGB palettes. The
+	; routine lives in a ROMX bank (home is full); rWBK is already set to wBGPals2.
+	farcall _GrayscaleColorRamp
+
 	ld hl, wBGPals2
 
 ; copy 8 pals to bgpd

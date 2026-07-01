@@ -1338,3 +1338,77 @@ INCLUDE "gfx/beta_poker/beta_poker.pal"
 
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"
+
+_GrayscaleColorRamp::
+; Gen 1 Kanto on Crystal — grayscale-only look. Convert the staged CGB palettes
+; (wBGPals2 + wOBPals2, 64 contiguous colors) to grayscale in place: each RGB555 color
+; becomes gray = (R + G + B) / 3 replicated to all three channels. Called (via farcall)
+; from ForceUpdateCGBPals with rWBK already set to BANK(wBGPals2).
+	ld hl, wBGPals2
+	ld c, 64             ; BG (32) + OBJ (32) colors, contiguous
+.loop
+	ld a, [hl]
+	ld e, a
+	inc hl
+	ld a, [hl]
+	ld d, a
+	dec hl               ; hl -> low byte of this color
+	; R = color & $1f
+	ld a, e
+	and $1f
+	ld b, a
+	; de >>= 5 -> G in low 5 bits
+	ld a, 5
+.shiftG
+	srl d
+	rr e
+	dec a
+	jr nz, .shiftG
+	ld a, e
+	and $1f
+	add b
+	ld b, a              ; b = R + G
+	; de >>= 5 -> B in low 5 bits
+	ld a, 5
+.shiftB
+	srl d
+	rr e
+	dec a
+	jr nz, .shiftB
+	ld a, e
+	and $1f
+	add b                ; a = R + G + B (0..93)
+	; gray = a / 3 (floor) via repeated subtraction
+	ld b, 0
+.div3
+	sub 3
+	jr c, .div3done
+	inc b
+	jr .div3
+.div3done
+	ld a, b              ; a = gray (0..31)
+	; low byte = (gray & $1f) | ((gray & $07) << 5)
+	and $07
+	swap a               ; << 4
+	add a                ; << 1  -> (gray & 7) << 5
+	ld d, a
+	ld a, b
+	and $1f
+	or d
+	ld [hl], a
+	inc hl
+	; high byte = (gray >> 3) | (gray << 2)
+	ld a, b
+	srl a
+	srl a
+	srl a
+	ld d, a              ; gray >> 3
+	ld a, b
+	add a
+	add a                ; gray << 2
+	or d
+	ld [hl], a
+	inc hl
+	dec c
+	jr nz, .loop
+	ret
