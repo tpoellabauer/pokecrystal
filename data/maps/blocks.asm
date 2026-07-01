@@ -358,18 +358,6 @@ GoldenrodDeptStoreElevator_Blocks:
 CeladonDeptStoreElevator_Blocks:
 	INCBIN "maps/DeptStoreElevator.blk"
 
-CeladonMansion1F_Blocks:
-	INCBIN "maps/CeladonMansion1F.blk"
-
-CeladonMansion2F_Blocks:
-	INCBIN "maps/CeladonMansion2F.blk"
-
-CeladonMansion3F_Blocks:
-	INCBIN "maps/CeladonMansion3F.blk"
-
-CeladonMansionRoof_Blocks:
-	INCBIN "maps/CeladonMansionRoof.blk"
-
 BetaHouse_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaHouse.blk"
 
@@ -378,9 +366,6 @@ CeladonGameCorner_Blocks:
 
 CeladonGameCornerPrizeRoom_Blocks:
 	INCBIN "maps/CeladonGameCornerPrizeRoom.blk"
-
-Colosseum_Blocks:
-	INCBIN "maps/Colosseum.blk"
 
 TradeCenter_Blocks:
 TimeCapsule_Blocks:
@@ -656,9 +641,6 @@ WillsRoom_Blocks:
 KogasRoom_Blocks:
 	INCBIN "maps/KogasRoom.blk"
 
-BrunosRoom_Blocks:
-	INCBIN "maps/BrunosRoom.blk"
-
 KarensRoom_Blocks:
 	INCBIN "maps/KarensRoom.blk"
 
@@ -786,18 +768,6 @@ PlayersHouse2F_Blocks:
 SaffronMagnetTrainStation_Blocks:
 	INCBIN "maps/SaffronMagnetTrainStation.blk"
 
-CeruleanGym_Blocks:
-	INCBIN "maps/CeruleanGym.blk"
-
-VermilionGym_Blocks:
-	INCBIN "maps/VermilionGym.blk"
-
-SaffronGym_Blocks:
-	INCBIN "maps/SaffronGym.blk"
-
-PowerPlant_Blocks:
-	INCBIN "maps/PowerPlant.blk"
-
 PokemonFanClub_Blocks:
 SafariZoneWardensHome_Blocks:
 	INCBIN "maps/PokemonFanClub.blk"
@@ -805,29 +775,17 @@ SafariZoneWardensHome_Blocks:
 FightingDojo_Blocks:
 	INCBIN "maps/FightingDojo.blk"
 
-SilphCo1F_Blocks:
-	INCBIN "maps/SilphCo1F.blk"
-
-ViridianGym_Blocks:
-	INCBIN "maps/ViridianGym.blk"
-
 TrainerHouse1F_Blocks:
 	INCBIN "maps/TrainerHouse1F.blk"
 
 TrainerHouseB1F_Blocks:
 	INCBIN "maps/TrainerHouseB1F.blk"
 
-RedsHouse1F_Blocks:
-	INCBIN "maps/RedsHouse1F.blk"
-
 RedsHouse2F_Blocks:
 	INCBIN "maps/RedsHouse2F.blk"
 
 OaksLab_Blocks:
 	INCBIN "maps/OaksLab.blk"
-
-MrFujisHouse_Blocks:
-	INCBIN "maps/MrFujisHouse.blk"
 
 LavRadioTower1F_Blocks:
 	INCBIN "maps/LavRadioTower1F.blk"
@@ -841,12 +799,6 @@ DayCare_Blocks:
 SoulHouse_Blocks:
 	INCBIN "maps/SoulHouse.blk"
 
-PewterGym_Blocks:
-	INCBIN "maps/PewterGym.blk"
-
-CeladonGym_Blocks:
-	INCBIN "maps/CeladonGym.blk"
-
 BetaCeladonMansion1F_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaCeladonMansion1F.blk"
 
@@ -855,15 +807,6 @@ CeladonCafe_Blocks:
 
 BetaCeladonMansion2F_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaCeladonMansion2F.blk"
-
-RockTunnel1F_Blocks:
-	INCBIN "maps/RockTunnel1F.blk"
-
-RockTunnelB1F_Blocks:
-	INCBIN "maps/RockTunnelB1F.blk"
-
-DiglettsCave_Blocks:
-	INCBIN "maps/DiglettsCave.blk"
 
 MountMoon_Blocks:
 	INCBIN "maps/MountMoon.blk"
@@ -881,9 +824,6 @@ OlivinePortPassage_Blocks:
 VermilionPortPassage_Blocks:
 	INCBIN "maps/PortPassage.blk"
 
-FuchsiaGym_Blocks:
-	INCBIN "maps/FuchsiaGym.blk"
-
 SafariZoneBeta_Blocks:
 	INCBIN "maps/SafariZoneBeta.blk"
 
@@ -896,20 +836,8 @@ Route39Barn_Blocks:
 VictoryRoad_Blocks:
 	INCBIN "maps/VictoryRoad.blk"
 
-Route23_Blocks:
-	INCBIN "maps/Route23.blk"
-
 LancesRoom_Blocks:
 	INCBIN "maps/LancesRoom.blk"
-
-HallOfFame_Blocks:
-	INCBIN "maps/HallOfFame.blk"
-
-CopycatsHouse1F_Blocks:
-	INCBIN "maps/CopycatsHouse1F.blk"
-
-CopycatsHouse2F_Blocks:
-	INCBIN "maps/CopycatsHouse2F.blk"
 
 GoldenrodFlowerShop_Blocks:
 	INCBIN "maps/GoldenrodFlowerShop.blk"
@@ -1053,5 +981,81 @@ Route24_Blocks:
 
 Route25_Blocks:
 	INCBIN "maps/Route25.blk"
+
+ENDSECTION
+
+SECTION "Gen 1 Kanto Interior Blocks 10", ROMX
+
+BrunosRoom_Blocks:
+	INCBIN "maps/BrunosRoom.blk"
+
+CeladonGym_Blocks:
+	INCBIN "maps/CeladonGym.blk"
+
+CeladonMansion1F_Blocks:
+	INCBIN "maps/CeladonMansion1F.blk"
+
+CeladonMansion2F_Blocks:
+	INCBIN "maps/CeladonMansion2F.blk"
+
+CeladonMansion3F_Blocks:
+	INCBIN "maps/CeladonMansion3F.blk"
+
+CeladonMansionRoof_Blocks:
+	INCBIN "maps/CeladonMansionRoof.blk"
+
+CeruleanGym_Blocks:
+	INCBIN "maps/CeruleanGym.blk"
+
+Colosseum_Blocks:
+	INCBIN "maps/Colosseum.blk"
+
+CopycatsHouse1F_Blocks:
+	INCBIN "maps/CopycatsHouse1F.blk"
+
+CopycatsHouse2F_Blocks:
+	INCBIN "maps/CopycatsHouse2F.blk"
+
+DiglettsCave_Blocks:
+	INCBIN "maps/DiglettsCave.blk"
+
+FuchsiaGym_Blocks:
+	INCBIN "maps/FuchsiaGym.blk"
+
+HallOfFame_Blocks:
+	INCBIN "maps/HallOfFame.blk"
+
+MrFujisHouse_Blocks:
+	INCBIN "maps/MrFujisHouse.blk"
+
+PewterGym_Blocks:
+	INCBIN "maps/PewterGym.blk"
+
+PowerPlant_Blocks:
+	INCBIN "maps/PowerPlant.blk"
+
+RedsHouse1F_Blocks:
+	INCBIN "maps/RedsHouse1F.blk"
+
+RockTunnel1F_Blocks:
+	INCBIN "maps/RockTunnel1F.blk"
+
+RockTunnelB1F_Blocks:
+	INCBIN "maps/RockTunnelB1F.blk"
+
+Route23_Blocks:
+	INCBIN "maps/Route23.blk"
+
+SaffronGym_Blocks:
+	INCBIN "maps/SaffronGym.blk"
+
+SilphCo1F_Blocks:
+	INCBIN "maps/SilphCo1F.blk"
+
+VermilionGym_Blocks:
+	INCBIN "maps/VermilionGym.blk"
+
+ViridianGym_Blocks:
+	INCBIN "maps/ViridianGym.blk"
 
 ENDSECTION

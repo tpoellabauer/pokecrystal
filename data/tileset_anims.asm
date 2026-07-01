@@ -269,3 +269,48 @@ TilesetGen1HouseAnim:
 
 TilesetGen1LabAnim:
 	tileframe DoneTileAnimation
+
+TilesetGen1PokecenterAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1GymAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1ForestAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1GateAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1ShipAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1ShipPortAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1CemeteryAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1InteriorAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1CavernAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1LobbyAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1MansionAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1ClubAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1FacilityAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1PlateauAnim:
+	tileframe DoneTileAnimation
+
+TilesetGen1UndergroundAnim:
+	tileframe DoneTileAnimation

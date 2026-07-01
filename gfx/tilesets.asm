@@ -372,3 +372,168 @@ INCBIN "data/tilesets/gen1_lab_metatiles.bin"
 
 TilesetGen1LabColl::
 INCLUDE "data/tilesets/gen1_lab_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_pokecenter", ROMX
+
+TilesetGen1PokecenterGFX::
+INCBIN "gfx/tilesets/gen1_pokecenter.2bpp.lz"
+
+TilesetGen1PokecenterMeta::
+INCBIN "data/tilesets/gen1_pokecenter_metatiles.bin"
+
+TilesetGen1PokecenterColl::
+INCLUDE "data/tilesets/gen1_pokecenter_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_gym", ROMX
+
+TilesetGen1GymGFX::
+INCBIN "gfx/tilesets/gen1_gym.2bpp.lz"
+
+TilesetGen1GymMeta::
+INCBIN "data/tilesets/gen1_gym_metatiles.bin"
+
+TilesetGen1GymColl::
+INCLUDE "data/tilesets/gen1_gym_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_forest", ROMX
+
+TilesetGen1ForestGFX::
+INCBIN "gfx/tilesets/gen1_forest.2bpp.lz"
+
+TilesetGen1ForestMeta::
+INCBIN "data/tilesets/gen1_forest_metatiles.bin"
+
+TilesetGen1ForestColl::
+INCLUDE "data/tilesets/gen1_forest_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_gate", ROMX
+
+TilesetGen1GateGFX::
+INCBIN "gfx/tilesets/gen1_gate.2bpp.lz"
+
+TilesetGen1GateMeta::
+INCBIN "data/tilesets/gen1_gate_metatiles.bin"
+
+TilesetGen1GateColl::
+INCLUDE "data/tilesets/gen1_gate_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_ship", ROMX
+
+TilesetGen1ShipGFX::
+INCBIN "gfx/tilesets/gen1_ship.2bpp.lz"
+
+TilesetGen1ShipMeta::
+INCBIN "data/tilesets/gen1_ship_metatiles.bin"
+
+TilesetGen1ShipColl::
+INCLUDE "data/tilesets/gen1_ship_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_ship_port", ROMX
+
+TilesetGen1ShipPortGFX::
+INCBIN "gfx/tilesets/gen1_ship_port.2bpp.lz"
+
+TilesetGen1ShipPortMeta::
+INCBIN "data/tilesets/gen1_ship_port_metatiles.bin"
+
+TilesetGen1ShipPortColl::
+INCLUDE "data/tilesets/gen1_ship_port_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_cemetery", ROMX
+
+TilesetGen1CemeteryGFX::
+INCBIN "gfx/tilesets/gen1_cemetery.2bpp.lz"
+
+TilesetGen1CemeteryMeta::
+INCBIN "data/tilesets/gen1_cemetery_metatiles.bin"
+
+TilesetGen1CemeteryColl::
+INCLUDE "data/tilesets/gen1_cemetery_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_interior", ROMX
+
+TilesetGen1InteriorGFX::
+INCBIN "gfx/tilesets/gen1_interior.2bpp.lz"
+
+TilesetGen1InteriorMeta::
+INCBIN "data/tilesets/gen1_interior_metatiles.bin"
+
+TilesetGen1InteriorColl::
+INCLUDE "data/tilesets/gen1_interior_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_cavern", ROMX
+
+TilesetGen1CavernGFX::
+INCBIN "gfx/tilesets/gen1_cavern.2bpp.lz"
+
+TilesetGen1CavernMeta::
+INCBIN "data/tilesets/gen1_cavern_metatiles.bin"
+
+TilesetGen1CavernColl::
+INCLUDE "data/tilesets/gen1_cavern_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_lobby", ROMX
+
+TilesetGen1LobbyGFX::
+INCBIN "gfx/tilesets/gen1_lobby.2bpp.lz"
+
+TilesetGen1LobbyMeta::
+INCBIN "data/tilesets/gen1_lobby_metatiles.bin"
+
+TilesetGen1LobbyColl::
+INCLUDE "data/tilesets/gen1_lobby_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_mansion", ROMX
+
+TilesetGen1MansionGFX::
+INCBIN "gfx/tilesets/gen1_mansion.2bpp.lz"
+
+TilesetGen1MansionMeta::
+INCBIN "data/tilesets/gen1_mansion_metatiles.bin"
+
+TilesetGen1MansionColl::
+INCLUDE "data/tilesets/gen1_mansion_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_club", ROMX
+
+TilesetGen1ClubGFX::
+INCBIN "gfx/tilesets/gen1_club.2bpp.lz"
+
+TilesetGen1ClubMeta::
+INCBIN "data/tilesets/gen1_club_metatiles.bin"
+
+TilesetGen1ClubColl::
+INCLUDE "data/tilesets/gen1_club_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_facility", ROMX
+
+TilesetGen1FacilityGFX::
+INCBIN "gfx/tilesets/gen1_facility.2bpp.lz"
+
+TilesetGen1FacilityMeta::
+INCBIN "data/tilesets/gen1_facility_metatiles.bin"
+
+TilesetGen1FacilityColl::
+INCLUDE "data/tilesets/gen1_facility_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_plateau", ROMX
+
+TilesetGen1PlateauGFX::
+INCBIN "gfx/tilesets/gen1_plateau.2bpp.lz"
+
+TilesetGen1PlateauMeta::
+INCBIN "data/tilesets/gen1_plateau_metatiles.bin"
+
+TilesetGen1PlateauColl::
+INCLUDE "data/tilesets/gen1_plateau_collision.asm"
+
+SECTION "Gen 1 Tileset gen1_underground", ROMX
+
+TilesetGen1UndergroundGFX::
+INCBIN "gfx/tilesets/gen1_underground.2bpp.lz"
+
+TilesetGen1UndergroundMeta::
+INCBIN "data/tilesets/gen1_underground_metatiles.bin"
+
+TilesetGen1UndergroundColl::
+INCLUDE "data/tilesets/gen1_underground_collision.asm"

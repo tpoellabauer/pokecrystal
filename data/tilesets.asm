@@ -54,4 +54,19 @@ Tilesets::
 	tileset TilesetGen1RedsHouse
 	tileset TilesetGen1House
 	tileset TilesetGen1Lab
+	tileset TilesetGen1Pokecenter
+	tileset TilesetGen1Gym
+	tileset TilesetGen1Forest
+	tileset TilesetGen1Gate
+	tileset TilesetGen1Ship
+	tileset TilesetGen1ShipPort
+	tileset TilesetGen1Cemetery
+	tileset TilesetGen1Interior
+	tileset TilesetGen1Cavern
+	tileset TilesetGen1Lobby
+	tileset TilesetGen1Mansion
+	tileset TilesetGen1Club
+	tileset TilesetGen1Facility
+	tileset TilesetGen1Plateau
+	tileset TilesetGen1Underground
 	assert_table_length NUM_TILESETS + 1

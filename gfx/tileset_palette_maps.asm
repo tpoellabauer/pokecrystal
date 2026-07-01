@@ -120,6 +120,51 @@ INCLUDE "gfx/tilesets/gen1_house_palette_map.asm"
 TilesetGen1LabPalMap:
 INCLUDE "gfx/tilesets/gen1_lab_palette_map.asm"
 
+TilesetGen1PokecenterPalMap:
+INCLUDE "gfx/tilesets/gen1_pokecenter_palette_map.asm"
+
+TilesetGen1GymPalMap:
+INCLUDE "gfx/tilesets/gen1_gym_palette_map.asm"
+
+TilesetGen1ForestPalMap:
+INCLUDE "gfx/tilesets/gen1_forest_palette_map.asm"
+
+TilesetGen1GatePalMap:
+INCLUDE "gfx/tilesets/gen1_gate_palette_map.asm"
+
+TilesetGen1ShipPalMap:
+INCLUDE "gfx/tilesets/gen1_ship_palette_map.asm"
+
+TilesetGen1ShipPortPalMap:
+INCLUDE "gfx/tilesets/gen1_ship_port_palette_map.asm"
+
+TilesetGen1CemeteryPalMap:
+INCLUDE "gfx/tilesets/gen1_cemetery_palette_map.asm"
+
+TilesetGen1InteriorPalMap:
+INCLUDE "gfx/tilesets/gen1_interior_palette_map.asm"
+
+TilesetGen1CavernPalMap:
+INCLUDE "gfx/tilesets/gen1_cavern_palette_map.asm"
+
+TilesetGen1LobbyPalMap:
+INCLUDE "gfx/tilesets/gen1_lobby_palette_map.asm"
+
+TilesetGen1MansionPalMap:
+INCLUDE "gfx/tilesets/gen1_mansion_palette_map.asm"
+
+TilesetGen1ClubPalMap:
+INCLUDE "gfx/tilesets/gen1_club_palette_map.asm"
+
+TilesetGen1FacilityPalMap:
+INCLUDE "gfx/tilesets/gen1_facility_palette_map.asm"
+
+TilesetGen1PlateauPalMap:
+INCLUDE "gfx/tilesets/gen1_plateau_palette_map.asm"
+
+TilesetGen1UndergroundPalMap:
+INCLUDE "gfx/tilesets/gen1_underground_palette_map.asm"
+
 MapGroupPalettes: ; unreferenced
 ; entries correspond to MAPGROUP_* constants
 rept NUM_MAP_GROUPS
