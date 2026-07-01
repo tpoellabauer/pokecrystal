@@ -335,3 +335,13 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 
 TilesetAerodactylWordRoomMeta::
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
+
+; Ported Gen 1 Kanto overworld tileset (grayscale via the global palette hook).
+TilesetGen1OverworldGFX::
+INCBIN "gfx/tilesets/gen1_overworld.2bpp.lz"
+
+TilesetGen1OverworldMeta::
+INCBIN "data/tilesets/gen1_overworld_metatiles.bin"
+
+TilesetGen1OverworldColl::
+INCLUDE "data/tilesets/gen1_overworld_collision.asm"

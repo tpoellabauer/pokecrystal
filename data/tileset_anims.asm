@@ -257,3 +257,6 @@ TilesetAerodactylWordRoomAnim:
 	tileframe WaitTileAnimation
 	tileframe WaitTileAnimation
 	tileframe DoneTileAnimation
+
+TilesetGen1OverworldAnim:
+	tileframe DoneTileAnimation
