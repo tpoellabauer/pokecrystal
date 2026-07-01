@@ -67,7 +67,7 @@ NewGame:
 	call OakSpeech
 	call InitializeWorld
 
-	ld a, LANDMARK_NEW_BARK_TOWN
+	ld a, LANDMARK_PALLET_TOWN ; Gen 1 Kanto start: home is Pallet Town / Red's house
 	ld [wPrevLandmark], a
 
 	ld a, SPAWN_HOME
