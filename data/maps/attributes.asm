@@ -714,3 +714,113 @@ ENDM
 	map_attributes Route30BerryHouse, ROUTE_30_BERRY_HOUSE, $00
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00
+
+	map_attributes PokemonTower1F, POKEMON_TOWER_1F, $00
+
+	map_attributes PokemonTower2F, POKEMON_TOWER_2F, $00
+
+	map_attributes PokemonTower3F, POKEMON_TOWER_3F, $00
+
+	map_attributes PokemonTower4F, POKEMON_TOWER_4F, $00
+
+	map_attributes PokemonTower5F, POKEMON_TOWER_5F, $00
+
+	map_attributes PokemonTower6F, POKEMON_TOWER_6F, $00
+
+	map_attributes PokemonTower7F, POKEMON_TOWER_7F, $00
+
+	map_attributes SilphCo2F, SILPH_CO_2F, $00
+
+	map_attributes SilphCo3F, SILPH_CO_3F, $00
+
+	map_attributes SilphCo4F, SILPH_CO_4F, $00
+
+	map_attributes SilphCo5F, SILPH_CO_5F, $00
+
+	map_attributes SilphCo6F, SILPH_CO_6F, $00
+
+	map_attributes SilphCo7F, SILPH_CO_7F, $00
+
+	map_attributes SilphCo8F, SILPH_CO_8F, $00
+
+	map_attributes SilphCo9F, SILPH_CO_9F, $00
+
+	map_attributes SilphCo10F, SILPH_CO_10F, $00
+
+	map_attributes SilphCo11F, SILPH_CO_11F, $00
+
+	map_attributes SilphCoElevator, SILPH_CO_ELEVATOR, $00
+
+	map_attributes SSAnne1F, SS_ANNE_1F, $00
+
+	map_attributes SSAnne2F, SS_ANNE_2F, $00
+
+	map_attributes SSAnne3F, SS_ANNE_3F, $00
+
+	map_attributes SSAnneB1F, SS_ANNE_B1F, $00
+
+	map_attributes SSAnneBow, SS_ANNE_BOW, $00
+
+	map_attributes SSAnneKitchen, SS_ANNE_KITCHEN, $00
+
+	map_attributes SSAnneCaptainsRoom, SS_ANNE_CAPTAINS_ROOM, $00
+
+	map_attributes SSAnne1FRooms, SS_ANNE_1F_ROOMS, $00
+
+	map_attributes SSAnne2FRooms, SS_ANNE_2F_ROOMS, $00
+
+	map_attributes SSAnneB1FRooms, SS_ANNE_B1F_ROOMS, $00
+
+	map_attributes RocketHideoutB1F, ROCKET_HIDEOUT_B1F, $00
+
+	map_attributes RocketHideoutB2F, ROCKET_HIDEOUT_B2F, $00
+
+	map_attributes RocketHideoutB3F, ROCKET_HIDEOUT_B3F, $00
+
+	map_attributes RocketHideoutB4F, ROCKET_HIDEOUT_B4F, $00
+
+	map_attributes RocketHideoutElevator, ROCKET_HIDEOUT_ELEVATOR, $00
+
+	map_attributes SafariZoneCenter, SAFARI_ZONE_CENTER, $00
+
+	map_attributes SafariZoneEast, SAFARI_ZONE_EAST, $00
+
+	map_attributes SafariZoneNorth, SAFARI_ZONE_NORTH, $00
+
+	map_attributes SafariZoneWest, SAFARI_ZONE_WEST, $00
+
+	map_attributes SafariZoneGate, SAFARI_ZONE_GATE, $00
+
+	map_attributes SafariZoneCenterRestHouse, SAFARI_ZONE_CENTER_REST_HOUSE, $00
+
+	map_attributes SafariZoneEastRestHouse, SAFARI_ZONE_EAST_REST_HOUSE, $00
+
+	map_attributes SafariZoneNorthRestHouse, SAFARI_ZONE_NORTH_REST_HOUSE, $00
+
+	map_attributes SafariZoneWestRestHouse, SAFARI_ZONE_WEST_REST_HOUSE, $00
+
+	map_attributes SafariZoneSecretHouse, SAFARI_ZONE_SECRET_HOUSE, $00
+
+	map_attributes PokemonMansion1F, POKEMON_MANSION_1F, $00
+
+	map_attributes PokemonMansion2F, POKEMON_MANSION_2F, $00
+
+	map_attributes PokemonMansion3F, POKEMON_MANSION_3F, $00
+
+	map_attributes PokemonMansionB1F, POKEMON_MANSION_B1F, $00
+
+	map_attributes SeafoamIslands1F, SEAFOAM_ISLANDS_1F, $00
+
+	map_attributes SeafoamIslandsB1F, SEAFOAM_ISLANDS_B1F, $00
+
+	map_attributes SeafoamIslandsB2F, SEAFOAM_ISLANDS_B2F, $00
+
+	map_attributes SeafoamIslandsB3F, SEAFOAM_ISLANDS_B3F, $00
+
+	map_attributes SeafoamIslandsB4F, SEAFOAM_ISLANDS_B4F, $00
+
+	map_attributes CeruleanCave1F, CERULEAN_CAVE_1F, $00
+
+	map_attributes CeruleanCave2F, CERULEAN_CAVE_2F, $00
+
+	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $00
