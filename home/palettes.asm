@@ -28,7 +28,12 @@ ForceUpdateCGBPals::
 	; color to a gray of equal luminance right before it is pushed to hardware, so the
 	; whole game renders in the DMG monochrome ramp despite the CGB palettes. The
 	; routine lives in a ROMX bank (home is full); rWBK is already set to wBGPals2.
+	; It converts only a few colors per call (real-hardware VBlank timing -- see its
+	; comment) and reports carry only once a full 64-color sweep is done; until then,
+	; wBGPals2/wOBPals2 hold a part-converted mix, so skip the hardware push rather
+	; than flash it on screen -- retry next VBlank instead.
 	farcall _GrayscaleColorRamp
+	jr nc, .notDoneYet
 
 	ld hl, wBGPals2
 
@@ -62,12 +67,13 @@ endr
 	dec b
 	jr nz, .obp
 
-	pop af
-	ldh [rWBK], a
-
-; clear pal update queue
+; clear pal update queue -- only once the sweep is actually fully converted+pushed
 	xor a
 	ldh [hCGBPalUpdate], a
+
+.notDoneYet
+	pop af
+	ldh [rWBK], a
 
 	scf
 	ret

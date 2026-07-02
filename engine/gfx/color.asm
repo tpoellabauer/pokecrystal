@@ -1339,6 +1339,8 @@ INCLUDE "gfx/beta_poker/beta_poker.pal"
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"
 
+DEF GRAYSCALE_COLORS_PER_VBLANK EQU 8
+
 _GrayscaleColorRamp::
 ; Gen 1 Kanto on Crystal — grayscale-only look. Convert the staged CGB palettes
 ; (wBGPals2 + wOBPals2, 64 contiguous colors) to grayscale in place: each RGB555 color
@@ -1347,9 +1349,37 @@ _GrayscaleColorRamp::
 ; The snap matters: plain (R+G+B)/3 of the tilesets' source colors never reaches pure
 ; black or white (it compressed on hardware to ~56..224), washing the DMG look out and
 ; breaking the Red-vs-port render match; snapping restores the full 0..255 Gen 1 ramp.
+;
+; Spread across VBlanks, GRAYSCALE_COLORS_PER_VBLANK colors at a time (wGrayscaleCursor
+; tracks progress, wrapping to 0 once a sweep finishes) instead of converting all 64 in
+; one call. Doing all 64 in a single VBlank overruns the real ~4560-cycle VBlank window
+; -- confirmed on a real repro cart: the whole screen got stuck white (palette RAM's
+; power-on default) because the overrun pushed the BGPD/OBPD writes past VBlank, where
+; real CGB hardware silently drops them (PyBoy doesn't enforce that Mode-3 write block,
+; so this looked fine in emulation). The caller (ForceUpdateCGBPals) only pushes to
+; hardware and clears hCGBPalUpdate once a full sweep completes (returned via carry); a
+; few-VBlank pop-in beats a screen stuck blank/white.
 ; Called (via farcall) from ForceUpdateCGBPals with rWBK already set to BANK(wBGPals2).
+	ld a, [wGrayscaleCursor]
+	cp 64
+	jr nz, .haveCursor
+	xor a                ; wrap 64 -> 0: start a fresh sweep
+.haveCursor
+	ld e, a
+	ld d, 0
 	ld hl, wBGPals2
-	ld c, 64             ; BG (32) + OBJ (32) colors, contiguous
+	add hl, de
+	add hl, de            ; hl -> first unconverted color (wBGPals2 + cursor*2)
+
+	ld a, 64
+	sub e                 ; a = colors remaining this sweep
+	cp GRAYSCALE_COLORS_PER_VBLANK + 1
+	jr c, .gotBatchSize   ; remaining <= bound -> this call finishes the sweep
+	ld a, GRAYSCALE_COLORS_PER_VBLANK
+.gotBatchSize
+	ld c, a               ; c = colors to process this call
+	add e
+	ld [wGrayscaleCursor], a ; persist progress (may land exactly on 64 = "done")
 .loop
 	ld a, [hl]
 	ld e, a
@@ -1435,4 +1465,9 @@ _GrayscaleColorRamp::
 	inc hl
 	dec c
 	jr nz, .loop
+
+	ld a, [wGrayscaleCursor]
+	cp 64                ; carry set only once this sweep has fully converted all 64
+	ret nz
+	scf
 	ret
