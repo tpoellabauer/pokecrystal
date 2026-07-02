@@ -1058,4 +1058,169 @@ VermilionGym_Blocks:
 ViridianGym_Blocks:
 	INCBIN "maps/ViridianGym.blk"
 
+PokemonTower1F_Blocks:
+	INCBIN "maps/PokemonTower1F.blk"
+
+PokemonTower2F_Blocks:
+	INCBIN "maps/PokemonTower2F.blk"
+
+PokemonTower3F_Blocks:
+	INCBIN "maps/PokemonTower3F.blk"
+
+PokemonTower4F_Blocks:
+	INCBIN "maps/PokemonTower4F.blk"
+
+PokemonTower5F_Blocks:
+	INCBIN "maps/PokemonTower5F.blk"
+
+PokemonTower6F_Blocks:
+	INCBIN "maps/PokemonTower6F.blk"
+
+PokemonTower7F_Blocks:
+	INCBIN "maps/PokemonTower7F.blk"
+
+SilphCo2F_Blocks:
+	INCBIN "maps/SilphCo2F.blk"
+
+SilphCo3F_Blocks:
+	INCBIN "maps/SilphCo3F.blk"
+
+SilphCo4F_Blocks:
+	INCBIN "maps/SilphCo4F.blk"
+
+SilphCo5F_Blocks:
+	INCBIN "maps/SilphCo5F.blk"
+
+SilphCo6F_Blocks:
+	INCBIN "maps/SilphCo6F.blk"
+
+SilphCo7F_Blocks:
+	INCBIN "maps/SilphCo7F.blk"
+
+SilphCo8F_Blocks:
+	INCBIN "maps/SilphCo8F.blk"
+
+SilphCo9F_Blocks:
+	INCBIN "maps/SilphCo9F.blk"
+
+SilphCo10F_Blocks:
+	INCBIN "maps/SilphCo10F.blk"
+
+SilphCo11F_Blocks:
+	INCBIN "maps/SilphCo11F.blk"
+
+SilphCoElevator_Blocks:
+	INCBIN "maps/SilphCoElevator.blk"
+
+SSAnne1F_Blocks:
+	INCBIN "maps/SSAnne1F.blk"
+
+SSAnne2F_Blocks:
+	INCBIN "maps/SSAnne2F.blk"
+
+SSAnne3F_Blocks:
+	INCBIN "maps/SSAnne3F.blk"
+
+SSAnneB1F_Blocks:
+	INCBIN "maps/SSAnneB1F.blk"
+
+SSAnneBow_Blocks:
+	INCBIN "maps/SSAnneBow.blk"
+
+SSAnneKitchen_Blocks:
+	INCBIN "maps/SSAnneKitchen.blk"
+
+SSAnneCaptainsRoom_Blocks:
+	INCBIN "maps/SSAnneCaptainsRoom.blk"
+
+SSAnne1FRooms_Blocks:
+	INCBIN "maps/SSAnne1FRooms.blk"
+
+SSAnne2FRooms_Blocks:
+	INCBIN "maps/SSAnne2FRooms.blk"
+
+SSAnneB1FRooms_Blocks:
+	INCBIN "maps/SSAnneB1FRooms.blk"
+
+RocketHideoutB1F_Blocks:
+	INCBIN "maps/RocketHideoutB1F.blk"
+
+RocketHideoutB2F_Blocks:
+	INCBIN "maps/RocketHideoutB2F.blk"
+
+RocketHideoutB3F_Blocks:
+	INCBIN "maps/RocketHideoutB3F.blk"
+
+RocketHideoutB4F_Blocks:
+	INCBIN "maps/RocketHideoutB4F.blk"
+
+RocketHideoutElevator_Blocks:
+	INCBIN "maps/RocketHideoutElevator.blk"
+
+SafariZoneCenter_Blocks:
+	INCBIN "maps/SafariZoneCenter.blk"
+
+SafariZoneEast_Blocks:
+	INCBIN "maps/SafariZoneEast.blk"
+
+SafariZoneNorth_Blocks:
+	INCBIN "maps/SafariZoneNorth.blk"
+
+SafariZoneWest_Blocks:
+	INCBIN "maps/SafariZoneWest.blk"
+
+SafariZoneGate_Blocks:
+	INCBIN "maps/SafariZoneGate.blk"
+
+SafariZoneCenterRestHouse_Blocks:
+	INCBIN "maps/SafariZoneCenterRestHouse.blk"
+
+SafariZoneEastRestHouse_Blocks:
+	INCBIN "maps/SafariZoneEastRestHouse.blk"
+
+SafariZoneNorthRestHouse_Blocks:
+	INCBIN "maps/SafariZoneNorthRestHouse.blk"
+
+SafariZoneWestRestHouse_Blocks:
+	INCBIN "maps/SafariZoneWestRestHouse.blk"
+
+SafariZoneSecretHouse_Blocks:
+	INCBIN "maps/SafariZoneSecretHouse.blk"
+
+PokemonMansion1F_Blocks:
+	INCBIN "maps/PokemonMansion1F.blk"
+
+PokemonMansion2F_Blocks:
+	INCBIN "maps/PokemonMansion2F.blk"
+
+PokemonMansion3F_Blocks:
+	INCBIN "maps/PokemonMansion3F.blk"
+
+PokemonMansionB1F_Blocks:
+	INCBIN "maps/PokemonMansionB1F.blk"
+
+SeafoamIslands1F_Blocks:
+	INCBIN "maps/SeafoamIslands1F.blk"
+
+SeafoamIslandsB1F_Blocks:
+	INCBIN "maps/SeafoamIslandsB1F.blk"
+
+SeafoamIslandsB2F_Blocks:
+	INCBIN "maps/SeafoamIslandsB2F.blk"
+
+SeafoamIslandsB3F_Blocks:
+	INCBIN "maps/SeafoamIslandsB3F.blk"
+
+SeafoamIslandsB4F_Blocks:
+	INCBIN "maps/SeafoamIslandsB4F.blk"
+
+CeruleanCave1F_Blocks:
+	INCBIN "maps/CeruleanCave1F.blk"
+
+CeruleanCave2F_Blocks:
+	INCBIN "maps/CeruleanCave2F.blk"
+
+CeruleanCaveB1F_Blocks:
+	INCBIN "maps/CeruleanCaveB1F.blk"
+
 ENDSECTION

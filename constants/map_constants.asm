@@ -190,6 +190,15 @@ ENDM
 	map_const ROUTE_20,                                    50,  9 ;  6
 	map_const ROUTE_21,                                    10, 45 ;  7
 	map_const CINNABAR_ISLAND,                             10,  9 ;  8
+	map_const POKEMON_MANSION_1F,                          15, 14 ;  9
+	map_const POKEMON_MANSION_2F,                          15, 14 ; 10
+	map_const POKEMON_MANSION_3F,                          15,  9 ; 11
+	map_const POKEMON_MANSION_B1F,                         15, 14 ; 12
+	map_const SEAFOAM_ISLANDS_1F,                          15,  9 ; 13
+	map_const SEAFOAM_ISLANDS_B1F,                         15,  9 ; 14
+	map_const SEAFOAM_ISLANDS_B2F,                         15,  9 ; 15
+	map_const SEAFOAM_ISLANDS_B3F,                         15,  9 ; 16
+	map_const SEAFOAM_ISLANDS_B4F,                         15,  9 ; 17
 	endgroup
 
 	newgroup CERULEAN                                             ;  7
@@ -210,6 +219,9 @@ ENDM
 	map_const ROUTE_24,                                    10, 18 ; 15
 	map_const ROUTE_25,                                    30,  9 ; 16
 	map_const CERULEAN_CITY,                               20, 18 ; 17
+	map_const CERULEAN_CAVE_1F,                            15,  9 ; 18
+	map_const CERULEAN_CAVE_2F,                            15,  9 ; 19
+	map_const CERULEAN_CAVE_B1F,                           15,  9 ; 20
 	endgroup
 
 	newgroup AZALEA                                               ;  8
@@ -327,6 +339,16 @@ ENDM
 	map_const MOUNT_MOON_SQUARE,                           15,  9 ; 10
 	map_const MOUNT_MOON_GIFT_SHOP,                         4,  4 ; 11
 	map_const TIN_TOWER_ROOF,                              10,  9 ; 12
+	map_const SS_ANNE_1F,                                  20,  9 ; 13
+	map_const SS_ANNE_2F,                                  20,  9 ; 14
+	map_const SS_ANNE_3F,                                  10,  3 ; 15
+	map_const SS_ANNE_B1F,                                 15,  4 ; 16
+	map_const SS_ANNE_BOW,                                 10,  7 ; 17
+	map_const SS_ANNE_KITCHEN,                              7,  8 ; 18
+	map_const SS_ANNE_CAPTAINS_ROOM,                        3,  4 ; 19
+	map_const SS_ANNE_1F_ROOMS,                            12,  8 ; 20
+	map_const SS_ANNE_2F_ROOMS,                            12,  8 ; 21
+	map_const SS_ANNE_B1F_ROOMS,                           12,  8 ; 22
 	endgroup
 
 	newgroup INDIGO                                               ; 16
@@ -354,6 +376,16 @@ ENDM
 	map_const FUCHSIA_POKECENTER_2F_BETA,                   8,  4 ; 11
 	map_const SAFARI_ZONE_WARDENS_HOME,                     5,  4 ; 12
 	map_const ROUTE_15_FUCHSIA_GATE,                        5,  4 ; 13
+	map_const SAFARI_ZONE_CENTER,                          15, 13 ; 14
+	map_const SAFARI_ZONE_EAST,                            15, 13 ; 15
+	map_const SAFARI_ZONE_NORTH,                           20, 18 ; 16
+	map_const SAFARI_ZONE_WEST,                            15, 13 ; 17
+	map_const SAFARI_ZONE_GATE,                             4,  3 ; 18
+	map_const SAFARI_ZONE_CENTER_REST_HOUSE,                4,  4 ; 19
+	map_const SAFARI_ZONE_EAST_REST_HOUSE,                  4,  4 ; 20
+	map_const SAFARI_ZONE_NORTH_REST_HOUSE,                 4,  4 ; 21
+	map_const SAFARI_ZONE_WEST_REST_HOUSE,                  4,  4 ; 22
+	map_const SAFARI_ZONE_SECRET_HOUSE,                     4,  4 ; 23
 	endgroup
 
 	newgroup LAVENDER                                             ; 18
@@ -371,6 +403,13 @@ ENDM
 	map_const LAV_RADIO_TOWER_1F,                          10,  4 ; 12
 	map_const ROUTE_8_SAFFRON_GATE,                         5,  4 ; 13
 	map_const ROUTE_12_SUPER_ROD_HOUSE,                     4,  4 ; 14
+	map_const POKEMON_TOWER_1F,                            10,  9 ; 15
+	map_const POKEMON_TOWER_2F,                            10,  9 ; 16
+	map_const POKEMON_TOWER_3F,                            10,  9 ; 17
+	map_const POKEMON_TOWER_4F,                            10,  9 ; 18
+	map_const POKEMON_TOWER_5F,                            10,  9 ; 19
+	map_const POKEMON_TOWER_6F,                            10,  9 ; 20
+	map_const POKEMON_TOWER_7F,                            10,  9 ; 21
 	endgroup
 
 	newgroup SILVER                                               ; 19
@@ -416,6 +455,11 @@ ENDM
 	map_const ROUTE_16_GATE,                                5,  4 ; 24
 	map_const ROUTE_7_SAFFRON_GATE,                         5,  4 ; 25
 	map_const ROUTE_17_ROUTE_18_GATE,                       5,  4 ; 26
+	map_const ROCKET_HIDEOUT_B1F,                          15, 14 ; 27
+	map_const ROCKET_HIDEOUT_B2F,                          15, 14 ; 28
+	map_const ROCKET_HIDEOUT_B3F,                          15, 14 ; 29
+	map_const ROCKET_HIDEOUT_B4F,                          15, 12 ; 30
+	map_const ROCKET_HIDEOUT_ELEVATOR,                      3,  4 ; 31
 	endgroup
 
 	newgroup CIANWOOD                                             ; 22
@@ -485,6 +529,17 @@ ENDM
 	map_const ROUTE_5_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 13
 	map_const ROUTE_5_SAFFRON_GATE,                         5,  4 ; 14
 	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 15
+	map_const SILPH_CO_2F,                                 15,  9 ; 16
+	map_const SILPH_CO_3F,                                 15,  9 ; 17
+	map_const SILPH_CO_4F,                                 15,  9 ; 18
+	map_const SILPH_CO_5F,                                 15,  9 ; 19
+	map_const SILPH_CO_6F,                                 13,  9 ; 20
+	map_const SILPH_CO_7F,                                 13,  9 ; 21
+	map_const SILPH_CO_8F,                                 13,  9 ; 22
+	map_const SILPH_CO_9F,                                 13,  9 ; 23
+	map_const SILPH_CO_10F,                                 8,  9 ; 24
+	map_const SILPH_CO_11F,                                 9,  9 ; 25
+	map_const SILPH_CO_ELEVATOR,                            2,  2 ; 26
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26
