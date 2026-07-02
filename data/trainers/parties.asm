@@ -191,6 +191,39 @@ Rival1Group:
 	db 38, FERALIGATR, RAGE, WATER_GUN, SCARY_FACE, SLASH
 	db -1 ; end
 
+	; RIVAL1 (16) ; Gen 1 Oak's Lab - you chose CHARMANDER, rival took SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db  5, SQUIRTLE
+	db -1 ; end
+
+	; RIVAL1 (17) ; Gen 1 Oak's Lab - you chose SQUIRTLE, rival took BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db  5, BULBASAUR
+	db -1 ; end
+
+	; RIVAL1 (18) ; Gen 1 Oak's Lab - you chose BULBASAUR, rival took CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db  5, CHARMANDER
+	db -1 ; end
+
+	; RIVAL1 (19) ; Gen 1 Route 22 1st - you chose CHARMANDER, rival has SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db  9, PIDGEY
+	db  8, SQUIRTLE
+	db -1 ; end
+
+	; RIVAL1 (20) ; Gen 1 Route 22 1st - you chose SQUIRTLE, rival has BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db  9, PIDGEY
+	db  8, BULBASAUR
+	db -1 ; end
+
+	; RIVAL1 (21) ; Gen 1 Route 22 1st - you chose BULBASAUR, rival has CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db  9, PIDGEY
+	db  8, CHARMANDER
+	db -1 ; end
+
 PokemonProfGroup:
 
 WillGroup:

@@ -1459,6 +1459,28 @@
 	const EVENT_RADIO_TOWER_5F_ULTRA_BALL
 	const EVENT_DARK_CAVE_VIOLET_ENTRANCE_DIRE_HIT
 	const EVENT_BATTLE_TOWER_OPEN_CIVILIANS
+; Gen 1 Kanto story events (ported from pokered)
+	const EVENT_OAK_IN_PALLET_TOWN ; Oak's sprite while he stops you leaving north
+	const EVENT_FOLLOWED_OAK_INTO_LAB ; set once you have a starter; releases the Pallet north gate
+; Oak's Lab intro (starter pick + first rival battle + Pokedex + parcel)
+	const EVENT_OAK_APPEARED_IN_PALLET ; Oak's stop-you scene has begun
+	const EVENT_OAK_ASKED_TO_CHOOSE_MON ; Oak told you to pick a starter (balls now selectable)
+	const EVENT_GOT_STARTER ; you took a starter from the table
+	const EVENT_RIVAL_GOT_STARTER ; rival took the type-advantage starter
+	const EVENT_CHOSE_CHARMANDER ; which starter you took (picks the rival's counter party)
+	const EVENT_CHOSE_SQUIRTLE
+	const EVENT_CHOSE_BULBASAUR
+	const EVENT_BATTLED_RIVAL_IN_OAKS_LAB ; the first rival battle is over
+	const EVENT_GOT_KANTO_POKEDEX ; Oak gave you the Pokedex
+	const EVENT_OAK_GOT_PARCEL ; you delivered Oak's Parcel
+	const EVENT_GOT_POKEBALLS_FROM_OAK ; Oak's 5 Poke Balls after the parcel
+; Oak's Parcel errand
+	const EVENT_GOT_OAKS_PARCEL ; the Viridian mart clerk handed you the parcel
+; Route 22 rival battles
+	const EVENT_1ST_ROUTE22_RIVAL_BATTLE ; the pre-Viridian-Gym rival battle is armed
+	const EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE
+	const EVENT_2ND_ROUTE22_RIVAL_BATTLE ; the post-Elite-Four rival battle is armed
+	const EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
 ; Unused: next 48 events
 
 	const_next 2048

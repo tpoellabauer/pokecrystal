@@ -1,66 +1,284 @@
 	object_const_def
 	const OAKSLAB_OAK
+	const OAKSLAB_RIVAL
+	const OAKSLAB_CHARMANDER_BALL
+	const OAKSLAB_SQUIRTLE_BALL
+	const OAKSLAB_BULBASAUR_BALL
+	const OAKSLAB_GIRL
 	const OAKSLAB_SCIENTIST1
 	const OAKSLAB_SCIENTIST2
-	const OAKSLAB_SCIENTIST3
+
+; Gen 1 Oak's Lab intro, ported from pokered scripts/OaksLab.asm.
+; Flow: Oak leads you in (Pallet grass event warps you here + arms SCENE_OAKSLAB_INTRO)
+; -> Oak/rival "choose a mon" dialog -> pick 1 of 3 balls -> rival takes the type-counter
+; starter -> first rival battle (party depends on your pick) -> rival leaves. The Pokedex
+; and Oak's Parcel come later (Viridian parcel errand).
 
 OaksLab_MapScripts:
 	def_scene_scripts
+	scene_script OaksLabNoopScene,  SCENE_OAKSLAB_NOOP  ; default (wandered in early)
+	scene_script OaksLabIntroScene, SCENE_OAKSLAB_INTRO ; armed by the Pallet Oak event
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, OaksLabObjectsCallback
 
-OaksLabNoopScene: ; unreferenced
+OaksLabNoopScene:
 	end
 
-Oak:
+OaksLabIntroScene:
+	sdefer OaksLabIntroScript
+	end
+
+OaksLabObjectsCallback:
+	checkevent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	iffalse .rivalStays
+	disappear OAKSLAB_RIVAL
+.rivalStays:
+	checkevent EVENT_GOT_STARTER
+	iffalse .done
+	disappear OAKSLAB_CHARMANDER_BALL
+	disappear OAKSLAB_SQUIRTLE_BALL
+	disappear OAKSLAB_BULBASAUR_BALL
+.done:
+	endcallback
+
+; --- the forced intro when Oak has just led you in --------------------------
+OaksLabIntroScript:
+	applymovement PLAYER, OaksLabPlayerWalkInMovement
+	turnobject OAKSLAB_RIVAL, DOWN
+	opentext
+	writetext OaksLabRivalFedUpText
+	waitbutton
+	closetext
+	turnobject OAKSLAB_OAK, DOWN
+	opentext
+	writetext OaksLabOakChooseMonText
+	waitbutton
+	closetext
+	opentext
+	writetext OaksLabRivalWhatAboutMeText
+	waitbutton
+	closetext
+	opentext
+	writetext OaksLabOakBePatientText
+	waitbutton
+	closetext
+	setevent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	setscene SCENE_OAKSLAB_NOOP
+	end
+
+OaksLabPlayerWalkInMovement:
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+; --- Oak by the table -------------------------------------------------------
+OaksLabOakScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .CheckPokedex
-	checkevent EVENT_TALKED_TO_OAK_IN_KANTO
-	iftrue .CheckBadges
-	writetext OakWelcomeKantoText
-	promptbutton
-	setevent EVENT_TALKED_TO_OAK_IN_KANTO
-.CheckBadges:
-	readvar VAR_BADGES
-	ifequal NUM_BADGES, .OpenMtSilver
-	ifequal NUM_JOHTO_BADGES, .Complain
-	sjump .AhGood
-
-.CheckPokedex:
-	writetext OakLabDexCheckText
+	checkevent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	iftrue .AfterRival
+	checkevent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	iftrue .ChooseOne
+	writetext OaksLabOakHelloText
 	waitbutton
-	special ProfOaksPCBoot
-	writetext OakLabGoodbyeText
+	closetext
+	end
+.ChooseOne:
+	writetext OaksLabOakWhichMonText
+	waitbutton
+	closetext
+	end
+.AfterRival:
+	writetext OaksLabOakDeliverParcelHintText
 	waitbutton
 	closetext
 	end
 
-.OpenMtSilver:
-	writetext OakOpenMtSilverText
+; --- the three starter Poke Balls -------------------------------------------
+OaksLabCharmanderBallScript:
+	checkevent EVENT_GOT_STARTER
+	iftrue OaksLabStarterAlreadyTakenScript
+	checkevent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	iffalse OaksLabThosePokeBallsScript
+	turnobject OAKSLAB_OAK, DOWN
+	reanchormap
+	pokepic CHARMANDER
+	cry CHARMANDER
+	waitbutton
+	closepokepic
+	opentext
+	writetext OaksLabYouWantCharmanderText
+	yesorno
+	iffalse OaksLabPickAgainScript
+	disappear OAKSLAB_CHARMANDER_BALL
+	setevent EVENT_GOT_STARTER
+	setevent EVENT_CHOSE_CHARMANDER
+	writetext OaksLabChoseStarterText
 	promptbutton
-	setevent EVENT_OPENED_MT_SILVER
-	sjump .CheckPokedex
-
-.Complain:
-	writetext OakNoKantoBadgesText
+	getmonname STRING_BUFFER_3, CHARMANDER
+	writetext OaksLabReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
 	promptbutton
-	sjump .CheckPokedex
+	givepoke CHARMANDER, 5
+	closetext
+	disappear OAKSLAB_SQUIRTLE_BALL
+	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	setlasttalked OAKSLAB_RIVAL
+	loadtrainer RIVAL1, RIVAL1_KANTO_SQUIRTLE
+	sjump OaksLabRivalTakesAndBattles
 
-.AhGood:
-	writetext OakYesKantoBadgesText
+OaksLabSquirtleBallScript:
+	checkevent EVENT_GOT_STARTER
+	iftrue OaksLabStarterAlreadyTakenScript
+	checkevent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	iffalse OaksLabThosePokeBallsScript
+	turnobject OAKSLAB_OAK, DOWN
+	reanchormap
+	pokepic SQUIRTLE
+	cry SQUIRTLE
+	waitbutton
+	closepokepic
+	opentext
+	writetext OaksLabYouWantSquirtleText
+	yesorno
+	iffalse OaksLabPickAgainScript
+	disappear OAKSLAB_SQUIRTLE_BALL
+	setevent EVENT_GOT_STARTER
+	setevent EVENT_CHOSE_SQUIRTLE
+	writetext OaksLabChoseStarterText
 	promptbutton
-	sjump .CheckPokedex
+	getmonname STRING_BUFFER_3, SQUIRTLE
+	writetext OaksLabReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke SQUIRTLE, 5
+	closetext
+	disappear OAKSLAB_BULBASAUR_BALL
+	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	setlasttalked OAKSLAB_RIVAL
+	loadtrainer RIVAL1, RIVAL1_KANTO_BULBASAUR
+	sjump OaksLabRivalTakesAndBattles
 
-OaksAssistant1Script:
-	jumptextfaceplayer OaksAssistant1Text
+OaksLabBulbasaurBallScript:
+	checkevent EVENT_GOT_STARTER
+	iftrue OaksLabStarterAlreadyTakenScript
+	checkevent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	iffalse OaksLabThosePokeBallsScript
+	turnobject OAKSLAB_OAK, DOWN
+	reanchormap
+	pokepic BULBASAUR
+	cry BULBASAUR
+	waitbutton
+	closepokepic
+	opentext
+	writetext OaksLabYouWantBulbasaurText
+	yesorno
+	iffalse OaksLabPickAgainScript
+	disappear OAKSLAB_BULBASAUR_BALL
+	setevent EVENT_GOT_STARTER
+	setevent EVENT_CHOSE_BULBASAUR
+	writetext OaksLabChoseStarterText
+	promptbutton
+	getmonname STRING_BUFFER_3, BULBASAUR
+	writetext OaksLabReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke BULBASAUR, 5
+	closetext
+	disappear OAKSLAB_CHARMANDER_BALL
+	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	setlasttalked OAKSLAB_RIVAL
+	loadtrainer RIVAL1, RIVAL1_KANTO_CHARMANDER
+	sjump OaksLabRivalTakesAndBattles
 
-OaksAssistant2Script:
-	jumptextfaceplayer OaksAssistant2Text
+; shared tail: rival grabs the counter starter and challenges you
+OaksLabRivalTakesAndBattles:
+	setevent EVENT_RIVAL_GOT_STARTER
+	turnobject OAKSLAB_RIVAL, DOWN
+	opentext
+	writetext OaksLabRivalIllTakeThisOneText
+	waitbutton
+	closetext
+	playmusic MUSIC_RIVAL_ENCOUNTER
+	opentext
+	writetext OaksLabRivalIllTakeYouOnText
+	waitbutton
+	closetext
+	startbattle
+	dontrestartmapmusic
+	reloadmap
+	playmusic MUSIC_RIVAL_AFTER
+	opentext
+	writetext OaksLabRivalSmellYouLaterText
+	waitbutton
+	closetext
+	applymovement OAKSLAB_RIVAL, OaksLabRivalExitMovement
+	disappear OAKSLAB_RIVAL
+	setevent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	setevent EVENT_FOLLOWED_OAK_INTO_LAB
+	setevent EVENT_1ST_ROUTE22_RIVAL_BATTLE
+	setmapscene PALLET_TOWN, SCENE_PALLETTOWN_NOOP
+	special HealParty
+	playmapmusic
+	end
 
-OaksAssistant3Script:
-	jumptextfaceplayer OaksAssistant3Text
+OaksLabRivalExitMovement:
+	step DOWN
+	step DOWN
+	step_end
+
+OaksLabThosePokeBallsScript:
+	opentext
+	writetext OaksLabThosePokeBallsText
+	waitbutton
+	closetext
+	end
+
+OaksLabPickAgainScript:
+	opentext
+	writetext OaksLabPickAgainText
+	waitbutton
+	closetext
+	end
+
+OaksLabStarterAlreadyTakenScript:
+	opentext
+	writetext OaksLabStarterAlreadyTakenText
+	waitbutton
+	closetext
+	end
+
+; --- the rival, before you pick --------------------------------------------
+OaksLabRivalScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_STARTER
+	iftrue .AfterChoose
+	writetext OaksLabRivalGoAheadChooseText
+	waitbutton
+	closetext
+	end
+.AfterChoose:
+	writetext OaksLabRivalMineLooksStrongerText
+	waitbutton
+	closetext
+	end
+
+OaksLabGirlScript:
+	jumptextfaceplayer OaksLabGirlText
+
+OaksLabScientist1Script:
+	jumptextfaceplayer OaksLabScientistText
+
+OaksLabScientist2Script:
+	jumptextfaceplayer OaksLabScientistText
 
 OaksLabBookshelf:
 	jumpstd DifficultBookshelfScript
@@ -77,137 +295,192 @@ OaksLabTrashcan:
 OaksLabPC:
 	jumptext OaksLabPCText
 
-OakWelcomeKantoText:
-	text "OAK: Ah, <PLAY_G>!"
-	line "It's good of you"
-
-	para "to come all this"
-	line "way to KANTO."
-
-	para "What do you think"
-	line "of the trainers"
-
-	para "out here?"
-	line "Pretty tough, huh?"
+; --- text -------------------------------------------------------------------
+OaksLabRivalFedUpText:
+	text "GARY: Gramps! I'm"
+	line "fed up with"
+	cont "waiting!"
 	done
 
-OakLabDexCheckText:
-	text "How is your #-"
-	line "DEX coming?"
+OaksLabOakChooseMonText:
+	text "OAK: <PLAY_G>?"
+	line "Let me think…"
 
-	para "Let's see…"
+	para "Oh, that's right, I"
+	line "told you to come!"
+
+	para "Just wait!"
+
+	para "Here, <PLAY_G>!"
+	line "There are 3 #-"
+	cont "MON here."
+
+	para "Ha, ha, ha!"
+
+	para "When I was young, I"
+	line "was a serious #-"
+	cont "MON trainer!"
+
+	para "In my old age, I"
+	line "have only 3 left,"
+
+	para "but you can have"
+	line "one! Choose!"
 	done
 
-OakLabGoodbyeText:
-	text "If you're in the"
-	line "area, I hope you"
-	cont "come visit again."
+OaksLabRivalWhatAboutMeText:
+	text "GARY: Hey! Gramps!"
+	line "What about me?"
 	done
 
-OakOpenMtSilverText:
-	text "OAK: Wow! That's"
-	line "excellent!"
-
-	para "You collected the"
-	line "BADGES of GYMS in"
-	cont "KANTO. Well done!"
-
-	para "I was right in my"
-	line "assessment of you."
-
-	para "Tell you what,"
-	line "<PLAY_G>. I'll make"
-
-	para "arrangements so"
-	line "that you can go to"
-	cont "MT.SILVER."
-
-	para "MT.SILVER is a big"
-	line "mountain that is"
-
-	para "home to many wild"
-	line "#MON."
-
-	para "It's too dangerous"
-	line "for your average"
-
-	para "trainer, so it's"
-	line "off limits. But"
-
-	para "we can make an"
-	line "exception in your"
-	cont "case, <PLAY_G>."
-
-	para "Go up to INDIGO"
-	line "PLATEAU. You can"
-
-	para "reach MT.SILVER"
-	line "from there."
+OaksLabOakBePatientText:
+	text "OAK: Be patient,"
+	line "GARY. You can have"
+	cont "one, too!"
 	done
 
-OakNoKantoBadgesText:
-	text "OAK: Hmm? You're"
-	line "not collecting"
-	cont "KANTO GYM BADGES?"
+OaksLabOakHelloText:
+	text "OAK: The #MON on"
+	line "the table are for"
 
-	para "The GYM LEADERS in"
-	line "KANTO are as tough"
-
-	para "as any you battled"
-	line "in JOHTO."
-
-	para "I recommend that"
-	line "you challenge"
-	cont "them."
+	para "you and GARY."
+	line "Go on, choose!"
 	done
 
-OakYesKantoBadgesText:
-	text "OAK: Ah, you're"
-	line "collecting KANTO"
-	cont "GYM BADGES."
-
-	para "I imagine that"
-	line "it's hard, but the"
-
-	para "experience is sure"
-	line "to help you."
-
-	para "Come see me when"
-	line "you get them all."
-
-	para "I'll have a gift"
-	line "for you."
-
-	para "Keep trying hard,"
-	line "<PLAY_G>!"
+OaksLabOakWhichMonText:
+	text "OAK: Which #MON"
+	line "will you choose?"
 	done
 
-OaksAssistant1Text:
-	text "The PROF's #MON"
-	line "TALK radio program"
+OaksLabOakDeliverParcelHintText:
+	text "OAK: Now that you"
+	line "have a #MON,"
 
-	para "isn't aired here"
-	line "in KANTO."
+	para "run an errand for"
+	line "me, would you?"
 
-	para "It's a shame--I'd"
-	line "like to hear it."
+	para "There's a #MART"
+	line "in VIRIDIAN CITY."
+
+	para "Pick up my order"
+	line "there for me."
 	done
 
-OaksAssistant2Text:
-	text "Thanks to your"
-	line "work on the #-"
-	cont "DEX, the PROF's"
-
-	para "research is coming"
-	line "along great."
+OaksLabThosePokeBallsText:
+	text "Those are #"
+	line "BALLS. They contain"
+	cont "#MON."
 	done
 
-OaksAssistant3Text:
-	text "Don't tell anyone,"
-	line "but PROF.OAK'S"
+OaksLabYouWantCharmanderText:
+	text "So! You want the"
+	line "fire #MON,"
 
-	para "#MON TALK isn't"
-	line "a live broadcast."
+	para "CHARMANDER?"
+	done
+
+OaksLabYouWantSquirtleText:
+	text "So! You want the"
+	line "water #MON,"
+
+	para "SQUIRTLE?"
+	done
+
+OaksLabYouWantBulbasaurText:
+	text "So! You want the"
+	line "plant #MON,"
+
+	para "BULBASAUR?"
+	done
+
+OaksLabChoseStarterText:
+	text "OAK: That's your"
+	line "#MON!"
+
+	para "Raise it well!"
+	done
+
+OaksLabReceivedStarterText:
+	text "<PLAY_G> received"
+	line "a @"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
+
+OaksLabPickAgainText:
+	text "Take your time to"
+	line "choose."
+	done
+
+OaksLabStarterAlreadyTakenText:
+	text "You already have a"
+	line "#MON! Get going!"
+	done
+
+OaksLabRivalIllTakeThisOneText:
+	text "GARY: I'll take"
+	line "this one, then!"
+	done
+
+OaksLabRivalIllTakeYouOnText:
+	text "GARY: Wait,"
+	line "<PLAY_G>! Let's"
+
+	para "check out our #-"
+	line "MON!"
+
+	para "Come on, I'll take"
+	line "you on!"
+	done
+
+OaksLabRivalWinText:
+	text "GARY: Why did I"
+	line "pick this dumb"
+	cont "#MON?"
+	done
+
+OaksLabRivalLossText:
+	text "GARY: Yeah! Am I"
+	line "great or what?"
+	done
+
+OaksLabRivalSmellYouLaterText:
+	text "GARY: Okay! I'll"
+	line "make my #MON"
+
+	para "fight to toughen"
+	line "it up!"
+
+	para "<PLAY_G>! Gramps!"
+	line "Smell you later!"
+	done
+
+OaksLabRivalGoAheadChooseText:
+	text "GARY: Hurry up and"
+	line "choose one!"
+	done
+
+OaksLabRivalMineLooksStrongerText:
+	text "GARY: My #MON"
+	line "looks a lot"
+	cont "stronger. Heh!"
+	done
+
+OaksLabGirlText:
+	text "I'm PROF.OAK's"
+	line "aide."
+
+	para "Take good care of"
+	line "your new #MON!"
+	done
+
+OaksLabScientistText:
+	text "PROF.OAK is the"
+	line "authority on #-"
+	cont "MON."
+
+	para "Many trainers hold"
+	line "him in high regard."
 	done
 
 OaksLabPoster1Text:
@@ -229,29 +502,7 @@ OaksLabTrashcanText:
 	done
 
 OaksLabPCText:
-	text "There's an e-mail"
-	line "message on the PC."
-
-	para "…"
-
-	para "PROF.OAK, how is"
-	line "your research"
-	cont "coming along?"
-
-	para "I'm still plugging"
-	line "away."
-
-	para "I heard rumors"
-	line "that <PLAY_G> is"
-
-	para "getting quite a"
-	line "reputation."
-
-	para "I'm delighted to"
-	line "hear that."
-
-	para "ELM in NEW BARK"
-	line "TOWN 8-)"
+	text "It's the lab's PC."
 	done
 
 OaksLab_MapEvents:
@@ -282,7 +533,11 @@ OaksLab_MapEvents:
 	bg_event  0,  1, BGEVENT_READ, OaksLabPC
 
 	def_object_events
-	object_event  4,  2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Oak, -1
-	object_event  1,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant1Script, -1
-	object_event  8,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant2Script, -1
-	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant3Script, -1
+	object_event  5,  2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OaksLabOakScript, -1
+	object_event  4,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OaksLabRivalScript, -1
+	object_event  6,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OaksLabCharmanderBallScript, -1
+	object_event  7,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OaksLabSquirtleBallScript, -1
+	object_event  8,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OaksLabBulbasaurBallScript, -1
+	object_event  1,  9, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, OaksLabGirlScript, -1
+	object_event  2, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksLabScientist1Script, -1
+	object_event  8, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksLabScientist2Script, -1

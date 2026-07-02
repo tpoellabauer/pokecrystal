@@ -3117,8 +3117,10 @@ wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 wPalletTownSceneID::                              db ; Gen 1 Kanto (ported)
+wOaksLabSceneID::                                 db ; Gen 1 Kanto (ported)
+wRoute22SceneID::                                 db ; Gen 1 Kanto (ported)
 
-	ds 48
+	ds 46
 
 ; fight counts
 wJackFightCount::    db

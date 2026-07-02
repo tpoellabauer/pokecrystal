@@ -68,6 +68,12 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL1_5_CHIKORITA
 	const RIVAL1_5_CYNDAQUIL
 	const RIVAL1_5_TOTODILE
+	const RIVAL1_KANTO_SQUIRTLE   ; Gen 1 Oak's Lab: you chose Charmander
+	const RIVAL1_KANTO_BULBASAUR  ; Gen 1 Oak's Lab: you chose Squirtle
+	const RIVAL1_KANTO_CHARMANDER ; Gen 1 Oak's Lab: you chose Bulbasaur
+	const RIVAL1_ROUTE22_SQUIRTLE   ; Gen 1 Route 22 (1st): you chose Charmander
+	const RIVAL1_ROUTE22_BULBASAUR  ; Gen 1 Route 22 (1st): you chose Squirtle
+	const RIVAL1_ROUTE22_CHARMANDER ; Gen 1 Route 22 (1st): you chose Bulbasaur
 
 	trainerclass POKEMON_PROF ; a
 

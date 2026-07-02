@@ -84,4 +84,7 @@ MapScenes::
 	scene_var MOUNT_MOON_SQUARE,                           wMountMoonSquareSceneID
 	scene_var MOBILE_TRADE_ROOM,                           wMobileTradeRoomSceneID
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
+	scene_var PALLET_TOWN,                                 wPalletTownSceneID ; Gen 1 Kanto (ported)
+	scene_var OAKS_LAB,                                    wOaksLabSceneID ; Gen 1 Kanto (ported)
+	scene_var ROUTE_22,                                    wRoute22SceneID ; Gen 1 Kanto (ported)
 	db -1 ; end
