@@ -39,6 +39,7 @@ DEF IN_BATTLE_TOWER_BATTLE_F EQU 0
 
 ; wOptions1::
 DEF TEXT_DELAY_MASK EQU %111
+DEF MUSIC_SOURCE EQU 3 ; Gen 1 Kanto on Crystal: 0 = original Crystal music, 1 = ported Red music
 	const_def 4
 	const NO_TEXT_SCROLL ; 4
 	const STEREO         ; 5

@@ -7,8 +7,18 @@
 	const OPT_PRINT         ; 4
 	const OPT_MENU_ACCOUNT  ; 5
 	const OPT_FRAME         ; 6
-	const OPT_CANCEL        ; 7
-DEF NUM_OPTIONS EQU const_value ; 8
+	const OPT_MUSIC         ; 7 ; Gen 1 Kanto on Crystal: original vs ported Red soundtrack
+	const OPT_CANCEL        ; 8
+DEF NUM_OPTIONS EQU const_value ; 9
+
+; Gen 1 Kanto on Crystal: the options list no longer fits in one screen (a 9th
+; option was added), so the menu scrolls -- only VISIBLE_OPTIONS are shown at once
+; and the view follows the cursor, like Red's item list. Each option still occupies
+; two rows (a label row and, one below it, its value); OPTION_ROW_HEIGHT is that 2.
+DEF VISIBLE_OPTIONS EQU 7
+DEF OPTION_ROW_HEIGHT EQU 2
+DEF OPTIONS_TOP_ROW EQU 2 ; label row of the first visible option
+DEF MAX_OPTIONS_SCROLL EQU NUM_OPTIONS - VISIBLE_OPTIONS
 
 _Option:
 ; BUG: Options menu fails to clear joypad state on initialization (see docs/bugs_and_glitches.md)
@@ -21,29 +31,17 @@ _Option:
 	ld b, SCREEN_HEIGHT - 2
 	ld c, SCREEN_WIDTH - 2
 	call Textbox
-	hlcoord 2, 2
-	ld de, StringOptions
-	call PlaceString
-	xor a
-	ld [wJumptableIndex], a
-
-; display the settings of each option when the menu is opened
-	ld c, NUM_OPTIONS - 2 ; omit frame type, the last option
-.print_text_loop
-	push bc
-	xor a
-	ldh [hJoyLast], a
-	call GetOptionPointer
-	pop bc
-	ld hl, wJumptableIndex
-	inc [hl]
-	dec c
-	jr nz, .print_text_loop
-	call UpdateFrame ; display the frame type
 
 	xor a
 	ld [wJumptableIndex], a
-	inc a
+	ld [wOptionsScrollPosition], a
+	call DrawOptionsScreen
+
+; Leave hBGMapMode enabled so per-frame wTilemap->VRAM auto-transfer stays on: the
+; in-place value redraws (e.g. toggling an option with left/right) write to wTilemap
+; and rely on this to reach the screen. DrawOptionsScreen turns it off around its own
+; multi-write full redraw to avoid tearing, then the caller re-enables it here.
+	ld a, 1
 	ldh [hBGMapMode], a
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
@@ -55,13 +53,22 @@ _Option:
 	ldh a, [hJoyPressed]
 	and PAD_START | PAD_B
 	jr nz, .ExitOptions
-	call OptionsControl
-	jr c, .dpad
-	call GetOptionPointer
+	call OptionsControl ; up/down; carry if the cursor moved
+	jr c, .moved
+	call GetOptionPointer ; left/right on the selected option; carry if Cancel+A
 	jr c, .ExitOptions
-
-.dpad
 	call Options_UpdateCursorPosition
+	jr .delay
+
+.moved
+; the cursor moved (and possibly scrolled the view): repaint the whole list
+	call UpdateOptionScroll
+	call DrawOptionsScreen
+	ld a, 1
+	ldh [hBGMapMode], a ; re-enable auto-transfer (see the init block above)
+	call WaitBGMap
+
+.delay
 	ld c, 3
 	call DelayFrames
 	jr .joypad_loop
@@ -74,22 +81,170 @@ _Option:
 	ldh [hInMenu], a
 	ret
 
-StringOptions:
-	db "TEXT SPEED<LF>"
-	db "        :<LF>"
-	db "BATTLE SCENE<LF>"
-	db "        :<LF>"
-	db "BATTLE STYLE<LF>"
-	db "        :<LF>"
-	db "SOUND<LF>"
-	db "        :<LF>"
-	db "PRINT<LF>"
-	db "        :<LF>"
-	db "MENU ACCOUNT<LF>"
-	db "        :<LF>"
-	db "FRAME<LF>"
-	db "        :TYPE<LF>"
-	db "CANCEL@"
+UpdateOptionScroll:
+; Recompute the scroll offset so the selected option (wJumptableIndex) stays on
+; screen, centered where possible. Returns carry set if the offset changed.
+; scroll = clamp(cursor - VISIBLE_OPTIONS / 2, 0, MAX_OPTIONS_SCROLL)
+	ld a, [wJumptableIndex]
+	sub VISIBLE_OPTIONS / 2
+	jr nc, .nonneg
+	xor a
+.nonneg
+	cp MAX_OPTIONS_SCROLL + 1
+	jr c, .clamped
+	ld a, MAX_OPTIONS_SCROLL
+.clamped
+	ld hl, wOptionsScrollPosition
+	cp [hl]
+	jr z, .unchanged
+	ld [hl], a
+	scf
+	ret
+
+.unchanged
+	and a
+	ret
+
+DrawOptionsScreen:
+; Repaint the visible slice of the options list: label + value for each of the
+; VISIBLE_OPTIONS options starting at wOptionsScrollPosition, plus scroll arrows.
+	xor a
+	ldh [hBGMapMode], a ; write only to wTilemap; the caller transfers afterward
+	call ClearOptionsArea
+	ld a, [wJumptableIndex]
+	push af ; preserve the real selection across the per-option draw loop
+
+	ld c, 0 ; slot within the visible window (0 .. VISIBLE_OPTIONS-1)
+.loop
+	ld a, [wOptionsScrollPosition]
+	add c
+	cp NUM_OPTIONS
+	jr nc, .done ; fewer than VISIBLE_OPTIONS options remain
+	ld [wJumptableIndex], a ; the option to draw (value routines read this)
+
+	push bc
+	call GetOptionLabel     ; de = label string for wJumptableIndex
+	call OptionsLabelCoord ; hl = label coord (preserves de)
+	call PlaceString
+	xor a
+	ldh [hJoyLast], a       ; no input -> value routine only draws
+	call GetOptionPointer   ; draw this option's value
+	pop bc
+
+	inc c
+	ld a, c
+	cp VISIBLE_OPTIONS
+	jr c, .loop
+.done
+	pop af
+	ld [wJumptableIndex], a ; restore the real selection
+
+	call DrawOptionsArrows
+	call Options_UpdateCursorPosition
+	ret
+
+ClearOptionsArea:
+; Blank the interior rows the options occupy (rows 1..SCREEN_HEIGHT-2, cols 1..).
+	hlcoord 1, 1
+	ld de, SCREEN_WIDTH
+	ld c, SCREEN_HEIGHT - 2
+.row
+	push hl
+	ld b, SCREEN_WIDTH - 2
+.col
+	ld [hl], ' '
+	inc hl
+	dec b
+	jr nz, .col
+	pop hl
+	add hl, de
+	dec c
+	jr nz, .row
+	ret
+
+DrawOptionsArrows:
+; A ▲ at the top-right when there's more above, ▼ at the bottom-right when there's
+; more below -- the same affordance Red's item list uses.
+	ld a, [wOptionsScrollPosition]
+	and a
+	jr z, .no_up
+	hlcoord SCREEN_WIDTH - 2, 1
+	ld [hl], '▲'
+.no_up
+	ld a, [wOptionsScrollPosition]
+	cp MAX_OPTIONS_SCROLL
+	jr nc, .no_down
+	hlcoord SCREEN_WIDTH - 2, SCREEN_HEIGHT - 2
+	ld [hl], '▼'
+.no_down
+	ret
+
+OptionsLabelCoord:
+; hl = tilemap coord of the label row (col 2) for the current wJumptableIndex,
+; accounting for the scroll offset. Row = OPTIONS_TOP_ROW + slot*OPTION_ROW_HEIGHT.
+	ld a, [wJumptableIndex]
+	ld hl, wOptionsScrollPosition
+	sub [hl]
+	call .SlotToRowHL
+	inc hl ; wTilemap col 1 -> col 2
+	inc hl
+	ret
+
+.SlotToRowHL:
+; a = visible slot; returns hl = wTilemap + (OPTIONS_TOP_ROW + a*OPTION_ROW_HEIGHT) * SCREEN_WIDTH
+	add a ; * OPTION_ROW_HEIGHT (2)
+	add OPTIONS_TOP_ROW
+	ld hl, wTilemap
+	ld bc, SCREEN_WIDTH
+	call AddNTimes
+	ret
+
+OptionsValueCoordHL:
+; hl = tilemap coord for the *value* of the current wJumptableIndex (col 11, one
+; row below its label). Used by every option's value-printing routine so values
+; land at the right scrolled position.
+	ld a, [wJumptableIndex]
+	ld hl, wOptionsScrollPosition
+	sub [hl]
+	call OptionsLabelCoord.SlotToRowHL
+	ld bc, SCREEN_WIDTH + 11 ; next row, value column (bc, not de: callers stage
+	add hl, bc               ; their value string in de before calling here)
+	ret
+
+GetOptionLabel:
+; de = label string for the option index in wJumptableIndex
+	ld a, [wJumptableIndex]
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, OptionLabels
+	add hl, de
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	ret
+
+OptionLabels:
+; entries correspond to OPT_* constants
+	dw .TextSpeed
+	dw .BattleScene
+	dw .BattleStyle
+	dw .Sound
+	dw .Print
+	dw .MenuAccount
+	dw .Frame
+	dw .Music
+	dw .Cancel
+
+.TextSpeed:   db "TEXT SPEED@"
+.BattleScene: db "BATTLE SCENE@"
+.BattleStyle: db "BATTLE STYLE@"
+.Sound:       db "SOUND@"
+.Print:       db "PRINT@"
+.MenuAccount: db "MENU ACCOUNT@"
+.Frame:       db "FRAME@"
+.Music:       db "MUSIC@"
+.Cancel:      db "CANCEL@"
 
 GetOptionPointer:
 	jumptable .Pointers, wJumptableIndex
@@ -103,6 +258,7 @@ GetOptionPointer:
 	dw Options_Print
 	dw Options_MenuAccount
 	dw Options_Frame
+	dw Options_Music
 	dw Options_Cancel
 
 	const_def
@@ -152,7 +308,7 @@ Options_TextSpeed:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 3
+	call OptionsValueCoordHL
 	call PlaceString
 	and a
 	ret
@@ -222,7 +378,7 @@ Options_BattleScene:
 	ld de, .Off
 
 .Display:
-	hlcoord 11, 5
+	call OptionsValueCoordHL
 	call PlaceString
 	and a
 	ret
@@ -260,7 +416,7 @@ Options_BattleStyle:
 	ld de, .Set
 
 .Display:
-	hlcoord 11, 7
+	call OptionsValueCoordHL
 	call PlaceString
 	and a
 	ret
@@ -305,13 +461,46 @@ Options_Sound:
 	ld de, .Stereo
 
 .Display:
-	hlcoord 11, 9
+	call OptionsValueCoordHL
 	call PlaceString
 	and a
 	ret
 
 .Mono:   db "MONO  @"
 .Stereo: db "STEREO@"
+
+Options_Music:
+; Gen 1 Kanto on Crystal: choose between the original Crystal music and the ported
+; Red soundtrack (wOptions MUSIC_SOURCE bit; see audio/engine.asm _PlayMusic).
+	ld hl, wOptions
+	ldh a, [hJoyPressed]
+	bit B_PAD_LEFT, a
+	jr nz, .Toggle
+	bit B_PAD_RIGHT, a
+	jr nz, .Toggle
+	jr .Display
+
+.Toggle:
+	ld a, [hl]
+	xor 1 << MUSIC_SOURCE
+	ld [hl], a
+	call RestartMapMusic
+
+.Display:
+	bit MUSIC_SOURCE, [hl]
+	jr nz, .red
+	ld de, .Original
+	jr .print
+.red
+	ld de, .Red
+.print
+	call OptionsValueCoordHL
+	call PlaceString
+	and a
+	ret
+
+.Original: db "CRYSTAL@"
+.Red:      db "RED    @"
 
 	const_def
 	const OPT_PRINT_LIGHTEST ; 0
@@ -359,7 +548,7 @@ Options_Print:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 11
+	call OptionsValueCoordHL
 	call PlaceString
 	and a
 	ret
@@ -445,7 +634,7 @@ Options_MenuAccount:
 	ld de, .On
 
 .Display:
-	hlcoord 11, 13
+	call OptionsValueCoordHL
 	call PlaceString
 	and a
 	ret
@@ -460,8 +649,7 @@ Options_Frame:
 	jr nz, .LeftPressed
 	bit B_PAD_RIGHT, a
 	jr nz, .RightPressed
-	and a
-	ret
+	jr .Display
 
 .RightPressed:
 	ld a, [hl]
@@ -475,14 +663,28 @@ Options_Frame:
 .Save:
 	maskbits NUM_FRAMES
 	ld [hl], a
+
+.Display:
+	call UpdateFrame
+	and a
+	ret
+
 UpdateFrame:
+; Draw "TYPE<n>" as the FRAME option's value, at its (scrolled) value position.
+; PlaceString returns bc pointing just past the printed "TYPE" (hl is restored to
+; the start), so the frame number goes at bc.
+	call OptionsValueCoordHL
+	ld de, .TypeString
+	call PlaceString
+	ld h, b
+	ld l, c
 	ld a, [wTextboxFrame]
-	hlcoord 16, 15 ; where on the screen the number is drawn
 	add '1'
 	ld [hl], a
 	call LoadFontsExtra
-	and a
 	ret
+
+.TypeString: db "TYPE@"
 
 Options_Cancel:
 	ldh a, [hJoyPressed]
@@ -496,6 +698,9 @@ Options_Cancel:
 	ret
 
 OptionsControl:
+; Move the selection up/down through all NUM_OPTIONS options (wrapping), returning
+; carry when it moved so the caller repaints. Scrolling is derived separately from
+; the new cursor position (see UpdateOptionScroll).
 	ld hl, wJumptableIndex
 	ldh a, [hJoyLast]
 	cp PAD_DOWN
@@ -507,16 +712,11 @@ OptionsControl:
 
 .DownPressed:
 	ld a, [hl]
-	cp OPT_CANCEL ; maximum option index
-	jr nz, .CheckMenuAccount
-	ld [hl], OPT_TEXT_SPEED ; first option
+	cp NUM_OPTIONS - 1 ; last option index
+	jr nz, .Increase
+	ld [hl], 0 ; wrap to first option
 	scf
 	ret
-
-.CheckMenuAccount: ; I have no idea why this exists...
-	cp OPT_MENU_ACCOUNT
-	jr nz, .Increase
-	ld [hl], OPT_MENU_ACCOUNT
 
 .Increase:
 	inc [hl]
@@ -525,18 +725,9 @@ OptionsControl:
 
 .UpPressed:
 	ld a, [hl]
-
-; Another thing where I'm not sure why it exists
-	cp OPT_FRAME
-	jr nz, .NotFrame
-	ld [hl], OPT_MENU_ACCOUNT
-	scf
-	ret
-
-.NotFrame:
-	and a ; OPT_TEXT_SPEED, minimum option index
+	and a
 	jr nz, .Decrease
-	ld [hl], NUM_OPTIONS ; decrements to OPT_CANCEL, maximum option index
+	ld [hl], NUM_OPTIONS ; decrements to the last option index
 
 .Decrease:
 	dec [hl]
@@ -544,17 +735,20 @@ OptionsControl:
 	ret
 
 Options_UpdateCursorPosition:
-	hlcoord 1, 1
-	ld de, SCREEN_WIDTH
-	ld c, SCREEN_HEIGHT - 2
+; Clear the cursor column across the visible rows, then draw ▶ at the selected
+; option's (scrolled) label row.
+	hlcoord 1, OPTIONS_TOP_ROW
+	ld de, OPTION_ROW_HEIGHT * SCREEN_WIDTH
+	ld c, VISIBLE_OPTIONS
 .loop
 	ld [hl], ' '
 	add hl, de
 	dec c
 	jr nz, .loop
-	hlcoord 1, 2
-	ld bc, 2 * SCREEN_WIDTH
 	ld a, [wJumptableIndex]
-	call AddNTimes
+	ld hl, wOptionsScrollPosition
+	sub [hl]
+	call OptionsLabelCoord.SlotToRowHL ; hl = col 0 of the label row
+	inc hl ; cursor column (col 1)
 	ld [hl], '▶'
 	ret

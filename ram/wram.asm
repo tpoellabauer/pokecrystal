@@ -1729,7 +1729,8 @@ wMenuCursorY:: db
 wMenuCursorX:: db
 wCursorOffCharacter:: db
 wCursorCurrentTile:: dw
-	ds 3
+wOptionsScrollPosition:: db ; Gen 1 Kanto on Crystal: scroll offset of the scrollable options menu
+	ds 2
 wMoreMenuDataEnd::
 
 wOverworldDelay:: db
@@ -1783,7 +1784,7 @@ wBattleAfterAnim:: db
 wOptions::
 ; bit 0-2: number of frames to delay when printing text
 ;   fast 1; mid 3; slow 5
-; bit 3: ?
+; bit 3: music source (0 = original Crystal, 1 = ported Red) -- MUSIC_SOURCE
 ; bit 4: no text delay
 ; bit 5: stereo off/on
 ; bit 6: battle style shift/set
@@ -3115,8 +3116,9 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
+wPalletTownSceneID::                              db ; Gen 1 Kanto (ported)
 
-	ds 49
+	ds 48
 
 ; fight counts
 wJackFightCount::    db

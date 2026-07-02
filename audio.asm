@@ -165,3 +165,8 @@ SECTION "Cries", ROMX
 INCLUDE "data/pokemon/cries.asm"
 
 INCLUDE "audio/cries.asm"
+
+
+; Gen 1 Kanto on Crystal: ported Red soundtrack (selectable via the options menu).
+; music_red.asm declares its own "Red Music" ROMX sections; the linker auto-banks them.
+INCLUDE "audio/music_red.asm"

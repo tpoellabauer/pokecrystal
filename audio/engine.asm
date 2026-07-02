@@ -2323,7 +2323,15 @@ _PlayMusic::
 	ld [hl], e ; song number
 	inc hl
 	ld [hl], d ; (always 0)
+; Gen 1 Kanto on Crystal: when the MUSIC_SOURCE option bit is set, look the song
+; up in RedMusic (the ported Red soundtrack) instead of the stock Music table.
+; RedMusic mirrors Music entry-for-entry, so non-Kanto songs resolve identically.
 	ld hl, Music
+	ld a, [wOptions]
+	bit MUSIC_SOURCE, a
+	jr z, .gotTable
+	ld hl, RedMusic
+.gotTable
 	add hl, de ; three
 	add hl, de ; byte
 	add hl, de ; pointer

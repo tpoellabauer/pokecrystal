@@ -52,8 +52,17 @@ OpenText::
 
 	call ReanchorBGMap_NoOAMUpdate ; anchor bgmap
 	call SpeechTextbox
-	call HDMATransferTilemapAndAttrmap_Menu ; transfer bgmap
+; Gen 1 Kanto on Crystal: load the font into VRAM BEFORE pushing the tilemap, not
+; after. Stock order (transfer then load font) relies on the font glyphs already
+; sitting in VRAM from a prior load, so the textbox's font-tile indices resolve
+; correctly the instant the map is shown. This hack's chunked grayscale palette
+; sweep (see engine/gfx/color.asm) adds enough per-VBlank work that on real CGB
+; hardware the font's HDMA can slip a frame behind the tilemap push -- the map
+; then briefly renders tile slots that haven't been filled yet, showing garbage
+; "characters all over the screen" when a textbox opens (e.g. after using an
+; item). Loading the font first closes that window under any timing.
 	call LoadFonts_NoOAMUpdate ; load font
+	call HDMATransferTilemapAndAttrmap_Menu ; transfer bgmap
 	pop af
 	rst Bankswitch
 
