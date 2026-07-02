@@ -1467,7 +1467,12 @@ _GrayscaleColorRamp::
 	jr nz, .loop
 
 	ld a, [wGrayscaleCursor]
-	cp 64                ; carry set only once this sweep has fully converted all 64
-	ret nz
+	cp 64
+	jr z, .sweepDone
+	; Not done: `cp 64` on a<64 sets carry (it's a subtraction/borrow), so returning here
+	; without clearing it would report "done" on every partial batch -- explicitly clear it.
+	and a
+	ret
+.sweepDone
 	scf
 	ret
