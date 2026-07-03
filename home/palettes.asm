@@ -29,16 +29,18 @@ ForceUpdateCGBPals::
 	; whole game renders in the DMG monochrome ramp despite the CGB palettes. The
 	; routine lives in a ROMX bank (home is full); rWBK is already set to wBGPals2.
 	; It converts only a few colors per call (real-hardware VBlank timing -- see its
-	; comment) and reports carry only once a full 64-color sweep is done. Only push to
-	; hardware once the sweep is fully converted: pushing every call (even mid-sweep)
-	; would flash a live mix of already-gray and still-raw CGB color onto the screen
-	; every time a producer (ApplyPals/DmgToCgb*, see their wGrayscaleCursor reset)
-	; restarts the sweep -- routine on a busy screen (map load, textbox reopen,
-	; naming-screen animation), not an edge case. Hardware keeps showing the previous
-	; fully-converted palette (or InitCGBPals's white seed, pre-first-load -- never
-	; "nothing") until the new sweep completes, then swaps to it atomically.
+	; comment) and reports carry only once a full 64-color sweep is done. Push to
+	; hardware on *every* call regardless -- if the push were gated on full completion,
+	; a run of busy VBlanks (UpdateBGMapBuffer has priority -- see VBlank_Normal) could
+	; starve the sweep indefinitely, leaving BGPD/OBPD at whatever they last held (cold
+	; boot default white, if this is the first load) instead of the real palette -- the
+	; "player/Oak/rival pure white" report. A part-converted mix flashing for a few
+	; VBlanks beats hardware staying stuck white. The producers reset wGrayscaleCursor
+	; on retrigger (see ApplyPals/DmgToCgb*), so any raw color pushed mid-sweep is
+	; transient -- the sweep always restarts from 0 and fully grays within ~8 VBlanks;
+	; nothing stays colored (that was the separate stale-cursor bug).
 	farcall _GrayscaleColorRamp
-	jr nc, .notDoneYet
+	push af
 
 	ld hl, wBGPals2
 
@@ -73,6 +75,8 @@ endr
 	jr nz, .obp
 
 ; clear pal update queue -- only once the sweep is actually fully converted+pushed
+	pop af
+	jr nc, .notDoneYet
 	xor a
 	ldh [hCGBPalUpdate], a
 
