@@ -2326,12 +2326,12 @@ _PlayMusic::
 ; Gen 1 Kanto on Crystal: when the MUSIC_SOURCE option bit is set, look the song
 ; up in RedMusic (the ported Red soundtrack) instead of the stock Music table.
 ; RedMusic mirrors Music entry-for-entry, so non-Kanto songs resolve identically.
-	ld hl, Music
 	ld a, [wOptions]
 	bit MUSIC_SOURCE, a
-	jr z, .gotTable
-	ld hl, RedMusic
-.gotTable
+	jr nz, .redTable
+; Default (Crystal) table: Music shares this routine's ROMX bank, so read its 3-byte
+; pointer inline.
+	ld hl, Music
 	add hl, de ; three
 	add hl, de ; byte
 	add hl, de ; pointer
@@ -2340,6 +2340,29 @@ _PlayMusic::
 	ld e, [hl]
 	inc hl
 	ld d, [hl] ; music header address
+	jr .gotHeader
+
+.redTable
+; RedMusic lives in a *different* ROMX bank than this routine (the audio bank is
+; full), so its pointer must be read with a bank-safe far read. A plain inline
+; `ld a, [hli]` here would fetch this bank's bytes at RedMusic's address -- a garbage
+; header, which LoadChannel then parses into a bogus channel count and loads music
+; into the SFX channel structs, leaving them stuck SOUND_CHANNEL_ON. The next SFX
+; (the menu-exit click) then never plays and WaitSFX spins forever -> hard hang.
+	ld hl, RedMusic
+	add hl, de ; three
+	add hl, de ; byte
+	add hl, de ; pointer
+	ld a, BANK(RedMusic)
+	call GetFarByte ; bank byte (hl preserved)
+	ld [wMusicBank], a
+	inc hl
+	ld a, BANK(RedMusic)
+	call GetFarWord ; hl = music header address
+	ld d, h
+	ld e, l
+
+.gotHeader
 	call LoadMusicByte ; store first byte of music header in a
 	rlca
 	rlca

@@ -581,6 +581,15 @@ ApplyPals:
 	ld bc, 16 palettes
 	ld a, BANK(wGBCPalettes)
 	call FarCopyWRAM
+; Gen 1 Kanto on Crystal: fresh raw CGB color just landed in wBGPals2/wOBPals2 --
+; restart the grayscale sweep (_GrayscaleColorRamp) from scratch. Without this, a
+; retrigger before the previous sweep reached wGrayscaleCursor==64 leaves the slots
+; behind the old cursor holding this new raw data forever (never revisited that sweep),
+; which is the "player/textbox stuck in color" bug: ApplyPals is the ~40-call-site
+; choke point for practically every menu/map palette load, so retriggers well inside
+; the 8-VBlank sweep window are routine, not an edge case.
+	xor a
+	ld [wGrayscaleCursor], a
 	ret
 
 ApplyAttrmap:

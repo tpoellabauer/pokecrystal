@@ -29,15 +29,16 @@ ForceUpdateCGBPals::
 	; whole game renders in the DMG monochrome ramp despite the CGB palettes. The
 	; routine lives in a ROMX bank (home is full); rWBK is already set to wBGPals2.
 	; It converts only a few colors per call (real-hardware VBlank timing -- see its
-	; comment) and reports carry only once a full 64-color sweep is done. Push to
-	; hardware on *every* call regardless -- if the push were gated on full completion,
-	; a run of busy VBlanks (UpdateBGMapBuffer has priority -- see VBlank_Normal) could
-	; starve the sweep indefinitely, leaving BGPD/OBPD at whatever they last held (cold
-	; boot default white, if this is the first load) instead of the real palette. A
-	; part-converted mix flashing on screen for a few VBlanks beats hardware staying
-	; stuck on nothing.
+	; comment) and reports carry only once a full 64-color sweep is done. Only push to
+	; hardware once the sweep is fully converted: pushing every call (even mid-sweep)
+	; would flash a live mix of already-gray and still-raw CGB color onto the screen
+	; every time a producer (ApplyPals/DmgToCgb*, see their wGrayscaleCursor reset)
+	; restarts the sweep -- routine on a busy screen (map load, textbox reopen,
+	; naming-screen animation), not an edge case. Hardware keeps showing the previous
+	; fully-converted palette (or InitCGBPals's white seed, pre-first-load -- never
+	; "nothing") until the new sweep completes, then swaps to it atomically.
 	farcall _GrayscaleColorRamp
-	push af
+	jr nc, .notDoneYet
 
 	ld hl, wBGPals2
 
@@ -72,8 +73,6 @@ endr
 	jr nz, .obp
 
 ; clear pal update queue -- only once the sweep is actually fully converted+pushed
-	pop af
-	jr nc, .notDoneYet
 	xor a
 	ldh [hCGBPalUpdate], a
 
@@ -119,6 +118,11 @@ DmgToCgbBGPals::
 ; request pal update
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+; Gen 1 Kanto on Crystal: fresh raw color just landed in wBGPals2 -- restart the
+; grayscale sweep so a retrigger doesn't strand un-converted color behind a stale
+; wGrayscaleCursor (see ApplyPals, engine/gfx/color.asm).
+	xor a
+	ld [wGrayscaleCursor], a
 
 	pop af
 	ldh [rWBK], a
@@ -167,6 +171,9 @@ DmgToCgbObjPals::
 ; request pal update
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+; Gen 1 Kanto on Crystal: restart the grayscale sweep (see DmgToCgbBGPals above).
+	xor a
+	ld [wGrayscaleCursor], a
 
 	pop af
 	ldh [rWBK], a
@@ -202,6 +209,9 @@ DmgToCgbObjPal0::
 	call CopyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+; Gen 1 Kanto on Crystal: restart the grayscale sweep (see DmgToCgbBGPals above).
+	xor a
+	ld [wGrayscaleCursor], a
 
 	pop af
 	ldh [rWBK], a
@@ -239,6 +249,9 @@ DmgToCgbObjPal1::
 	call CopyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+; Gen 1 Kanto on Crystal: restart the grayscale sweep (see DmgToCgbBGPals above).
+	xor a
+	ld [wGrayscaleCursor], a
 
 	pop af
 	ldh [rWBK], a
