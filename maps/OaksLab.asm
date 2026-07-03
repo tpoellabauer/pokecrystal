@@ -93,10 +93,22 @@ OaksLabOakScript:
 	closetext
 	end
 .AfterRival:
+	checkevent EVENT_GOT_KANTO_POKEDEX
+	iftrue .PostDex
+	checkevent EVENT_GOT_OAKS_PARCEL
+	iftrue .GiveDex
 	writetext OaksLabOakDeliverParcelHintText
 	waitbutton
 	closetext
 	end
+.PostDex:
+	writetext OaksLabOakPostDexText
+	waitbutton
+	closetext
+	end
+.GiveDex:
+	closetext
+	sjump OaksLabPokedexScene
 
 ; --- the three starter Poke Balls -------------------------------------------
 OaksLabCharmanderBallScript:
@@ -255,6 +267,30 @@ OaksLabStarterAlreadyTakenScript:
 	closetext
 	end
 
+; --- Oak's Parcel delivery -> Pokedex + rival-returns cameo -----------------
+OaksLabPokedexScene:
+	opentext
+	writetext OaksLabOakParcelThanksText
+	promptbutton
+	takeitem OAKS_PARCEL
+	appear OAKSLAB_RIVAL
+	turnobject OAKSLAB_RIVAL, LEFT
+	writetext OaksLabRivalWhatDidYouCallMeForText
+	waitbutton
+	writetext OaksLabOakPokedexSpeechText
+	playsound SFX_ITEM
+	waitsfx
+	setflag ENGINE_POKEDEX
+	writetext OaksLabOakGotPokedexText
+	waitbutton
+	writetext OaksLabRivalLeaveItAllToMeText
+	waitbutton
+	closetext
+	setevent EVENT_GOT_KANTO_POKEDEX
+	applymovement OAKSLAB_RIVAL, OaksLabRivalExitMovement
+	disappear OAKSLAB_RIVAL
+	end
+
 ; --- the rival, before you pick --------------------------------------------
 OaksLabRivalScript:
 	faceplayer
@@ -364,6 +400,51 @@ OaksLabOakDeliverParcelHintText:
 
 	para "Pick up my order"
 	line "there for me."
+	done
+
+OaksLabOakPostDexText:
+	text "OAK: <PLAY_G>!"
+	line "How is my #-"
+	cont "DEX coming?"
+	done
+
+OaksLabOakParcelThanksText:
+	text "OAK: Oh, <PLAY_G>!"
+
+	para "Ah! This is the"
+	line "#DEX parts I"
+	cont "ordered! Thanks!"
+	done
+
+OaksLabRivalWhatDidYouCallMeForText:
+	text "GARY: What did"
+	line "you call me for?"
+	done
+
+OaksLabOakPokedexSpeechText:
+	text "OAK: On the desk"
+	line "there is my"
+	cont "invention, #DEX!"
+
+	para "It automatically"
+	line "records data on"
+	cont "#MON you've"
+	cont "seen or caught!"
+	done
+
+OaksLabOakGotPokedexText:
+	text "OAK: <PLAY_G> and"
+	line "GARY! Take these"
+	cont "with you!"
+
+	para "<PLAY_G> got"
+	line "#DEX from OAK!"
+	done
+
+OaksLabRivalLeaveItAllToMeText:
+	text "GARY: Alright"
+	line "Gramps! Leave it"
+	cont "all to me!"
 	done
 
 OaksLabThosePokeBallsText:

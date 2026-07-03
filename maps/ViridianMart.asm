@@ -9,7 +9,21 @@ ViridianMart_MapScripts:
 	def_callbacks
 
 ViridianMartClerkScript:
+	faceplayer
 	opentext
+	checkevent EVENT_GOT_OAKS_PARCEL
+	iftrue .Mart
+	writetext ViridianMartClerkParcelText
+	promptbutton
+	giveitem OAKS_PARCEL
+	writetext ViridianMartClerkGaveParcelText
+	playsound SFX_KEY_ITEM
+	waitsfx
+	itemnotify
+	setevent EVENT_GOT_OAKS_PARCEL
+	closetext
+	end
+.Mart:
 	pokemart MARTTYPE_STANDARD, MART_VIRIDIAN
 	closetext
 	end
@@ -32,6 +46,28 @@ ViridianMartCooltrainerMText:
 
 	para "It's an island way"
 	line "south of here."
+	done
+
+ViridianMartClerkParcelText:
+	text "CLERK: Hey, you!"
+	line "You're from"
+	cont "PALLET TOWN, right?"
+
+	para "PROF.OAK asked us"
+	line "to order something"
+	cont "for him."
+
+	para "It's in, but we"
+	line "haven't got the"
+	cont "time to deliver it."
+
+	para "Could you take it"
+	line "to him?"
+	done
+
+ViridianMartClerkGaveParcelText:
+	text "<PLAY_G> received"
+	line "OAK'S PARCEL!"
 	done
 
 ViridianMart_MapEvents:

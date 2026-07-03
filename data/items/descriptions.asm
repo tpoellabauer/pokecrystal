@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw TeruSama2Desc
+	dw OaksParcelDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -1011,3 +1011,8 @@ TeruSama32Desc:
 
 TeruSama33Desc:
 	db   "?@"
+
+OaksParcelDesc:
+	db "A parcel for"
+	next "PROF.OAK from the"
+	next "VIRIDIAN MART.@"
