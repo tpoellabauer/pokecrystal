@@ -52,17 +52,19 @@ OpenText::
 
 	call ReanchorBGMap_NoOAMUpdate ; anchor bgmap
 	call SpeechTextbox
-; Gen 1 Kanto on Crystal: load the font into VRAM BEFORE pushing the tilemap, not
-; after. Stock order (transfer then load font) relies on the font glyphs already
-; sitting in VRAM from a prior load, so the textbox's font-tile indices resolve
-; correctly the instant the map is shown. This hack's chunked grayscale palette
-; sweep (see engine/gfx/color.asm) adds enough per-VBlank work that on real CGB
-; hardware the font's HDMA can slip a frame behind the tilemap push -- the map
-; then briefly renders tile slots that haven't been filled yet, showing garbage
-; "characters all over the screen" when a textbox opens (e.g. after using an
-; item). Loading the font first closes that window under any timing.
-	call LoadFonts_NoOAMUpdate ; load font
+; Gen 1 Kanto on Crystal: a prior fix here tried loading the font into VRAM BEFORE
+; pushing the tilemap (instead of stock's transfer-then-load) to close a real-hardware
+; timing race. That reorder has a worse side effect: LoadFonts_NoOAMUpdate's HBlank-DMA
+; font/frame transfer (Get1bppViaHDMA -> HDMATransfer1bpp, used because the LCD is still
+; on here) reliably corrupts the textbox frame tiles ('┌─┐│└┘' + space, charmap $79-$7f)
+; when it runs BEFORE HDMATransferTilemapAndAttrmap_Menu -- confirmed in PyBoy: the six
+; border tiles decode to non-doubled-plane garbage bytes in vTiles2 right after this call
+; in that order, every time, not just on real hardware. Every other caller of
+; LoadFonts_NoOAMUpdate (ReanchorMap above, StartMenu) calls it AFTER its tilemap
+; transfer and never corrupts. Restored stock order; the real-hardware stale-font
+; flicker this was meant to fix needs a different fix.
 	call HDMATransferTilemapAndAttrmap_Menu ; transfer bgmap
+	call LoadFonts_NoOAMUpdate ; load font
 	pop af
 	rst Bankswitch
 

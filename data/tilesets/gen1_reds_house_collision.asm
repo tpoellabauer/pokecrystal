@@ -9,7 +9,7 @@
 	tilecoll WALL, WALL, STAIRCASE, STAIRCASE ; 08
 	tilecoll WALL, WALL, FLOOR, WALL ; 09
 	tilecoll WALL, WALL, WALL, WALL ; 0a
-	tilecoll FLOOR, FLOOR, DOOR, DOOR ; 0b
+	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 0b
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 0c
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 0d
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 0e
