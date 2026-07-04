@@ -1,5 +1,6 @@
 	object_const_def
-	const CINNABARISLAND_BLUE
+	const CINNABARISLAND_GIRL
+	const CINNABARISLAND_GAMBLER
 
 CinnabarIsland_MapScripts:
 	def_scene_scripts
@@ -11,17 +12,11 @@ CinnabarIslandFlypointCallback:
 	setflag ENGINE_FLYPOINT_CINNABAR
 	endcallback
 
-CinnabarIslandBlue:
-	faceplayer
-	opentext
-	writetext CinnabarIslandBlueText
-	waitbutton
-	closetext
-	playsound SFX_WARP_TO
-	applymovement CINNABARISLAND_BLUE, CinnabarIslandBlueTeleport
-	disappear CINNABARISLAND_BLUE
-	clearevent EVENT_VIRIDIAN_GYM_BLUE
-	end
+CinnabarIslandGirlScript:
+	jumptextfaceplayer CinnabarIslandGirlText
+
+CinnabarIslandGamblerScript:
+	jumptextfaceplayer CinnabarIslandGamblerText
 
 CinnabarIslandGymSign:
 	jumptext CinnabarIslandGymSignText
@@ -32,79 +27,27 @@ CinnabarIslandSign:
 CinnabarIslandPokecenterSign:
 	jumpstd PokecenterSignScript
 
+CinnabarIslandLabSign:
+	jumptext CinnabarIslandLabSignText
+
+CinnabarIslandMartSign:
+	jumpstd MartSignScript
+
 CinnabarIslandHiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
 
-CinnabarIslandBlueTeleport:
-	teleport_from
-	step_end
+CinnabarIslandGirlText:
+	text "CINNABAR GYM's"
+	line "BLAINE is an odd"
+	cont "man who has lived"
+	cont "here for decades."
+	done
 
-CinnabarIslandBlueText:
-	text "Who are you?"
-
-	para "Well, it's plain"
-	line "to see that you're"
-	cont "a trainer…"
-
-	para "My name's BLUE."
-
-	para "I was once the"
-	line "CHAMPION, although"
-
-	para "it was for only a"
-	line "short time…"
-
-	para "That meddling RED"
-	line "did me in…"
-
-	para "Anyway, what do"
-	line "you want? You want"
-
-	para "to challenge me or"
-	line "something?"
-
-	para "…I hate to say"
-	line "it, but I'm not in"
-
-	para "the mood for a"
-	line "battle now."
-
-	para "Take a good look"
-	line "around you…"
-
-	para "A volcano erupts,"
-	line "and just like"
-
-	para "that, a whole town"
-	line "disappears."
-
-	para "We can go on win-"
-	line "ning and losing in"
-
-	para "#MON. But if"
-	line "nature so much as"
-
-	para "twitches, we can"
-	line "lose in a second."
-
-	para "…"
-
-	para "That's the way it"
-	line "is…"
-
-	para "But, anyway, I'm"
-	line "still a trainer."
-
-	para "If I see a strong"
-	line "opponent, it makes"
-	cont "me want to battle."
-
-	para "If you want to"
-	line "battle me, come to"
-	cont "the VIRIDIAN GYM."
-
-	para "I'll take you on"
-	line "then."
+CinnabarIslandGamblerText:
+	text "Scientists conduct"
+	line "experiments in"
+	cont "the burned out"
+	cont "building."
 	done
 
 CinnabarIslandGymSignText:
@@ -125,19 +68,28 @@ CinnabarIslandSignText:
 	line "Burning Desire"
 	done
 
+CinnabarIslandLabSignText:
+	text "#MON LAB"
+	done
+
 CinnabarIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	; GSC Cinnabar is post-eruption rubble: gym/lab/mart don't exist as maps here.
+	; Only the Pokemon Mansion + Pokecenter are reachable (see NEEDS-MAP backlog).
+	warp_event  6,  3, POKEMON_MANSION_1F, 2
 	warp_event 11, 11, CINNABAR_POKECENTER_1F, 1
 
 	def_coord_events
 
 	def_bg_events
+	bg_event  9,  5, BGEVENT_READ, CinnabarIslandSign
+	bg_event 16, 11, BGEVENT_READ, CinnabarIslandMartSign
 	bg_event 12, 11, BGEVENT_READ, CinnabarIslandPokecenterSign
-	bg_event  9, 11, BGEVENT_READ, CinnabarIslandGymSign
-	bg_event  7,  7, BGEVENT_READ, CinnabarIslandSign
-	bg_event  9,  1, BGEVENT_ITEM, CinnabarIslandHiddenRareCandy
+	bg_event  9, 11, BGEVENT_READ, CinnabarIslandLabSign
+	bg_event 13,  3, BGEVENT_READ, CinnabarIslandGymSign
 
 	def_object_events
-	object_event  9,  6, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR
+	object_event 12,  5, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandGirlScript, -1
+	object_event 14,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandGamblerScript, -1

@@ -1,26 +1,29 @@
 	object_const_def
-	const ROUTE2GATE_SCIENTIST
+	const ROUTE2GATE_OAKS_AIDE
+	const ROUTE2GATE_YOUNGSTER
 
 Route2Gate_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-Route2GateScientistScript:
-	jumptextfaceplayer Route2GateScientistText
+Route2GateOaksAideScript:
+	jumptextfaceplayer Route2GateOaksAideText
 
-Route2GateScientistText:
-	text "Are you <PLAY_G>?"
+Route2GateYoungsterScript:
+	jumptextfaceplayer Route2GateYoungsterText
 
-	para "I work as PROF."
-	line "OAK's AIDE."
+Route2GateOaksAideText:
+	text "The HM FLASH"
+	line "lights even the"
+	cont "darkest dungeons."
+	done
 
-	para "I had no idea that"
-	line "you were out here."
-
-	para "PROF.OAK's LAB is"
-	line "nearby in PALLET"
-	cont "TOWN."
+Route2GateYoungsterText:
+	text "Once a #MON"
+	line "learns FLASH, you"
+	cont "can get through"
+	cont "ROCK TUNNEL."
 	done
 
 Route2Gate_MapEvents:
@@ -37,4 +40,5 @@ Route2Gate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  6,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route2GateScientistScript, -1
+	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route2GateOaksAideScript, -1
+	object_event  5,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route2GateYoungsterScript, -1

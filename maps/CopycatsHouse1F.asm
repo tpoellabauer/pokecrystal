@@ -1,73 +1,47 @@
 	object_const_def
-	const COPYCATSHOUSE1F_POKEFAN_M
-	const COPYCATSHOUSE1F_POKEFAN_F
-	const COPYCATSHOUSE1F_CLEFAIRY
+	const COPYCATSHOUSE1F_WOMAN
+	const COPYCATSHOUSE1F_MAN
+	const COPYCATSHOUSE1F_FAIRY
 
 CopycatsHouse1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-CopycatsHouse1FPokefanMScript:
-	jumptextfaceplayer CopycatsHouse1FPokefanMText
+CopycatsHouse1FWomanScript:
+	jumptextfaceplayer CopycatsHouse1FWomanText
 
-CopycatsHouse1FPokefanFScript:
-	faceplayer
+CopycatsHouse1FManScript:
+	jumptextfaceplayer CopycatsHouse1FManText
+
+CopycatsHouse1FFairyScript:
 	opentext
-	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .ReturnedMachinePart
-	writetext CopycatsHouse1FPokefanFText
+	writetext CopycatsHouse1FFairyText
+	cry CHANSEY
 	waitbutton
 	closetext
 	end
 
-.ReturnedMachinePart:
-	writetext CopycatsHouse1FPokefanFText_ReturnedMachinePart
-	waitbutton
-	closetext
-	end
+CopycatsHouse1FWomanText:
+	text "My daughter is so"
+	line "self-centered."
+	cont "She only has a"
+	cont "few friends."
+	done
 
-CopycatsHouse1FBlisseyScript:
-	opentext
-	writetext CopycatsHouse1FBlisseyText
-	cry BLISSEY
-	waitbutton
-	closetext
-	end
-
-CopycatsHouse1FPokefanMText:
+CopycatsHouse1FManText:
 	text "My daughter likes"
 	line "to mimic people."
 
 	para "Her mimicry has"
 	line "earned her the"
-
-	para "nickname COPYCAT"
-	line "around here."
+	cont "nickname COPYCAT"
+	cont "around here!"
 	done
 
-CopycatsHouse1FPokefanFText:
-	text "My daughter is so"
-	line "self-centered…"
-
-	para "She only has a few"
-	line "friends."
-	done
-
-CopycatsHouse1FPokefanFText_ReturnedMachinePart:
-	text "She recently lost"
-	line "the # DOLL that"
-
-	para "a boy gave her"
-	line "three years ago."
-
-	para "Ever since then,"
-	line "she's gotten even"
-	cont "better at mimicry…"
-	done
-
-CopycatsHouse1FBlisseyText:
-	text "BLISSEY: Bliisii!"
+CopycatsHouse1FFairyText:
+	text "CHANSEY: Chaan!"
+	line "Sii!"
 	done
 
 CopycatsHouse1F_MapEvents:
@@ -83,6 +57,6 @@ CopycatsHouse1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CopycatsHouse1FPokefanMScript, -1
-	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CopycatsHouse1FPokefanFScript, -1
-	object_event  6,  6, SPRITE_CLEFAIRY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CopycatsHouse1FBlisseyScript, -1
+	object_event  2,  2, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CopycatsHouse1FWomanScript, -1
+	object_event  5,  4, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CopycatsHouse1FManScript, -1
+	object_event  1,  4, SPRITE_FAIRY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CopycatsHouse1FFairyScript, -1
