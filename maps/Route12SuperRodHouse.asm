@@ -6,13 +6,22 @@ Route12SuperRodHouse_MapScripts:
 
 	def_callbacks
 
-; Ported from pokeredDisassembly scripts/Route12SuperRodHouse.asm +
-; text/Route12SuperRodHouse.asm. Gen 1's FISHING GURU's brother gives the SUPER ROD
-; (GiveItem + wStatusFlags1 BIT_GOT_SUPER_ROD gate) — NOT ported, see
-; "NEEDS SHARED-TABLE WORK" in the port report. Flavor-only dialogue below, faithfully
-; ported from the Gen 1 intro line (the branches that reference the item are dropped).
-Route12SuperRodHouseFishingGuruScript:
-	jumptextfaceplayer Route12SuperRodHouseFishingGuruText
+Route12SuperRodHouse:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_SUPER_ROD
+	iftrue .GotItem
+	writetext Route12SuperRodHouseFishingGuruText
+	waitbutton
+	verbosegiveitem SUPER_ROD
+	setevent EVENT_GOT_SUPER_ROD
+	closetext
+	end
+.GotItem:
+	writetext Route12SuperRodHouseFishingGuruAfterText
+	waitbutton
+	closetext
+	end
 
 Route12SuperRodHouseFishingGuruText:
 	text "I'm the FISHING"
@@ -23,6 +32,15 @@ Route12SuperRodHouseFishingGuruText:
 
 	para "Do you like to"
 	line "fish?"
+
+	para "Here, take the"
+	line "SUPER ROD!"
+	done
+
+Route12SuperRodHouseFishingGuruAfterText:
+	text "I hope that SUPER"
+	line "ROD brings you"
+	cont "good catches!"
 	done
 
 Route12SuperRodHouse_MapEvents:
@@ -37,4 +55,4 @@ Route12SuperRodHouse_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route12SuperRodHouseFishingGuruScript, -1
+	object_event  5,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route12SuperRodHouse, -1

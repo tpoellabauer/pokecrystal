@@ -6,10 +6,22 @@ MrPsychicsHouse_MapScripts:
 
 	def_callbacks
 
-; Gen 1 gate: Mr Psychic gives TM29 PSYCHIC (checkitem/verbosegiveitem + event flag).
-; NEEDS SHARED-TABLE WORK below — ported as flavor-only faceplayer text instead.
 MrPsychic:
-	jumptextfaceplayer MrPsychicText
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_TM29_PSYCHIC
+	iftrue .GotItem
+	writetext MrPsychicText
+	waitbutton
+	verbosegiveitem TM_PSYCHIC_M
+	setevent EVENT_GOT_TM29_PSYCHIC
+	closetext
+	end
+.GotItem:
+	writetext MrPsychicAfterText
+	waitbutton
+	closetext
+	end
 
 MrPsychicText:
 	text "TM29 is PSYCHIC!"
@@ -17,6 +29,13 @@ MrPsychicText:
 	para "It can lower the"
 	line "target's SPECIAL"
 	cont "abilities."
+
+	para "Take it!"
+	done
+
+MrPsychicAfterText:
+	text "TM29 PSYCHIC."
+	line "I hope it helps!"
 	done
 
 MrPsychicsHouse_MapEvents:
