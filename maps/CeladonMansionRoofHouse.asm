@@ -13,13 +13,22 @@ CeladonMansionRoofHouse_MapScripts:
 CeladonMansionRoofHouseHikerScript:
 	jumptextfaceplayer CeladonMansionRoofHouseHikerText
 
-; Gen 1's pokeball object calls GivePokemon EEVEE, level 25, then hides itself
-; (predef HideObject via TOGGLE_CELADON_MANSION_EEVEE_GIFT) — NOT ported, see
-; "NEEDS SHARED-TABLE WORK" in the port report. Flavor-only; Gen 1 source has no text_far
-; attached to this object at all (text_asm goes straight to GivePokemon), so the line below
-; is an invented minimal flavor line, not a ported string.
+; Gen 1's pokeball object: one-time gift of EEVEE at level 25, sets EVENT_GOT_EEVEE,
+; disappears after being given. Ported via script macros (givepoke, setevent, disappear).
 CeladonMansionRoofHouseEeveePokeballScript:
-	jumptextfaceplayer CeladonMansionRoofHouseEeveePokeballText
+	opentext
+	checkevent EVENT_GOT_EEVEE
+	iftrue .GotEevee
+	writetext CeladonMansionRoofHouseEeveePokeballText
+	promptbutton
+	givepoke EEVEE, 25
+	setevent EVENT_GOT_EEVEE
+	closetext
+	disappear CELADONMANSIONROOFHOUSE_EEVEE_POKEBALL
+	end
+.GotEevee:
+	closetext
+	end
 
 CeladonMansionRoofHouseHikerText:
 	text "I know everything"
@@ -35,7 +44,8 @@ CeladonMansionRoofHouseHikerText:
 CeladonMansionRoofHouseEeveePokeballText:
 	text "A #MON BALL…"
 
-	para "It looks empty."
+	para "It's got a #MON"
+	line "inside!"
 	done
 
 CeladonMansionRoofHouse_MapEvents:
@@ -51,4 +61,4 @@ CeladonMansionRoofHouse_MapEvents:
 
 	def_object_events
 	object_event  3,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseHikerScript, -1
-	object_event  5,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseEeveePokeballScript, -1
+	object_event  5,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseEeveePokeballScript, EVENT_GOT_EEVEE

@@ -18,8 +18,27 @@ CeladonMansion3FGraphicArtistScript:
 CeladonMansion3FWriterScript:
 	jumptextfaceplayer CeladonMansion3FWriterText
 
+; Gen 1 game designer checks caught #dex count (150, all Kanto species minus
+; Mew) and shows a special completed-dex line + the Diploma on success.
+; Ported using the readvar VAR_DEXCAUGHT + ifgreater idiom (see Route2Gate.asm
+; and RuinsOfAlph Unown gates).
 CeladonMansion3FGameDesignerScript:
-	jumptextfaceplayer CeladonMansion3FGameDesignerText
+	faceplayer
+	opentext
+	readvar VAR_DEXCAUGHT
+	ifgreater 149, .DexComplete
+	writetext CeladonMansion3FGameDesignerText
+	waitbutton
+	closetext
+	end
+
+.DexComplete:
+	writetext CeladonMansion3FGameDesignerCompletedDexText
+	promptbutton
+	setevent EVENT_ENABLE_DIPLOMA_PRINTING
+	special Diploma
+	closetext
+	end
 
 CeladonMansion3FDevRoomSign:
 	jumptext CeladonMansion3FDevRoomSignText
@@ -67,6 +86,15 @@ CeladonMansion3FGameDesignerText:
 
 	para "When you finish,"
 	line "come tell me!"
+	done
+
+CeladonMansion3FGameDesignerCompletedDexText:
+	text "What? You caught"
+	line "'em all?"
+
+	para "Amazing! Take"
+	line "this DIPLOMA as"
+	cont "proof!"
 	done
 
 CeladonMansion3FDevRoomSignText:

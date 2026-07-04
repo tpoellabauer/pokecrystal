@@ -1492,7 +1492,9 @@
 	const EVENT_SAFARI_ZONE_WEST_MAX_POTION
 	const EVENT_SAFARI_ZONE_WEST_MAX_REVIVE
 	const EVENT_SAFARI_ZONE_WEST_TM_DOUBLE_TEAM
-; Unused: next 38 events
+; Gen 1 Copycat doll -> TM Mimic trade
+	const EVENT_GOT_TM_MIMIC
+; Unused: next 37 events
 
 	const_next 2048
 DEF NUM_EVENTS EQU const_value ; 800

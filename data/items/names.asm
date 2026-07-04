@@ -243,7 +243,7 @@ ItemNames::
 	li "TM48"
 	li "TM49"
 	li "TM50"
-	assert_list_length NUM_ITEMS + NUM_TMS + 2 ; count ITEM_C3 and ITEM_DC
+	assert_list_length NUM_ITEMS + NUM_TMS + 1 ; count ITEM_C3
 	li "HM01"
 	li "HM02"
 	li "HM03"
@@ -251,7 +251,7 @@ ItemNames::
 	li "HM05"
 	li "HM06"
 	li "HM07"
-	assert_list_length NUM_ITEMS + NUM_TMS + 2 + NUM_HMS ; count ITEM_C3 and ITEM_DC
+	assert_list_length NUM_ITEMS + NUM_TMS + 1 + NUM_HMS ; count ITEM_C3
 	li "TERU-SAMA"
 	li "TERU-SAMA"
 	li "TERU-SAMA"

@@ -10,11 +10,42 @@ CopycatsHouse2F_MapScripts:
 
 	def_callbacks
 
-; Gen 1 gate: Copycat trades a lost Clefairy doll for the Magnet Train PASS
-; (checkitem LOST_ITEM / verbosegiveitem PASS + event flags). NEEDS SHARED-TABLE
-; WORK below — ported as flavor-only faceplayer text instead.
+; Gen 1 gate: Copycat trades a POKE_DOLL for TM31 MIMIC (one-time). MIMIC was plumbed
+; as a real Crystal TM in the old ITEM_DC slot (see item_constants.asm / items.asm), so
+; this is now the faithful Gen 1 trade rather than flavor text.
 CopycatScript:
-	jumptextfaceplayer CopycatText
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_TM_MIMIC
+	iftrue .GotTM
+	checkitem POKE_DOLL
+	iftrue .HasDoll
+	writetext CopycatText
+	waitbutton
+	closetext
+	end
+
+.HasDoll:
+	writetext CopycatDollText
+	promptbutton
+	verbosegiveitem TM_MIMIC
+	iffalse .NoRoom
+	takeitem POKE_DOLL
+	setevent EVENT_GOT_TM_MIMIC
+	writetext CopycatThanksText
+	waitbutton
+	closetext
+	end
+
+.NoRoom:
+	closetext
+	end
+
+.GotTM:
+	writetext CopycatMimicText
+	waitbutton
+	closetext
+	end
 
 CopycatText:
 	text "<PLAYER>: Hi! Do"
@@ -31,6 +62,28 @@ CopycatText:
 
 	para "But, that's my"
 	line "favorite hobby!"
+	done
+
+CopycatDollText:
+	text "COPYCAT: Oh! That"
+	line "DOLL! I've always"
+	cont "wanted one!"
+
+	para "I know! Let's"
+	line "trade for my TM!"
+	done
+
+CopycatThanksText:
+	text "COPYCAT: Thanks!"
+	line "This DOLL is so"
+	cont "me!"
+	done
+
+CopycatMimicText:
+	text "COPYCAT: MIMIC"
+	line "copies the foe's"
+	cont "move. Just like"
+	cont "me! Hee hee!"
 	done
 
 CopycatsHouse2FDoduoScript:

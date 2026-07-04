@@ -246,7 +246,7 @@ DEF TM01 EQU const_value
 	add_tm EARTHQUAKE   ; d9
 	add_tm RETURN       ; da
 	add_tm DIG          ; db
-	const ITEM_DC       ; dc
+	add_tm MIMIC        ; dc ; Gen 1 TM31 (Copycat doll trade); fills the ITEM_DC gap
 	add_tm PSYCHIC_M    ; dd
 	add_tm SHADOW_BALL  ; de
 	add_tm MUD_SLAP     ; df
