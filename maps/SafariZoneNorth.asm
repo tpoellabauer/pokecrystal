@@ -7,11 +7,11 @@ SafariZoneNorth_MapScripts:
 
 	def_callbacks
 
-SafariZoneNorthProteinScript:
-	jumptextfaceplayer SafariZoneNorthProteinText
+SafariZoneNorthProtein:
+	itemball PROTEIN
 
-SafariZoneNorthTMSkullBashScript:
-	jumptextfaceplayer SafariZoneNorthTMSkullBashText
+SafariZoneNorthTMSkullBash:
+	itemball TM_MUD_SLAP ; Gen1 TM_SKULL_BASH (TM40) absent in Gen2
 
 SafariZoneNorthRestHouseSign:
 	jumptext SafariZoneNorthRestHouseSignText
@@ -27,27 +27,6 @@ SafariZoneNorthTrainerTips2Sign:
 
 SafariZoneNorthTrainerTips3Sign:
 	jumptext SafariZoneNorthTrainerTips3Text
-
-; GATED (NEEDS SHARED-TABLE WORK) x2: Gen 1 item balls (PROTEIN, TM SKULL
-; BASH). Each needs a new EVENT_ flag in constants/event_flags.asm plus the
-; itemball/giveitem macros. Left as inert flavor text.
-SafariZoneNorthProteinText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "PROTEIN."
-	done
-
-SafariZoneNorthTMSkullBashText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like an"
-	line "old TM."
-	done
 
 SafariZoneNorthRestHouseSignText:
 	text "REST HOUSE"
@@ -107,5 +86,5 @@ SafariZoneNorth_MapEvents:
 	bg_event 26, 28, BGEVENT_READ, SafariZoneNorthTrainerTips3Sign
 
 	def_object_events
-	object_event 25,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthProteinScript, -1
-	object_event 19,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthTMSkullBashScript, -1
+	object_event 25,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthProtein, EVENT_SAFARI_ZONE_NORTH_PROTEIN
+	object_event 19,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthTMSkullBash, EVENT_SAFARI_ZONE_NORTH_TM_SKULL_BASH

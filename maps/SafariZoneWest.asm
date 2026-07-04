@@ -9,14 +9,14 @@ SafariZoneWest_MapScripts:
 
 	def_callbacks
 
-SafariZoneWestMaxPotionScript:
-	jumptextfaceplayer SafariZoneWestMaxPotionText
+SafariZoneWestMaxPotion:
+	itemball MAX_POTION
 
-SafariZoneWestTMDoubleTeamScript:
-	jumptextfaceplayer SafariZoneWestTMDoubleTeamText
+SafariZoneWestTMDoubleTeam:
+	itemball TM_DOUBLE_TEAM
 
-SafariZoneWestMaxReviveScript:
-	jumptextfaceplayer SafariZoneWestMaxReviveText
+SafariZoneWestMaxRevive:
+	itemball MAX_REVIVE
 
 SafariZoneWestGoldTeethScript:
 	jumptextfaceplayer SafariZoneWestGoldTeethText
@@ -32,36 +32,6 @@ SafariZoneWestTrainerTipsSign:
 
 SafariZoneWestSign:
 	jumptext SafariZoneWestSignText
-
-; GATED (NEEDS SHARED-TABLE WORK) x3: Gen 1 item balls (MAX POTION, TM DOUBLE
-; TEAM, MAX REVIVE). Each needs a new EVENT_ flag in constants/event_flags.asm
-; plus the itemball/giveitem macros. Left as inert flavor text.
-SafariZoneWestMaxPotionText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "MAX POTION."
-	done
-
-SafariZoneWestTMDoubleTeamText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like an"
-	line "old TM."
-	done
-
-SafariZoneWestMaxReviveText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "MAX REVIVE."
-	done
 
 ; GATED (NEEDS SHARED-TABLE WORK): the Safari Warden's GOLD TEETH quest item.
 ; In Gen 1 this ball, MainOffice, and WardensHome all share an EVENT_ flag +
@@ -131,7 +101,7 @@ SafariZoneWest_MapEvents:
 	bg_event 24, 22, BGEVENT_READ, SafariZoneWestSign
 
 	def_object_events
-	object_event  8, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneWestMaxPotionScript, -1
-	object_event  9,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneWestTMDoubleTeamScript, -1
-	object_event 18, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneWestMaxReviveScript, -1
+	object_event  8, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestMaxPotion, EVENT_SAFARI_ZONE_WEST_MAX_POTION
+	object_event  9,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestTMDoubleTeam, EVENT_SAFARI_ZONE_WEST_TM_DOUBLE_TEAM
+	object_event 18, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestMaxRevive, EVENT_SAFARI_ZONE_WEST_MAX_REVIVE
 	object_event 19,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneWestGoldTeethScript, -1

@@ -6,28 +6,14 @@ SafariZoneCenter_MapScripts:
 
 	def_callbacks
 
-SafariZoneCenterNuggetScript:
-	jumptextfaceplayer SafariZoneCenterNuggetText
+SafariZoneCenterNugget:
+	itemball NUGGET
 
 SafariZoneCenterRestHouseSign:
 	jumptext SafariZoneCenterRestHouseSignText
 
 SafariZoneCenterTrainerTipsSign:
 	jumptext SafariZoneCenterTrainerTipsSignText
-
-; GATED (NEEDS SHARED-TABLE WORK): Gen 1 has a real NUGGET item ball here
-; (SPRITE_POKE_BALL, OBJECTTYPE_ITEMBALL). Porting the pickup needs a new
-; EVENT_ flag in constants/event_flags.asm and the itemball/giveitem macros —
-; both out of scope for this map-only pass. Left as inert flavor text.
-SafariZoneCenterNuggetText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "#MON dropped a"
-	cont "NUGGET."
-	done
 
 SafariZoneCenterRestHouseSignText:
 	text "REST HOUSE"
@@ -62,4 +48,4 @@ SafariZoneCenter_MapEvents:
 	bg_event 14, 22, BGEVENT_READ, SafariZoneCenterTrainerTipsSign
 
 	def_object_events
-	object_event 14, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneCenterNuggetScript, -1
+	object_event 14, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneCenterNugget, EVENT_SAFARI_ZONE_CENTER_NUGGET

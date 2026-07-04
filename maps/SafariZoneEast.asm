@@ -9,17 +9,17 @@ SafariZoneEast_MapScripts:
 
 	def_callbacks
 
-SafariZoneEastFullRestoreScript:
-	jumptextfaceplayer SafariZoneEastFullRestoreText
+SafariZoneEastFullRestore:
+	itemball FULL_RESTORE
 
-SafariZoneEastMaxRestoreScript:
-	jumptextfaceplayer SafariZoneEastMaxRestoreText
+SafariZoneEastMaxRestore:
+	itemball MAX_POTION
 
-SafariZoneEastCarbosScript:
-	jumptextfaceplayer SafariZoneEastCarbosText
+SafariZoneEastCarbos:
+	itemball CARBOS
 
-SafariZoneEastTMEggBombScript:
-	jumptextfaceplayer SafariZoneEastTMEggBombText
+SafariZoneEastTMEggBomb:
+	itemball TM_SWIFT ; Gen1 TM_EGG_BOMB (TM39) absent in Gen2
 
 SafariZoneEastRestHouseSign:
 	jumptext SafariZoneEastRestHouseSignText
@@ -29,47 +29,6 @@ SafariZoneEastTrainerTipsSign:
 
 SafariZoneEastSign:
 	jumptext SafariZoneEastSignText
-
-; GATED (NEEDS SHARED-TABLE WORK) x4: Gen 1 has real item balls here (FULL
-; RESTORE, MAX POTION, CARBOS, TM EGG BOMB — TM_EGG_BOMB doesn't even exist
-; in Gen 2's movepool). Each needs a new EVENT_ flag in
-; constants/event_flags.asm plus the itemball/giveitem macros. Left as inert
-; flavor text.
-SafariZoneEastFullRestoreText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "FULL RESTORE."
-	done
-
-SafariZoneEastMaxRestoreText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "MAX POTION."
-	done
-
-SafariZoneEastCarbosText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a"
-	line "CARBOS."
-	done
-
-SafariZoneEastTMEggBombText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like an"
-	line "old TM."
-	done
 
 SafariZoneEastRestHouseSignText:
 	text "REST HOUSE"
@@ -106,7 +65,7 @@ SafariZoneEast_MapEvents:
 	bg_event  5, 23, BGEVENT_READ, SafariZoneEastSign
 
 	def_object_events
-	object_event 21, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneEastFullRestoreScript, -1
-	object_event  3,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneEastMaxRestoreScript, -1
-	object_event 20, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneEastCarbosScript, -1
-	object_event 15, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneEastTMEggBombScript, -1
+	object_event 21, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneEastFullRestore, EVENT_SAFARI_ZONE_EAST_FULL_RESTORE
+	object_event  3,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneEastMaxRestore, EVENT_SAFARI_ZONE_EAST_MAX_POTION
+	object_event 20, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneEastCarbos, EVENT_SAFARI_ZONE_EAST_CARBOS
+	object_event 15, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneEastTMEggBomb, EVENT_SAFARI_ZONE_EAST_TM_EGG_BOMB
