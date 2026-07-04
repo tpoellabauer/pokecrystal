@@ -6,43 +6,17 @@ MrPsychicsHouse_MapScripts:
 
 	def_callbacks
 
+; Gen 1 gate: Mr Psychic gives TM29 PSYCHIC (checkitem/verbosegiveitem + event flag).
+; NEEDS SHARED-TABLE WORK below — ported as flavor-only faceplayer text instead.
 MrPsychic:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_TM29_PSYCHIC
-	iftrue .AlreadyGotItem
-	writetext MrPsychicText1
-	promptbutton
-	verbosegiveitem TM_PSYCHIC_M
-	iffalse .Done
-	setevent EVENT_GOT_TM29_PSYCHIC
-.AlreadyGotItem:
-	writetext MrPsychicText2
-	waitbutton
-.Done:
-	closetext
-	end
+	jumptextfaceplayer MrPsychicText
 
-MrPsychicsHouseBookshelf:
-	jumpstd DifficultBookshelfScript
+MrPsychicText:
+	text "TM29 is PSYCHIC!"
 
-MrPsychicText1:
-	text "…"
-
-	para "…"
-
-	para "…"
-
-	para "…I got it!"
-
-	para "You wanted this!"
-	done
-
-MrPsychicText2:
-	text "TM29 is PSYCHIC."
-
-	para "It may lower the"
-	line "target's SPCL.DEF."
+	para "It can lower the"
+	line "target's SPECIAL"
+	cont "abilities."
 	done
 
 MrPsychicsHouse_MapEvents:
@@ -55,8 +29,6 @@ MrPsychicsHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  0,  1, BGEVENT_READ, MrPsychicsHouseBookshelf
-	bg_event  1,  1, BGEVENT_READ, MrPsychicsHouseBookshelf
 
 	def_object_events
 	object_event  5,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MrPsychic, -1
