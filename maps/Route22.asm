@@ -21,9 +21,17 @@ Route22NoopScene:
 
 ; Fires whenever you step on the League-gate approach. Gated on the arm flag so it is an
 ; inert no-op until Oak's Lab sets it (Gen 1's EVENT_ROUTE22_RIVAL_WANTS_BATTLE check).
+; Coord dispatcher: the 2nd (post-8th-badge) battle takes priority over the 1st.
+; Each arm flag is also the matching rival object's visibility flag, so only the
+; armed rival is on-screen when its branch runs.
 Route22RivalBattleScene:
+	checkevent EVENT_2ND_ROUTE22_RIVAL_BATTLE
+	iftrue Route22Rival2BattleScene
 	checkevent EVENT_1ST_ROUTE22_RIVAL_BATTLE
-	iffalse .done
+	iftrue Route22Rival1BattleScene
+	end
+
+Route22Rival1BattleScene:
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -66,14 +74,71 @@ Route22RivalBattleScene:
 	setscene SCENE_ROUTE22_NOOP
 	special HealParty
 	playmapmusic
-.done:
+	end
+
+; 2nd battle: armed by Viridian Gym after the 8th badge. Evolved teams (~L47-53).
+; Reuses the single ROUTE22_RIVAL object (a 2nd permanent object_event hangs the map
+; load). Viridian Gym re-sets EVENT_1ST (this object's visibility flag) alongside
+; EVENT_2ND; the dispatcher checks EVENT_2ND first, so this branch runs.
+Route22Rival2BattleScene:
+	turnobject PLAYER, LEFT
+	showemote EMOTE_SHOCK, PLAYER, 15
+	special FadeOutMusic
+	pause 15
+	applymovement ROUTE22_RIVAL, Route22RivalApproachMovement
+	turnobject PLAYER, LEFT
+	playmusic MUSIC_RIVAL_ENCOUNTER
+	opentext
+	writetext Route22Rival2BeforeText
+	waitbutton
+	closetext
+	checkevent EVENT_CHOSE_CHARMANDER
+	iftrue .Charmander
+	checkevent EVENT_CHOSE_SQUIRTLE
+	iftrue .Squirtle
+	; you chose Bulbasaur -> rival's Charmander line -> Charizard team
+	loadtrainer RIVAL1, RIVAL1_ROUTE22_2ND_CHARMANDER
+	sjump .Fight
+.Squirtle:
+	loadtrainer RIVAL1, RIVAL1_ROUTE22_2ND_BULBASAUR
+	sjump .Fight
+.Charmander:
+	loadtrainer RIVAL1, RIVAL1_ROUTE22_2ND_SQUIRTLE
+.Fight:
+	winlosstext Route22Rival2DefeatedText, Route22Rival2VictoryText
+	setlasttalked ROUTE22_RIVAL
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	dontrestartmapmusic
+	reloadmap
+	setevent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
+	playmusic MUSIC_RIVAL_AFTER
+	opentext
+	writetext Route22Rival2AfterText
+	waitbutton
+	closetext
+	applymovement ROUTE22_RIVAL, Route22RivalExitMovement
+	disappear ROUTE22_RIVAL
+	clearevent EVENT_2ND_ROUTE22_RIVAL_BATTLE
+	clearevent EVENT_1ST_ROUTE22_RIVAL_BATTLE ; also the shared visibility flag
+	setscene SCENE_ROUTE22_NOOP
+	special HealParty
+	playmapmusic
 	end
 
 ; Talking to the rival before the coord event trips (walking straight into him).
+; Shows whichever pre-battle taunt matches the armed battle.
 Route22RivalScript:
 	faceplayer
 	opentext
+	checkevent EVENT_2ND_ROUTE22_RIVAL_BATTLE
+	iftrue .Second
 	writetext Route22RivalBeforeText
+	waitbutton
+	closetext
+	end
+.Second:
+	writetext Route22Rival2BeforeText
 	waitbutton
 	closetext
 	end
@@ -148,6 +213,58 @@ Route22RivalVictoryText:
 
 	para "You should catch"
 	cont "some more too!"
+	done
+
+Route22Rival2BeforeText:
+	text "<RIVAL>: What?"
+	line "<PLAYER>! What a"
+	cont "surprise to see"
+	cont "you here!"
+
+	para "So you're going to"
+	line "#MON LEAGUE?"
+
+	para "You collected all"
+	line "the BADGEs too?"
+	cont "That's cool!"
+
+	para "Then I'll whip you"
+	line "<PLAYER> as a"
+	cont "warm up for"
+	cont "#MON LEAGUE!"
+
+	para "Come on!"
+	done
+
+Route22Rival2AfterText:
+	text "That loosened me"
+	line "up! I'm ready for"
+	cont "#MON LEAGUE!"
+
+	para "<PLAYER>, you need"
+	line "more practice!"
+
+	para "But hey, you know"
+	line "that! I'm out of"
+	cont "here. Smell ya!"
+	done
+
+Route22Rival2DefeatedText:
+	text "What!?"
+
+	para "I was just"
+	line "careless!"
+	done
+
+Route22Rival2VictoryText:
+	text "<RIVAL>: Hahaha!"
+	line "<PLAYER>! That's"
+	cont "your best? You're"
+	cont "nowhere near as"
+	cont "good as me, pal!"
+
+	para "Go train some"
+	line "more! You loser!"
 	done
 
 Route22_MapEvents:

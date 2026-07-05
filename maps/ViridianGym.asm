@@ -28,6 +28,12 @@ ViridianGymBlueScript:
 	writetext LeaderBlueAfterText
 	waitbutton
 	closetext
+	; Gen 1: beating the last-badge gym arms the 2nd Route 22 rival battle.
+	; EVENT_1ST is the Route 22 rival object's shared visibility flag (re-set here so he
+	; reappears); the coord dispatcher checks EVENT_2ND first, so the 2nd battle runs.
+	setevent EVENT_2ND_ROUTE22_RIVAL_BATTLE
+	setevent EVENT_1ST_ROUTE22_RIVAL_BATTLE
+	setmapscene ROUTE_22, SCENE_ROUTE22_DEFAULT
 	end
 
 .FightDone:

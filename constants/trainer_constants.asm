@@ -74,6 +74,9 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL1_ROUTE22_SQUIRTLE   ; Gen 1 Route 22 (1st): you chose Charmander
 	const RIVAL1_ROUTE22_BULBASAUR  ; Gen 1 Route 22 (1st): you chose Squirtle
 	const RIVAL1_ROUTE22_CHARMANDER ; Gen 1 Route 22 (1st): you chose Bulbasaur
+	const RIVAL1_ROUTE22_2ND_SQUIRTLE   ; Gen 1 Route 22 (2nd): you chose Charmander
+	const RIVAL1_ROUTE22_2ND_BULBASAUR  ; Gen 1 Route 22 (2nd): you chose Squirtle
+	const RIVAL1_ROUTE22_2ND_CHARMANDER ; Gen 1 Route 22 (2nd): you chose Bulbasaur
 
 	trainerclass POKEMON_PROF ; a
 

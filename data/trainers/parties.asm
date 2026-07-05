@@ -224,6 +224,36 @@ Rival1Group:
 	db  8, CHARMANDER
 	db -1 ; end
 
+	; RIVAL1 (22) ; Gen 1 Route 22 2nd - you chose CHARMANDER, rival has BLASTOISE
+	db "?@", TRAINERTYPE_NORMAL
+	db 47, PIDGEOT
+	db 45, RHYHORN
+	db 45, GROWLITHE
+	db 47, EXEGGCUTE
+	db 50, ALAKAZAM
+	db 53, BLASTOISE
+	db -1 ; end
+
+	; RIVAL1 (23) ; Gen 1 Route 22 2nd - you chose SQUIRTLE, rival has VENUSAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db 47, PIDGEOT
+	db 45, RHYHORN
+	db 45, GYARADOS
+	db 47, GROWLITHE
+	db 50, ALAKAZAM
+	db 53, VENUSAUR
+	db -1 ; end
+
+	; RIVAL1 (24) ; Gen 1 Route 22 2nd - you chose BULBASAUR, rival has CHARIZARD
+	db "?@", TRAINERTYPE_NORMAL
+	db 47, PIDGEOT
+	db 45, RHYHORN
+	db 45, EXEGGCUTE
+	db 47, GYARADOS
+	db 50, ALAKAZAM
+	db 53, CHARIZARD
+	db -1 ; end
+
 PokemonProfGroup:
 
 WillGroup:
