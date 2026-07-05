@@ -42,37 +42,56 @@ ForceUpdateCGBPals::
 	farcall _GrayscaleColorRamp
 	push af
 
-	ld hl, wBGPals2
+; Gen 1 Kanto on Crystal: push ONLY the colors the sweep has already grayscaled this pass
+; -- indices [0, wGrayscaleCursor) -- and leave the rest of CGB palette RAM untouched.
+; wBGPals2/wOBPals2 still hold this sweep's raw tail in [cursor, 64); pushing that tail is
+; exactly the transition/menu "runs in color" flash. Palette RAM retains any index we don't
+; overwrite, so the un-swept tail keeps the *previous completed sweep's* gray until this
+; sweep reaches it -- a brief gray pop-in, never raw color. The push still runs every VBlank
+; and always makes forward progress, so it can't strand hardware at the cold-boot white under
+; sweep starvation (the separate "player/Oak/rival white" bug). BG colors are the first 32
+; (wBGPals2), OBJ the next 32 (wOBPals2), so the cursor splits 32/32.
+	ld a, [wGrayscaleCursor] ; colors grayscaled so far (0..64)
+	ld e, a                  ; stash cursor for the OBJ half
 
-; copy 8 pals to bgpd
+; push the converted BG colors: min(cursor, 32)
+	cp 32 + 1
+	jr c, .gotBGCount
+	ld a, 32
+.gotBGCount
+	add a                    ; a = byte count (2 bytes per color)
+	ld b, a
+	ld hl, wBGPals2
 	ld a, BGPI_AUTOINC
 	ldh [rBGPI], a
 	ld c, LOW(rBGPD)
-	ld b, 8 / 2
+	ld a, b
+	and a
+	jr z, .objPush           ; nothing converted yet -> leave BG palette RAM as-is
 .bgp
-rept (1 palettes) * 2
 	ld a, [hli]
 	ldh [c], a
-endr
-
 	dec b
 	jr nz, .bgp
 
-; hl is now wOBPals2
-
-; copy 8 pals to obpd
+; push the converted OBJ colors: max(0, cursor - 32)
+.objPush
+	ld a, e
+	sub 32
+	jr c, .pushDone          ; cursor <= 32 -> no OBJ color converted yet
+	jr z, .pushDone
+	add a                    ; a = (cursor - 32) * 2 bytes
+	ld b, a
+	ld hl, wOBPals2
 	ld a, OBPI_AUTOINC
 	ldh [rOBPI], a
 	ld c, LOW(rOBPD)
-	ld b, 8 / 2
 .obp
-rept (1 palettes) * 2
 	ld a, [hli]
 	ldh [c], a
-endr
-
 	dec b
 	jr nz, .obp
+.pushDone
 
 ; clear pal update queue -- only once the sweep is actually fully converted+pushed
 	pop af
