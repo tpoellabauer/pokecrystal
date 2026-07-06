@@ -1,6 +1,6 @@
 	object_const_def
 	const PEWTERCITY_COOLTRAINER_F
-	const PEWTERCITY_BUG_CATCHER
+	const PEWTERCITY_COOLTRAINER_M
 	const PEWTERCITY_GRAMPS
 	const PEWTERCITY_FRUIT_TREE1
 	const PEWTERCITY_FRUIT_TREE2
@@ -18,8 +18,8 @@ PewterCityFlypointCallback:
 PewterCityCooltrainerFScript:
 	jumptextfaceplayer PewterCityCooltrainerFText
 
-PewterCityBugCatcherScript:
-	jumptextfaceplayer PewterCityBugCatcherText
+PewterCityCooltrainerMScript:
+	jumptextfaceplayer PewterCityCooltrainerMText
 
 PewterCityGrampsScript:
 	faceplayer
@@ -48,11 +48,11 @@ PewterGymSign:
 PewterMuseumSign:
 	jumptext PewterMuseumSignText
 
-PewterCityMtMoonGiftShopSign:
-	jumptext PewterCityMtMoonGiftShopSignText
+PewterCityPoliceNoticeSign:
+	jumptext PewterCityPoliceNoticeSignText
 
-PewterCityWelcomeSign:
-	jumptext PewterCityWelcomeSignText
+PewterCityTrainerTipsSign:
+	jumptext PewterCityTrainerTipsSignText
 
 PewterCityPokecenterSign:
 	jumpstd PokecenterSignScript
@@ -67,20 +67,25 @@ PewterCityFruitTree2:
 	fruittree FRUITTREE_PEWTER_CITY_2
 
 PewterCityCooltrainerFText:
-	text "Have you visited"
-	line "PEWTER GYM?"
+	text "It's rumored that"
+	line "CLEFAIRYs came"
+	cont "from the moon!"
 
-	para "The LEADER uses"
-	line "rock-type #MON."
+	para "They appeared"
+	line "after MOON STONE"
+	cont "fell on MT.MOON."
 	done
 
-PewterCityBugCatcherText:
-	text "At night, CLEFAIRY"
-	line "come out to play"
-	cont "at MT.MOON."
+PewterCityCooltrainerMText:
+	text "There aren't many"
+	line "serious #MON"
+	cont "trainers here!"
 
-	para "But not every"
-	line "night."
+	para "They're all like"
+	line "BUG CATCHERs,"
+	cont "but PEWTER GYM's"
+	cont "BROCK is totally"
+	cont "into it!"
 	done
 
 PewterCityGrampsText:
@@ -125,29 +130,32 @@ PewterGymSignText:
 	cont "LEADER: BROCK"
 
 	para "The Rock Solid"
-	line "#MON Trainer"
+	line "#MON Trainer!"
 	done
 
 PewterMuseumSignText:
-	text "There's a notice"
-	line "here…"
-
-	para "PEWTER MUSEUM OF"
-	line "SCIENCE is closed"
-	cont "for renovations…"
+	text "PEWTER MUSEUM"
+	line "OF SCIENCE"
 	done
 
-PewterCityMtMoonGiftShopSignText:
-	text "There's a notice"
-	line "here…"
+PewterCityPoliceNoticeSignText:
+	text "NOTICE!"
 
-	para "MT.MOON GIFT SHOP"
-	line "NOW OPEN!"
+	para "Thieves have been"
+	line "stealing #MON"
+	cont "fossils at MT."
+	cont "MOON! Please call"
+	cont "PEWTER POLICE"
+	cont "with any info!"
 	done
 
-PewterCityWelcomeSignText:
-	text "WELCOME TO"
-	line "PEWTER CITY!"
+PewterCityTrainerTipsSignText:
+	text "TRAINER TIPS"
+
+	para "Any #MON that"
+	line "takes part in"
+	cont "battle, however"
+	cont "short, earns EXP!"
 	done
 
 PewterCity_MapEvents:
@@ -166,14 +174,14 @@ PewterCity_MapEvents:
 	bg_event 25, 23, BGEVENT_READ, PewterCitySign
 	bg_event 11, 17, BGEVENT_READ, PewterGymSign
 	bg_event 15,  9, BGEVENT_READ, PewterMuseumSign
-	bg_event 33, 19, BGEVENT_READ, PewterCityMtMoonGiftShopSign
-	bg_event 19, 29, BGEVENT_READ, PewterCityWelcomeSign
+	bg_event 33, 19, BGEVENT_READ, PewterCityPoliceNoticeSign
+	bg_event 19, 29, BGEVENT_READ, PewterCityTrainerTipsSign
 	bg_event 14, 25, BGEVENT_READ, PewterCityPokecenterSign
 	bg_event 24, 17, BGEVENT_READ, PewterCityMartSign
 
 	def_object_events
 	object_event 19, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerFScript, -1
-	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, -1
+	object_event 14, 29, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerMScript, -1
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 32,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
 	object_event 30,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
