@@ -288,6 +288,14 @@ KogaGroup:
 	db 44, CROBAT,     DOUBLE_TEAM, QUICK_ATTACK, WING_ATTACK, TOXIC
 	db -1 ; end
 
+	; KOGA (2) ; Fuchsia Gym (Gen 1 first encounter, KOFFING/MUK/KOFFING/WEEZING L37-43)
+	db "KOGA@", TRAINERTYPE_NORMAL
+	db 37, KOFFING
+	db 39, MUK
+	db 37, KOFFING
+	db 43, WEEZING
+	db -1 ; end
+
 ChampionGroup:
 	; CHAMPION (1)
 	db "LANCE@", TRAINERTYPE_MOVES
@@ -1816,11 +1824,12 @@ TeacherGroup:
 	db -1 ; end
 
 SabrinaGroup:
-	; SABRINA (1)
-	db "SABRINA@", TRAINERTYPE_MOVES
-	db 46, ESPEON,     SAND_ATTACK, QUICK_ATTACK, SWIFT, PSYCHIC_M
-	db 46, MR__MIME,   BARRIER, REFLECT, BATON_PASS, PSYCHIC_M
-	db 48, ALAKAZAM,   RECOVER, FUTURE_SIGHT, PSYCHIC_M, REFLECT
+	; SABRINA (1) ; Saffron Gym (Gen 1 first encounter, KADABRA/MR. MIME/VENOMOTH/ALAKAZAM L37-43)
+	db "SABRINA@", TRAINERTYPE_NORMAL
+	db 38, KADABRA
+	db 37, MR__MIME
+	db 38, VENOMOTH
+	db 43, ALAKAZAM
 	db -1 ; end
 
 BugCatcherGroup:
@@ -2912,28 +2921,42 @@ JugglerGroup:
 	db 33, ELECTRODE
 	db -1 ; end
 
-	; JUGGLER (4)
-	db "IRWIN@", TRAINERTYPE_NORMAL
-	db  6, VOLTORB
-	db 10, VOLTORB
-	db 14, VOLTORB
-	db 18, VOLTORB
+	; JUGGLER (4) ; Fuchsia Gym (Gen 1 OPP_JUGGLER 7, HYPNO L38)
+	db "DUNCAN@", TRAINERTYPE_NORMAL
+	db 38, HYPNO
 	db -1 ; end
 
-	; JUGGLER (5)
-	db "IRWIN@", TRAINERTYPE_NORMAL
-	db 18, VOLTORB
-	db 22, VOLTORB
-	db 26, VOLTORB
-	db 30, ELECTRODE
+	; JUGGLER (5) ; Fuchsia Gym (Gen 1 OPP_JUGGLER 3, DROWZEE/DROWZEE/KADABRA/DROWZEE L31)
+	db "KENDALL@", TRAINERTYPE_NORMAL
+	db 31, DROWZEE
+	db 31, DROWZEE
+	db 31, KADABRA
+	db 31, DROWZEE
 	db -1 ; end
 
-	; JUGGLER (6)
-	db "IRWIN@", TRAINERTYPE_NORMAL
-	db 18, VOLTORB
-	db 22, VOLTORB
-	db 26, VOLTORB
-	db 30, ELECTRODE
+	; JUGGLER (6) ; Fuchsia Gym (Gen 1 OPP_JUGGLER 8, DROWZEE/KADABRA L34)
+	db "OTIS@", TRAINERTYPE_NORMAL
+	db 34, DROWZEE
+	db 34, KADABRA
+	db -1 ; end
+
+	; JUGGLER (7) ; Fuchsia Gym (Gen 1 OPP_TAMER 1, SANDSLASH/ARBOK L34, class folded into JUGGLER: Gen2 has no TAMER class)
+	db "WESLEY@", TRAINERTYPE_NORMAL
+	db 34, SANDSLASH
+	db 34, ARBOK
+	db -1 ; end
+
+	; JUGGLER (8) ; Fuchsia Gym (Gen 1 OPP_TAMER 2, ARBOK/SANDSLASH/ARBOK L33, class folded into JUGGLER: Gen2 has no TAMER class)
+	db "REGGIE@", TRAINERTYPE_NORMAL
+	db 33, ARBOK
+	db 33, SANDSLASH
+	db 33, ARBOK
+	db -1 ; end
+
+	; JUGGLER (9) ; Fuchsia Gym (Gen 1 OPP_JUGGLER 4, DROWZEE/HYPNO L34)
+	db "CLYDE@", TRAINERTYPE_NORMAL
+	db 34, DROWZEE
+	db 34, HYPNO
 	db -1 ; end
 
 BlackbeltGroup:
@@ -3030,9 +3053,12 @@ PsychicGroup:
 	db 26, GIRAFARIG
 	db -1 ; end
 
-	; PSYCHIC_T (2)
-	db "FRANKLIN@", TRAINERTYPE_NORMAL
-	db 37, KADABRA
+	; PSYCHIC_T (2) ; Saffron Gym (Gen 1 OPP_PSYCHIC_TR 1, KADABRA/SLOWPOKE/MR. MIME/KADABRA L31; was FRANKLIN)
+	db "GARRETT@", TRAINERTYPE_NORMAL
+	db 31, KADABRA
+	db 31, SLOWPOKE
+	db 31, MR__MIME
+	db 31, KADABRA
 	db -1 ; end
 
 	; PSYCHIC_T (3)
@@ -3083,17 +3109,28 @@ PsychicGroup:
 	db 34, GIRAFARIG
 	db -1 ; end
 
-	; PSYCHIC_T (11)
+	; PSYCHIC_T (11) ; Saffron Gym (Gen 1 OPP_PSYCHIC_TR 3, SLOWPOKE/SLOWPOKE/SLOWBRO L33)
 	db "JARED@", TRAINERTYPE_NORMAL
-	db 32, MR__MIME
-	db 32, EXEGGCUTE
-	db 35, EXEGGCUTE
+	db 33, SLOWPOKE
+	db 33, SLOWPOKE
+	db 33, SLOWBRO
 	db -1 ; end
 
 	; PSYCHIC_T (12)
 	db "RODNEY@", TRAINERTYPE_NORMAL
 	db 29, DROWZEE
 	db 33, HYPNO
+	db -1 ; end
+
+	; PSYCHIC_T (13) ; Saffron Gym (Gen 1 OPP_PSYCHIC_TR 2, MR. MIME/KADABRA L34)
+	db "LELAND@", TRAINERTYPE_NORMAL
+	db 34, MR__MIME
+	db 34, KADABRA
+	db -1 ; end
+
+	; PSYCHIC_T (14) ; Saffron Gym (Gen 1 OPP_PSYCHIC_TR 4, SLOWBRO L38)
+	db "WADE@", TRAINERTYPE_NORMAL
+	db 38, SLOWBRO
 	db -1 ; end
 
 PicnickerGroup:
@@ -3968,6 +4005,24 @@ ChannelerGroup:
 	; CHANNELER (13)
 	db "CHANNELER_6F_3@", TRAINERTYPE_NORMAL
 	db 24, GASTLY
+	db -1 ; end
+
+	; CHANNELER (14) ; Saffron Gym (Gen 1 OPP_CHANNELER 22, GASTLY/HAUNTER L34)
+	db "IRENE@", TRAINERTYPE_NORMAL
+	db 34, GASTLY
+	db 34, HAUNTER
+	db -1 ; end
+
+	; CHANNELER (15) ; Saffron Gym (Gen 1 OPP_CHANNELER 23, HAUNTER L38)
+	db "OPAL@", TRAINERTYPE_NORMAL
+	db 38, HAUNTER
+	db -1 ; end
+
+	; CHANNELER (16) ; Saffron Gym (Gen 1 OPP_CHANNELER 24, GASTLY/GASTLY/HAUNTER L33)
+	db "MYRTLE@", TRAINERTYPE_NORMAL
+	db 33, GASTLY
+	db 33, GASTLY
+	db 33, HAUNTER
 	db -1 ; end
 
 GiovanniGroup:
