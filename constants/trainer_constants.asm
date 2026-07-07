@@ -598,6 +598,11 @@ DEF KRIS EQU __trainer_class__
 	const DALTON ; Route 16
 	const IGOR ; Route 16
 	const OMAR ; Route 16
+	const RUSTY ; Route 17
+	const FELIPE ; Route 17
+	const NORRIS ; Route 17
+	const WADE6 ; Route 17
+	const EARL ; Route 17
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
@@ -877,5 +882,10 @@ DEF KRIS EQU __trainer_class__
 	const CUE_BALL_1
 	const CUE_BALL_2
 	const CUE_BALL_3
+	const CUE_BALL_4
+	const CUE_BALL_5
+	const CUE_BALL_6
+	const CUE_BALL_7
+	const CUE_BALL_8
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

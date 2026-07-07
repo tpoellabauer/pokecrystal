@@ -3061,6 +3061,39 @@ BikerGroup:
 	db 26, GRIMER
 	db -1 ; end
 
+	; BIKER (20)
+	db "RUSTY@", TRAINERTYPE_NORMAL
+	db 28, WEEZING
+	db 28, KOFFING
+	db 28, WEEZING
+	db -1 ; end
+
+	; BIKER (21)
+	db "FELIPE@", TRAINERTYPE_NORMAL
+	db 33, MUK
+	db -1 ; end
+
+	; BIKER (22)
+	db "NORRIS@", TRAINERTYPE_NORMAL
+	db 29, VOLTORB
+	db 29, VOLTORB
+	db -1 ; end
+
+	; BIKER (23)
+	db "WADE@", TRAINERTYPE_NORMAL
+	db 29, WEEZING
+	db 29, MUK
+	db -1 ; end
+
+	; BIKER (24)
+	db "EARL@", TRAINERTYPE_NORMAL
+	db 25, KOFFING
+	db 25, WEEZING
+	db 25, KOFFING
+	db 25, KOFFING
+	db 25, WEEZING
+	db -1 ; end
+
 BlaineGroup:
 	; BLAINE (1)
 	db "BLAINE@", TRAINERTYPE_MOVES
@@ -4437,4 +4470,35 @@ CueBallGroup:
 	; CUE_BALL (3)
 	db "?@", TRAINERTYPE_NORMAL
 	db 33, MACHOP
+	db -1 ; end
+
+	; CUE_BALL (4)
+	db "?@", TRAINERTYPE_NORMAL
+	db 29, MANKEY
+	db 29, PRIMEAPE
+	db -1 ; end
+
+	; CUE_BALL (5)
+	db "?@", TRAINERTYPE_NORMAL
+	db 29, MACHOP
+	db 29, MACHOKE
+	db -1 ; end
+
+	; CUE_BALL (6)
+	db "?@", TRAINERTYPE_NORMAL
+	db 33, MACHOKE
+	db -1 ; end
+
+	; CUE_BALL (7)
+	db "?@", TRAINERTYPE_NORMAL
+	db 26, MANKEY
+	db 26, MANKEY
+	db 26, MACHOKE
+	db 26, MACHOP
+	db -1 ; end
+
+	; CUE_BALL (8)
+	db "?@", TRAINERTYPE_NORMAL
+	db 29, PRIMEAPE
+	db 29, MACHOKE
 	db -1 ; end
