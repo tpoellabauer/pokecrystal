@@ -847,6 +847,45 @@ BirdKeeperGroup:
 	db 26, FEAROW
 	db -1 ; end
 
+	; BIRD_KEEPER (23)
+	db "NEIL@", TRAINERTYPE_NORMAL
+	db 28, PIDGEY
+	db 28, DODUO
+	db 28, PIDGEOTTO
+	db -1 ; end
+
+	; BIRD_KEEPER (24)
+	db "GARTH@", TRAINERTYPE_NORMAL
+	db 26, PIDGEY
+	db 26, SPEAROW
+	db 26, PIDGEY
+	db 26, FEAROW
+	db -1 ; end
+
+	; BIRD_KEEPER (25)
+	db "CLIFF@", TRAINERTYPE_NORMAL
+	db 29, PIDGEOTTO
+	db 29, FEAROW
+	db -1 ; end
+
+	; BIRD_KEEPER (26)
+	db "WESLEY@", TRAINERTYPE_NORMAL
+	db 28, SPEAROW
+	db 28, DODUO
+	db 28, FEAROW
+	db -1 ; end
+
+	; BIRD_KEEPER (27)
+	db "AUSTIN@", TRAINERTYPE_NORMAL
+	db 33, FARFETCHD
+	db -1 ; end
+
+	; BIRD_KEEPER (28)
+	db "BRUCE@", TRAINERTYPE_NORMAL
+	db 29, SPEAROW
+	db 29, FEAROW
+	db -1 ; end
+
 LassGroup:
 	; LASS (1)
 	db "CARRIE@", TRAINERTYPE_MOVES
@@ -2931,6 +2970,33 @@ BikerGroup:
 	db 28, KOFFING
 	db 28, KOFFING
 	db 28, KOFFING
+	db -1 ; end
+
+	; BIKER (11)
+	db "MERLE@", TRAINERTYPE_NORMAL
+	db 26, KOFFING
+	db 26, KOFFING
+	db 26, GRIMER
+	db 26, KOFFING
+	db -1 ; end
+
+	; BIKER (12)
+	db "OTTO@", TRAINERTYPE_NORMAL
+	db 28, GRIMER
+	db 28, GRIMER
+	db 28, KOFFING
+	db -1 ; end
+
+	; BIKER (13)
+	db "RANDY1@", TRAINERTYPE_NORMAL
+	db 29, KOFFING
+	db 29, MUK
+	db -1 ; end
+
+	; BIKER (14)
+	db "CORY@", TRAINERTYPE_NORMAL
+	db 29, KOFFING
+	db 29, GRIMER
 	db -1 ; end
 
 BlaineGroup:

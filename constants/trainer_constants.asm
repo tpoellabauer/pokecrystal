@@ -204,6 +204,12 @@ DEF KRIS EQU __trainer_class__
 	const DUKE ; Route 13
 	const FELIX ; Route 13
 	const OSCAR ; Route 13
+	const NEIL ; Route 14
+	const GARTH ; Route 14
+	const CLIFF ; Route 14
+	const WESLEY ; Route 14
+	const AUSTIN ; Route 14
+	const BRUCE ; Route 14
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -579,6 +585,10 @@ DEF KRIS EQU __trainer_class__
 	const JOEL
 	const GLENN
 	const SPIKE ; Route 13
+	const MERLE ; Route 14
+	const OTTO ; Route 14
+	const RANDY1 ; Route 14
+	const CORY ; Route 14
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1

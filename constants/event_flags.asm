@@ -1654,6 +1654,17 @@
 	const EVENT_BEAT_ROUTE_13_TRAINER_7
 	const EVENT_BEAT_ROUTE_13_TRAINER_8
 	const EVENT_BEAT_ROUTE_13_TRAINER_9
+; Route 14 (6 Bird Keeper, 4 Biker)
+	const EVENT_BEAT_ROUTE_14_TRAINER_0
+	const EVENT_BEAT_ROUTE_14_TRAINER_1
+	const EVENT_BEAT_ROUTE_14_TRAINER_2
+	const EVENT_BEAT_ROUTE_14_TRAINER_3
+	const EVENT_BEAT_ROUTE_14_TRAINER_4
+	const EVENT_BEAT_ROUTE_14_TRAINER_5
+	const EVENT_BEAT_ROUTE_14_TRAINER_6
+	const EVENT_BEAT_ROUTE_14_TRAINER_7
+	const EVENT_BEAT_ROUTE_14_TRAINER_8
+	const EVENT_BEAT_ROUTE_14_TRAINER_9
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
