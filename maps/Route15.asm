@@ -1,10 +1,14 @@
 	object_const_def
-	const ROUTE15_YOUNGSTER1
-	const ROUTE15_YOUNGSTER2
-	const ROUTE15_YOUNGSTER3
-	const ROUTE15_YOUNGSTER4
-	const ROUTE15_TEACHER1
-	const ROUTE15_TEACHER2
+	const ROUTE15_COOLTRAINER_F1
+	const ROUTE15_COOLTRAINER_F2
+	const ROUTE15_COOLTRAINER_M1
+	const ROUTE15_COOLTRAINER_M2
+	const ROUTE15_BEAUTY1
+	const ROUTE15_BEAUTY2
+	const ROUTE15_BIKER1
+	const ROUTE15_BIKER2
+	const ROUTE15_COOLTRAINER_F3
+	const ROUTE15_COOLTRAINER_F4
 	const ROUTE15_POKE_BALL
 
 Route15_MapScripts:
@@ -12,68 +16,104 @@ Route15_MapScripts:
 
 	def_callbacks
 
-TrainerTeacherColette:
-	trainer TEACHER, COLETTE, EVENT_BEAT_TEACHER_COLETTE, TeacherColetteSeenText, TeacherColetteBeatenText, 0, .Script
-
+; Gen 1: CoolTrainerF sprite, JR.TRAINER(F) class.
+TrainerRoute15CoolTrainerF1:
+	trainer JR_TRAINER_F, JR_TRAINER_F_9, EVENT_BEAT_ROUTE_15_TRAINER_0, Route15CoolTrainerF1SeenText, Route15CoolTrainerF1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext TeacherColetteAfterBattleText
+	writetext Route15CoolTrainerF1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerTeacherHillary:
-	trainer TEACHER, HILLARY, EVENT_BEAT_TEACHER_HILLARY, TeacherHillarySeenText, TeacherHillaryBeatenText, 0, .Script
-
+TrainerRoute15CoolTrainerF2:
+	trainer JR_TRAINER_F, JR_TRAINER_F_10, EVENT_BEAT_ROUTE_15_TRAINER_1, Route15CoolTrainerF2SeenText, Route15CoolTrainerF2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext TeacherHillaryAfterBattleText
+	writetext Route15CoolTrainerF2AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyKipp:
-	trainer SCHOOLBOY, KIPP, EVENT_BEAT_SCHOOLBOY_KIP, SchoolboyKippSeenText, SchoolboyKippBeatenText, 0, .Script
-
+; Gen 1: CoolTrainerM sprite, BIRD_KEEPER class.
+TrainerRoute15CoolTrainerM1:
+	trainer BIRD_KEEPER, LOUIE, EVENT_BEAT_ROUTE_15_TRAINER_2, Route15CoolTrainerM1SeenText, Route15CoolTrainerM1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyKippAfterBattleText
+	writetext Route15CoolTrainerM1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyTommy:
-	trainer SCHOOLBOY, TOMMY, EVENT_BEAT_SCHOOLBOY_TOMMY, SchoolboyTommySeenText, SchoolboyTommyBeatenText, 0, .Script
-
+TrainerRoute15CoolTrainerM2:
+	trainer BIRD_KEEPER, MARCO, EVENT_BEAT_ROUTE_15_TRAINER_3, Route15CoolTrainerM2SeenText, Route15CoolTrainerM2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyTommyAfterBattleText
+	writetext Route15CoolTrainerM2AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyJohnny:
-	trainer SCHOOLBOY, JOHNNY, EVENT_BEAT_SCHOOLBOY_JOHNNY, SchoolboyJohnnySeenText, SchoolboyJohnnyBeatenText, 0, .Script
-
+TrainerRoute15Beauty1:
+	trainer BEAUTY, ROSA1, EVENT_BEAT_ROUTE_15_TRAINER_4, Route15Beauty1SeenText, Route15Beauty1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyJohnnyAfterBattleText
+	writetext Route15Beauty1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyBilly:
-	trainer SCHOOLBOY, BILLY, EVENT_BEAT_SCHOOLBOY_BILLY, SchoolboyBillySeenText, SchoolboyBillyBeatenText, 0, .Script
-
+TrainerRoute15Beauty2:
+	trainer BEAUTY, CANDACE, EVENT_BEAT_ROUTE_15_TRAINER_5, Route15Beauty2SeenText, Route15Beauty2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyBillyAfterBattleText
+	writetext Route15Beauty2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute15Biker1:
+	trainer BIKER, LOGAN, EVENT_BEAT_ROUTE_15_TRAINER_6, Route15Biker1SeenText, Route15Biker1BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route15Biker1AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute15Biker2:
+	trainer BIKER, TRENT, EVENT_BEAT_ROUTE_15_TRAINER_7, Route15Biker2SeenText, Route15Biker2BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route15Biker2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute15CoolTrainerF3:
+	trainer JR_TRAINER_F, JR_TRAINER_F_11, EVENT_BEAT_ROUTE_15_TRAINER_8, Route15CoolTrainerF3SeenText, Route15CoolTrainerF3BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route15CoolTrainerF3AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute15CoolTrainerF4:
+	trainer JR_TRAINER_F, JR_TRAINER_F_12, EVENT_BEAT_ROUTE_15_TRAINER_9, Route15CoolTrainerF4SeenText, Route15CoolTrainerF4BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route15CoolTrainerF4AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -81,122 +121,181 @@ TrainerSchoolboyBilly:
 Route15Sign:
 	jumptext Route15SignText
 
-Route15PPUp:
-	itemball PP_UP
+; Gen 1: this was TM_RAGE, not portable to Gen 2 (Rage isn't a TM here); subbed to
+; CARBOS to match CoolTrainerF4's own dialogue ("I found CARBOS in a cave once").
+Route15Carbos:
+	itemball CARBOS
 
-TeacherColetteSeenText:
-	text "Have you forgotten"
-	line "anything?"
+Route15CoolTrainerF1SeenText:
+	text "Let me try out the"
+	line "#MON I just"
+	cont "got in a trade!"
 	done
 
-TeacherColetteBeatenText:
-	text "Kyaaah!"
+Route15CoolTrainerF1BeatenText:
+	text "Not"
+	line "good enough!"
+	prompt
+
+Route15CoolTrainerF1AfterBattleText:
+	text "You can't change"
+	line "the nickname of"
+	cont "any #MON you"
+	cont "get in a trade."
+
+	para "Only the Original"
+	line "Trainer can."
 	done
 
-TeacherColetteAfterBattleText:
-	text "Before I became a"
-	line "teacher, I used to"
-
-	para "forget a lot of"
-	line "things."
+Route15CoolTrainerF2SeenText:
+	text "You look gentle,"
+	line "so I think I can"
+	cont "beat you!"
 	done
 
-TeacherHillarySeenText:
-	text "On sunny days, I"
-	line "think that the"
+Route15CoolTrainerF2BeatenText:
+	text "No,"
+	line "wrong!"
+	prompt
 
-	para "kids would rather"
-	line "be playing in the"
-
-	para "schoolyard than"
-	line "studying in class."
+Route15CoolTrainerF2AfterBattleText:
+	text "I'm afraid of"
+	line "BIKERs, they look"
+	cont "so ugly and mean!"
 	done
 
-TeacherHillaryBeatenText:
-	text "I didn't want to"
-	line "lose…"
+Route15CoolTrainerM1SeenText:
+	text "When I whistle, I"
+	line "can summon bird"
+	cont "#MON!"
 	done
 
-TeacherHillaryAfterBattleText:
-	text "Studying is impor-"
-	line "tant, but exercise"
-	cont "is just as vital."
+Route15CoolTrainerM1BeatenText:
+	text "Ow!"
+	line "That's tragic!"
+	prompt
+
+Route15CoolTrainerM1AfterBattleText:
+	text "Maybe I'm not cut"
+	line "out for battles."
 	done
 
-SchoolboyKippSeenText:
-	text "Hang on. I have to"
-	line "phone my mom."
+Route15CoolTrainerM2SeenText:
+	text "Hmm? My birds are"
+	line "shivering! You're"
+	cont "good, aren't you?"
 	done
 
-SchoolboyKippBeatenText:
-	text "Sorry, Mom!"
-	line "I was beaten!"
+Route15CoolTrainerM2BeatenText:
+	text "Just"
+	line "as I thought!"
+	prompt
+
+Route15CoolTrainerM2AfterBattleText:
+	text "Did you know moves"
+	line "like EARTHQUAKE"
+	cont "don't have any"
+	cont "effect on birds?"
 	done
 
-SchoolboyKippAfterBattleText:
-	text "My mom worries so"
-	line "much about me, I"
-
-	para "have to phone her"
-	line "all the time."
+Route15Beauty1SeenText:
+	text "Oh, you're a"
+	line "little cutie!"
 	done
 
-SchoolboyTommySeenText:
-	text "Let's battle."
-	line "I won't lose!"
+Route15Beauty1BeatenText:
+	text "You looked"
+	line "so cute too!"
+	prompt
+
+Route15Beauty1AfterBattleText:
+	text "I forgive you!"
+	line "I can take it!"
 	done
 
-SchoolboyTommyBeatenText:
-	text "I forgot to do my"
-	line "homework!"
+Route15Beauty2SeenText:
+	text "I raise #MON"
+	line "because I live"
+	cont "alone!"
 	done
 
-SchoolboyTommyAfterBattleText:
-	text "Sayonara! I just"
-	line "learned that in my"
-	cont "Japanese class."
+Route15Beauty2BeatenText:
+	text "I didn't"
+	line "ask for this!"
+	prompt
+
+Route15Beauty2AfterBattleText:
+	text "I just like going"
+	line "home to be with"
+	cont "my #MON!"
 	done
 
-SchoolboyJohnnySeenText:
-	text "We're on a field"
-	line "trip to LAVENDER"
-
-	para "RADIO TOWER for"
-	line "social studies."
+Route15Biker1SeenText:
+	text "Hey kid! C'mon!"
+	line "I just got these!"
 	done
 
-SchoolboyJohnnyBeatenText:
-	text "You're wickedly"
-	line "tough!"
+Route15Biker1BeatenText:
+	text "Why"
+	line "not?"
+	prompt
+
+Route15Biker1AfterBattleText:
+	text "You only live"
+	line "once, so I live"
+	cont "as an outlaw!"
 	done
 
-SchoolboyJohnnyAfterBattleText:
-	text "I'm tired of walk-"
-	line "ing. I need to"
-	cont "take a break."
+Route15Biker2SeenText:
+	text "Fork over all your"
+	line "cash when you"
+	cont "lose to me, kid!"
 	done
 
-SchoolboyBillySeenText:
-	text "My favorite class"
-	line "is gym!"
+Route15Biker2BeatenText:
+	text "That"
+	line "can't be true!"
+	prompt
+
+Route15Biker2AfterBattleText:
+	text "I was just joking"
+	line "about the money!"
 	done
 
-SchoolboyBillyBeatenText:
-	text "Oh, no!"
-	line "How could I lose?"
+Route15CoolTrainerF3SeenText:
+	text "What's cool?"
+	line "Trading #MON!"
 	done
 
-SchoolboyBillyAfterBattleText:
-	text "If #MON were a"
-	line "subject at school,"
-	cont "I'd be the best!"
+Route15CoolTrainerF3BeatenText:
+	text "I"
+	line "said trade!"
+	prompt
+
+Route15CoolTrainerF3AfterBattleText:
+	text "I trade #MON"
+	line "with my friends!"
+	done
+
+Route15CoolTrainerF4SeenText:
+	text "Want to play with"
+	line "my #MON?"
+	done
+
+Route15CoolTrainerF4BeatenText:
+	text "I was"
+	line "too impatient!"
+	prompt
+
+Route15CoolTrainerF4AfterBattleText:
+	text "I'll go train with"
+	line "weaker people."
 	done
 
 Route15SignText:
 	text "ROUTE 15"
-
-	para "FUCHSIA CITY -"
-	line "LAVENDER TOWN"
+	line "West to FUCHSIA"
+	cont "CITY"
 	done
 
 Route15_MapEvents:
@@ -209,13 +308,17 @@ Route15_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 19,  9, BGEVENT_READ, Route15Sign
+	bg_event 39,  9, BGEVENT_READ, Route15Sign
 
 	def_object_events
-	object_event 10, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyKipp, -1
-	object_event 15, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyTommy, -1
-	object_event 33, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJohnny, -1
-	object_event 27, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyBilly, -1
-	object_event 30, 12, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerTeacherColette, -1
-	object_event 20, 10, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerTeacherHillary, -1
-	object_event 12,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15PPUp, EVENT_ROUTE_15_PP_UP
+	object_event 41, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerF1, -1
+	object_event 53, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerF2, -1
+	object_event 31, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerM1, -1
+	object_event 35, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerM2, -1
+	object_event 53, 11, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15Beauty1, -1
+	object_event 41, 10, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15Beauty2, -1
+	object_event 48, 10, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute15Biker1, -1
+	object_event 46, 10, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute15Biker2, -1
+	object_event 37,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerF3, -1
+	object_event 18, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerF4, -1
+	object_event 18,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15Carbos, EVENT_ROUTE_15_CARBOS
