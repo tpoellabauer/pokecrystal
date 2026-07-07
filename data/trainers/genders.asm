@@ -74,4 +74,5 @@ BTTrainerClassGenders:
 	db MALE   ; GAMBLER
 	db MALE   ; CHANNELER
 	db MALE   ; GIOVANNI
+	db MALE   ; CUE_BALL
 	assert_table_length NUM_TRAINER_CLASSES - 1 ; exclude MYSTICALMAN

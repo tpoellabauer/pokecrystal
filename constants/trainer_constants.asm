@@ -595,6 +595,9 @@ DEF KRIS EQU __trainer_class__
 	const CORY ; Route 14
 	const LOGAN ; Route 15
 	const TRENT ; Route 15
+	const DALTON ; Route 16
+	const IGOR ; Route 16
+	const OMAR ; Route 16
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
@@ -868,5 +871,11 @@ DEF KRIS EQU __trainer_class__
 	const GIOVANNI_ROCKET_HIDEOUT
 	const GIOVANNI_SILPH_CO
 	const GIOVANNI_VIRIDIAN_GYM
+
+; Gen 1 CUE_BALL: Route 16/17/21, sprite is SPRITE_BIKER (Gen 1's own sprite/class mismatch)
+	trainerclass CUE_BALL ; 49
+	const CUE_BALL_1
+	const CUE_BALL_2
+	const CUE_BALL_3
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

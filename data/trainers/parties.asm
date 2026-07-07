@@ -3042,6 +3042,25 @@ BikerGroup:
 	db 28, WEEZING
 	db -1 ; end
 
+	; BIKER (17)
+	db "DALE@", TRAINERTYPE_NORMAL
+	db 29, GRIMER
+	db 29, KOFFING
+	db -1 ; end
+
+	; BIKER (18)
+	db "IVAN@", TRAINERTYPE_NORMAL
+	db 33, WEEZING
+	db -1 ; end
+
+	; BIKER (19)
+	db "SHAWN1@", TRAINERTYPE_NORMAL
+	db 26, GRIMER
+	db 26, GRIMER
+	db 26, GRIMER
+	db 26, GRIMER
+	db -1 ; end
+
 BlaineGroup:
 	; BLAINE (1)
 	db "BLAINE@", TRAINERTYPE_MOVES
@@ -4399,4 +4418,23 @@ GiovanniGroup:
 	db 44, NIDOQUEEN
 	db 45, NIDOKING
 	db 50, RHYDON
+	db -1 ; end
+
+CueBallGroup:
+	; CUE_BALL (1)
+	db "?@", TRAINERTYPE_NORMAL
+	db 28, MACHOP
+	db 28, MANKEY
+	db 28, MACHOP
+	db -1 ; end
+
+	; CUE_BALL (2)
+	db "?@", TRAINERTYPE_NORMAL
+	db 29, MANKEY
+	db 29, MACHOP
+	db -1 ; end
+
+	; CUE_BALL (3)
+	db "?@", TRAINERTYPE_NORMAL
+	db 33, MACHOP
 	db -1 ; end

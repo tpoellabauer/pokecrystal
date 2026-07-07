@@ -73,4 +73,5 @@ TrainerClassNames::
 	li "GAMBLER"
 	li "CHANNELER"
 	li "GIOVANNI"
+	li "CUE BALL"
 	assert_list_length NUM_TRAINER_CLASSES

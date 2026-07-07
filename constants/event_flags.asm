@@ -1677,6 +1677,14 @@
 	const EVENT_BEAT_ROUTE_15_TRAINER_8
 	const EVENT_BEAT_ROUTE_15_TRAINER_9
 	const EVENT_ROUTE_15_CARBOS
+; Route 16 (6 Biker, 3 Cue Ball, Snorlax roadblock)
+	const EVENT_BEAT_ROUTE_16_TRAINER_0
+	const EVENT_BEAT_ROUTE_16_TRAINER_1
+	const EVENT_BEAT_ROUTE_16_TRAINER_2
+	const EVENT_BEAT_ROUTE_16_TRAINER_3
+	const EVENT_BEAT_ROUTE_16_TRAINER_4
+	const EVENT_BEAT_ROUTE_16_TRAINER_5
+	const EVENT_ROUTE_16_SNORLAX
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

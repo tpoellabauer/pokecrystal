@@ -75,4 +75,5 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; GAMBLER
 	dn  8, 10,  9,  9 ; CHANNELER
 	dn 13,  8, 10,  8 ; GIOVANNI
+	dn  9,  8,  8,  8 ; CUE_BALL
 	assert_table_length NUM_TRAINER_CLASSES
