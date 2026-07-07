@@ -1,3 +1,5 @@
+	object_const_def
+
 Route7_MapScripts:
 	def_scene_scripts
 

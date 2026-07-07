@@ -11,12 +11,35 @@ RedHouse1FNoopScene:
 	end
 
 RedsHouse1FMomScript:
-	jumptextfaceplayer RedsHouse1FMomText
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_STARTER
+	iftrue .HealParty
+	writetext RedsHouse1FMomBeforeStarterText
+	waitbutton
+	closetext
+	end
+
+.HealParty:
+	writetext RedsHouse1FMomOfferHealText
+	waitbutton
+	closetext
+	special FadeOutToWhite
+	playmusic MUSIC_HEAL
+	pause 60
+	special FadeInFromWhite
+	special RestartMapMusic
+	opentext
+	writetext RedsHouse1FMomLookingGreatText
+	waitbutton
+	closetext
+	special HealParty
+	end
 
 RedsHouse1FTV:
 	jumptext RedsHouse1FTVText
 
-RedsHouse1FMomText:
+RedsHouse1FMomBeforeStarterText:
 	text "MOM: Right."
 	line "All boys leave"
 	cont "home some day."
@@ -25,6 +48,20 @@ RedsHouse1FMomText:
 	para "PROF.OAK, next"
 	line "door, is looking"
 	cont "for you."
+	done
+
+RedsHouse1FMomOfferHealText:
+	text "MOM: <PLAY_G>!"
+	line "You should take a"
+	cont "quick rest."
+	prompt
+
+RedsHouse1FMomLookingGreatText:
+	text "MOM: Oh good!"
+	line "You and your"
+	cont "#MON are"
+	cont "looking great!"
+	cont "Take care now!"
 	done
 
 RedsHouse1FTVText:

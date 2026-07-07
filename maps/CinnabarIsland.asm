@@ -76,10 +76,13 @@ CinnabarIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	; GSC Cinnabar is post-eruption rubble: gym/lab/mart don't exist as maps here.
-	; Only the Pokemon Mansion + Pokecenter are reachable (see NEEDS-MAP backlog).
 	warp_event  6,  3, POKEMON_MANSION_1F, 2
 	warp_event 11, 11, CINNABAR_POKECENTER_1F, 1
+	; Gym/lab/mart restored from Gen 1 (see NEEDS-MAP backlog); appended after the
+	; two entries above, so their own front-door warps target slots 3/4/5 here.
+	warp_event 18,  3, CINNABAR_GYM, 1
+	warp_event  6,  9, CINNABAR_LAB, 1
+	warp_event 15, 11, CINNABAR_MART, 1
 
 	def_coord_events
 

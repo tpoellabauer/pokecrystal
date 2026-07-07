@@ -21,26 +21,23 @@ CeruleanMart_CooltrainerF:
 	jumptextfaceplayer CeruleanMart_CooltrainerFText
 
 CeruleanMart_CooltrainerMText:
-	text "You'll run into"
-	line "many trainers on"
+	text "Use REPEL to keep"
+	line "bugs and weak"
+	cont "#MON away."
 
-	para "the way to CERU-"
-	line "LEAN's CAPE."
-
-	para "They want to see"
-	line "how they stack"
-
-	para "up against other"
-	line "trainers."
+	para "Put your strongest"
+	line "#MON at the"
+	cont "top of the list"
+	cont "for best results!"
 	done
 
 CeruleanMart_CooltrainerFText:
-	text "MISTY is about the"
-	line "only person in"
+	text "Have you seen any"
+	line "RARE CANDY?"
 
-	para "town who can beat"
-	line "the trainers at"
-	cont "CERULEAN's CAPE."
+	para "It's supposed to"
+	line "make #MON go"
+	cont "up one level!"
 	done
 
 CeruleanMart_MapEvents:

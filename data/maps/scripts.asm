@@ -539,5 +539,12 @@ INCLUDE "maps/SeafoamIslandsB4F.asm"
 INCLUDE "maps/CeruleanCave1F.asm"
 INCLUDE "maps/CeruleanCave2F.asm"
 INCLUDE "maps/CeruleanCaveB1F.asm"
+INCLUDE "maps/CinnabarGym.asm"
+INCLUDE "maps/CinnabarLab.asm"
+INCLUDE "maps/CinnabarMart.asm"
+INCLUDE "maps/Route2TradeHouse.asm"
+INCLUDE "maps/ViridianForestNorthGate.asm"
+INCLUDE "maps/ViridianForestSouthGate.asm"
+INCLUDE "maps/ViridianForest.asm"
 
 ENDSECTION

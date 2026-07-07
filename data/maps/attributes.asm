@@ -824,3 +824,17 @@ ENDM
 	map_attributes CeruleanCave2F, CERULEAN_CAVE_2F, $00
 
 	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $00
+
+	map_attributes CinnabarGym, CINNABAR_GYM, $2e
+
+	map_attributes CinnabarLab, CINNABAR_LAB, $17
+
+	map_attributes CinnabarMart, CINNABAR_MART, $00
+
+	map_attributes Route2TradeHouse, ROUTE_2_TRADE_HOUSE, $0a
+
+	map_attributes ViridianForestNorthGate, VIRIDIAN_FOREST_NORTH_GATE, $0a
+
+	map_attributes ViridianForestSouthGate, VIRIDIAN_FOREST_SOUTH_GATE, $0a
+
+	map_attributes ViridianForest, VIRIDIAN_FOREST, $03

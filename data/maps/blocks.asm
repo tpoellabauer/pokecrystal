@@ -141,7 +141,6 @@ GoldenrodNameRater_Blocks:
 VermilionFishingSpeechHouse_Blocks:
 VermilionMagnetTrainSpeechHouse_Blocks:
 VermilionDiglettsCaveSpeechHouse_Blocks:
-BluesHouse_Blocks:
 PewterNidoranSpeechHouse_Blocks:
 PewterSnoozeSpeechHouse_Blocks:
 BillsOlderSistersHouse_Blocks:
@@ -784,6 +783,9 @@ TrainerHouseB1F_Blocks:
 RedsHouse2F_Blocks:
 	INCBIN "maps/RedsHouse2F.blk"
 
+BluesHouse_Blocks:
+	INCBIN "maps/BluesHouse.blk"
+
 OaksLab_Blocks:
 	INCBIN "maps/OaksLab.blk"
 
@@ -1222,5 +1224,26 @@ CeruleanCave2F_Blocks:
 
 CeruleanCaveB1F_Blocks:
 	INCBIN "maps/CeruleanCaveB1F.blk"
+
+CinnabarGym_Blocks:
+	INCBIN "maps/CinnabarGym.blk"
+
+CinnabarLab_Blocks:
+	INCBIN "maps/CinnabarLab.blk"
+
+CinnabarMart_Blocks:
+	INCBIN "maps/CinnabarMart.blk"
+
+Route2TradeHouse_Blocks:
+	INCBIN "maps/Route2TradeHouse.blk"
+
+ViridianForestNorthGate_Blocks:
+	INCBIN "maps/ViridianForestNorthGate.blk"
+
+ViridianForestSouthGate_Blocks:
+	INCBIN "maps/ViridianForestSouthGate.blk"
+
+ViridianForest_Blocks:
+	INCBIN "maps/ViridianForest.blk"
 
 ENDSECTION

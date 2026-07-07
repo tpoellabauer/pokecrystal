@@ -28,24 +28,20 @@ ViridianMartClerkScript:
 	closetext
 	end
 
-ViridianMartLassScript:
-	jumptextfaceplayer ViridianMartLassText
+ViridianMartYoungsterScript:
+	jumptextfaceplayer ViridianMartYoungsterText
 
 ViridianMartCooltrainerMScript:
 	jumptextfaceplayer ViridianMartCooltrainerMText
 
-ViridianMartLassText:
-	text "The GYM LEADER"
-	line "here is totally"
-	cont "cool."
+ViridianMartYoungsterText:
+	text "This shop sells"
+	line "many ANTIDOTEs."
 	done
 
 ViridianMartCooltrainerMText:
-	text "Have you been to"
-	line "CINNABAR?"
-
-	para "It's an island way"
-	line "south of here."
+	text "No! POTIONs are"
+	line "all sold out."
 	done
 
 ViridianMartClerkParcelText:

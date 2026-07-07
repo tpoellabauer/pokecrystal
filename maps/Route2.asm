@@ -1,4 +1,6 @@
 	object_const_def
+	const ROUTE2_MOON_STONE
+	const ROUTE2_HP_UP
 
 Route2_MapScripts:
 	def_scene_scripts
@@ -10,6 +12,12 @@ Route2Sign:
 
 Route2DiglettsCaveSign:
 	jumptext Route2DiglettsCaveSignText
+
+Route2MoonStone:
+	itemball MOON_STONE
+
+Route2HPUp:
+	itemball HP_UP
 
 Route2SignText:
 	text "ROUTE 2"
@@ -31,6 +39,12 @@ Route2_MapEvents:
 	warp_event 16, 27, ROUTE_2_GATE, 1
 	warp_event 17, 27, ROUTE_2_GATE, 2
 	warp_event 12,  7, DIGLETTS_CAVE, 3
+	; Viridian Forest gates + trade house restored from Gen 1 (see NEEDS-MAP
+	; backlog); appended after the 5 entries above, so their own doors target
+	; slots 6/7/8 here (not the Gen1 source's own numbering for this map).
+	warp_event  3, 11, VIRIDIAN_FOREST_NORTH_GATE, 2
+	warp_event 15, 19, ROUTE_2_TRADE_HOUSE, 1
+	warp_event  3, 43, VIRIDIAN_FOREST_SOUTH_GATE, 3
 
 	def_coord_events
 
@@ -39,3 +53,5 @@ Route2_MapEvents:
 	bg_event 11,  9, BGEVENT_READ, Route2DiglettsCaveSign
 
 	def_object_events
+	object_event 13, 54, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2MoonStone, EVENT_ROUTE_2_MOON_STONE
+	object_event 13, 45, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2HPUp, EVENT_ROUTE_2_HP_UP

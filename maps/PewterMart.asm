@@ -21,26 +21,21 @@ PewterMartSuperNerdScript:
 	jumptextfaceplayer PewterMartSuperNerdText
 
 PewterMartYoungsterText:
-	text "Hi! Check out my"
-	line "GYARADOS!"
+	text "A shady, old man"
+	line "got me to buy"
+	cont "this really weird"
+	cont "fish #MON!"
 
-	para "I raised it from a"
-	line "MAGIKARP. I can't"
-
-	para "believe how strong"
-	line "it has become."
+	para "It's totally weak"
+	line "and it cost ¥500!"
 	done
 
 PewterMartSuperNerdText:
-	text "There once was a"
-	line "weird old man who"
-	cont "sold MAGIKARP."
-
-	para "He was saying the"
-	line "MAGIKARP from the"
-
-	para "LAKE OF RAGE were"
-	line "excellent."
+	text "Good things can"
+	line "happen if you"
+	cont "raise #MON"
+	cont "diligently, even"
+	cont "the weak ones!"
 	done
 
 PewterMart_MapEvents:

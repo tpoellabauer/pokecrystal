@@ -14,25 +14,24 @@ SaffronMartClerkScript:
 	closetext
 	end
 
-SaffronMartCooltrainerMScript:
-	jumptextfaceplayer SaffronMartCooltrainerMText
+SaffronMartSuperNerdScript:
+	jumptextfaceplayer SaffronMartSuperNerdText
 
 SaffronMartCooltrainerFScript:
 	jumptextfaceplayer SaffronMartCooltrainerFText
 
-SaffronMartCooltrainerMText:
-	text "There's a big"
-	line "RADIO TOWER in"
-	cont "LAVENDER."
+SaffronMartSuperNerdText:
+	text "MAX REPEL lasts"
+	line "longer than SUPER"
+	cont "REPEL for keeping"
+	cont "weaker #MON"
+	cont "away!"
 	done
 
 SaffronMartCooltrainerFText:
-	text "I want to become"
-	line "stronger, but I'm"
-	cont "not good yet…"
-
-	para "Could you show me"
-	line "how sometime?"
+	text "REVIVE is costly,"
+	line "but it revives"
+	cont "fainted #MON!"
 	done
 
 SaffronMart_MapEvents:

@@ -14,24 +14,34 @@ VermilionMartClerkScript:
 	closetext
 	end
 
-VermilionMartSuperNerdScript:
-	jumptextfaceplayer VermilionMartSuperNerdText
+VermilionMartCooltrainerMScript:
+	jumptextfaceplayer VermilionMartCooltrainerMText
 
-VermilionMartBeautyScript:
-	jumptextfaceplayer VermilionMartBeautyText
+VermilionMartCooltrainerFScript:
+	jumptextfaceplayer VermilionMartCooltrainerFText
 
-VermilionMartSuperNerdText:
-	text "TEAM ROCKET is no"
-	line "longer in KANTO."
+VermilionMartCooltrainerMText:
+	text "There are evil"
+	line "people who will"
+	cont "use #MON for"
+	cont "criminal acts."
 
-	para "That alone makes"
-	line "me happy."
+	para "TEAM ROCKET"
+	line "traffics in rare"
+	cont "#MON."
+
+	para "They also abandon"
+	line "#MON that they"
+	cont "consider not to"
+	cont "be popular or"
+	cont "useful."
 	done
 
-VermilionMartBeautyText:
-	text "I'm thinking about"
-	line "going shopping in"
-	cont "SAFFRON."
+VermilionMartCooltrainerFText:
+	text "I think #MON"
+	line "can be good or"
+	cont "evil. It depends"
+	cont "on the trainer."
 	done
 
 VermilionMart_MapEvents:

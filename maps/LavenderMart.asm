@@ -14,35 +14,32 @@ LavenderMartClerkScript:
 	closetext
 	end
 
-LavenderMartPokefanMScript:
-	jumptextfaceplayer LavenderMartPokefanMText
+LavenderMartBaldingGuyScript:
+	jumptextfaceplayer LavenderMartBaldingGuyText
 
-LavenderMartRockerScript:
-	jumptextfaceplayer LavenderMartRockerText
+LavenderMartCooltrainerMScript:
+	jumptextfaceplayer LavenderMartCooltrainerMText
 
-LavenderMartPokefanMText:
-	text "REPEL is a neces-"
-	line "sity if you are"
+LavenderMartBaldingGuyText:
+	text "I'm searching for"
+	line "items that raise"
+	cont "the abilities of"
+	cont "#MON during a"
+	cont "single battle."
 
-	para "going to explore a"
-	line "cave."
+	para "X ATTACK, X"
+	line "DEFEND, X SPEED"
+	cont "and X SPECIAL are"
+	cont "what I'm after."
 
-	para "Even though I like"
-	line "exploring, I still"
-
-	para "haven't made it to"
-	line "all the caves."
+	para "Do you know where"
+	line "I can get them?"
 	done
 
-LavenderMartRockerText:
-	text "I heard about a"
-	line "craftsman who"
-
-	para "makes custom BALLS"
-	line "in the JOHTO town"
-
-	para "of AZALEA. I wish"
-	line "I had some."
+LavenderMartCooltrainerMText:
+	text "You know REVIVE?"
+	line "It revives any"
+	cont "fainted #MON!"
 	done
 
 LavenderMart_MapEvents:

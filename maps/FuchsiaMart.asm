@@ -14,25 +14,25 @@ FuchsiaMartClerkScript:
 	closetext
 	end
 
-FuchsiaMartFisherScript:
-	jumptextfaceplayer FuchsiaMartFisherText
+FuchsiaMartMiddleAgedManScript:
+	jumptextfaceplayer FuchsiaMartMiddleAgedManText
 
 FuchsiaMartCooltrainerFScript:
 	jumptextfaceplayer FuchsiaMartCooltrainerFText
 
-FuchsiaMartFisherText:
-	text "I was hoping to"
-	line "buy some SAFARI"
+FuchsiaMartMiddleAgedManText:
+	text "Do you have a"
+	line "SAFARI ZONE flag?"
 
-	para "ZONE souvenirs,"
-	line "but it's closed…"
+	para "What about cards"
+	line "or calendars?"
 	done
 
 FuchsiaMartCooltrainerFText:
-	text "The SAFARI ZONE"
-	line "WARDEN's grand-"
-	cont "daughter lives in"
-	cont "town."
+	text "Did you try X"
+	line "SPEED? It speeds"
+	cont "up a #MON in"
+	cont "battle!"
 	done
 
 FuchsiaMart_MapEvents:
