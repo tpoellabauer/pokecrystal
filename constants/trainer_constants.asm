@@ -201,6 +201,9 @@ DEF KRIS EQU __trainer_class__
 	const JOSE3
 	const VANCE2
 	const VANCE3
+	const DUKE ; Route 13
+	const FELIX ; Route 13
+	const OSCAR ; Route 13
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -287,6 +290,8 @@ DEF KRIS EQU __trainer_class__
 	const THERESA ; unused
 	const VALERIE
 	const OLIVIA
+	const TIFFANY ; Route 13
+	const NADIA ; Route 13
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -573,6 +578,7 @@ DEF KRIS EQU __trainer_class__
 	const RILEY
 	const JOEL
 	const GLENN
+	const SPIKE ; Route 13
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
@@ -804,6 +810,10 @@ DEF KRIS EQU __trainer_class__
 	const JR_TRAINER_F_2
 	const JR_TRAINER_F_3
 	const JR_TRAINER_F_4
+	const JR_TRAINER_F_5 ; Route 13
+	const JR_TRAINER_F_6 ; Route 13
+	const JR_TRAINER_F_7 ; Route 13
+	const JR_TRAINER_F_8 ; Route 13
 
 	trainerclass GAMBLER ; 46
 	const GAMBLER_1

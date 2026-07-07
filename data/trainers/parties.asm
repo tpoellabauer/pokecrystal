@@ -824,6 +824,29 @@ BirdKeeperGroup:
 	db 38, PIDGEOT,    SWIFT, DETECT, STEEL_WING, FLY
 	db -1 ; end
 
+	; BIRD_KEEPER (20)
+	db "DUKE@", TRAINERTYPE_NORMAL
+	db 29, PIDGEY
+	db 29, PIDGEOTTO
+	db -1 ; end
+
+	; BIRD_KEEPER (21)
+	db "FELIX@", TRAINERTYPE_NORMAL
+	db 25, SPEAROW
+	db 25, PIDGEY
+	db 25, PIDGEY
+	db 25, SPEAROW
+	db 25, SPEAROW
+	db -1 ; end
+
+	; BIRD_KEEPER (22)
+	db "OSCAR@", TRAINERTYPE_NORMAL
+	db 26, PIDGEY
+	db 26, PIDGEOTTO
+	db 26, SPEAROW
+	db 26, FEAROW
+	db -1 ; end
+
 LassGroup:
 	; LASS (1)
 	db "CARRIE@", TRAINERTYPE_MOVES
@@ -1289,6 +1312,19 @@ BeautyGroup:
 	; BEAUTY (17)
 	db "OLIVIA@", TRAINERTYPE_NORMAL
 	db 19, CORSOLA
+	db -1 ; end
+
+	; BEAUTY (18)
+	db "TIFFANY@", TRAINERTYPE_NORMAL
+	db 27, RATTATA
+	db 27, PIKACHU
+	db 27, RATTATA
+	db -1 ; end
+
+	; BEAUTY (19)
+	db "NADIA@", TRAINERTYPE_NORMAL
+	db 29, CLEFAIRY
+	db 29, MEOWTH
 	db -1 ; end
 
 PokemaniacGroup:
@@ -2890,6 +2926,13 @@ BikerGroup:
 	db 32, WEEZING
 	db -1 ; end
 
+	; BIKER (10)
+	db "SPIKE@", TRAINERTYPE_NORMAL
+	db 28, KOFFING
+	db 28, KOFFING
+	db 28, KOFFING
+	db -1 ; end
+
 BlaineGroup:
 	; BLAINE (1)
 	db "BLAINE@", TRAINERTYPE_MOVES
@@ -4042,6 +4085,36 @@ JrTrainerFGroup:
 	; JR_TRAINER_F (4)
 	db "?@", TRAINERTYPE_NORMAL
 	db 23, MEOWTH
+	db -1 ; end
+
+	; JR_TRAINER_F (5)
+	db "?@", TRAINERTYPE_NORMAL
+	db 24, PIDGEY
+	db 24, MEOWTH
+	db 24, RATTATA
+	db 24, PIKACHU
+	db 24, MEOWTH
+	db -1 ; end
+
+	; JR_TRAINER_F (6)
+	db "?@", TRAINERTYPE_NORMAL
+	db 30, POLIWAG
+	db 30, POLIWAG
+	db -1 ; end
+
+	; JR_TRAINER_F (7)
+	db "?@", TRAINERTYPE_NORMAL
+	db 27, PIDGEY
+	db 27, MEOWTH
+	db 27, PIDGEY
+	db 27, PIDGEOTTO
+	db -1 ; end
+
+	; JR_TRAINER_F (8)
+	db "?@", TRAINERTYPE_NORMAL
+	db 28, GOLDEEN
+	db 28, POLIWAG
+	db 28, HORSEA
 	db -1 ; end
 
 GamblerGroup:

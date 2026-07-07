@@ -1,66 +1,118 @@
 	object_const_def
-	const ROUTE13_YOUNGSTER1
-	const ROUTE13_YOUNGSTER2
-	const ROUTE13_POKEFAN_M1
-	const ROUTE13_POKEFAN_M2
-	const ROUTE13_POKEFAN_M3
+	const ROUTE13_COOLTRAINER_M1
+	const ROUTE13_COOLTRAINER_F1
+	const ROUTE13_COOLTRAINER_F2
+	const ROUTE13_COOLTRAINER_F3
+	const ROUTE13_COOLTRAINER_F4
+	const ROUTE13_COOLTRAINER_M2
+	const ROUTE13_BEAUTY1
+	const ROUTE13_BEAUTY2
+	const ROUTE13_BIKER
+	const ROUTE13_COOLTRAINER_M3
 
 Route13_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-TrainerPokefanmAlex:
-	trainer POKEFANM, ALEX, EVENT_BEAT_POKEFANM_ALEX, PokefanmAlexSeenText, PokefanmAlexBeatenText, 0, .Script
-
+; Gen 1: CoolTrainerM sprite, BIRD_KEEPER class.
+TrainerRoute13CoolTrainerM1:
+	trainer BIRD_KEEPER, DUKE, EVENT_BEAT_ROUTE_13_TRAINER_0, Route13CoolTrainerM1SeenText, Route13CoolTrainerM1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext PokefanmAlexAfterBattleText
+	writetext Route13CoolTrainerM1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerPokefanmJoshua:
-	trainer POKEFANM, JOSHUA, EVENT_BEAT_POKEFANM_JOSHUA, PokefanmJoshuaSeenText, PokefanmJoshuaBeatenText, 0, .Script
-
+; Gen 1: CoolTrainerF sprite, JR.TRAINER(F) class.
+TrainerRoute13CoolTrainerF1:
+	trainer JR_TRAINER_F, JR_TRAINER_F_5, EVENT_BEAT_ROUTE_13_TRAINER_1, Route13CoolTrainerF1SeenText, Route13CoolTrainerF1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext PokefanmJoshuaAfterBattleText
+	writetext Route13CoolTrainerF1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerBirdKeeperPerry:
-	trainer BIRD_KEEPER, PERRY, EVENT_BEAT_BIRD_KEEPER_PERRY, BirdKeeperPerrySeenText, BirdKeeperPerryBeatenText, 0, .Script
-
+TrainerRoute13CoolTrainerF2:
+	trainer JR_TRAINER_F, JR_TRAINER_F_6, EVENT_BEAT_ROUTE_13_TRAINER_2, Route13CoolTrainerF2SeenText, Route13CoolTrainerF2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdKeeperPerryAfterBattleText
+	writetext Route13CoolTrainerF2AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerBirdKeeperBret:
-	trainer BIRD_KEEPER, BRET, EVENT_BEAT_BIRD_KEEPER_BRET, BirdKeeperBretSeenText, BirdKeeperBretBeatenText, 0, .Script
-
+TrainerRoute13CoolTrainerF3:
+	trainer JR_TRAINER_F, JR_TRAINER_F_7, EVENT_BEAT_ROUTE_13_TRAINER_3, Route13CoolTrainerF3SeenText, Route13CoolTrainerF3BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdKeeperBretAfterBattleText
+	writetext Route13CoolTrainerF3AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerHikerKenny:
-	trainer HIKER, KENNY, EVENT_BEAT_HIKER_KENNY, HikerKennySeenText, HikerKennyBeatenText, 0, .Script
-
+TrainerRoute13CoolTrainerF4:
+	trainer JR_TRAINER_F, JR_TRAINER_F_8, EVENT_BEAT_ROUTE_13_TRAINER_4, Route13CoolTrainerF4SeenText, Route13CoolTrainerF4BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext HikerKennyAfterBattleText
+	writetext Route13CoolTrainerF4AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute13CoolTrainerM2:
+	trainer BIRD_KEEPER, FELIX, EVENT_BEAT_ROUTE_13_TRAINER_5, Route13CoolTrainerM2SeenText, Route13CoolTrainerM2BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route13CoolTrainerM2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute13Beauty1:
+	trainer BEAUTY, TIFFANY, EVENT_BEAT_ROUTE_13_TRAINER_6, Route13Beauty1SeenText, Route13Beauty1BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route13Beauty1AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute13Beauty2:
+	trainer BEAUTY, NADIA, EVENT_BEAT_ROUTE_13_TRAINER_7, Route13Beauty2SeenText, Route13Beauty2BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route13Beauty2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute13Biker:
+	trainer BIKER, SPIKE, EVENT_BEAT_ROUTE_13_TRAINER_8, Route13BikerSeenText, Route13BikerBeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route13BikerAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute13CoolTrainerM3:
+	trainer BIRD_KEEPER, OSCAR, EVENT_BEAT_ROUTE_13_TRAINER_9, Route13CoolTrainerM3SeenText, Route13CoolTrainerM3BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route13CoolTrainerM3AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -77,93 +129,163 @@ Route13DirectionsSign:
 Route13HiddenCalcium:
 	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
 
-PokefanmAlexSeenText:
-	text "Bow down before my"
-	line "regal #MON!"
+Route13CoolTrainerM1SeenText:
+	text "My bird #MON"
+	line "want to scrap!"
 	done
 
-PokefanmAlexBeatenText:
-	text "How… How dare you"
-	line "mock royalty!"
+Route13CoolTrainerM1BeatenText:
+	text "My"
+	line "bird combo lost?"
+	prompt
+
+Route13CoolTrainerM1AfterBattleText:
+	text "My #MON look"
+	line "happy even though"
+	cont "they lost."
 	done
 
-PokefanmAlexAfterBattleText:
-	text "Doesn't everyone"
-	line "wish to someday be"
-	cont "a king?"
+Route13CoolTrainerF1SeenText:
+	text "I'm told I'm good"
+	line "for a kid!"
 	done
 
-PokefanmJoshuaSeenText:
-	text "Nihihi! Would you"
-	line "like to battle my"
-	cont "PIKACHU gang?"
+Route13CoolTrainerF1BeatenText:
+	text "Ohh!"
+	line "I lost!"
+	prompt
+
+Route13CoolTrainerF1AfterBattleText:
+	text "I want to become"
+	line "a good trainer."
+	cont "I'll train hard."
 	done
 
-PokefanmJoshuaBeatenText:
-	text "PI-PIKACHU!"
+Route13CoolTrainerF2SeenText:
+	text "Wow! Your BADGEs"
+	line "are too cool!"
 	done
 
-PokefanmJoshuaAfterBattleText:
-	text "You look like you"
-	line "have many #MON,"
+Route13CoolTrainerF2BeatenText:
+	text "Not"
+	line "enough!"
+	prompt
 
-	para "but PIKACHU is"
-	line "still the best."
+Route13CoolTrainerF2AfterBattleText:
+	text "You got those"
+	line "BADGEs from GYM"
+	cont "LEADERs. I know!"
 	done
 
-BirdKeeperPerrySeenText:
-	text "Agility is the key"
-	line "attribute of bird"
+Route13CoolTrainerF3SeenText:
+	text "My cute #MON"
+	line "wish to make your"
+	cont "acquaintance."
+	done
+
+Route13CoolTrainerF3BeatenText:
+	text "Wow!"
+	line "You totally won!"
+	prompt
+
+Route13CoolTrainerF3AfterBattleText:
+	text "You have to make"
+	line "#MON fight to"
+	cont "toughen them up!"
+	done
+
+Route13CoolTrainerF4SeenText:
+	text "I found CARBOS in"
+	line "a cave once."
+	done
+
+Route13CoolTrainerF4BeatenText:
+	text "Just"
+	line "messed up!"
+	prompt
+
+Route13CoolTrainerF4AfterBattleText:
+	text "CARBOS boosted"
+	line "the SPEED of my"
 	cont "#MON."
 	done
 
-BirdKeeperPerryBeatenText:
-	text "You beat me with"
-	line "your speed…"
+Route13CoolTrainerM2SeenText:
+	text "The wind's blowing"
+	line "my way!"
 	done
 
-BirdKeeperPerryAfterBattleText:
-	text "Your #MON are"
-	line "remarkably well-"
-	cont "trained."
+Route13CoolTrainerM2BeatenText:
+	text "The"
+	line "wind turned!"
+	prompt
+
+Route13CoolTrainerM2AfterBattleText:
+	text "I'm beat. I guess"
+	line "I'll FLY home."
 	done
 
-BirdKeeperBretSeenText:
-	text "Check out my #-"
-	line "MON. Just look at"
-
-	para "their coloring and"
-	line "their plumage."
+Route13Beauty1SeenText:
+	text "Sure, I'll play"
+	line "with you!"
 	done
 
-BirdKeeperBretBeatenText:
-	text "Shoot!"
-	line "Not good enough!"
+Route13Beauty1BeatenText:
+	text "Oh!"
+	line "You little brute!"
+	prompt
+
+Route13Beauty1AfterBattleText:
+	text "I wonder which is"
+	line "stronger, male or"
+	cont "female #MON?"
 	done
 
-BirdKeeperBretAfterBattleText:
-	text "If you groom them,"
-	line "#MON get happy."
+Route13Beauty2SeenText:
+	text "Do you want to"
+	line "#MON with me?"
 	done
 
-HikerKennySeenText:
-	text "I should go to"
-	line "ROCK TUNNEL to get"
-	cont "myself an ONIX."
+Route13Beauty2BeatenText:
+	text "It's over"
+	line "already?"
+	prompt
+
+Route13Beauty2AfterBattleText:
+	text "I don't know"
+	line "anything about"
+	cont "#MON. I just"
+	cont "like cool ones!"
 	done
 
-HikerKennyBeatenText:
-	text "I lost…"
+Route13BikerSeenText:
+	text "What're you"
+	line "lookin' at?"
 	done
 
-HikerKennyAfterBattleText:
-	text "Geological fea-"
-	line "tures don't appear"
-	cont "to change."
+Route13BikerBeatenText:
+	text "Dang!"
+	line "Stripped gears!"
+	prompt
 
-	para "But they actually"
-	line "change, little by"
-	cont "little."
+Route13BikerAfterBattleText:
+	text "Get lost!"
+	done
+
+Route13CoolTrainerM3SeenText:
+	text "I always go with"
+	line "bird #MON!"
+	done
+
+Route13CoolTrainerM3BeatenText:
+	text "Out"
+	line "of power!"
+	prompt
+
+Route13CoolTrainerM3AfterBattleText:
+	text "I wish I could"
+	line "fly like PIDGEY"
+	cont "and PIDGEOTTO…"
 	done
 
 Route13TrainerTipsText:
@@ -197,14 +319,19 @@ Route13_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 29, 13, BGEVENT_READ, Route13TrainerTips
-	bg_event 41, 11, BGEVENT_READ, Route13Sign
+	bg_event 15, 13, BGEVENT_READ, Route13TrainerTips
+	bg_event 33,  5, BGEVENT_READ, Route13Sign
 	bg_event 17, 13, BGEVENT_READ, Route13DirectionsSign
 	bg_event 30, 13, BGEVENT_ITEM, Route13HiddenCalcium
 
 	def_object_events
-	object_event 42,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperPerry, -1
-	object_event 43,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperBret, -1
-	object_event 32,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJoshua, -1
-	object_event 14, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerHikerKenny, -1
-	object_event 25,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmAlex, -1
+	object_event 49, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerM1, -1
+	object_event 48, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerF1, -1
+	object_event 27,  9, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerF2, -1
+	object_event 23, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerF3, -1
+	object_event 50,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerF4, -1
+	object_event 12,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerM2, -1
+	object_event 33,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute13Beauty1, -1
+	object_event 32,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute13Beauty2, -1
+	object_event 10,  7, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute13Biker, -1
+	object_event  7, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerM3, -1
