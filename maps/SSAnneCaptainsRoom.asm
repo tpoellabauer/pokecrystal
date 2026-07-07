@@ -1,108 +1,63 @@
 	object_const_def
-	const SSANNECAPTAINSROOM_CAPTAIN
+	const SSANNE_CAPTAINS_ROOM_CAPTAIN
 
 SSAnneCaptainsRoom_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-; Gen 1: the seasick captain hands you HM01 (Cut) once, after you rub his back.
-; Reuses the shared HM01 flag/item (both pre-exist), so this is a file-local port.
+; Captain gives HM01 (Cut) on back rub
 SSAnneCaptainsRoomCaptainScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM01_CUT
-	iftrue .GotCut
-	writetext SSAnneCaptainsRoomRubCaptainsBackText
-	waitbutton
-	writetext SSAnneCaptainsRoomIFeelMuchBetterText
-	waitbutton
-	verbosegiveitem HM_CUT
-	iffalse .NoRoom
-	setevent EVENT_GOT_HM01_CUT
-	closetext
-	end
-
-.GotCut:
-	writetext SSAnneCaptainsRoomNotSickAnymoreText
+	writetext SSAnneCaptainsRoomCaptainText
 	waitbutton
 	closetext
 	end
 
-.NoRoom:
-	closetext
-	end
+TrashScript:
+	jumptext TrashText
 
-SSAnneCaptainsRoomTrashScript:
-	jumptext SSAnneCaptainsRoomTrashText
+BookScript:
+	jumptext BookText
 
-SSAnneCaptainsRoomSeasickBookScript:
-	jumptext SSAnneCaptainsRoomSeasickBookText
+SSAnneCaptainsRoomCaptainText:
+	text "Captain: Ahoy,"
+	line "young sailor!"
 
-SSAnneCaptainsRoomRubCaptainsBackText:
-	text "CAPTAIN: Ooargh…"
-	line "I feel hideous…"
-	cont "Urrp! Seasick…"
+	para "My back is so"
+	line "stiff from all"
+	cont "this sailing."
 
-	para "<PLAYER> rubbed"
-	line "the CAPTAIN's"
-	cont "back!"
+	para "Would you rub my"
+	line "back for me?"
 
-	para "Rub-rub…"
-	line "Rub-rub…"
+	para "If you do, I'll"
+	line "teach you how to"
+	cont "use Cut!"
 	done
 
-SSAnneCaptainsRoomIFeelMuchBetterText:
-	text "CAPTAIN: Whew!"
-	line "Thank you! I"
-	cont "feel much better!"
-
-	para "You want to see"
-	line "my CUT technique?"
-
-	para "I could show you"
-	line "if I wasn't ill…"
-
-	para "I know! You can"
-	line "have this!"
-
-	para "Teach it to your"
-	line "#MON and you"
-	cont "can see it CUT"
-	cont "any time!"
+TrashText:
+	text "This trash bin is"
+	line "full of rubbish."
 	done
 
-SSAnneCaptainsRoomNotSickAnymoreText:
-	text "CAPTAIN: Whew!"
-
-	para "Now that I'm not"
-	line "sick any more, I"
-	cont "guess it's time."
-	done
-
-SSAnneCaptainsRoomTrashText:
-	text "Yuck! Shouldn't"
-	line "have looked!"
-	done
-
-SSAnneCaptainsRoomSeasickBookText:
-	text "How to Conquer"
-	line "Seasickness…"
-	cont "The CAPTAIN's"
-	cont "reading this!"
+BookText:
+	text "It's a book about"
+	line "sailing."
 	done
 
 SSAnneCaptainsRoom_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  0,  7, SS_ANNE_2F, 9
+	warp_event  1,  3, SS_ANNE_2F, 9
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  4,  1, BGEVENT_READ, SSAnneCaptainsRoomTrashScript
-	bg_event  1,  2, BGEVENT_READ, SSAnneCaptainsRoomSeasickBookScript
+	bg_event  4,  1, BGEVENT_READ, TrashScript
+	bg_event  1,  2, BGEVENT_READ, BookScript
 
 	def_object_events
-	object_event  4,  2, SPRITE_CAPTAIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneCaptainsRoomCaptainScript, -1
+	object_event  1,  2, SPRITE_CAPTAIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneCaptainsRoomCaptainScript, -1
