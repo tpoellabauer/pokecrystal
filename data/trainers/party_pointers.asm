@@ -70,4 +70,9 @@ TrainerGroups:
 	dw OfficerGroup
 	dw GruntFGroup
 	dw MysticalmanGroup
+	dw JrTrainerMGroup
+	dw JrTrainerFGroup
+	dw GamblerGroup
+	dw ChannelerGroup
+	dw GiovanniGroup
 	assert_table_length NUM_TRAINER_CLASSES

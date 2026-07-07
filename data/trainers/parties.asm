@@ -224,36 +224,6 @@ Rival1Group:
 	db  8, CHARMANDER
 	db -1 ; end
 
-	; RIVAL1 (22) ; Gen 1 Route 22 2nd - you chose CHARMANDER, rival has BLASTOISE
-	db "?@", TRAINERTYPE_NORMAL
-	db 47, PIDGEOT
-	db 45, RHYHORN
-	db 45, GROWLITHE
-	db 47, EXEGGCUTE
-	db 50, ALAKAZAM
-	db 53, BLASTOISE
-	db -1 ; end
-
-	; RIVAL1 (23) ; Gen 1 Route 22 2nd - you chose SQUIRTLE, rival has VENUSAUR
-	db "?@", TRAINERTYPE_NORMAL
-	db 47, PIDGEOT
-	db 45, RHYHORN
-	db 45, GYARADOS
-	db 47, GROWLITHE
-	db 50, ALAKAZAM
-	db 53, VENUSAUR
-	db -1 ; end
-
-	; RIVAL1 (24) ; Gen 1 Route 22 2nd - you chose BULBASAUR, rival has CHARIZARD
-	db "?@", TRAINERTYPE_NORMAL
-	db 47, PIDGEOT
-	db 45, RHYHORN
-	db 45, EXEGGCUTE
-	db 47, GYARADOS
-	db 50, ALAKAZAM
-	db 53, CHARIZARD
-	db -1 ; end
-
 PokemonProfGroup:
 
 WillGroup:
@@ -387,6 +357,87 @@ ScientistGroup:
 	; SCIENTIST (5)
 	db "RICH@", TRAINERTYPE_MOVES
 	db 30, PORYGON,    CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
+	db -1 ; end
+
+	; SCIENTIST (6)
+	db "BLAINE@", TRAINERTYPE_NORMAL
+	db 29, ELECTRODE
+	db 29, WEEZING
+	db -1 ; end
+
+	; SCIENTIST (7)
+	db "SURGE@", TRAINERTYPE_NORMAL
+	db 33, MAGNEMITE
+	db 33, MAGNETON
+	db 33, VOLTORB
+	db -1 ; end
+
+	; SCIENTIST (8)
+	db "VOLT@", TRAINERTYPE_NORMAL
+	db 34, MAGNEMITE
+	db 34, ELECTRODE
+	db -1 ; end
+
+	; SCIENTIST (9)
+	db "SILPH_SCI_1@", TRAINERTYPE_NORMAL
+	db 26, GRIMER
+	db 26, WEEZING
+	db 26, KOFFING
+	db 26, WEEZING
+	db -1 ; end
+
+	; SCIENTIST (10)
+	db "SILPH_SCI_2@", TRAINERTYPE_NORMAL
+	db 28, MAGNEMITE
+	db 28, VOLTORB
+	db 28, MAGNETON
+	db -1 ; end
+
+	; SCIENTIST (11)
+	db "SILPH_SCI_3@", TRAINERTYPE_NORMAL
+	db 33, ELECTRODE
+	db -1 ; end
+
+	; SCIENTIST (12)
+	db "SILPH_SCI_4@", TRAINERTYPE_NORMAL
+	db 26, MAGNETON
+	db 26, KOFFING
+	db 26, WEEZING
+	db 26, MAGNEMITE
+	db -1 ; end
+
+	; SCIENTIST (13)
+	db "SILPH_SCI_5@", TRAINERTYPE_NORMAL
+	db 25, VOLTORB
+	db 25, KOFFING
+	db 25, MAGNETON
+	db 25, MAGNEMITE
+	db 25, KOFFING
+	db -1 ; end
+
+	; SCIENTIST (14)
+	db "SILPH_CO_7F@", TRAINERTYPE_NORMAL
+	db 29, ELECTRODE
+	db 29, MUK
+	db -1 ; end
+
+	; SCIENTIST (15)
+	db "SILPH_CO_8F@", TRAINERTYPE_NORMAL
+	db 29, GRIMER
+	db 29, ELECTRODE
+	db -1 ; end
+
+	; SCIENTIST (16)
+	db "SILPH_CO_9F@", TRAINERTYPE_NORMAL
+	db 28, VOLTORB
+	db 28, KOFFING
+	db 28, MAGNETON
+	db -1 ; end
+
+	; SCIENTIST (17)
+	db "SILPH_CO_10F@", TRAINERTYPE_NORMAL
+	db 29, MAGNEMITE
+	db 29, KOFFING
 	db -1 ; end
 
 ErikaGroup:
@@ -1492,6 +1543,230 @@ GruntMGroup:
 	db 30, GOLBAT
 	db -1 ; end
 
+	; GRUNTM (32)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 21, DROWZEE
+	db 21, MACHOP
+	db -1 ; end
+
+	; GRUNTM (33)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 21, RATICATE
+	db 21, RATICATE
+	db -1 ; end
+
+	; GRUNTM (34)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 20, GRIMER
+	db 20, KOFFING
+	db 20, KOFFING
+	db -1 ; end
+
+	; GRUNTM (35)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 19, RATTATA
+	db 19, RATICATE
+	db 19, RATICATE
+	db 19, RATTATA
+	db -1 ; end
+
+	; GRUNTM (36)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 22, GRIMER
+	db 22, KOFFING
+	db -1 ; end
+
+	; GRUNTM (37)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 17, ZUBAT
+	db 17, KOFFING
+	db 17, GRIMER
+	db 17, ZUBAT
+	db 17, RATICATE
+	db -1 ; end
+
+	; GRUNTM (38)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 20, RATTATA
+	db 20, RATICATE
+	db 20, DROWZEE
+	db -1 ; end
+
+	; GRUNTM (39)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 21, MACHOP
+	db 21, MACHOP
+	db -1 ; end
+
+	; GRUNTM (40)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 23, SANDSHREW
+	db 23, EKANS
+	db 23, SANDSLASH
+	db -1 ; end
+
+	; GRUNTM (41)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 23, EKANS
+	db 23, SANDSHREW
+	db 23, ARBOK
+	db -1 ; end
+
+	; GRUNTM (42)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 21, KOFFING
+	db 21, ZUBAT
+	db -1 ; end
+
+	; GRUNTM (43)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 29, CUBONE
+	db 29, ZUBAT
+	db -1 ; end
+
+	; GRUNTM (44)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 25, GOLBAT
+	db 25, ZUBAT
+	db 25, ZUBAT
+	db 25, RATICATE
+	db 25, ZUBAT
+	db -1 ; end
+
+	; GRUNTM (45)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 28, RATICATE
+	db 28, HYPNO
+	db 28, RATICATE
+	db -1 ; end
+
+	; GRUNTM (46)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 29, MACHOP
+	db 29, DROWZEE
+	db -1 ; end
+
+	; GRUNTM (47)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 28, EKANS
+	db 28, ZUBAT
+	db 28, CUBONE
+	db -1 ; end
+
+	; GRUNTM (48)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 33, ARBOK
+	db -1 ; end
+
+	; GRUNTM (49)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 33, HYPNO
+	db -1 ; end
+
+	; GRUNTM (50)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 29, MACHOP
+	db 29, MACHOKE
+	db -1 ; end
+
+	; GRUNTM (51)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 28, ZUBAT
+	db 28, ZUBAT
+	db 28, GOLBAT
+	db -1 ; end
+
+	; GRUNTM (52)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 26, RATICATE
+	db 26, ARBOK
+	db 26, KOFFING
+	db 26, GOLBAT
+	db -1 ; end
+
+	; GRUNTM (53)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 29, CUBONE
+	db 29, CUBONE
+	db -1 ; end
+
+	; GRUNTM (54)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 29, SANDSHREW
+	db 29, SANDSLASH
+	db -1 ; end
+
+	; GRUNTM (55)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 26, RATICATE
+	db 26, ZUBAT
+	db 26, GOLBAT
+	db 26, RATTATA
+	db -1 ; end
+
+	; GRUNTM (56)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 28, WEEZING
+	db 28, GOLBAT
+	db 28, KOFFING
+	db -1 ; end
+
+	; GRUNTM (57)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 28, DROWZEE
+	db 28, GRIMER
+	db 28, MACHOP
+	db -1 ; end
+
+	; GRUNTM (58)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 28, GOLBAT
+	db 28, DROWZEE
+	db 28, HYPNO
+	db -1 ; end
+
+	; GRUNTM (59)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 33, MACHOKE
+	db -1 ; end
+
+	; GRUNTM (60)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 25, RATTATA
+	db 25, RATTATA
+	db 25, ZUBAT
+	db 25, RATTATA
+	db 25, EKANS
+	db -1 ; end
+
+	; GRUNTM (61)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 32, CUBONE
+	db 32, DROWZEE
+	db 32, MAROWAK
+	db -1 ; end
+
+	; GRUNTM (62)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 25, ZUBAT
+	db 25, ZUBAT
+	db 25, GOLBAT
+	db -1 ; end
+
+	; GRUNTM (63)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 26, KOFFING
+	db 26, DROWZEE
+	db -1 ; end
+
+	; GRUNTM (64)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 23, ZUBAT
+	db 23, RATTATA
+	db 23, RATICATE
+	db 23, ZUBAT
+	db -1 ; end
+
 GentlemanGroup:
 	; GENTLEMAN (1)
 	db "PRESTON@", TRAINERTYPE_NORMAL
@@ -2564,6 +2839,14 @@ BurglarGroup:
 	db 30, KOFFING
 	db -1 ; end
 
+	; BURGLAR (4)
+	db "BRAX@", TRAINERTYPE_NORMAL
+	db 26, GRIMER
+	db 28, WEEZING
+	db 26, KOFFING
+	db 28, WEEZING
+	db -1 ; end
+
 FirebreatherGroup:
 	; FIREBREATHER (1)
 	db "OTIS@", TRAINERTYPE_NORMAL
@@ -3557,4 +3840,156 @@ MysticalmanGroup:
 	db 23, DROWZEE,    DREAM_EATER, HYPNOSIS, DISABLE, CONFUSION
 	db 23, HAUNTER,    LICK, HYPNOSIS, MEAN_LOOK, CURSE
 	db 25, ELECTRODE,  SCREECH, SONICBOOM, THUNDER, ROLLOUT
+	db -1 ; end
+
+JrTrainerMGroup:
+	; JR_TRAINER_M (1)
+	db "?@", TRAINERTYPE_NORMAL
+	db 20, SQUIRTLE
+	db -1 ; end
+
+	; JR_TRAINER_M (2)
+	db "?@", TRAINERTYPE_NORMAL
+	db 16, SPEAROW
+	db 16, RATICATE
+	db -1 ; end
+
+	; JR_TRAINER_M (3)
+	db "?@", TRAINERTYPE_NORMAL
+	db 21, GROWLITHE
+	db 21, CHARMANDER
+	db -1 ; end
+
+	; JR_TRAINER_M (4)
+	db "?@", TRAINERTYPE_NORMAL
+	db 19, RATTATA
+	db 19, DIGLETT
+	db 19, EKANS
+	db 19, SANDSHREW
+	db -1 ; end
+
+JrTrainerFGroup:
+	; JR_TRAINER_F (1)
+	db "?@", TRAINERTYPE_NORMAL
+	db 16, RATTATA
+	db 16, PIKACHU
+	db -1 ; end
+
+	; JR_TRAINER_F (2)
+	db "?@", TRAINERTYPE_NORMAL
+	db 16, PIDGEY
+	db 16, PIDGEY
+	db 16, PIDGEY
+	db -1 ; end
+
+	; JR_TRAINER_F (3)
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, ODDISH
+	db 18, BELLSPROUT
+	db 18, ODDISH
+	db 18, BELLSPROUT
+	db -1 ; end
+
+	; JR_TRAINER_F (4)
+	db "?@", TRAINERTYPE_NORMAL
+	db 23, MEOWTH
+	db -1 ; end
+
+GamblerGroup:
+	; GAMBLER (1)
+	db "?@", TRAINERTYPE_NORMAL
+	db 22, POLIWAG
+	db 22, POLIWAG
+	db 22, POLIWHIRL
+	db -1 ; end
+
+	; GAMBLER (2)
+	db "?@", TRAINERTYPE_NORMAL
+	db 24, GROWLITHE
+	db 24, VULPIX
+	db -1 ; end
+
+ChannelerGroup:
+	; CHANNELER (1)
+	db "CHANNELER_3F_1@", TRAINERTYPE_NORMAL
+	db 23, GASTLY
+	db -1 ; end
+
+	; CHANNELER (2)
+	db "CHANNELER_3F_2@", TRAINERTYPE_NORMAL
+	db 24, GASTLY
+	db -1 ; end
+
+	; CHANNELER (3)
+	db "CHANNELER_3F_3@", TRAINERTYPE_NORMAL
+	db 22, GASTLY
+	db -1 ; end
+
+	; CHANNELER (4)
+	db "CHANNELER_4F_1@", TRAINERTYPE_NORMAL
+	db 24, GASTLY
+	db -1 ; end
+
+	; CHANNELER (5)
+	db "CHANNELER_4F_2@", TRAINERTYPE_NORMAL
+	db 23, GASTLY
+	db 23, GASTLY
+	db -1 ; end
+
+	; CHANNELER (6)
+	db "CHANNELER_4F_3@", TRAINERTYPE_NORMAL
+	db 22, GASTLY
+	db -1 ; end
+
+	; CHANNELER (7)
+	db "CHANNELER_5F_1@", TRAINERTYPE_NORMAL
+	db 23, HAUNTER
+	db -1 ; end
+
+	; CHANNELER (8)
+	db "CHANNELER_5F_2@", TRAINERTYPE_NORMAL
+	db 24, GASTLY
+	db -1 ; end
+
+	; CHANNELER (9)
+	db "CHANNELER_5F_3@", TRAINERTYPE_NORMAL
+	db 22, HAUNTER
+	db -1 ; end
+
+	; CHANNELER (10)
+	db "CHANNELER_5F_4@", TRAINERTYPE_NORMAL
+	db 22, HAUNTER
+	db -1 ; end
+
+	; CHANNELER (11)
+	db "CHANNELER_6F_1@", TRAINERTYPE_NORMAL
+	db 22, GASTLY
+	db 22, GASTLY
+	db 22, GASTLY
+	db -1 ; end
+
+	; CHANNELER (12)
+	db "CHANNELER_6F_2@", TRAINERTYPE_NORMAL
+	db 24, GASTLY
+	db -1 ; end
+
+	; CHANNELER (13)
+	db "CHANNELER_6F_3@", TRAINERTYPE_NORMAL
+	db 24, GASTLY
+	db -1 ; end
+
+GiovanniGroup:
+	; GIOVANNI (1)
+	db "GIOVANNI@", TRAINERTYPE_NORMAL
+	db 25, ONIX
+	db 24, RHYHORN
+	db 29, KANGASKHAN
+	db -1 ; end
+
+	; GIOVANNI (2)
+	db "GIOVANNI@", TRAINERTYPE_NORMAL
+	db 37, NIDORINO
+	db 35, KANGASKHAN
+	db 37, RHYHORN
+	db 41, NIDOQUEEN
 	db -1 ; end

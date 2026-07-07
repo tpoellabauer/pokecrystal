@@ -68,4 +68,9 @@ TrainerClassNames::
 	li "OFFICER"
 	li "ROCKET"
 	li "MYSTICALMAN"
+	li "JR.TRAINER♂"
+	li "JR.TRAINER♀"
+	li "GAMBLER"
+	li "CHANNELER"
+	li "GIOVANNI"
 	assert_list_length NUM_TRAINER_CLASSES

@@ -115,6 +115,21 @@ DEF KRIS EQU __trainer_class__
 	const JED
 	const MARC
 	const RICH
+	; Pokemon Mansion (batch MA1; only 1F wired to a map so far)
+	const SCIENTIST_POKEMON_MANSION_1F
+	const SCIENTIST_POKEMON_MANSION_3F
+	const SCIENTIST_POKEMON_MANSION_B1F
+	; Silph Co 2F-6F (batch SI1)
+	const SCIENTIST_SILPH_2F_1
+	const SCIENTIST_SILPH_2F_2
+	const SCIENTIST_SILPH_4F
+	const SCIENTIST_SILPH_5F
+	const SCIENTIST_SILPH_6F
+	; Silph Co 7F-10F (batch SI2; not yet wired to any map, see PORT_BACKLOG)
+	const SCIENTIST_SILPH_7F
+	const SCIENTIST_SILPH_8F
+	const SCIENTIST_SILPH_9F
+	const SCIENTIST_SILPH_10F
 
 	trainerclass ERIKA ; 15
 	const ERIKA1
@@ -317,6 +332,43 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_29
 	const GRUNTM_30 ; unused
 	const GRUNTM_31
+	; Rocket Hideout B1F-B4F (batch RH1)
+	const ROCKET_HIDEOUT_B1F_1
+	const ROCKET_HIDEOUT_B1F_2
+	const ROCKET_HIDEOUT_B1F_3
+	const ROCKET_HIDEOUT_B1F_4
+	const ROCKET_HIDEOUT_B1F_5
+	const ROCKET_HIDEOUT_B2F_1
+	const ROCKET_HIDEOUT_B3F_1
+	const ROCKET_HIDEOUT_B3F_2
+	const ROCKET_HIDEOUT_B4F_1
+	const ROCKET_HIDEOUT_B4F_2
+	const ROCKET_HIDEOUT_B4F_3
+	; Silph Co 2F-6F (batch SI1)
+	const GRUNTM_43
+	const GRUNTM_44
+	const GRUNTM_45
+	const GRUNTM_46
+	const GRUNTM_47
+	const GRUNTM_48
+	const GRUNTM_49
+	const GRUNTM_50
+	const GRUNTM_51
+	; Silph Co 7F-11F (batch SI2; not yet wired to any map, see PORT_BACKLOG)
+	const GRUNTM_52
+	const GRUNTM_53
+	const GRUNTM_54
+	const GRUNTM_55
+	const GRUNTM_56
+	const GRUNTM_57
+	const GRUNTM_58
+	const GRUNTM_59
+	const GRUNTM_60
+	const GRUNTM_61
+	; Pokemon Tower 7F (batch T1; not yet wired to any map, see PORT_BACKLOG)
+	const GRUNTM_62
+	const GRUNTM_63
+	const GRUNTM_64
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
@@ -514,6 +566,7 @@ DEF KRIS EQU __trainer_class__
 	const DUNCAN
 	const EDDIE
 	const COREY
+	const BRAX ; Pokemon Mansion 2F (batch MA1)
 
 	trainerclass FIREBREATHER ; 30
 	const OTIS
@@ -711,5 +764,43 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
+
+	; Gen 1 Routes 1-9 (batch R1; not yet wired to any map, see PORT_BACKLOG)
+	trainerclass JR_TRAINER_M ; 44
+	const JR_TRAINER_M_1
+	const JR_TRAINER_M_2
+	const JR_TRAINER_M_3
+	const JR_TRAINER_M_4
+
+	trainerclass JR_TRAINER_F ; 45
+	const JR_TRAINER_F_1
+	const JR_TRAINER_F_2
+	const JR_TRAINER_F_3
+	const JR_TRAINER_F_4
+
+	trainerclass GAMBLER ; 46
+	const GAMBLER_1
+	const GAMBLER_2
+
+	; Pokemon Tower 3F-6F Ghost-trainer Channelers (batch T1; not yet wired to any map)
+	trainerclass CHANNELER ; 47
+	const CHANNELER_POKEMONTOWER3F_1
+	const CHANNELER_POKEMONTOWER3F_2
+	const CHANNELER_POKEMONTOWER3F_3
+	const CHANNELER_POKEMONTOWER4F_1
+	const CHANNELER_POKEMONTOWER4F_2
+	const CHANNELER_POKEMONTOWER4F_3
+	const CHANNELER_POKEMONTOWER5F_1
+	const CHANNELER_POKEMONTOWER5F_2
+	const CHANNELER_POKEMONTOWER5F_3
+	const CHANNELER_POKEMONTOWER5F_4
+	const CHANNELER_POKEMONTOWER6F_1
+	const CHANNELER_POKEMONTOWER6F_2
+	const CHANNELER_POKEMONTOWER6F_3
+
+	; Team Rocket boss, fought 2x: Rocket Hideout B4F (batch RH1), Silph Co 11F (batch SI2)
+	trainerclass GIOVANNI ; 48
+	const GIOVANNI_ROCKET_HIDEOUT
+	const GIOVANNI_SILPH_CO
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

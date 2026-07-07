@@ -404,4 +404,34 @@ TrainerClassAttributes:
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
+; Jr_trainer_m
+	db NO_ITEM, NO_ITEM ; items
+	db 4 ; base reward
+	dw AI_BASIC | AI_STATUS
+	dw CONTEXT_USE | SWITCH_SOMETIMES
+
+; Jr_trainer_f
+	db NO_ITEM, NO_ITEM ; items
+	db 6 ; base reward
+	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
+	dw CONTEXT_USE | SWITCH_OFTEN
+
+; Gambler
+	db NO_ITEM, NO_ITEM ; items
+	db 8 ; base reward
+	dw AI_BASIC | AI_TYPES | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_SOMETIMES
+
+; Channeler
+	db NO_ITEM, NO_ITEM ; items
+	db 12 ; base reward
+	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_SOMETIMES
+
+; Giovanni
+	db NO_ITEM, NO_ITEM ; items
+	db 30 ; base reward
+	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_SMART | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_SOMETIMES
+
 	assert_table_length NUM_TRAINER_CLASSES

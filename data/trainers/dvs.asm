@@ -70,4 +70,9 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; OFFICER
 	dn  7, 14, 10,  8 ; GRUNTF
 	dn  9,  8,  8,  8 ; MYSTICALMAN
+	dn  9,  8,  8,  8 ; JR_TRAINER_M
+	dn  5,  8,  8,  8 ; JR_TRAINER_F
+	dn  9,  8,  8,  8 ; GAMBLER
+	dn  8, 10,  9,  9 ; CHANNELER
+	dn 13,  8, 10,  8 ; GIOVANNI
 	assert_table_length NUM_TRAINER_CLASSES

@@ -71,6 +71,11 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; officer
 	db MUSIC_ROCKET_ENCOUNTER      ; gruntf
 	db MUSIC_HIKER_ENCOUNTER       ; mysticalman
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; jr_trainer_m
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; jr_trainer_f
+	db MUSIC_HIKER_ENCOUNTER       ; gambler
+	db MUSIC_HIKER_ENCOUNTER       ; channeler
+	db MUSIC_ROCKET_ENCOUNTER      ; giovanni
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused
