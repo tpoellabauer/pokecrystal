@@ -901,6 +901,25 @@ BirdKeeperGroup:
 	db 28, DODUO
 	db -1 ; end
 
+	; BIRD_KEEPER (31)
+	db "TATE@", TRAINERTYPE_NORMAL
+	db 29, SPEAROW
+	db 29, FEAROW
+	db -1 ; end
+
+	; BIRD_KEEPER (32)
+	db "NOLAN@", TRAINERTYPE_NORMAL
+	db 34, DODRIO
+	db -1 ; end
+
+	; BIRD_KEEPER (33)
+	db "CASEY@", TRAINERTYPE_NORMAL
+	db 26, SPEAROW
+	db 26, SPEAROW
+	db 26, FEAROW
+	db 26, SPEAROW
+	db -1 ; end
+
 LassGroup:
 	; LASS (1)
 	db "CARRIE@", TRAINERTYPE_MOVES

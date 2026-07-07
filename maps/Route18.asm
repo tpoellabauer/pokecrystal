@@ -1,30 +1,40 @@
 	object_const_def
-	const ROUTE18_YOUNGSTER1
-	const ROUTE18_YOUNGSTER2
+	const ROUTE18_COOLTRAINER_M1
+	const ROUTE18_COOLTRAINER_M2
+	const ROUTE18_COOLTRAINER_M3
 
 Route18_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-TrainerBirdKeeperBoris:
-	trainer BIRD_KEEPER, BORIS, EVENT_BEAT_BIRD_KEEPER_BORIS, BirdKeeperBorisSeenText, BirdKeeperBorisBeatenText, 0, .Script
-
+; Gen 1: all three are CoolTrainerM sprite, BIRD_KEEPER class.
+TrainerRoute18CoolTrainerM1:
+	trainer BIRD_KEEPER, TATE, EVENT_BEAT_ROUTE_18_TRAINER_0, Route18CoolTrainerM1SeenText, Route18CoolTrainerM1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdKeeperBorisAfterBattleText
+	writetext Route18CoolTrainerM1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerBirdKeeperBob:
-	trainer BIRD_KEEPER, BOB, EVENT_BEAT_BIRD_KEEPER_BOB, BirdKeeperBobSeenText, BirdKeeperBobBeatenText, 0, .Script
-
+TrainerRoute18CoolTrainerM2:
+	trainer BIRD_KEEPER, NOLAN, EVENT_BEAT_ROUTE_18_TRAINER_1, Route18CoolTrainerM2SeenText, Route18CoolTrainerM2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdKeeperBobAfterBattleText
+	writetext Route18CoolTrainerM2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute18CoolTrainerM3:
+	trainer BIRD_KEEPER, CASEY1, EVENT_BEAT_ROUTE_18_TRAINER_2, Route18CoolTrainerM3SeenText, Route18CoolTrainerM3BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route18CoolTrainerM3AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -32,40 +42,54 @@ TrainerBirdKeeperBob:
 Route18Sign:
 	jumptext Route18SignText
 
-BirdKeeperBorisSeenText:
-	text "If you're looking"
-	line "for #MON, you"
+Route18CyclingRoadSign:
+	jumptext Route18CyclingRoadSignText
 
-	para "have to look in"
-	line "the tall grass."
+Route18CoolTrainerM1SeenText:
+	text "I always check"
+	line "every grassy area"
+	cont "for new #MON."
 	done
 
-BirdKeeperBorisBeatenText:
-	text "Ayieee!"
+Route18CoolTrainerM1BeatenText:
+	text "Tch!"
+	prompt
+
+Route18CoolTrainerM1AfterBattleText:
+	text "I wish I had a"
+	line "BIKE!"
 	done
 
-BirdKeeperBorisAfterBattleText:
-	text "Since you're so"
-	line "strong, it must be"
-	cont "fun to battle."
+Route18CoolTrainerM2SeenText:
+	text "Kurukkoo!"
+	line "How do you like"
+	cont "my bird call?"
 	done
 
-BirdKeeperBobSeenText:
-	text "CYCLING ROAD is a"
-	line "quick shortcut to"
-	cont "CELADON."
+Route18CoolTrainerM2BeatenText:
+	text "I"
+	line "had to bug you!"
+	prompt
+
+Route18CoolTrainerM2AfterBattleText:
+	text "I also collect sea"
+	line "#MON on"
+	cont "weekends!"
 	done
 
-BirdKeeperBobBeatenText:
-	text "…Whew!"
+Route18CoolTrainerM3SeenText:
+	text "This is my turf!"
+	line "Get out of here!"
 	done
 
-BirdKeeperBobAfterBattleText:
-	text "If you don't have"
-	line "a BICYCLE, you're"
+Route18CoolTrainerM3BeatenText:
+	text "Darn!"
+	prompt
 
-	para "not allowed to use"
-	line "the shortcut."
+Route18CoolTrainerM3AfterBattleText:
+	text "This is my fave"
+	line "#MON hunting"
+	cont "area!"
 	done
 
 Route18SignText:
@@ -73,6 +97,12 @@ Route18SignText:
 
 	para "CELADON CITY -"
 	line "FUCHSIA CITY"
+	done
+
+Route18CyclingRoadSignText:
+	text "CYCLING ROAD"
+	line "No pedestrians"
+	cont "permitted!"
 	done
 
 Route18_MapEvents:
@@ -86,7 +116,9 @@ Route18_MapEvents:
 
 	def_bg_events
 	bg_event  9,  5, BGEVENT_READ, Route18Sign
+	bg_event 15,  5, BGEVENT_READ, Route18CyclingRoadSign
 
 	def_object_events
-	object_event  9, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperBoris, -1
-	object_event 13,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperBob, -1
+	object_event 12,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM1, -1
+	object_event 16,  9, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM2, -1
+	object_event 18,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM3, -1

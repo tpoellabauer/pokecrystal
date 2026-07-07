@@ -212,6 +212,9 @@ DEF KRIS EQU __trainer_class__
 	const BRUCE ; Route 14
 	const LOUIE ; Route 15
 	const MARCO ; Route 15
+	const TATE ; Route 18
+	const NOLAN ; Route 18
+	const CASEY1 ; Route 18
 
 	trainerclass LASS ; 19
 	const CARRIE
