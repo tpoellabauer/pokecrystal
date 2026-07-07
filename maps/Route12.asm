@@ -1,8 +1,12 @@
 	object_const_def
+	const ROUTE12_SNORLAX
 	const ROUTE12_FISHER1
 	const ROUTE12_FISHER2
+	const ROUTE12_COOLTRAINER_M
+	const ROUTE12_SUPER_NERD
 	const ROUTE12_FISHER3
 	const ROUTE12_FISHER4
+	const ROUTE12_FISHER5
 	const ROUTE12_POKE_BALL1
 	const ROUTE12_POKE_BALL2
 
@@ -11,46 +15,98 @@ Route12_MapScripts:
 
 	def_callbacks
 
-TrainerFisherKyle:
-	trainer FISHER, KYLE, EVENT_BEAT_FISHER_KYLE, FisherKyleSeenText, FisherKyleBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
+; Gen 1: sleeping SNORLAX blocks the path south until woken; reuses the exact
+; VermilionCity SNORLAX pattern (SnorlaxAwake special, forced wild battle, disappears).
+Route12Snorlax:
 	opentext
-	writetext FisherKyleAfterBattleText
+	special SnorlaxAwake
+	iftrue .Awake
+	writetext Route12SnorlaxText
 	waitbutton
 	closetext
 	end
 
-TrainerFisherMartin:
-	trainer FISHER, MARTIN, EVENT_BEAT_FISHER_MARTIN, FisherMartinSeenText, FisherMartinBeatenText, 0, .Script
+.Awake:
+	writetext Route12SnorlaxWokeUpText
+	pause 15
+	cry SNORLAX
+	closetext
+	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
+	loadwildmon SNORLAX, 30
+	startbattle
+	disappear ROUTE12_SNORLAX
+	setevent EVENT_ROUTE_12_SNORLAX
+	reloadmapafterbattle
+	end
 
+; Gen 1: SuperNerd sprite, ROCKER class -- Gen 2 renamed ROCKER to GUITARIST.
+TrainerRoute12SuperNerd:
+	trainer GUITARIST, WYATT, EVENT_BEAT_ROUTE_12_TRAINER_5, Route12SuperNerdSeenText, Route12SuperNerdBeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext FisherMartinAfterBattleText
+	writetext Route12SuperNerdAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerFisherStephen:
-	trainer FISHER, STEPHEN, EVENT_BEAT_FISHER_STEPHEN, FisherStephenSeenText, FisherStephenBeatenText, 0, .Script
-
+; Gen 1: CoolTrainerM sprite, JR.TRAINER(M) class.
+TrainerRoute12CoolTrainerM:
+	trainer JR_TRAINER_M, JR_TRAINER_M_5, EVENT_BEAT_ROUTE_12_TRAINER_2, Route12CoolTrainerMSeenText, Route12CoolTrainerMBeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext FisherStephenAfterBattleText
+	writetext Route12CoolTrainerMAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerFisherBarney:
-	trainer FISHER, BARNEY, EVENT_BEAT_FISHER_BARNEY, FisherBarneySeenText, FisherBarneyBeatenText, 0, .Script
-
+TrainerRoute12Fisher1:
+	trainer FISHER, WADE, EVENT_BEAT_ROUTE_12_TRAINER_0, Route12Fisher1SeenText, Route12Fisher1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
-	writetext FisherBarneyAfterBattleText
+	writetext Route12Fisher1AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute12Fisher2:
+	trainer FISHER, LEROY, EVENT_BEAT_ROUTE_12_TRAINER_1, Route12Fisher2SeenText, Route12Fisher2BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route12Fisher2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute12Fisher3:
+	trainer FISHER, HANK, EVENT_BEAT_ROUTE_12_TRAINER_3, Route12Fisher3SeenText, Route12Fisher3BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route12Fisher3AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute12Fisher4:
+	trainer FISHER, CHET, EVENT_BEAT_ROUTE_12_TRAINER_4, Route12Fisher4SeenText, Route12Fisher4BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route12Fisher4AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerRoute12Fisher5:
+	trainer FISHER, DUSTY, EVENT_BEAT_ROUTE_12_TRAINER_6, Route12Fisher5SeenText, Route12Fisher5BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route12Fisher5AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -70,87 +126,128 @@ Route12Nugget:
 Route12HiddenElixer:
 	hiddenitem ELIXER, EVENT_ROUTE_12_HIDDEN_ELIXER
 
-FisherMartinSeenText:
-	text "Patience is the"
-	line "key to both fish-"
-	cont "ing and #MON."
+Route12SnorlaxText:
+	text "A sleeping #MON"
+	line "blocks the way!"
 	done
 
-FisherMartinBeatenText:
-	text "Gwaaah!"
+Route12SnorlaxWokeUpText:
+	text "SNORLAX woke up!"
+
+	para "It attacked in a"
+	line "grumpy rage!"
 	done
 
-FisherMartinAfterBattleText:
-	text "I'm too impatient"
-	line "for fishing…"
+Route12Fisher1SeenText:
+	text "Yeah! I got a"
+	line "bite, here!"
 	done
 
-FisherStephenSeenText:
-	text "I feel so content,"
-	line "fishing while lis-"
-	cont "tening to some"
-	cont "tunes on my radio."
+Route12Fisher1BeatenText:
+	text "Tch!"
+	line "Just a small fry!"
+	prompt
+
+Route12Fisher1AfterBattleText:
+	text "Hang on! My line's"
+	line "snagged!"
 	done
 
-FisherStephenBeatenText:
-	text "My stupid radio"
-	line "distracted me!"
+Route12Fisher2SeenText:
+	text "Be patient!"
+	line "Fishing is a"
+	cont "waiting game!"
 	done
 
-FisherStephenAfterBattleText:
-	text "Have you checked"
-	line "out KANTO's radio"
+Route12Fisher2BeatenText:
+	text "That"
+	line "one got away!"
+	prompt
 
-	para "programs? We get a"
-	line "good variety here."
+Route12Fisher2AfterBattleText:
+	text "With a better ROD,"
+	line "I could catch"
+	cont "better #MON!"
 	done
 
-FisherBarneySeenText:
-	text "What's most impor-"
-	line "tant in our every-"
-	cont "day lives?"
+Route12CoolTrainerMSeenText:
+	text "Have you found a"
+	line "MOON STONE?"
 	done
 
-FisherBarneyBeatenText:
-	text "The answer is"
-	line "coming up next!"
+Route12CoolTrainerMBeatenText:
+	text "Oww!"
+	prompt
+
+Route12CoolTrainerMAfterBattleText:
+	text "I could have made"
+	line "my #MON evolve"
+	cont "with MOON STONE!"
 	done
 
-FisherBarneyAfterBattleText:
-	text "I think electric-"
-	line "ity is the most"
-
-	para "important thing in"
-	line "our daily lives."
-
-	para "If it weren't,"
-	line "people wouldn't"
-
-	para "have made such a"
-	line "fuss when the"
-
-	para "POWER PLANT went"
-	line "out of commission."
+Route12SuperNerdSeenText:
+	text "Electricity is my"
+	line "specialty!"
 	done
 
-FisherKyleSeenText:
-	text "Do you remember?"
+Route12SuperNerdBeatenText:
+	text "Unplugged!"
+	prompt
+
+Route12SuperNerdAfterBattleText:
+	text "Water conducts"
+	line "electricity, so"
+	cont "you should zap"
+	cont "sea #MON!"
 	done
 
-FisherKyleBeatenText:
-	text "You do remember?"
+Route12Fisher3SeenText:
+	text "The FISHING FOOL"
+	line "vs. #MON KID!"
 	done
 
-FisherKyleAfterBattleText:
-	text "The tug you feel"
-	line "on the ROD when"
+Route12Fisher3BeatenText:
+	text "Too"
+	line "much!"
+	prompt
 
-	para "you hook a #-"
-	line "MON…"
+Route12Fisher3AfterBattleText:
+	text "You beat me at"
+	line "#MON, but I'm"
+	cont "good at fishing!"
+	done
 
-	para "That's the best"
-	line "feeling ever for"
-	cont "an angler like me."
+Route12Fisher4SeenText:
+	text "I'd rather be"
+	line "working!"
+	done
+
+Route12Fisher4BeatenText:
+	text "It's"
+	line "not easy…"
+	prompt
+
+Route12Fisher4AfterBattleText:
+	text "It's all right."
+	line "Losing doesn't"
+	cont "bug me any more."
+	done
+
+Route12Fisher5SeenText:
+	text "You never know"
+	line "what you could"
+	cont "catch!"
+	done
+
+Route12Fisher5BeatenText:
+	text "Lost"
+	line "it!"
+	prompt
+
+Route12Fisher5AfterBattleText:
+	text "I catch MAGIKARP"
+	line "all the time, but"
+	cont "they're so weak!"
 	done
 
 Route12SignText:
@@ -161,7 +258,7 @@ Route12SignText:
 	done
 
 FishingSpotSignText:
-	text "FISHING SPOT"
+	text "SPORT FISHING AREA"
 	done
 
 Route12_MapEvents:
@@ -178,9 +275,13 @@ Route12_MapEvents:
 	bg_event 14, 13, BGEVENT_ITEM, Route12HiddenElixer
 
 	def_object_events
-	object_event  5, 13, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherMartin, -1
-	object_event 14, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherStephen, -1
-	object_event 10, 38, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerFisherBarney, -1
-	object_event  6,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherKyle, -1
+	object_event 10, 20, SPRITE_SNORLAX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route12Snorlax, EVENT_ROUTE_12_SNORLAX
+	object_event  5, 13, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerRoute12Fisher1, -1
+	object_event 14, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerRoute12Fisher2, -1
+	object_event  9, 30, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute12CoolTrainerM, -1
+	object_event  8, 37, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute12SuperNerd, -1
+	object_event 10, 38, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerRoute12Fisher3, -1
+	object_event  6,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute12Fisher4, -1
+	object_event  4, 45, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute12Fisher5, -1
 	object_event  5, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Calcium, EVENT_ROUTE_12_CALCIUM
 	object_event  5, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Nugget, EVENT_ROUTE_12_NUGGET

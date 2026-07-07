@@ -2135,6 +2135,38 @@ FisherGroup:
 	db 37, QWILFISH,   ROLLOUT, SURF, PIN_MISSILE, TAKE_DOWN
 	db -1 ; end
 
+	; FISHER (26)
+	db "WADE@", TRAINERTYPE_NORMAL
+	db 22, GOLDEEN
+	db 22, POLIWAG
+	db 22, GOLDEEN
+	db -1 ; end
+
+	; FISHER (27)
+	db "LEROY@", TRAINERTYPE_NORMAL
+	db 24, TENTACOOL
+	db 24, GOLDEEN
+	db -1 ; end
+
+	; FISHER (28)
+	db "HANK@", TRAINERTYPE_NORMAL
+	db 27, GOLDEEN
+	db -1 ; end
+
+	; FISHER (29)
+	db "CHET@", TRAINERTYPE_NORMAL
+	db 21, POLIWAG
+	db 21, SHELLDER
+	db 21, GOLDEEN
+	db 21, HORSEA
+	db -1 ; end
+
+	; FISHER (30)
+	db "DUSTY@", TRAINERTYPE_NORMAL
+	db 24, MAGIKARP
+	db 24, MAGIKARP
+	db -1 ; end
+
 SwimmerMGroup:
 	; SWIMMERM (1)
 	db "HAROLD@", TRAINERTYPE_NORMAL
@@ -2646,6 +2678,12 @@ GuitaristGroup:
 	db "MARLON@", TRAINERTYPE_NORMAL
 	db 39, ARBOK
 	db 39, TAUROS
+	db -1 ; end
+
+	; GUITARIST (5)
+	db "WYATT@", TRAINERTYPE_NORMAL
+	db 29, VOLTORB
+	db 29, ELECTRODE
 	db -1 ; end
 
 HikerGroup:
@@ -3971,6 +4009,12 @@ JrTrainerMGroup:
 	db 19, DIGLETT
 	db 19, EKANS
 	db 19, SANDSHREW
+	db -1 ; end
+
+	; JR_TRAINER_M (5)
+	db "?@", TRAINERTYPE_NORMAL
+	db 29, NIDORAN_M
+	db 29, NIDORINO
 	db -1 ; end
 
 JrTrainerFGroup:

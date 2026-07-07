@@ -436,6 +436,11 @@ DEF KRIS EQU __trainer_class__
 	const TULLY2
 	const TULLY3
 	const WILTON2
+	const WADE ; Route 12
+	const LEROY ; Route 12
+	const HANK ; Route 12
+	const CHET ; Route 12
+	const DUSTY ; Route 12
 	const SCOTT
 	const WILTON3
 	const RALPH4
@@ -532,6 +537,7 @@ DEF KRIS EQU __trainer_class__
 	const VINCENT
 	const IGGY ; Viridian Gym
 	const MARLON ; Viridian Gym
+	const WYATT ; Route 12 (Gen 1 ROCKER class, renamed GUITARIST in Gen 2)
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -791,6 +797,7 @@ DEF KRIS EQU __trainer_class__
 	const JR_TRAINER_M_2
 	const JR_TRAINER_M_3
 	const JR_TRAINER_M_4
+	const JR_TRAINER_M_5 ; Route 12
 
 	trainerclass JR_TRAINER_F ; 45
 	const JR_TRAINER_F_1
