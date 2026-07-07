@@ -305,6 +305,9 @@ DEF KRIS EQU __trainer_class__
 	const NADIA ; Route 13
 	const ROSA1 ; Route 15
 	const CANDACE ; Route 15
+	const WANDA ; Route 19
+	const IRENE1 ; Route 19
+	const LOLA1 ; Route 19
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -487,6 +490,13 @@ DEF KRIS EQU __trainer_class__
 	const JAMES ; unused
 	const LEWIS ; unused
 	const PARKER
+	const KIRK1 ; Route 19
+	const DEAN1 ; Route 19
+	const ARNIE ; Route 19
+	const BRETT ; Route 19
+	const HUGO ; Route 19
+	const TREVOR1 ; Route 19
+	const NED1 ; Route 19
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE

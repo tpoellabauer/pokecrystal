@@ -1700,6 +1700,18 @@
 	const EVENT_BEAT_ROUTE_18_TRAINER_0
 	const EVENT_BEAT_ROUTE_18_TRAINER_1
 	const EVENT_BEAT_ROUTE_18_TRAINER_2
+; Route 19 (2 CoolTrainerM/SwimmerM, 5 SwimmerM, 3 Beauty -- added alongside the
+; existing Dawn/Harold/Jerome/Tucker + rock-clearing Fisher quest, not replacing it)
+	const EVENT_BEAT_ROUTE_19_TRAINER_0
+	const EVENT_BEAT_ROUTE_19_TRAINER_1
+	const EVENT_BEAT_ROUTE_19_TRAINER_2
+	const EVENT_BEAT_ROUTE_19_TRAINER_3
+	const EVENT_BEAT_ROUTE_19_TRAINER_4
+	const EVENT_BEAT_ROUTE_19_TRAINER_5
+	const EVENT_BEAT_ROUTE_19_TRAINER_6
+	const EVENT_BEAT_ROUTE_19_TRAINER_7
+	const EVENT_BEAT_ROUTE_19_TRAINER_8
+	const EVENT_BEAT_ROUTE_19_TRAINER_9
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

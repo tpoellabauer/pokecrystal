@@ -1412,6 +1412,28 @@ BeautyGroup:
 	db 29, IVYSAUR
 	db -1 ; end
 
+	; BEAUTY (22)
+	db "WANDA@", TRAINERTYPE_NORMAL
+	db 27, POLIWAG
+	db 27, GOLDEEN
+	db 27, SEAKING
+	db 27, GOLDEEN
+	db 27, POLIWAG
+	db -1 ; end
+
+	; BEAUTY (23)
+	db "IRENE@", TRAINERTYPE_NORMAL
+	db 30, GOLDEEN
+	db 30, SEAKING
+	db -1 ; end
+
+	; BEAUTY (24)
+	db "LOLA@", TRAINERTYPE_NORMAL
+	db 29, STARYU
+	db 29, STARYU
+	db 29, STARYU
+	db -1 ; end
+
 PokemaniacGroup:
 	; POKEMANIAC (1)
 	db "LARRY@", TRAINERTYPE_NORMAL
@@ -2426,6 +2448,55 @@ SwimmerMGroup:
 	db "PARKER@", TRAINERTYPE_NORMAL
 	db 16, HORSEA
 	db 16, SHELLDER
+	db -1 ; end
+
+	; SWIMMERM (22)
+	db "KIRK@", TRAINERTYPE_NORMAL
+	db 30, TENTACOOL
+	db 30, SHELLDER
+	db -1 ; end
+
+	; SWIMMERM (23)
+	db "DEAN@", TRAINERTYPE_NORMAL
+	db 29, GOLDEEN
+	db 29, HORSEA
+	db 29, STARYU
+	db -1 ; end
+
+	; SWIMMERM (24)
+	db "ARNIE@", TRAINERTYPE_NORMAL
+	db 30, POLIWAG
+	db 30, POLIWHIRL
+	db -1 ; end
+
+	; SWIMMERM (25)
+	db "BRETT@", TRAINERTYPE_NORMAL
+	db 27, HORSEA
+	db 27, TENTACOOL
+	db 27, TENTACOOL
+	db 27, GOLDEEN
+	db -1 ; end
+
+	; SWIMMERM (26)
+	db "HUGO@", TRAINERTYPE_NORMAL
+	db 29, GOLDEEN
+	db 29, SHELLDER
+	db 29, SEAKING
+	db -1 ; end
+
+	; SWIMMERM (27)
+	db "TREVOR@", TRAINERTYPE_NORMAL
+	db 30, HORSEA
+	db 30, HORSEA
+	db -1 ; end
+
+	; SWIMMERM (28)
+	db "NED@", TRAINERTYPE_NORMAL
+	db 27, TENTACOOL
+	db 27, TENTACOOL
+	db 27, STARYU
+	db 27, HORSEA
+	db 27, TENTACRUEL
 	db -1 ; end
 
 SwimmerFGroup:
