@@ -74,41 +74,31 @@ PewterGymStatue:
 	jumpstd GymStatue2Script
 
 BrockIntroText:
-	text "BROCK: Wow, it's"
-	line "not often that we"
+	text "BROCK: I'm BROCK!"
+	line "I'm PEWTER's GYM"
+	cont "LEADER!"
 
-	para "get a challenger"
-	line "from JOHTO."
+	para "I believe in rock"
+	line "hard defense and"
+	cont "determination!"
 
-	para "I'm BROCK, the"
-	line "PEWTER GYM LEADER."
+	para "That's why my"
+	line "#MON are all"
+	cont "the rock-type!"
 
-	para "I'm an expert on"
-	line "rock-type #MON."
-
-	para "My #MON are im-"
-	line "pervious to most"
-
-	para "physical attacks."
-	line "You'll have a hard"
-
-	para "time inflicting"
-	line "any damage."
-
-	para "Come on!"
+	para "Do you still want"
+	line "to challenge me?"
+	cont "Fine then! Show"
+	cont "me your best!"
 	done
 
 BrockWinLossText:
-	text "BROCK: Your #-"
-	line "MON's powerful at-"
-	cont "tacks overcame my"
-	cont "rock-hard defense…"
+	text "BROCK: I took"
+	line "you for granted."
 
-	para "You're stronger"
-	line "than I expected…"
-
-	para "Go ahead--take"
-	line "this BADGE."
+	para "As proof of your"
+	line "victory, here's"
+	cont "the BOULDERBADGE!"
 	done
 
 ReceivedBoulderBadgeText:
@@ -118,92 +108,75 @@ ReceivedBoulderBadgeText:
 
 BrockBoulderBadgeText:
 	text "BROCK: <PLAY_G>,"
-	line "thanks. I enjoyed"
+	line "that's an official"
+	cont "#MON LEAGUE"
+	cont "BADGE!"
 
-	para "battling you, even"
-	line "though I am a bit"
-	cont "upset."
+	para "Your #MON will"
+	line "grow even more"
+	cont "powerful!"
 
-	para "That BOULDERBADGE"
-	line "will make your"
-
-	para "#MON even more"
-	line "powerful."
+	para "And the technique"
+	line "FLASH can now be"
+	cont "used any time!"
 	done
 
 BrockFightDoneText:
-	text "BROCK: The world"
-	line "is huge. There are"
+	text "BROCK: There are"
+	line "all kinds of"
+	cont "trainers in the"
+	cont "world!"
 
-	para "still many strong"
-	line "trainers like you."
+	para "You appear to be"
+	line "very gifted as a"
+	cont "#MON trainer!"
 
-	para "Just wait and see."
-	line "I'm going to be-"
-	cont "come a lot strong-"
-	cont "er too."
+	para "Go to the GYM in"
+	line "CERULEAN and test"
+	cont "your abilities!"
 	done
 
 CamperJerrySeenText:
-	text "The trainers of"
-	line "this GYM use rock-"
-	cont "type #MON."
+	text "Stop right there,"
+	line "kid!"
 
-	para "The rock-type has"
-	line "high DEFENSE."
-
-	para "Battles could end"
-	line "up going a long"
-
-	para "time. Are you"
-	line "ready for this?"
+	para "You're still light"
+	line "years from facing"
+	cont "BROCK!"
 	done
 
 CamperJerryBeatenText:
-	text "I have to win"
-	line "these battles…"
+	text "Darn!"
+
+	para "Light years isn't"
+	line "time! It measures"
+	cont "distance!"
 	done
 
 CamperJerryAfterBattleText:
-	text "Hey, you! Trainer"
-	line "from JOHTO! BROCK"
-
-	para "is tough. He'll"
-	line "punish you if you"
-
-	para "don't take him"
-	line "seriously."
+	text "You're pretty hot,"
+	line "but not as hot"
+	cont "as BROCK!"
 	done
 
 PewterGymGuideText:
-	text "Yo! CHAMP in"
-	line "making! You're"
+	text "Hiya! I can tell"
+	line "you have what it"
+	cont "takes to become a"
+	cont "#MON champ!"
 
-	para "really rocking."
-	line "Are you battling"
+	para "I'm no trainer,"
+	line "but I can tell"
+	cont "you how to win!"
 
-	para "the GYM LEADERS of"
-	line "KANTO?"
-
-	para "They're strong and"
-	line "dedicated people,"
-
-	para "just like JOHTO's"
-	line "GYM LEADERS."
+	para "Let me take you"
+	line "to the top!"
 	done
 
 PewterGymGuideWinText:
-	text "Yo! CHAMP in"
-	line "making! That GYM"
-
-	para "didn't give you"
-	line "much trouble."
-
-	para "The way you took"
-	line "charge was really"
-
-	para "inspiring. I mean"
-	line "that seriously."
+	text "Just as I thought!"
+	line "You're #MON"
+	cont "champ material!"
 	done
 
 PewterGym_MapEvents:
