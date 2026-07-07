@@ -96,6 +96,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass KOGA ; f
 	const KOGA1
+	const KOGA2 ; Fuchsia Gym (Gen 1 first encounter)
 
 	trainerclass CHAMPION ; 10
 	const LANCE
@@ -582,9 +583,12 @@ DEF KRIS EQU __trainer_class__
 	const IRWIN1
 	const FRITZ
 	const HORTON
-	const IRWIN2 ; unused
-	const IRWIN3 ; unused
-	const IRWIN4 ; unused
+	const IRWIN2 ; Fuchsia Gym (Gen 1)
+	const IRWIN3 ; Fuchsia Gym (Gen 1)
+	const IRWIN4 ; Fuchsia Gym (Gen 1)
+	const JUGGLER_FUCHSIAGYM_1
+	const JUGGLER_FUCHSIAGYM_2
+	const JUGGLER_FUCHSIAGYM_3
 
 	trainerclass BLACKBELT_T ; 32
 	const KENJI1 ; unused
@@ -616,6 +620,8 @@ DEF KRIS EQU __trainer_class__
 	const GILBERT
 	const JARED
 	const RODNEY
+	const PSYCHIC_T_SAFFRONGYM_1
+	const PSYCHIC_T_SAFFRONGYM_2
 
 	trainerclass PICNICKER ; 35
 	const LIZ1
@@ -797,6 +803,9 @@ DEF KRIS EQU __trainer_class__
 	const CHANNELER_POKEMONTOWER6F_1
 	const CHANNELER_POKEMONTOWER6F_2
 	const CHANNELER_POKEMONTOWER6F_3
+	const CHANNELER_SAFFRONGYM_1
+	const CHANNELER_SAFFRONGYM_2
+	const CHANNELER_SAFFRONGYM_3
 
 	; Team Rocket boss, fought 2x: Rocket Hideout B4F (batch RH1), Silph Co 11F (batch SI2)
 	trainerclass GIOVANNI ; 48

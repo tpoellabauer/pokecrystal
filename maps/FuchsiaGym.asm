@@ -1,9 +1,11 @@
 	object_const_def
-	const FUCHSIAGYM_JANINE
-	const FUCHSIAGYM_FUCHSIA_GYM_1
-	const FUCHSIAGYM_FUCHSIA_GYM_2
-	const FUCHSIAGYM_FUCHSIA_GYM_3
-	const FUCHSIAGYM_FUCHSIA_GYM_4
+	const FUCHSIAGYM_KOGA
+	const FUCHSIAGYM_ROCKER1
+	const FUCHSIAGYM_ROCKER2
+	const FUCHSIAGYM_ROCKER3
+	const FUCHSIAGYM_ROCKER4
+	const FUCHSIAGYM_ROCKER5
+	const FUCHSIAGYM_ROCKER6
 	const FUCHSIAGYM_GYM_GUIDE
 
 FuchsiaGym_MapScripts:
@@ -11,184 +13,111 @@ FuchsiaGym_MapScripts:
 
 	def_callbacks
 
-FuchsiaGymJanineScript:
-	checkflag ENGINE_SOULBADGE
-	iftrue .FightDone
-	applymovement FUCHSIAGYM_JANINE, Movement_NinjaSpin
+FuchsiaGymKogaScript:
 	faceplayer
 	opentext
-	writetext JanineText_DisappointYou
+	checkflag ENGINE_SOULBADGE
+	iftrue .FightDone
+	writetext KogaBeforeBattleText
 	waitbutton
 	closetext
-	winlosstext JanineText_ToughOne, 0
-	loadtrainer JANINE, JANINE1
+	winlosstext KogaWinLossText, 0
+	loadtrainer KOGA, KOGA2
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_JANINE
-	setevent EVENT_BEAT_LASS_ALICE
-	setevent EVENT_BEAT_LASS_LINDA
-	setevent EVENT_BEAT_PICNICKER_CINDY
-	setevent EVENT_BEAT_CAMPER_BARRY
-	variablesprite SPRITE_FUCHSIA_GYM_1, SPRITE_LASS
-	variablesprite SPRITE_FUCHSIA_GYM_2, SPRITE_LASS
-	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_LASS
-	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_YOUNGSTER
-	special LoadUsedSpritesGFX
+	setevent EVENT_BEAT_KOGA
+	setevent EVENT_BEAT_FUCHSIA_GYM_TRAINER_0
+	setevent EVENT_BEAT_FUCHSIA_GYM_TRAINER_1
+	setevent EVENT_BEAT_FUCHSIA_GYM_TRAINER_2
+	setevent EVENT_BEAT_FUCHSIA_GYM_TRAINER_3
+	setevent EVENT_BEAT_FUCHSIA_GYM_TRAINER_4
+	setevent EVENT_BEAT_FUCHSIA_GYM_TRAINER_5
 	opentext
-	writetext Text_ReceivedSoulBadge
+	writetext ReceivedSoulBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_SOULBADGE
-	sjump .AfterBattle
-.FightDone:
-	faceplayer
-	opentext
-.AfterBattle:
 	checkevent EVENT_GOT_TM06_TOXIC
 	iftrue .AfterTM
-	writetext JanineText_ToxicSpeech
+	writetext KogaSoulBadgeInfoText
 	promptbutton
 	verbosegiveitem TM_TOXIC
 	iffalse .AfterTM
 	setevent EVENT_GOT_TM06_TOXIC
 .AfterTM:
-	writetext JanineText_ApplyMyself
+	writetext KogaPostBattleAdviceText
 	waitbutton
 	closetext
 	end
 
-LassAliceScript:
-	checkevent EVENT_BEAT_LASS_ALICE
-	iftrue .AliceUnmasked
-	applymovement FUCHSIAGYM_FUCHSIA_GYM_1, Movement_NinjaSpin
-	faceplayer
-	variablesprite SPRITE_FUCHSIA_GYM_1, SPRITE_LASS
-	special LoadUsedSpritesGFX
-.AliceUnmasked:
-	faceplayer
+.FightDone:
+	writetext KogaFightDoneText
+	waitbutton
+	closetext
+	end
+
+TrainerJugglerDuncan:
+	trainer JUGGLER, IRWIN2, EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, JugglerDuncanSeenText, JugglerDuncanBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	checkevent EVENT_BEAT_LASS_ALICE
-	iftrue .AliceAfterScript
-	writetext LassAliceBeforeText
-	waitbutton
-	closetext
-	winlosstext LassAliceBeatenText, 0
-	loadtrainer LASS, ALICE
-	startbattle
-	iftrue .AliceBecomesJanine
-	reloadmapafterbattle
-	setevent EVENT_BEAT_LASS_ALICE
-	end
-
-.AliceBecomesJanine:
-	variablesprite SPRITE_FUCHSIA_GYM_1, SPRITE_JANINE
-	reloadmapafterbattle
-	end
-
-.AliceAfterScript:
-	writetext LassAliceAfterText
+	writetext JugglerDuncanAfterBattleText
 	waitbutton
 	closetext
 	end
 
-LassLindaScript:
-	checkevent EVENT_BEAT_LASS_LINDA
-	iftrue .LindaUnmasked
-	applymovement FUCHSIAGYM_FUCHSIA_GYM_2, Movement_NinjaSpin
-	faceplayer
-	variablesprite SPRITE_FUCHSIA_GYM_2, SPRITE_LASS
-	special LoadUsedSpritesGFX
-.LindaUnmasked:
-	faceplayer
+TrainerJugglerKendall:
+	trainer JUGGLER, IRWIN3, EVENT_BEAT_FUCHSIA_GYM_TRAINER_1, JugglerKendallSeenText, JugglerKendallBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	checkevent EVENT_BEAT_LASS_LINDA
-	iftrue .LindaAfterScript
-	writetext LassLindaBeforeText
-	waitbutton
-	closetext
-	winlosstext LassLindaBeatenText, 0
-	loadtrainer LASS, LINDA
-	startbattle
-	iftrue .LindaBecomesJanine
-	reloadmapafterbattle
-	setevent EVENT_BEAT_LASS_LINDA
-	end
-
-.LindaBecomesJanine:
-	variablesprite SPRITE_FUCHSIA_GYM_2, SPRITE_JANINE
-	reloadmapafterbattle
-	end
-
-.LindaAfterScript:
-	writetext LassLindaAfterText
+	writetext JugglerKendallAfterBattleText
 	waitbutton
 	closetext
 	end
 
-PicnickerCindyScript:
-	checkevent EVENT_BEAT_PICNICKER_CINDY
-	iftrue .CindyUnmasked
-	applymovement FUCHSIAGYM_FUCHSIA_GYM_3, Movement_NinjaSpin
-	faceplayer
-	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_LASS
-	special LoadUsedSpritesGFX
-.CindyUnmasked:
-	faceplayer
+TrainerJugglerOtis:
+	trainer JUGGLER, IRWIN4, EVENT_BEAT_FUCHSIA_GYM_TRAINER_2, JugglerOtisSeenText, JugglerOtisBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	checkevent EVENT_BEAT_PICNICKER_CINDY
-	iftrue .CindyAfterScript
-	writetext PicnickerCindyBeforeText
-	waitbutton
-	closetext
-	winlosstext PicnickerCindyBeatenText, 0
-	loadtrainer PICNICKER, CINDY
-	startbattle
-	iftrue .CindyBecomesJanine
-	reloadmapafterbattle
-	setevent EVENT_BEAT_PICNICKER_CINDY
-	end
-
-.CindyBecomesJanine:
-	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_JANINE
-	reloadmapafterbattle
-	end
-
-.CindyAfterScript:
-	writetext PicnickerCindyAfterText
+	writetext JugglerOtisAfterBattleText
 	waitbutton
 	closetext
 	end
 
-CamperBarryScript:
-	checkevent EVENT_BEAT_CAMPER_BARRY
-	iftrue .BarryUnmasked
-	applymovement FUCHSIAGYM_FUCHSIA_GYM_4, Movement_NinjaSpin
-	faceplayer
-	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_YOUNGSTER
-	special LoadUsedSpritesGFX
-.BarryUnmasked:
-	faceplayer
+TrainerJugglerWesley:
+	trainer JUGGLER, JUGGLER_FUCHSIAGYM_1, EVENT_BEAT_FUCHSIA_GYM_TRAINER_3, JugglerWesleySeenText, JugglerWesleyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	checkevent EVENT_BEAT_CAMPER_BARRY
-	iftrue .BarryAfterScript
-	writetext CamperBarryBeforeText
+	writetext JugglerWesleyAfterBattleText
 	waitbutton
 	closetext
-	winlosstext CamperBarryBeatenText, 0
-	loadtrainer CAMPER, BARRY
-	startbattle
-	iftrue .BarryBecomesJanine
-	reloadmapafterbattle
-	setevent EVENT_BEAT_CAMPER_BARRY
 	end
 
-.BarryBecomesJanine:
-	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_JANINE
-	reloadmapafterbattle
+TrainerJugglerReggie:
+	trainer JUGGLER, JUGGLER_FUCHSIAGYM_2, EVENT_BEAT_FUCHSIA_GYM_TRAINER_4, JugglerReggieSeenText, JugglerReggieBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext JugglerReggieAfterBattleText
+	waitbutton
+	closetext
 	end
 
-.BarryAfterScript:
-	writetext CamperBarryAfterText
+TrainerJugglerClyde:
+	trainer JUGGLER, JUGGLER_FUCHSIAGYM_3, EVENT_BEAT_FUCHSIA_GYM_TRAINER_5, JugglerClydeSeenText, JugglerClydeBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext JugglerClydeAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -196,7 +125,7 @@ CamperBarryScript:
 FuchsiaGymGuideScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_JANINE
+	checkevent EVENT_BEAT_KOGA
 	iftrue .FuchsiaGymGuideWinScript
 	writetext FuchsiaGymGuideText
 	waitbutton
@@ -214,168 +143,221 @@ FuchsiaGymStatue:
 	iftrue .Beaten
 	jumpstd GymStatue1Script
 .Beaten:
-	gettrainername STRING_BUFFER_4, JANINE, JANINE1
+	gettrainername STRING_BUFFER_4, KOGA, KOGA2
 	jumpstd GymStatue2Script
 
-Movement_NinjaSpin:
-	turn_head DOWN
-	turn_head LEFT
-	turn_head UP
-	turn_head RIGHT
-	turn_head DOWN
-	turn_head LEFT
-	turn_head UP
-	turn_head RIGHT
-	turn_head DOWN
-	turn_head LEFT
-	turn_head UP
-	turn_head RIGHT
-	turn_head DOWN
-	step_end
+KogaBeforeBattleText:
+	text "KOGA: Fwahahaha!"
 
-JanineText_DisappointYou:
-	text "Fufufufu…"
+	para "A mere child like"
+	line "you dares to"
+	cont "challenge me?"
 
-	para "I'm sorry to dis-"
-	line "appoint you…"
+	para "Very well, I"
+	line "shall show you"
+	cont "the terror of a"
+	cont "ninja master!"
 
-	para "I'm only joking!"
-
-	para "I'm the real deal!"
-
-	para "JANINE of FUCHSIA"
-	line "GYM, that's me!"
+	para "You shall feel"
+	line "the despair of"
+	cont "poison and sleep"
+	cont "techniques!"
 	done
 
-JanineText_ToughOne:
-	text "JANINE: You're a"
-	line "tough one. You"
-	cont "definitely won…"
+KogaWinLossText:
+	text "KOGA: Humph!"
+	line "You have proven"
+	cont "your worth!"
 
-	para "Here's SOULBADGE."
-	line "Take it."
+	para "Here! Take the"
+	line "SOULBADGE!"
 	done
 
-Text_ReceivedSoulBadge:
+ReceivedSoulBadgeText:
 	text "<PLAYER> received"
 	line "SOULBADGE."
 	done
 
-JanineText_ToxicSpeech:
-	text "JANINE: You're so"
-	line "tough! I have a"
-	cont "special gift!"
+KogaSoulBadgeInfoText:
+	text "KOGA: Now that"
+	line "you have the"
+	cont "SOULBADGE, the"
+	cont "DEFENSE of your"
+	cont "#MON increases!"
 
-	para "It's TOXIC, a pow-"
-	line "erful poison that"
+	para "It also lets you"
+	line "SURF outside of"
+	cont "battle!"
 
-	para "steadily saps the"
-	line "victim's HP."
+	para "Ah! Take this"
+	line "too!"
 	done
 
-JanineText_ApplyMyself:
-	text "JANINE: I'm going"
-	line "to really apply"
+KogaPostBattleAdviceText:
+	text "When afflicted by"
+	line "TOXIC, #MON"
+	cont "suffer more and"
+	cont "more as battle"
+	cont "progresses!"
 
-	para "myself and improve"
-	line "my skills."
-
-	para "I want to become"
-	line "better than both"
-	cont "Father and you!"
+	para "It will surely"
+	line "terrorize foes!"
 	done
 
-LassAliceBeforeText:
-	text "Fufufu!"
+KogaFightDoneText:
+	text "KOGA: Fwahaha!"
+	line "There's no need"
+	cont "to fight again!"
 
-	para "I'm JANINE, the"
-	line "GYM LEADER!"
-
-	para "No, I'm not!"
-	line "Gotcha, sucker!"
+	para "Go on, get out"
+	line "of here!"
 	done
 
-LassAliceBeatenText:
-	text "I had you fooled…"
+JugglerDuncanSeenText:
+	text "Strength isn't"
+	line "the key for"
+	cont "#MON!"
+
+	para "It's strategy!"
+
+	para "I'll show you how"
+	line "strategy can beat"
+	cont "brute strength!"
 	done
 
-LassAliceAfterText:
-	text "How will you dis-"
-	line "tinguish our real"
-	cont "LEADER?"
+JugglerDuncanBeatenText:
+	text "What?"
+	line "Extraordinary!"
 	done
 
-LassLindaBeforeText:
-	text "Fooled you!"
-	line "Hahaha!"
+JugglerDuncanAfterBattleText:
+	text "So, you mix brawn"
+	line "with brains?"
+	cont "Good strategy!"
 	done
 
-LassLindaBeatenText:
-	text "Ooh… I lost…"
-	line "You're not weak…"
+JugglerKendallSeenText:
+	text "I wanted to become"
+	line "a ninja, so I"
+	cont "joined this GYM!"
 	done
 
-LassLindaAfterText:
-	text "Well? Wasn't my"
-	line "disguise perfect?"
+JugglerKendallBeatenText:
+	text "I'm done"
+	line "for!"
 	done
 
-PicnickerCindyBeforeText:
-	text "I'm JANINE!"
-
-	para "How did you know I"
-	line "was real?"
-
-	para "Let's battle!"
+JugglerKendallAfterBattleText:
+	text "I will keep on"
+	line "training under"
+	cont "KOGA, my ninja"
+	cont "master!"
 	done
 
-PicnickerCindyBeatenText:
-	text "Darn it!"
-	line "I wanted to win!"
+JugglerOtisSeenText:
+	text "Let's see you"
+	line "beat my special"
+	cont "techniques!"
 	done
 
-PicnickerCindyAfterText:
-	text "You must be"
-	line "getting tired."
+JugglerOtisBeatenText:
+	text "You"
+	line "had me fooled!"
 	done
 
-CamperBarryBeforeText:
-	text "Wahahaha!"
-
-	para "You betcha!"
-	line "I'm JANINE!"
+JugglerOtisAfterBattleText:
+	text "I like poison and"
+	line "sleep techniques,"
+	cont "as they linger"
+	cont "after battle!"
 	done
 
-CamperBarryBeatenText:
-	text "My disguise was"
-	line "right on! Dang!"
+JugglerWesleySeenText:
+	text "Stop right there!"
+
+	para "Our invisible"
+	line "walls have you"
+	cont "frustrated?"
 	done
 
-CamperBarryAfterText:
-	text "Hey, you. Was my"
-	line "disguise cute or"
-	cont "what, huh?"
+JugglerWesleyBeatenText:
+	text "Whoa!"
+	line "He's got it!"
+	done
+
+JugglerWesleyAfterBattleText:
+	text "You impressed me!"
+	line "Here's a hint!"
+
+	para "Look very closely"
+	line "for gaps in the"
+	cont "invisible walls!"
+	done
+
+JugglerReggieSeenText:
+	text "I also study the"
+	line "way of the ninja"
+	cont "with master KOGA!"
+
+	para "Ninja have a long"
+	line "history of using"
+	cont "animals!"
+	done
+
+JugglerReggieBeatenText:
+	text "Awoo!"
+	done
+
+JugglerReggieAfterBattleText:
+	text "I still have much"
+	line "to learn!"
+	done
+
+JugglerClydeSeenText:
+	text "Master KOGA comes"
+	line "from a long line"
+	cont "of ninjas!"
+
+	para "What did you"
+	line "descend from?"
+	done
+
+JugglerClydeBeatenText:
+	text "Dropped"
+	line "my balls!"
+	done
+
+JugglerClydeAfterBattleText:
+	text "Where there is"
+	line "light, there is"
+	cont "shadow!"
+
+	para "Light and shadow!"
+	line "Which do you"
+	cont "choose?"
 	done
 
 FuchsiaGymGuideText:
-	text "Yo, CHAMP in"
+	text "Yo! Champ in"
 	line "making!"
 
-	para "Whoops! Take a"
-	line "good look around"
+	para "FUCHSIA GYM is"
+	line "riddled with"
+	cont "invisible walls!"
 
-	para "you. The trainers"
-	line "all look like the"
-	cont "LEADER, JANINE."
+	para "KOGA might appear"
+	line "close, but he's"
+	cont "blocked off!"
 
-	para "Which of them is"
-	line "the real JANINE?"
+	para "You have to find"
+	line "gaps in the walls"
+	cont "to reach him!"
 	done
 
 FuchsiaGymGuideWinText:
-	text "That was a great"
-	line "battle, trainer"
-	cont "from JOHTO!"
+	text "It's amazing how"
+	line "ninja can terrify"
+	cont "even now!"
 	done
 
 FuchsiaGym_MapEvents:
@@ -392,9 +374,11 @@ FuchsiaGym_MapEvents:
 	bg_event  6, 15, BGEVENT_READ, FuchsiaGymStatue
 
 	def_object_events
-	object_event  1, 10, SPRITE_JANINE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaGymJanineScript, -1
-	object_event  5,  7, SPRITE_FUCHSIA_GYM_1, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassAliceScript, -1
-	object_event  5, 11, SPRITE_FUCHSIA_GYM_2, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassLindaScript, -1
-	object_event  9,  4, SPRITE_FUCHSIA_GYM_3, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PicnickerCindyScript, -1
-	object_event  4,  2, SPRITE_FUCHSIA_GYM_4, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CamperBarryScript, -1
+	object_event  4, 10, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaGymKogaScript, -1
+	object_event  8, 13, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerJugglerDuncan, -1
+	object_event  7,  8, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerJugglerKendall, -1
+	object_event  1, 12, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerJugglerOtis, -1
+	object_event  3,  5, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerJugglerWesley, -1
+	object_event  8,  2, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerJugglerReggie, -1
+	object_event  2,  7, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerJugglerClyde, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaGymGuideScript, -1
