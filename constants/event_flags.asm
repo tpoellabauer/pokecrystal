@@ -1623,6 +1623,17 @@
 	const EVENT_BEAT_FIGHTINGDOJO_BLACKBELT_2
 	const EVENT_BEAT_FIGHTINGDOJO_BLACKBELT_3
 	const EVENT_BEAT_FIGHTINGDOJO_BLACKBELT_4
+; Route 11 (4 Gamblers, 4 Youngsters, 2 Super Nerds subbing for Gen 1's ENGINEER class)
+	const EVENT_BEAT_ROUTE_11_TRAINER_0
+	const EVENT_BEAT_ROUTE_11_TRAINER_1
+	const EVENT_BEAT_ROUTE_11_TRAINER_2
+	const EVENT_BEAT_ROUTE_11_TRAINER_3
+	const EVENT_BEAT_ROUTE_11_TRAINER_4
+	const EVENT_BEAT_ROUTE_11_TRAINER_5
+	const EVENT_BEAT_ROUTE_11_TRAINER_6
+	const EVENT_BEAT_ROUTE_11_TRAINER_7
+	const EVENT_BEAT_ROUTE_11_TRAINER_8
+	const EVENT_BEAT_ROUTE_11_TRAINER_9
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

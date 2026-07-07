@@ -150,6 +150,10 @@ DEF KRIS EQU __trainer_class__
 	const JASON
 	const JOEY4
 	const JOEY5
+	const DEREK ; Route 11
+	const MASON ; Route 11
+	const TYSON ; Route 11
+	const BRAD ; Route 11
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -512,6 +516,8 @@ DEF KRIS EQU __trainer_class__
 	const NORTON ; unused
 	const HUGH
 	const MARKUS
+	const WALT ; Route 11 (Gen 1 ENGINEER class, subbed to SUPER_NERD -- see model/trainers.toml)
+	const LENNY ; Route 11 (Gen 1 ENGINEER class, subbed to SUPER_NERD)
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_1_CHIKORITA
@@ -795,6 +801,10 @@ DEF KRIS EQU __trainer_class__
 	trainerclass GAMBLER ; 46
 	const GAMBLER_1
 	const GAMBLER_2
+	const GAMBLER_3 ; Route 11
+	const GAMBLER_4 ; Route 11
+	const GAMBLER_5 ; Route 11
+	const GAMBLER_6 ; Route 11
 
 	; Pokemon Tower 3F-6F Ghost-trainer Channelers (batch T1; not yet wired to any map)
 	trainerclass CHANNELER ; 47

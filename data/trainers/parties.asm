@@ -528,6 +528,30 @@ YoungsterGroup:
 	db 37, RATICATE,   HYPER_BEAM, QUICK_ATTACK, HYPER_FANG, PURSUIT
 	db -1 ; end
 
+	; YOUNGSTER (15)
+	db "DEREK@", TRAINERTYPE_NORMAL
+	db 21, EKANS
+	db -1 ; end
+
+	; YOUNGSTER (16)
+	db "MASON@", TRAINERTYPE_NORMAL
+	db 19, SANDSHREW
+	db 19, ZUBAT
+	db -1 ; end
+
+	; YOUNGSTER (17)
+	db "TYSON@", TRAINERTYPE_NORMAL
+	db 17, RATTATA
+	db 17, RATTATA
+	db 17, RATICATE
+	db -1 ; end
+
+	; YOUNGSTER (18)
+	db "BRAD@", TRAINERTYPE_NORMAL
+	db 18, NIDORAN_M
+	db 18, NIDORINO
+	db -1 ; end
+
 SchoolboyGroup:
 	; SCHOOLBOY (1)
 	db "JACK@", TRAINERTYPE_NORMAL
@@ -995,23 +1019,19 @@ CooltrainerMGroup:
 
 	; COOLTRAINERM (13)
 	db "ERICK@", TRAINERTYPE_NORMAL
-	db 10, BULBASAUR
-	db 10, CHARMANDER
-	db 10, SQUIRTLE
+	db 39, SANDSLASH
+	db 39, DUGTRIO
 	db -1 ; end
 
 	; COOLTRAINERM (14)
 	db "ANDY@", TRAINERTYPE_NORMAL
-	db 10, BULBASAUR
-	db 10, CHARMANDER
-	db 10, SQUIRTLE
+	db 43, RHYHORN
 	db -1 ; end
 
 	; COOLTRAINERM (15)
 	db "TYLER@", TRAINERTYPE_NORMAL
-	db 10, BULBASAUR
-	db 10, CHARMANDER
-	db 10, SQUIRTLE
+	db 39, NIDORINO
+	db 39, NIDOKING
 	db -1 ; end
 
 	; COOLTRAINERM (16)
@@ -2530,6 +2550,18 @@ SuperNerdGroup:
 	db 19, SLOWPOKE,   CURSE, WATER_GUN, GROWL, STRENGTH
 	db -1 ; end
 
+	; SUPER_NERD (15)
+	db "WALT@", TRAINERTYPE_NORMAL
+	db 21, MAGNEMITE
+	db -1 ; end
+
+	; SUPER_NERD (16)
+	db "LENNY@", TRAINERTYPE_NORMAL
+	db 18, MAGNEMITE
+	db 18, MAGNEMITE
+	db 18, MAGNETON
+	db -1 ; end
+
 Rival2Group:
 	; RIVAL2 (1)
 	db "?@", TRAINERTYPE_MOVES
@@ -2603,6 +2635,17 @@ GuitaristGroup:
 	db 33, VOLTORB
 	db 32, MAGNEMITE
 	db 32, MAGNEMITE
+	db -1 ; end
+
+	; GUITARIST (3)
+	db "IGGY@", TRAINERTYPE_NORMAL
+	db 43, RHYHORN
+	db -1 ; end
+
+	; GUITARIST (4)
+	db "MARLON@", TRAINERTYPE_NORMAL
+	db 39, ARBOK
+	db 39, TAUROS
 	db -1 ; end
 
 HikerGroup:
@@ -2962,10 +3005,8 @@ JugglerGroup:
 BlackbeltGroup:
 	; BLACKBELT_T (1)
 	db "KENJI@", TRAINERTYPE_NORMAL
-	db 27, ONIX
-	db 30, HITMONLEE
-	db 27, ONIX
-	db 32, MACHOKE
+	db 40, MACHOP
+	db 40, MACHOKE
 	db -1 ; end
 
 	; BLACKBELT_T (2)
@@ -2974,11 +3015,8 @@ BlackbeltGroup:
 	db -1 ; end
 
 	; BLACKBELT_T (3)
-	db "KENJI@", TRAINERTYPE_MOVES
-	db 33, ONIX,       BIND, ROCK_THROW, TOXIC, DIG
-	db 38, MACHAMP,    HEADBUTT, SWAGGER, THUNDERPUNCH, VITAL_THROW
-	db 33, STEELIX,    EARTHQUAKE, ROCK_THROW, IRON_TAIL, SANDSTORM
-	db 36, HITMONLEE,  DOUBLE_TEAM, HI_JUMP_KICK, MUD_SLAP, SWIFT
+	db "KENJI@", TRAINERTYPE_NORMAL
+	db 43, MACHOKE
 	db -1 ; end
 
 	; BLACKBELT_T (4)
@@ -3015,6 +3053,44 @@ BlackbeltGroup:
 	db 30, MACHOKE
 	db 32, MACHOKE
 	db 34, MACHOKE
+	db -1 ; end
+
+	; BLACKBELT_T (10)
+	db "KENTA@", TRAINERTYPE_NORMAL
+	db 38, MACHOKE
+	db 38, MACHOP
+	db 38, MACHOKE
+	db -1 ; end
+
+	; BLACKBELT_T (11)
+	db "HAYATO@", TRAINERTYPE_NORMAL
+	db 37, HITMONLEE
+	db 37, HITMONCHAN
+	db -1 ; end
+
+	; BLACKBELT_T (12)
+	db "DAIGO@", TRAINERTYPE_NORMAL
+	db 31, MANKEY
+	db 31, MANKEY
+	db 31, PRIMEAPE
+	db -1 ; end
+
+	; BLACKBELT_T (13)
+	db "RYU@", TRAINERTYPE_NORMAL
+	db 32, MACHOP
+	db 32, MACHOKE
+	db -1 ; end
+
+	; BLACKBELT_T (14)
+	db "TAKESHI@", TRAINERTYPE_NORMAL
+	db 36, PRIMEAPE
+	db -1 ; end
+
+	; BLACKBELT_T (15)
+	db "TETSU@", TRAINERTYPE_NORMAL
+	db 31, MACHOP
+	db 31, MANKEY
+	db 31, PRIMEAPE
 	db -1 ; end
 
 ExecutiveMGroup:
@@ -3938,6 +4014,30 @@ GamblerGroup:
 	db 24, VULPIX
 	db -1 ; end
 
+	; GAMBLER (3)
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, POLIWAG
+	db 18, HORSEA
+	db -1 ; end
+
+	; GAMBLER (4)
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, BELLSPROUT
+	db 18, ODDISH
+	db -1 ; end
+
+	; GAMBLER (5)
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, VOLTORB
+	db 18, MAGNEMITE
+	db -1 ; end
+
+	; GAMBLER (6)
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, GROWLITHE
+	db 18, VULPIX
+	db -1 ; end
+
 ChannelerGroup:
 	; CHANNELER (1)
 	db "CHANNELER_3F_1@", TRAINERTYPE_NORMAL
@@ -4039,4 +4139,13 @@ GiovanniGroup:
 	db 35, KANGASKHAN
 	db 37, RHYHORN
 	db 41, NIDOQUEEN
+	db -1 ; end
+
+	; GIOVANNI (3)
+	db "GIOVANNI@", TRAINERTYPE_NORMAL
+	db 45, RHYHORN
+	db 42, DUGTRIO
+	db 44, NIDOQUEEN
+	db 45, NIDOKING
+	db 50, RHYDON
 	db -1 ; end
