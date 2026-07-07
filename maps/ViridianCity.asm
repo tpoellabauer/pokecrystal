@@ -34,14 +34,14 @@ ViridianCityCoffeeGramps:
 ViridianCityGrampsNearGym:
 	faceplayer
 	opentext
-	checkevent EVENT_BLUE_IN_CINNABAR
-	iftrue .BlueReturned
+	checkevent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
+	iftrue .LeaderReturned
 	writetext ViridianCityGrampsNearGymText
 	waitbutton
 	closetext
 	end
 
-.BlueReturned:
+.LeaderReturned:
 	writetext ViridianCityGrampsNearGymBlueReturnedText
 	waitbutton
 	closetext
@@ -125,23 +125,16 @@ ViridianCityCoffeeGrampsDoubtedText:
 	done
 
 ViridianCityGrampsNearGymText:
-	text "This GYM didn't"
-	line "have a LEADER"
-	cont "until recently."
+	text "This #MON GYM"
+	line "is always closed."
 
-	para "A young man from"
-	line "PALLET became the"
-
-	para "LEADER, but he's"
-	line "often away."
+	para "I wonder who the"
+	line "LEADER is?"
 	done
 
 ViridianCityGrampsNearGymBlueReturnedText:
-	text "Are you going to"
-	line "battle the LEADER?"
-
-	para "Good luck to you."
-	line "You'll need it."
+	text "VIRIDIAN GYM's"
+	line "LEADER returned!"
 	done
 
 ViridianCityDreamEaterFisherText:
