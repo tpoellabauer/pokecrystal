@@ -232,9 +232,9 @@ DEF KRIS EQU __trainer_class__
 	const GAVEN3
 	const BLAKE
 	const BRIAN
-	const ERICK ; unused
-	const ANDY ; unused
-	const TYLER ; unused
+	const ERICK ; Viridian Gym
+	const ANDY ; Viridian Gym
+	const TYLER ; Viridian Gym
 	const SEAN
 	const KEVIN
 	const STEVE ; unused
@@ -523,6 +523,8 @@ DEF KRIS EQU __trainer_class__
 	trainerclass GUITARIST ; 2b
 	const CLYDE
 	const VINCENT
+	const IGGY ; Viridian Gym
+	const MARLON ; Viridian Gym
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -587,15 +589,21 @@ DEF KRIS EQU __trainer_class__
 	const IRWIN4 ; unused
 
 	trainerclass BLACKBELT_T ; 32
-	const KENJI1 ; unused
+	const KENJI1 ; Viridian Gym
 	const YOSHI
-	const KENJI2 ; unused
+	const KENJI2 ; Viridian Gym
 	const LAO
 	const NOB
 	const KIYO
 	const LUNG
 	const KENJI3
 	const WAI
+	const KENTA ; Viridian Gym
+	const HAYATO ; Fighting Dojo Karate Master
+	const DAIGO ; Fighting Dojo
+	const RYU ; Fighting Dojo
+	const TAKESHI ; Fighting Dojo
+	const TETSU ; Fighting Dojo
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -798,9 +806,11 @@ DEF KRIS EQU __trainer_class__
 	const CHANNELER_POKEMONTOWER6F_2
 	const CHANNELER_POKEMONTOWER6F_3
 
-	; Team Rocket boss, fought 2x: Rocket Hideout B4F (batch RH1), Silph Co 11F (batch SI2)
+	; Team Rocket boss, fought 3x: Rocket Hideout B4F (batch RH1), Silph Co 11F (batch SI2),
+	; Viridian Gym (his secret identity as gym leader, revealed only at battle start)
 	trainerclass GIOVANNI ; 48
 	const GIOVANNI_ROCKET_HIDEOUT
 	const GIOVANNI_SILPH_CO
+	const GIOVANNI_VIRIDIAN_GYM
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
