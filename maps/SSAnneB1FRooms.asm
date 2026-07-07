@@ -260,25 +260,25 @@ SSAnneB1FRooms_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3, 7, SS_ANNE_B1F, 1
-	warp_event  5, 7, SS_ANNE_B1F, 2
-	warp_event  7, 7, SS_ANNE_B1F, 3
-	warp_event  9, 7, SS_ANNE_B1F, 4
-	warp_event 11, 7, SS_ANNE_B1F, 5
+	warp_event  3,  7, SS_ANNE_B1F, 1
+	warp_event  5,  7, SS_ANNE_B1F, 2
+	warp_event  7,  7, SS_ANNE_B1F, 3
+	warp_event  9,  7, SS_ANNE_B1F, 4
+	warp_event 11,  7, SS_ANNE_B1F, 5
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  2, 2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor1Script, -1
-	object_event  4, 3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor2Script, -1
-	object_event  6, 2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor3Script, -1
-	object_event  8, 4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor4Script, -1
-	object_event 10, 2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor5Script, -1
-	object_event  3, 5, SPRITE_FISHERMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsFisherScript, -1
-	object_event  1, 3, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsNPC1Script, -1
-	object_event  7, 5, SPRITE_FISHERMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsNPC2Script, -1
-	object_event  2, 5, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem1Script, -1
-	object_event  5, 5, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem2Script, -1
-	object_event  8, 5, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem3Script, -1
+	object_event  2,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor1Script, -1
+	object_event  4,  3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor2Script, -1
+	object_event  6,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor3Script, -1
+	object_event  8,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor4Script, -1
+	object_event 10,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor5Script, -1
+	object_event  3,  5, SPRITE_FISHERMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsFisherScript, -1
+	object_event  1,  3, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsNPC1Script, -1
+	object_event  7,  5, SPRITE_FISHERMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsNPC2Script, -1
+	object_event  2,  5, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem1Script, -1
+	object_event  5,  5, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem2Script, -1
+	object_event  8,  5, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem3Script, -1
