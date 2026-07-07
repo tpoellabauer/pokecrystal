@@ -34,14 +34,14 @@ CeladonGymErikaScript:
 	waitsfx
 	setflag ENGINE_RAINBOWBADGE
 .FightDone:
-	checkevent EVENT_GOT_TM19_GIGA_DRAIN
-	iftrue .GotGigaDrain
+	checkevent EVENT_GOT_TM22_SOLARBEAM
+	iftrue .GotSolarbeam
 	writetext ErikaExplainTMText
 	promptbutton
-	verbosegiveitem TM_GIGA_DRAIN
-	iffalse .GotGigaDrain
-	setevent EVENT_GOT_TM19_GIGA_DRAIN
-.GotGigaDrain:
+	verbosegiveitem TM_SOLARBEAM
+	iffalse .GotSolarbeam
+	setevent EVENT_GOT_TM22_SOLARBEAM
+.GotSolarbeam:
 	writetext ErikaAfterBattleText
 	waitbutton
 	closetext
@@ -162,14 +162,14 @@ ErikaExplainTMText:
 	line "Please, I wish you"
 	cont "to have this TM."
 
-	para "It is GIGA DRAIN."
+	para "It is SOLARBEAM."
 
-	para "It is a wonderful"
-	line "move that drains"
+	para "It takes a turn to"
+	line "gather sunlight,"
 
-	para "half the damage it"
-	line "inflicts to heal"
-	cont "your #MON."
+	para "then unleashes a"
+	line "powerful #MON"
+	cont "attack."
 
 	para "Please use it if"
 	line "it pleases you…"
