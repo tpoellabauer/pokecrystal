@@ -450,6 +450,8 @@ DEF KRIS EQU __trainer_class__
 	const COLE ; Route 3
 	const DEXTER ; Route 6
 	const TREY ; Route 6
+	const STUART ; Route 9
+	const CLAY ; Route 9
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -608,6 +610,9 @@ DEF KRIS EQU __trainer_class__
 	const PARRY3
 	const ANTHONY4
 	const ANTHONY5
+	const DARRELL ; Route 9
+	const BUFORD ; Route 9
+	const CURTIS ; Route 9
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused
