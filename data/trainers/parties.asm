@@ -552,6 +552,17 @@ YoungsterGroup:
 	db 18, NIDORINO
 	db -1 ; end
 
+	; YOUNGSTER (19)
+	db "GRANT@", TRAINERTYPE_NORMAL
+	db 11, RATTATA
+	db 11, EKANS
+	db -1 ; end
+
+	; YOUNGSTER (20)
+	db "GRADY@", TRAINERTYPE_NORMAL
+	db 14, SPEAROW
+	db -1 ; end
+
 SchoolboyGroup:
 	; SCHOOLBOY (1)
 	db "JACK@", TRAINERTYPE_NORMAL
@@ -1023,6 +1034,23 @@ LassGroup:
 	db "DANA@", TRAINERTYPE_MOVES
 	db 36, AMPHAROS,   SWIFT, THUNDERPUNCH, THUNDER_WAVE, COTTON_SPORE
 	db 36, GOLDUCK,    DISABLE, SURF, PSYCHIC_M, SCREECH
+	db -1 ; end
+
+	; LASS (18)
+	db "PENNY@", TRAINERTYPE_NORMAL
+	db  9, PIDGEY
+	db  9, PIDGEY
+	db -1 ; end
+
+	; LASS (19)
+	db "MOLLY@", TRAINERTYPE_NORMAL
+	db 10, RATTATA
+	db 10, NIDORAN_M
+	db -1 ; end
+
+	; LASS (20)
+	db "SAVANNAH@", TRAINERTYPE_NORMAL
+	db 14, JIGGLYPUFF
 	db -1 ; end
 
 JanineGroup:
@@ -2113,6 +2141,27 @@ BugCatcherGroup:
 	db "WAYNE@", TRAINERTYPE_NORMAL
 	db  8, LEDYBA
 	db 10, PARAS
+	db -1 ; end
+
+	; BUG_CATCHER (20)
+	db "MERTON@", TRAINERTYPE_NORMAL
+	db 10, CATERPIE
+	db 10, WEEDLE
+	db 10, CATERPIE
+	db -1 ; end
+
+	; BUG_CATCHER (21)
+	db "DALLAS@", TRAINERTYPE_NORMAL
+	db  9, WEEDLE
+	db  9, KAKUNA
+	db  9, CATERPIE
+	db  9, METAPOD
+	db -1 ; end
+
+	; BUG_CATCHER (22)
+	db "COLE@", TRAINERTYPE_NORMAL
+	db 11, CATERPIE
+	db 11, METAPOD
 	db -1 ; end
 
 FisherGroup:

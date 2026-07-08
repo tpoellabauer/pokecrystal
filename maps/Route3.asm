@@ -1,133 +1,259 @@
 	object_const_def
-	const ROUTE3_FISHER1
+	const ROUTE3_SUPER_NERD
 	const ROUTE3_YOUNGSTER1
 	const ROUTE3_YOUNGSTER2
-	const ROUTE3_FISHER2
+	const ROUTE3_COOLTRAINER_F1
+	const ROUTE3_YOUNGSTER3
+	const ROUTE3_COOLTRAINER_F2
+	const ROUTE3_YOUNGSTER4
+	const ROUTE3_YOUNGSTER5
+	const ROUTE3_COOLTRAINER_F3
 
 Route3_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-TrainerFirebreatherOtis:
-	trainer FIREBREATHER, OTIS, EVENT_BEAT_FIREBREATHER_OTIS, FirebreatherOtisSeenText, FirebreatherOtisBeatenText, 0, .Script
+TrainerBugCatcherMerton:
+	trainer BUG_CATCHER, MERTON, EVENT_BEAT_ROUTE_3_TRAINER_0, BugCatcherMertonSeenText, BugCatcherMertonBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext FirebreatherOtisAfterBattleText
+	writetext BugCatcherMertonAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerYoungsterWarren:
-	trainer YOUNGSTER, WARREN, EVENT_BEAT_YOUNGSTER_WARREN, YoungsterWarrenSeenText, YoungsterWarrenBeatenText, 0, .Script
+TrainerYoungsterGrant:
+	trainer YOUNGSTER, GRANT, EVENT_BEAT_ROUTE_3_TRAINER_1, YoungsterGrantSeenText, YoungsterGrantBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext YoungsterWarrenAfterBattleText
+	writetext YoungsterGrantAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerYoungsterJimmy:
-	trainer YOUNGSTER, JIMMY, EVENT_BEAT_YOUNGSTER_JIMMY, YoungsterJimmySeenText, YoungsterJimmyBeatenText, 0, .Script
+TrainerLassPenny:
+	trainer LASS, PENNY, EVENT_BEAT_ROUTE_3_TRAINER_2, LassPennySeenText, LassPennyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext YoungsterJimmyAfterBattleText
+	writetext LassPennyAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerFirebreatherBurt:
-	trainer FIREBREATHER, BURT, EVENT_BEAT_FIREBREATHER_BURT, FirebreatherBurtSeenText, FirebreatherBurtBeatenText, 0, .Script
+TrainerBugCatcherDallas:
+	trainer BUG_CATCHER, DALLAS, EVENT_BEAT_ROUTE_3_TRAINER_3, BugCatcherDallasSeenText, BugCatcherDallasBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext FirebreatherBurtAfterBattleText
+	writetext BugCatcherDallasAfterBattleText
 	waitbutton
 	closetext
 	end
 
-Route3MtMoonSquareSign:
-	jumptext Route3MtMoonSquareSignText
+TrainerLassMolly:
+	trainer LASS, MOLLY, EVENT_BEAT_ROUTE_3_TRAINER_4, LassMollySeenText, LassMollyBeatenText, 0, .Script
 
-FirebreatherOtisSeenText:
-	text "Ah! The weather's"
-	line "as fine as ever."
+.Script:
+	endifjustbattled
+	opentext
+	writetext LassMollyAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerYoungsterGrady:
+	trainer YOUNGSTER, GRADY, EVENT_BEAT_ROUTE_3_TRAINER_5, YoungsterGradySeenText, YoungsterGradyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext YoungsterGradyAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerBugCatcherCole:
+	trainer BUG_CATCHER, COLE, EVENT_BEAT_ROUTE_3_TRAINER_6, BugCatcherColeSeenText, BugCatcherColeBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BugCatcherColeAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerLassSavannah:
+	trainer LASS, SAVANNAH, EVENT_BEAT_ROUTE_3_TRAINER_7, LassSavannahSeenText, LassSavannahBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext LassSavannahAfterBattleText
+	waitbutton
+	closetext
+	end
+
+Route3SuperNerdScript:
+	faceplayer
+	opentext
+	writetext Route3SuperNerdText
+	waitbutton
+	closetext
+	end
+
+Route3Sign:
+	jumptext Route3SignText
+
+BugCatcherMertonSeenText:
+	text "Hey! I met you in"
+	line "VIRIDIAN FOREST!"
 	done
 
-FirebreatherOtisBeatenText:
-	text "It's sunny, but"
-	line "I'm all wet…"
+BugCatcherMertonBeatenText:
+	text "You beat me again!"
 	done
 
-FirebreatherOtisAfterBattleText:
-	text "When it rains,"
-	line "it's hard to get"
-	cont "ignition…"
+BugCatcherMertonAfterBattleText:
+	text "There are other"
+	line "kinds of #MON"
+	cont "than those found"
+	cont "in the forest!"
 	done
 
-YoungsterWarrenSeenText:
-	text "Hmmm… I don't know"
-	line "what to do…"
+YoungsterGrantSeenText:
+	text "Hi! I like shorts!"
+	line "They're comfy and"
+	cont "easy to wear!"
 	done
 
-YoungsterWarrenBeatenText:
-	text "I knew I'd lose…"
+YoungsterGrantBeatenText:
+	text "I don't believe"
+	line "it!"
 	done
 
-YoungsterWarrenAfterBattleText:
-	text "You looked strong."
-
-	para "I was afraid to"
-	line "take you on…"
+YoungsterGrantAfterBattleText:
+	text "Are you storing"
+	line "your #MON on"
+	cont "PC? Each BOX can"
+	cont "hold 20 #MON!"
 	done
 
-YoungsterJimmySeenText:
-	text "I can run like the"
-	line "wind!"
+LassPennySeenText:
+	text "You looked at me,"
+	line "didn't you?"
 	done
 
-YoungsterJimmyBeatenText:
-	text "Blown away!"
+LassPennyBeatenText:
+	text "You're mean!"
 	done
 
-YoungsterJimmyAfterBattleText:
-	text "I wear shorts the"
-	line "whole year round."
-
-	para "That's my fashion"
-	line "policy."
+LassPennyAfterBattleText:
+	text "Quit staring if"
+	line "you don't want to"
+	cont "fight!"
 	done
 
-FirebreatherBurtSeenText:
-	text "Step right up and"
-	line "take a look!"
+BugCatcherDallasSeenText:
+	text "Are you a trainer?"
+	line "Let's fight!"
 	done
 
-FirebreatherBurtBeatenText:
-	text "Yow! That's hot!"
+BugCatcherDallasBeatenText:
+	text "If I had new"
+	line "#MON I would've"
+	cont "won!"
 	done
 
-FirebreatherBurtAfterBattleText:
-	text "The greatest fire-"
-	line "breather in KANTO,"
-	cont "that's me."
-
-	para "But not the best"
-	line "trainer…"
+BugCatcherDallasAfterBattleText:
+	text "If a #MON BOX"
+	line "on the PC gets"
+	cont "full, just switch"
+	cont "to another BOX!"
 	done
 
-Route3MtMoonSquareSignText:
-	text "MT.MOON SQUARE"
+LassMollySeenText:
+	text "That look you"
+	line "gave me, it's so"
+	cont "intriguing!"
+	done
 
-	para "Just go up the"
-	line "stairs."
+LassMollyBeatenText:
+	text "Be nice!"
+	done
+
+LassMollyAfterBattleText:
+	text "Avoid fights by"
+	line "not letting"
+	cont "people see you!"
+	done
+
+YoungsterGradySeenText:
+	text "Hey! You're not"
+	line "wearing shorts!"
+	done
+
+YoungsterGradyBeatenText:
+	text "Lost! Lost!"
+	line "Lost!"
+	done
+
+YoungsterGradyAfterBattleText:
+	text "I always wear"
+	line "shorts, even in"
+	cont "winter!"
+	done
+
+BugCatcherColeSeenText:
+	text "You can fight my"
+	line "new #MON!"
+	done
+
+BugCatcherColeBeatenText:
+	text "Done like dinner!"
+	done
+
+BugCatcherColeAfterBattleText:
+	text "Trained #MON"
+	line "are stronger than"
+	cont "the wild ones!"
+	done
+
+LassSavannahSeenText:
+	text "Eek! Did you"
+	line "touch me?"
+	done
+
+LassSavannahBeatenText:
+	text "That's it?"
+	done
+
+LassSavannahAfterBattleText:
+	text "ROUTE 4 is at the"
+	line "foot of MT.MOON."
+	done
+
+Route3SuperNerdText:
+	text "Whew... I better"
+	line "take a rest..."
+	cont "Groan..."
+
+	para "That tunnel from"
+	line "CERULEAN takes a"
+	cont "lot out of you!"
+	done
+
+Route3SignText:
+	text "ROUTE 3"
+	line "MT.MOON AHEAD"
 	done
 
 Route3_MapEvents:
@@ -139,10 +265,15 @@ Route3_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 49, 13, BGEVENT_READ, Route3MtMoonSquareSign
+	bg_event 59,  9, BGEVENT_READ, Route3Sign
 
 	def_object_events
-	object_event 26, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherOtis, -1
-	object_event 10,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterWarren, -1
-	object_event 16,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerYoungsterJimmy, -1
-	object_event 49,  5, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerFirebreatherBurt, -1
+	object_event 57, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route3SuperNerdScript, -1
+	object_event 10,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBugCatcherMerton, -1
+	object_event 14,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerYoungsterGrant, -1
+	object_event 16,  9, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerLassPenny, -1
+	object_event 19,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerBugCatcherDallas, -1
+	object_event 23,  4, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerLassMolly, -1
+	object_event 22,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerYoungsterGrady, -1
+	object_event 24,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 6, TrainerBugCatcherCole, -1
+	object_event 33, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerLassSavannah, -1

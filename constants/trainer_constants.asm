@@ -154,6 +154,8 @@ DEF KRIS EQU __trainer_class__
 	const MASON ; Route 11
 	const TYSON ; Route 11
 	const BRAD ; Route 11
+	const GRANT ; Route 3
+	const GRADY ; Route 3
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -234,6 +236,9 @@ DEF KRIS EQU __trainer_class__
 	const DANA3
 	const DANA4
 	const DANA5
+	const PENNY ; Route 3
+	const MOLLY ; Route 3
+	const SAVANNAH ; Route 3
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -435,6 +440,9 @@ DEF KRIS EQU __trainer_class__
 	const ARNIE4
 	const ARNIE5
 	const WAYNE
+	const MERTON ; Route 3
+	const DALLAS ; Route 3
+	const COLE ; Route 3
 
 	trainerclass FISHER ; 25
 	const JUSTIN
