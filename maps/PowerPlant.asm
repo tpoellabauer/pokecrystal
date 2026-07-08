@@ -6,6 +6,19 @@
 	const POWERPLANT_GYM_GUIDE3
 	const POWERPLANT_MANAGER
 	const POWERPLANT_FOREST
+	const POWERPLANT_VOLTORB1
+	const POWERPLANT_VOLTORB2
+	const POWERPLANT_VOLTORB3
+	const POWERPLANT_ELECTRODE1
+	const POWERPLANT_VOLTORB4
+	const POWERPLANT_VOLTORB5
+	const POWERPLANT_ELECTRODE2
+	const POWERPLANT_VOLTORB6
+	const POWERPLANT_ZAPDOS
+	const POWERPLANT_CARBOS
+	const POWERPLANT_HP_UP
+	const POWERPLANT_RARE_CANDY
+	const POWERPLANT_TM_THUNDER
 
 PowerPlant_MapScripts:
 	def_scene_scripts
@@ -196,6 +209,154 @@ Forest:
 
 PowerPlantBookshelf:
 	jumpstd DifficultBookshelfScript
+
+; Gen 1's Power Plant hides wild Voltorb/Electrode disguised as item balls. Ported as
+; OBJECTTYPE_SCRIPT wild encounters (precedent: UnionCaveB2F's Lapras) instead of fake itemballs.
+PowerPlantVoltorb1:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry VOLTORB
+	loadwildmon VOLTORB, 40
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_VOLTORB1
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_0
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantVoltorb2:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry VOLTORB
+	loadwildmon VOLTORB, 40
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_VOLTORB2
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_1
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantVoltorb3:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry VOLTORB
+	loadwildmon VOLTORB, 40
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_VOLTORB3
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_2
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantElectrode1:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry ELECTRODE
+	loadwildmon ELECTRODE, 43
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_ELECTRODE1
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_3
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantVoltorb4:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry VOLTORB
+	loadwildmon VOLTORB, 40
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_VOLTORB4
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_4
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantVoltorb5:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry VOLTORB
+	loadwildmon VOLTORB, 40
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_VOLTORB5
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_5
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantElectrode2:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry ELECTRODE
+	loadwildmon ELECTRODE, 43
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_ELECTRODE2
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_6
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantVoltorb6:
+	opentext
+	writetext PowerPlantVoltorbBattleText
+	closetext
+	cry VOLTORB
+	loadwildmon VOLTORB, 40
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_VOLTORB6
+	setevent EVENT_BEAT_POWER_PLANT_VOLTORB_7
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantZapdos:
+	opentext
+	writetext PowerPlantZapdosBattleText
+	closetext
+	cry ZAPDOS
+	loadwildmon ZAPDOS, 50
+	startbattle
+	ifequal LOSE, .NotBeaten
+	disappear POWERPLANT_ZAPDOS
+	setevent EVENT_BEAT_ZAPDOS
+.NotBeaten:
+	reloadmapafterbattle
+	end
+
+PowerPlantCarbos:
+	itemball CARBOS
+
+PowerPlantHPUp:
+	itemball HP_UP
+
+PowerPlantRareCandy:
+	itemball RARE_CANDY
+
+PowerPlantTMThunder:
+	itemball TM_THUNDER
+
+PowerPlantVoltorbBattleText:
+	text "Bzzzt!"
+	done
+
+PowerPlantZapdosBattleText:
+	text "Gyaoo!"
+	done
 
 PowerPlantOfficer1ApproachGymGuide2Movement:
 	step RIGHT
@@ -408,3 +569,16 @@ PowerPlant_MapEvents:
 	object_event  7,  2, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantGymGuide4Script, -1
 	object_event 14, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantManager, -1
 	object_event  5,  5, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Forest, -1
+	object_event  9, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb1, EVENT_BEAT_POWER_PLANT_VOLTORB_0
+	object_event 32, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb2, EVENT_BEAT_POWER_PLANT_VOLTORB_1
+	object_event 21, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb3, EVENT_BEAT_POWER_PLANT_VOLTORB_2
+	object_event 25, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantElectrode1, EVENT_BEAT_POWER_PLANT_VOLTORB_3
+	object_event 23, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb4, EVENT_BEAT_POWER_PLANT_VOLTORB_4
+	object_event 26, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb5, EVENT_BEAT_POWER_PLANT_VOLTORB_5
+	object_event 21, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantElectrode2, EVENT_BEAT_POWER_PLANT_VOLTORB_6
+	object_event 37, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb6, EVENT_BEAT_POWER_PLANT_VOLTORB_7
+	object_event  4,  9, SPRITE_BIRD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantZapdos, EVENT_BEAT_ZAPDOS
+	object_event  7, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantCarbos, EVENT_POWER_PLANT_CARBOS
+	object_event 28,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantHPUp, EVENT_POWER_PLANT_HP_UP
+	object_event 34,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantRareCandy, EVENT_POWER_PLANT_RARE_CANDY
+	object_event 26, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantTMThunder, EVENT_POWER_PLANT_TM_THUNDER

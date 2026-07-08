@@ -1802,6 +1802,21 @@
 	const EVENT_BEAT_ROCK_TUNNEL_B1F_TRAINER_5
 	const EVENT_BEAT_ROCK_TUNNEL_B1F_TRAINER_6
 	const EVENT_BEAT_ROCK_TUNNEL_B1F_TRAINER_7
+; Power Plant (8 disguised wild Voltorb/Electrode "item balls" + Zapdos + 3 real item balls;
+; TM_REFLECT skipped, no Gen 2 TM/tutor exists for REFLECT -- see PORT_BACKLOG)
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_0
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_1
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_2
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_3
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_4
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_5
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_6
+	const EVENT_BEAT_POWER_PLANT_VOLTORB_7
+	const EVENT_BEAT_ZAPDOS
+	const EVENT_POWER_PLANT_CARBOS
+	const EVENT_POWER_PLANT_HP_UP
+	const EVENT_POWER_PLANT_RARE_CANDY
+	const EVENT_POWER_PLANT_TM_THUNDER
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
