@@ -1818,6 +1818,36 @@
 	const EVENT_POWER_PLANT_TM_THUNDER
 ; Pokemon Tower 2F (Gen 1 3rd rival battle, OPP_RIVAL2 class)
 	const EVENT_BEAT_POKEMON_TOWER_RIVAL
+; Pokemon Tower 3F (3 Channeler)
+	const EVENT_BEAT_POKEMON_TOWER_3F_TRAINER_0
+	const EVENT_BEAT_POKEMON_TOWER_3F_TRAINER_1
+	const EVENT_BEAT_POKEMON_TOWER_3F_TRAINER_2
+	const EVENT_POKEMON_TOWER_3F_ESCAPE_ROPE
+; Pokemon Tower 4F (3 Channeler + 3 items)
+	const EVENT_BEAT_POKEMON_TOWER_4F_TRAINER_0
+	const EVENT_BEAT_POKEMON_TOWER_4F_TRAINER_1
+	const EVENT_BEAT_POKEMON_TOWER_4F_TRAINER_2
+	const EVENT_POKEMON_TOWER_4F_ELIXER
+	const EVENT_POKEMON_TOWER_4F_AWAKENING
+	const EVENT_POKEMON_TOWER_4F_HP_UP
+; Pokemon Tower 5F (4 Channeler + Nugget; purified-zone heal is a coord_event, no flag needed)
+	const EVENT_BEAT_POKEMON_TOWER_5F_TRAINER_0
+	const EVENT_BEAT_POKEMON_TOWER_5F_TRAINER_1
+	const EVENT_BEAT_POKEMON_TOWER_5F_TRAINER_2
+	const EVENT_BEAT_POKEMON_TOWER_5F_TRAINER_3
+	const EVENT_POKEMON_TOWER_5F_NUGGET
+; Pokemon Tower 6F (3 Channeler + 2 items + Marowak's Ghost blocking tile)
+	const EVENT_BEAT_POKEMON_TOWER_6F_TRAINER_0
+	const EVENT_BEAT_POKEMON_TOWER_6F_TRAINER_1
+	const EVENT_BEAT_POKEMON_TOWER_6F_TRAINER_2
+	const EVENT_POKEMON_TOWER_6F_RARE_CANDY
+	const EVENT_POKEMON_TOWER_6F_X_ACCURACY
+	const EVENT_BEAT_GHOST_MAROWAK
+; Pokemon Tower 7F (3 Rocket Grunts + Mr. Fuji rescue dialogue)
+	const EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_0
+	const EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_1
+	const EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_2
+	const EVENT_RESCUED_MR_FUJI
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
