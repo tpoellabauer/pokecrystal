@@ -1820,5 +1820,5 @@
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
-	const_next 2048
-DEF NUM_EVENTS EQU const_value ; 800
+	const_next 2560
+DEF NUM_EVENTS EQU const_value ; a00
