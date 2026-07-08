@@ -158,10 +158,10 @@ PokemonTower5F_MapEvents:
 	warp_event 18,  9, POKEMON_TOWER_6F, 1
 
 	def_coord_events
-	coord_event 10, 8, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
-	coord_event 11, 8, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
-	coord_event 10, 9, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
-	coord_event 11, 9, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
+	coord_event 10,  8, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
+	coord_event 11,  8, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
+	coord_event 10,  9, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
+	coord_event 11,  9, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
 
 	def_bg_events
 
