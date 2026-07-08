@@ -1661,6 +1661,8 @@
 	const EVENT_BEAT_ROUTE_9_TRAINER_6
 	const EVENT_BEAT_ROUTE_9_TRAINER_7
 	const EVENT_BEAT_ROUTE_9_TRAINER_8
+; Mr. Fuji's House (Gen 1 Poke Flute reward; full Team Rocket rescue at Pokemon Tower not yet ported)
+	const EVENT_GOT_POKE_FLUTE
 ; Route 11 (4 Gamblers, 4 Youngsters, 2 Super Nerds subbing for Gen 1's ENGINEER class)
 	const EVENT_BEAT_ROUTE_11_TRAINER_0
 	const EVENT_BEAT_ROUTE_11_TRAINER_1
