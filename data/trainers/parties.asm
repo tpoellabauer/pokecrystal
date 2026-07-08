@@ -1060,6 +1060,34 @@ LassGroup:
 	db 31, PARASECT
 	db -1 ; end
 
+	; LASS (22)
+	db "NORA@", TRAINERTYPE_NORMAL
+	db 23, NIDORAN_F
+	db 23, NIDORINA
+	db -1 ; end
+
+	; LASS (23)
+	db "VERA@", TRAINERTYPE_NORMAL
+	db 24, MEOWTH
+	db 24, MEOWTH
+	db 24, MEOWTH
+	db -1 ; end
+
+	; LASS (24)
+	db "IRIS@", TRAINERTYPE_NORMAL
+	db 19, PIDGEY
+	db 19, RATTATA
+	db 19, NIDORAN_M
+	db 19, MEOWTH
+	db 19, PIKACHU
+	db -1 ; end
+
+	; LASS (25)
+	db "OLIVE@", TRAINERTYPE_NORMAL
+	db 22, CLEFAIRY
+	db 22, CLEFAIRY
+	db -1 ; end
+
 JanineGroup:
 	; JANINE (1)
 	db "JANINE@", TRAINERTYPE_MOVES
@@ -2854,6 +2882,26 @@ SuperNerdGroup:
 	db 18, MAGNETON
 	db -1 ; end
 
+	; SUPER_NERD (17)
+	db "FRANK@", TRAINERTYPE_NORMAL
+	db 20, VOLTORB
+	db 20, KOFFING
+	db 20, VOLTORB
+	db 20, MAGNEMITE
+	db -1 ; end
+
+	; SUPER_NERD (18)
+	db "DUANE@", TRAINERTYPE_NORMAL
+	db 22, GRIMER
+	db 22, MUK
+	db 22, GRIMER
+	db -1 ; end
+
+	; SUPER_NERD (19)
+	db "MORRIS@", TRAINERTYPE_NORMAL
+	db 26, KOFFING
+	db -1 ; end
+
 Rival2Group:
 	; RIVAL2 (1)
 	db "?@", TRAINERTYPE_MOVES
@@ -4497,6 +4545,19 @@ GamblerGroup:
 	db "?@", TRAINERTYPE_NORMAL
 	db 18, GROWLITHE
 	db 18, VULPIX
+	db -1 ; end
+
+	; GAMBLER (7)
+	db "?@", TRAINERTYPE_NORMAL
+	db 22, POLIWAG
+	db 22, POLIWAG
+	db 22, POLIWHIRL
+	db -1 ; end
+
+	; GAMBLER (8)
+	db "?@", TRAINERTYPE_NORMAL
+	db 24, GROWLITHE
+	db 24, VULPIX
 	db -1 ; end
 
 ChannelerGroup:
