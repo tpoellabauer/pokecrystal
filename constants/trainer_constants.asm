@@ -444,6 +444,8 @@ DEF KRIS EQU __trainer_class__
 	const MERTON ; Route 3
 	const DALLAS ; Route 3
 	const COLE ; Route 3
+	const DEXTER ; Route 6
+	const TREY ; Route 6
 
 	trainerclass FISHER ; 25
 	const JUSTIN

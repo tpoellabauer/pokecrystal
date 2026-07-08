@@ -2171,6 +2171,18 @@ BugCatcherGroup:
 	db 11, METAPOD
 	db -1 ; end
 
+	; BUG_CATCHER (23)
+	db "DEXTER@", TRAINERTYPE_NORMAL
+	db 16, WEEDLE
+	db 16, CATERPIE
+	db 16, WEEDLE
+	db -1 ; end
+
+	; BUG_CATCHER (24)
+	db "TREY@", TRAINERTYPE_NORMAL
+	db 20, BUTTERFREE
+	db -1 ; end
+
 FisherGroup:
 	; FISHER (1)
 	db "JUSTIN@", TRAINERTYPE_NORMAL

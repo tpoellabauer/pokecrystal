@@ -1634,6 +1634,13 @@
 	const EVENT_BEAT_ROUTE_3_TRAINER_7
 ; Route 4 (1 Lass)
 	const EVENT_BEAT_ROUTE_4_TRAINER_0
+; Route 6 (2 Jr.Trainer M, 2 Jr.Trainer F, 2 Bug Catchers)
+	const EVENT_BEAT_ROUTE_6_TRAINER_0
+	const EVENT_BEAT_ROUTE_6_TRAINER_1
+	const EVENT_BEAT_ROUTE_6_TRAINER_2
+	const EVENT_BEAT_ROUTE_6_TRAINER_3
+	const EVENT_BEAT_ROUTE_6_TRAINER_4
+	const EVENT_BEAT_ROUTE_6_TRAINER_5
 ; Route 11 (4 Gamblers, 4 Youngsters, 2 Super Nerds subbing for Gen 1's ENGINEER class)
 	const EVENT_BEAT_ROUTE_11_TRAINER_0
 	const EVENT_BEAT_ROUTE_11_TRAINER_1

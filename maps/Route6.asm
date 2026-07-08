@@ -1,37 +1,85 @@
 	object_const_def
 	const ROUTE6_POKEFAN_M1
-	const ROUTE6_POKEFAN_M2
-	const ROUTE6_POKEFAN_M3
+	const ROUTE6_COOLTRAINER_M1
+	const ROUTE6_COOLTRAINER_F1
+	const ROUTE6_YOUNGSTER1
+	const ROUTE6_COOLTRAINER_M2
+	const ROUTE6_COOLTRAINER_F2
+	const ROUTE6_YOUNGSTER2
 
 Route6_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-TrainerPokefanmRex:
-	trainer POKEFANM, REX, EVENT_BEAT_POKEFANM_REX, PokefanmRexSeenText, PokefanmRexBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmRexAfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerPokefanmAllan:
-	trainer POKEFANM, ALLAN, EVENT_BEAT_POKEFANM_ALLAN, PokefanmAllanSeenText, PokefanmAllanBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmAllanAfterBattleText
-	waitbutton
-	closetext
-	end
-
 Route6PokefanMScript:
 	jumptextfaceplayer Route6PokefanMText
+
+TrainerCooltrainerm1Route6:
+	trainer JR_TRAINER_M, JR_TRAINER_M_1, EVENT_BEAT_ROUTE_6_TRAINER_0, Cooltrainerm1Route6SeenText, Cooltrainerm1Route6BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route6CooltrainerAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerf1Route6:
+	trainer JR_TRAINER_F, JR_TRAINER_F_1, EVENT_BEAT_ROUTE_6_TRAINER_1, Cooltrainerf1Route6SeenText, Cooltrainerf1Route6BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext Route6CooltrainerAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerYoungsterDexter:
+	trainer BUG_CATCHER, DEXTER, EVENT_BEAT_ROUTE_6_TRAINER_2, YoungsterDexterSeenText, YoungsterDexterBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext YoungsterDexterAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerm2Route6:
+	trainer JR_TRAINER_M, JR_TRAINER_M_2, EVENT_BEAT_ROUTE_6_TRAINER_3, Cooltrainerm2Route6SeenText, Cooltrainerm2Route6BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext Cooltrainerm2Route6AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerf2Route6:
+	trainer JR_TRAINER_F, JR_TRAINER_F_2, EVENT_BEAT_ROUTE_6_TRAINER_4, Cooltrainerf2Route6SeenText, Cooltrainerf2Route6BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext Cooltrainerf2Route6AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerYoungsterTrey:
+	trainer BUG_CATCHER, TREY, EVENT_BEAT_ROUTE_6_TRAINER_5, YoungsterTreySeenText, YoungsterTreyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext YoungsterTreyAfterBattleText
+	waitbutton
+	closetext
+	end
 
 Route6UndergroundPathSign:
 	jumptext Route6UndergroundPathSignText
@@ -51,42 +99,95 @@ Route6UndergroundPathSignText:
 	line "VERMILION CITY"
 	done
 
-PokefanmRexSeenText:
-	text "My PHANPY is the"
-	line "cutest in the"
-	cont "world."
+Cooltrainerm1Route6SeenText:
+	text "Who's there?"
+	line "Quit listening in"
+	cont "on us!"
 	done
 
-PokefanmRexBeatenText:
-	text "My PHANPY!"
+Cooltrainerm1Route6BeatenText:
+	text "I just can't win!"
 	done
 
-PokefanmRexAfterBattleText:
-	text "Look how adorable"
-	line "my PHANPY acts!"
-
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+Route6CooltrainerAfterBattleText:
+	text "Whisper..."
+	line "whisper..."
 	done
 
-PokefanmAllanSeenText:
-	text "My TEDDIURSA is"
-	line "the cutest in the"
-	cont "world."
+Cooltrainerf1Route6SeenText:
+	text "Excuse me! This"
+	line "is a private"
+	cont "conversation!"
 	done
 
-PokefanmAllanBeatenText:
-	text "My TEDDIURSA!"
+Cooltrainerf1Route6BeatenText:
+	text "Ugh! I hate"
+	line "losing!"
 	done
 
-PokefanmAllanAfterBattleText:
-	text "Look how adorable"
-	line "my TEDDIURSA acts!"
+YoungsterDexterSeenText:
+	text "There aren't many"
+	line "bugs out here."
+	done
 
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+YoungsterDexterBeatenText:
+	text "No! You're"
+	line "kidding!"
+	done
+
+YoungsterDexterAfterBattleText:
+	text "I like bugs, so"
+	line "I'm going back to"
+	cont "VIRIDIAN FOREST."
+	done
+
+Cooltrainerm2Route6SeenText:
+	text "Huh? You want"
+	line "to talk to me?"
+	done
+
+Cooltrainerm2Route6BeatenText:
+	text "I didn't start"
+	line "it!"
+	done
+
+Cooltrainerm2Route6AfterBattleText:
+	text "I should carry"
+	line "more #MON with"
+	cont "me for safety."
+	done
+
+Cooltrainerf2Route6SeenText:
+	text "Me? Well, OK."
+	line "I'll play!"
+	done
+
+Cooltrainerf2Route6BeatenText:
+	text "Just didn't"
+	line "work!"
+	done
+
+Cooltrainerf2Route6AfterBattleText:
+	text "I want to get"
+	line "stronger! What's"
+	cont "your secret?"
+	done
+
+YoungsterTreySeenText:
+	text "I've never seen"
+	line "you around!"
+	cont "Are you good?"
+	done
+
+YoungsterTreyBeatenText:
+	text "You are too"
+	line "good!"
+	done
+
+YoungsterTreyAfterBattleText:
+	text "Are my #MON"
+	line "weak? Or, am I"
+	cont "just bad?"
 	done
 
 Route6_MapEvents:
@@ -103,5 +204,9 @@ Route6_MapEvents:
 
 	def_object_events
 	object_event 17,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH
-	object_event  9, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmRex, -1
-	object_event 10, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1
+	object_event  2,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerm1Route6, -1
+	object_event  2,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerf1Route6, -1
+	object_event  5, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 10, TrainerYoungsterDexter, -1
+	object_event  2, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerm2Route6, -1
+	object_event  5, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerf2Route6, -1
+	object_event  2, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 10, TrainerYoungsterTrey, -1
