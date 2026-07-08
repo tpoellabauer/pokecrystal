@@ -682,6 +682,8 @@ DEF KRIS EQU __trainer_class__
 	const EDDIE
 	const COREY
 	const BRAX ; Pokemon Mansion 2F (batch MA1)
+	const BURGLAR_POKEMON_MANSION_3F
+	const BURGLAR_POKEMON_MANSION_B1F
 
 	trainerclass FIREBREATHER ; 30
 	const OTIS

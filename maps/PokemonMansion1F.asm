@@ -1,7 +1,10 @@
 ; Pokemon Mansion 1F
 ; Gen 1 source: pokeredDisassembly/scripts/PokemonMansion1F.asm
-; Mansion switch puzzle logic: toggles EVENT_MANSION_SWITCH_ON, but does not yet
-; actually swap floor blocks (no tiledata implementation) - see PORT_BACKLOG.
+; Mansion switch puzzle: EVENT_MANSION_SWITCH_ON is shared across all 4 Mansion floors (1F/2F/3F/
+; B1F) -- flipping any floor's switch toggles gates on every floor via each floor's own
+; MAPCALLBACK_TILES callback (precedent: RuinsOfAlphKabutoChamber's hidden-door callback). Block
+; IDs and coordinates are Gen 1's own values (TILESET_GEN1_FACILITY is a byte-identical port, same
+; metatile numbering).
 
 	object_const_def
 	const POKEMONMANSION1F_SCIENTIST
@@ -10,13 +13,23 @@ PokemonMansion1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, PokemonMansion1FNewMapSceneCallback
+	callback MAPCALLBACK_TILES, PokemonMansion1FSwitchDoorsCallback
 
-PokemonMansion1FNewMapSceneCallback:
-	; On first load, check the switch state and replace blocks accordingly.
-	; In Gen 1, this was done via predef ReplaceTileBlock with specific metatile IDs.
-	; For now, this is a placeholder - block replacement would need tiledata updates.
-	end
+PokemonMansion1FSwitchDoorsCallback:
+	checkevent EVENT_MANSION_SWITCH_ON
+	iftrue .SwitchOn
+	changeblock 12,  6, $2d
+	changeblock  8,  3, $2d
+	changeblock 10,  8, $2d
+	changeblock 13, 13, $2d
+	endcallback
+
+.SwitchOn:
+	changeblock 12,  6, $e
+	changeblock  8,  3, $e
+	changeblock 10,  8, $e
+	changeblock 13, 13, $e
+	endcallback
 
 PokemonMansion1FScientistScript:
 	faceplayer
@@ -25,7 +38,7 @@ PokemonMansion1FScientistScript:
 	waitbutton
 	closetext
 	loadtrainer SCIENTIST, SCIENTIST_POKEMON_MANSION_1F
-	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAINER
+	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
 	startbattle
 	dontrestartmapmusic
 	reloadmap
@@ -37,8 +50,6 @@ PokemonMansion1FScientistScript:
 	end
 
 PokemonMansion1FSwitchScript:
-	; Interaction with the mansion switch puzzle
-	; Toggles EVENT_MANSION_SWITCH_ON and would change floor blocks in a real implementation
 	opentext
 	writetext PokemonMansion1FSwitchText
 	yesorno
@@ -46,13 +57,22 @@ PokemonMansion1FSwitchScript:
 	writetext PokemonMansion1FSwitchPressedText
 	waitbutton
 	closetext
-	; Toggle the switch event (would affect block layout in full implementation)
 	checkevent EVENT_MANSION_SWITCH_ON
 	iftrue .turn_off
 	setevent EVENT_MANSION_SWITCH_ON
+	changeblock 12,  6, $e
+	changeblock  8,  3, $e
+	changeblock 10,  8, $e
+	changeblock 13, 13, $e
+	refreshmap
 	end
 .turn_off
 	clearevent EVENT_MANSION_SWITCH_ON
+	changeblock 12,  6, $2d
+	changeblock  8,  3, $2d
+	changeblock 10,  8, $2d
+	changeblock 13, 13, $2d
+	refreshmap
 	end
 .cancelled
 	writetext PokemonMansion1FSwitchNotPressedText
@@ -98,6 +118,14 @@ PokemonMansion1F_MapEvents:
 	def_warp_events
 	warp_event  4, 27, CINNABAR_ISLAND, 1
 	warp_event  5, 27, CINNABAR_ISLAND, 1
+	warp_event  6, 27, CINNABAR_ISLAND, 1
+	warp_event  7, 27, CINNABAR_ISLAND, 1
+	warp_event  5, 10, POKEMON_MANSION_2F, 1
+	warp_event 21, 23, POKEMON_MANSION_B1F, 1
+	warp_event 26, 27, CINNABAR_ISLAND, 1
+	warp_event 27, 27, CINNABAR_ISLAND, 1
+	warp_event 16, 14, POKEMON_MANSION_3F, 4
+	warp_event 17, 14, POKEMON_MANSION_3F, 5
 
 	def_coord_events
 
