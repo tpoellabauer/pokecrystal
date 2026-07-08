@@ -548,20 +548,18 @@ OaksLabRivalMineLooksStrongerText:
 	done
 
 OaksLabGirlText:
-	text "I'm PROF.OAK's"
-	line "aide."
+	text "PROF.OAK is the"
+	line "authority on"
+	cont "#MON!"
 
-	para "Take good care of"
-	line "your new #MON!"
+	para "Many #MON"
+	line "trainers hold him"
+	cont "in high regard!"
 	done
 
 OaksLabScientistText:
-	text "PROF.OAK is the"
-	line "authority on #-"
-	cont "MON."
-
-	para "Many trainers hold"
-	line "him in high regard."
+	text "I study #MON as"
+	line "PROF.OAK's AIDE."
 	done
 
 OaksLabPoster1Text:
