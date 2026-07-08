@@ -156,6 +156,7 @@ DEF KRIS EQU __trainer_class__
 	const BRAD ; Route 11
 	const GRANT ; Route 3
 	const GRADY ; Route 3
+	const RAMON ; Route 24
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -245,6 +246,8 @@ DEF KRIS EQU __trainer_class__
 	const VERA ; Route 8
 	const IRIS ; Route 8
 	const OLIVE ; Route 8
+	const FELICIA ; Route 24
+	const ROSIE ; Route 24
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -410,6 +413,7 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_62
 	const GRUNTM_63
 	const GRUNTM_64
+	const GRUNTM_65 ; Route 24 (Gen 1 disguised-Rocket Nugget Bridge leader, OPP_ROCKET class)
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
@@ -457,6 +461,7 @@ DEF KRIS EQU __trainer_class__
 	const TREY ; Route 6
 	const STUART ; Route 9
 	const CLAY ; Route 9
+	const PHILIP ; Route 24
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -880,6 +885,8 @@ DEF KRIS EQU __trainer_class__
 	const JR_TRAINER_M_3
 	const JR_TRAINER_M_4
 	const JR_TRAINER_M_5 ; Route 12
+	const JR_TRAINER_M_6 ; Route 24
+	const JR_TRAINER_M_7 ; Route 24
 
 	trainerclass JR_TRAINER_F ; 45
 	const JR_TRAINER_F_1

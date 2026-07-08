@@ -563,6 +563,13 @@ YoungsterGroup:
 	db 14, SPEAROW
 	db -1 ; end
 
+	; YOUNGSTER (21)
+	db "RAMON@", TRAINERTYPE_NORMAL
+	db 14, RATTATA
+	db 14, EKANS
+	db 14, ZUBAT
+	db -1 ; end
+
 SchoolboyGroup:
 	; SCHOOLBOY (1)
 	db "JACK@", TRAINERTYPE_NORMAL
@@ -1093,6 +1100,18 @@ LassGroup:
 	db "OLIVE@", TRAINERTYPE_NORMAL
 	db 22, CLEFAIRY
 	db 22, CLEFAIRY
+	db -1 ; end
+
+	; LASS (26)
+	db "FELICIA@", TRAINERTYPE_NORMAL
+	db 16, PIDGEY
+	db 16, NIDORAN_F
+	db -1 ; end
+
+	; LASS (27)
+	db "ROSIE@", TRAINERTYPE_NORMAL
+	db 14, PIDGEY
+	db 14, NIDORAN_F
 	db -1 ; end
 
 JanineGroup:
@@ -2025,6 +2044,12 @@ GruntMGroup:
 	db 23, ZUBAT
 	db -1 ; end
 
+	; GRUNTM (65)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 15, EKANS
+	db 15, ZUBAT
+	db -1 ; end
+
 GentlemanGroup:
 	; GENTLEMAN (1)
 	db "PRESTON@", TRAINERTYPE_NORMAL
@@ -2254,6 +2279,12 @@ BugCatcherGroup:
 	db 20, CATERPIE
 	db 20, WEEDLE
 	db 20, VENONAT
+	db -1 ; end
+
+	; BUG_CATCHER (27)
+	db "PHILIP@", TRAINERTYPE_NORMAL
+	db 14, CATERPIE
+	db 14, WEEDLE
 	db -1 ; end
 
 FisherGroup:
@@ -4562,6 +4593,17 @@ JrTrainerMGroup:
 	db "?@", TRAINERTYPE_NORMAL
 	db 29, NIDORAN_M
 	db 29, NIDORINO
+	db -1 ; end
+
+	; JR_TRAINER_M (6)
+	db "?@", TRAINERTYPE_NORMAL
+	db 14, RATTATA
+	db 14, EKANS
+	db -1 ; end
+
+	; JR_TRAINER_M (7)
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, MANKEY
 	db -1 ; end
 
 JrTrainerFGroup:
