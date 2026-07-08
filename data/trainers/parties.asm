@@ -1053,6 +1053,13 @@ LassGroup:
 	db 14, JIGGLYPUFF
 	db -1 ; end
 
+	; LASS (21)
+	db "TAMMY@", TRAINERTYPE_NORMAL
+	db 31, PARAS
+	db 31, PARAS
+	db 31, PARASECT
+	db -1 ; end
+
 JanineGroup:
 	; JANINE (1)
 	db "JANINE@", TRAINERTYPE_MOVES

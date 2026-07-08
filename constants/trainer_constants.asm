@@ -239,6 +239,7 @@ DEF KRIS EQU __trainer_class__
 	const PENNY ; Route 3
 	const MOLLY ; Route 3
 	const SAVANNAH ; Route 3
+	const TAMMY ; Route 4
 
 	trainerclass JANINE ; 1a
 	const JANINE1
