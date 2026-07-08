@@ -217,6 +217,7 @@ DEF KRIS EQU __trainer_class__
 	const TATE ; Route 18
 	const NOLAN ; Route 18
 	const CASEY1 ; Route 18
+	const EMMETT ; Route 20
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -318,6 +319,10 @@ DEF KRIS EQU __trainer_class__
 	const WANDA ; Route 19
 	const IRENE1 ; Route 19
 	const LOLA1 ; Route 19
+	const GLORIA ; Route 20
+	const ROBIN ; Route 20
+	const DELIA2 ; Route 20
+	const SHARI ; Route 20
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -514,6 +519,9 @@ DEF KRIS EQU __trainer_class__
 	const HUGO ; Route 19
 	const TREVOR1 ; Route 19
 	const NED1 ; Route 19
+	const RAFAEL ; Route 20 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
+	const DUSTIN ; Route 20 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
+	const MARCUS ; Route 20 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -878,6 +886,8 @@ DEF KRIS EQU __trainer_class__
 	const JR_TRAINER_F_10 ; Route 15
 	const JR_TRAINER_F_11 ; Route 15
 	const JR_TRAINER_F_12 ; Route 15
+	const JR_TRAINER_F_13 ; Route 20
+	const JR_TRAINER_F_14 ; Route 20
 
 	trainerclass GAMBLER ; 46
 	const GAMBLER_1

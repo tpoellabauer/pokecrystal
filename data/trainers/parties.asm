@@ -931,6 +931,13 @@ BirdKeeperGroup:
 	db 26, SPEAROW
 	db -1 ; end
 
+	; BIRD_KEEPER (34)
+	db "EMMETT@", TRAINERTYPE_NORMAL
+	db 30, FEAROW
+	db 30, FEAROW
+	db 30, PIDGEOTTO
+	db -1 ; end
+
 LassGroup:
 	; LASS (1)
 	db "CARRIE@", TRAINERTYPE_MOVES
@@ -1495,6 +1502,31 @@ BeautyGroup:
 	db 29, STARYU
 	db 29, STARYU
 	db 29, STARYU
+	db -1 ; end
+
+	; BEAUTY (25)
+	db "GLORIA@", TRAINERTYPE_NORMAL
+	db 35, SEAKING
+	db -1 ; end
+
+	; BEAUTY (26)
+	db "ROBIN@", TRAINERTYPE_NORMAL
+	db 30, SHELLDER
+	db 30, SHELLDER
+	db 30, CLOYSTER
+	db -1 ; end
+
+	; BEAUTY (27)
+	db "DELIA@", TRAINERTYPE_NORMAL
+	db 31, POLIWAG
+	db 31, SEAKING
+	db -1 ; end
+
+	; BEAUTY (28)
+	db "SHARI@", TRAINERTYPE_NORMAL
+	db 30, SEADRA
+	db 30, HORSEA
+	db 30, SEADRA
 	db -1 ; end
 
 PokemaniacGroup:
@@ -2606,6 +2638,25 @@ SwimmerMGroup:
 	db 27, STARYU
 	db 27, HORSEA
 	db 27, TENTACRUEL
+	db -1 ; end
+
+	; SWIMMERM (29)
+	db "RAFAEL@", TRAINERTYPE_NORMAL
+	db 31, SHELLDER
+	db 31, CLOYSTER
+	db -1 ; end
+
+	; SWIMMERM (30)
+	db "DUSTIN@", TRAINERTYPE_NORMAL
+	db 35, STARYU
+	db -1 ; end
+
+	; SWIMMERM (31)
+	db "MARCUS@", TRAINERTYPE_NORMAL
+	db 28, HORSEA
+	db 28, HORSEA
+	db 28, SEADRA
+	db 28, HORSEA
 	db -1 ; end
 
 SwimmerFGroup:
@@ -4539,6 +4590,19 @@ JrTrainerFGroup:
 	db 29, BELLSPROUT
 	db 29, ODDISH
 	db 29, TANGELA
+	db -1 ; end
+
+	; JR_TRAINER_F (13)
+	db "?@", TRAINERTYPE_NORMAL
+	db 31, GOLDEEN
+	db 31, SEAKING
+	db -1 ; end
+
+	; JR_TRAINER_F (14)
+	db "?@", TRAINERTYPE_NORMAL
+	db 30, TENTACOOL
+	db 30, HORSEA
+	db 30, SEEL
 	db -1 ; end
 
 GamblerGroup:
