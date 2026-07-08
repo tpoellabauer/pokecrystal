@@ -81,5 +81,6 @@ INCBIN "gfx/trainers/picnicker.gbcpal", middle_colors
 INCBIN "gfx/trainers/biker.gbcpal", middle_colors
 INCBIN "gfx/trainers/psychic_t.gbcpal", middle_colors
 INCBIN "gfx/trainers/executive_m.gbcpal", middle_colors
+INCBIN "gfx/trainers/biker.gbcpal", middle_colors ; cue_ball (Gen 1 sprite is SPRITE_BIKER)
 
 	assert_table_length NUM_TRAINER_CLASSES + 1

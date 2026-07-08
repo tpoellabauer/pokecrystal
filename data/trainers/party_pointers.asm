@@ -75,4 +75,5 @@ TrainerGroups:
 	dw GamblerGroup
 	dw ChannelerGroup
 	dw GiovanniGroup
+	dw CueBallGroup
 	assert_table_length NUM_TRAINER_CLASSES

@@ -149,10 +149,18 @@ INCLUDE "engine/battle/effect_commands.asm"
 
 SECTION "Enemy Trainers", ROMX
 
+INCLUDE "engine/battle/read_trainer_party.asm"
+
+
+; Split out of "Enemy Trainers" (2026-07-08): that section's parties.asm data outgrew one bank
+; from Gen 1 Kanto trainer content. These three files are all called via callfar/farcall (see
+; GetTrainerClassName/GetTrainerAttributes/AI_SwitchOrTryItem/AIScoring call sites), so moving
+; them to their own bank needs no call-site changes -- BANK() references recompute at link time.
+SECTION "Battle AI", ROMX
+
 INCLUDE "engine/battle/ai/items.asm"
 INCLUDE "engine/battle/ai/scoring.asm"
 INCLUDE "engine/battle/read_trainer_attributes.asm"
-INCLUDE "engine/battle/read_trainer_party.asm"
 
 
 SECTION "Battle Core", ROMX

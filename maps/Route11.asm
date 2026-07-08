@@ -50,7 +50,7 @@ TrainerRoute11Youngster1:
 	end
 
 TrainerRoute11SuperNerd1:
-	trainer SUPER_NERD, WALT, EVENT_BEAT_ROUTE_11_TRAINER_3, Route11SuperNerd1SeenText, Route11SuperNerd1BeatenText, 0, .Script
+	trainer SUPER_NERD, WALT_ROUTE11, EVENT_BEAT_ROUTE_11_TRAINER_3, Route11SuperNerd1SeenText, Route11SuperNerd1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
@@ -110,7 +110,7 @@ TrainerRoute11SuperNerd2:
 	end
 
 TrainerRoute11Youngster4:
-	trainer YOUNGSTER, BRAD, EVENT_BEAT_ROUTE_11_TRAINER_9, Route11Youngster4SeenText, Route11Youngster4BeatenText, 0, .Script
+	trainer YOUNGSTER, BRAD_ROUTE11, EVENT_BEAT_ROUTE_11_TRAINER_9, Route11Youngster4SeenText, Route11Youngster4BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
@@ -311,13 +311,13 @@ Route11_MapEvents:
 	bg_event  1,  5, BGEVENT_READ, Route11DiglettsCaveSign
 
 	def_object_events
-	object_event 10, 14, SPRITE_GAMBLER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler1, -1
-	object_event 26,  9, SPRITE_GAMBLER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler2, -1
+	object_event 10, 14, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler1, -1
+	object_event 26,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler2, -1
 	object_event 13,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute11Youngster1, -1
 	object_event 36, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11SuperNerd1, -1
 	object_event 22,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute11Youngster2, -1
-	object_event 45,  7, SPRITE_GAMBLER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler3, -1
-	object_event 33,  3, SPRITE_GAMBLER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler4, -1
+	object_event 45,  7, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler3, -1
+	object_event 33,  3, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler4, -1
 	object_event 43,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute11Youngster3, -1
 	object_event 45, 16, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11SuperNerd2, -1
 	object_event 22, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute11Youngster4, -1

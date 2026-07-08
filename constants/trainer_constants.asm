@@ -153,7 +153,7 @@ DEF KRIS EQU __trainer_class__
 	const DEREK ; Route 11
 	const MASON ; Route 11
 	const TYSON ; Route 11
-	const BRAD ; Route 11
+	const BRAD_ROUTE11 ; Route 11 (renamed from BRAD, collided with vanilla BOARDER BRAD)
 	const GRANT ; Route 3
 	const GRADY ; Route 3
 	const RAMON ; Route 24
@@ -489,8 +489,8 @@ DEF KRIS EQU __trainer_class__
 	const TULLY3
 	const WILTON2
 	const WADE ; Route 12
-	const LEROY ; Route 12
-	const HANK ; Route 12
+	const LEROY_ROUTE12 ; Route 12 (renamed from LEROY, collided with the vanilla CAMPER LEROY)
+	const HANK_ROUTE12 ; Route 12 (renamed from HANK, collided with the vanilla BIRD_KEEPER HANK)
 	const CHET ; Route 12
 	const DUSTY ; Route 12
 	const SCOTT
@@ -591,7 +591,8 @@ DEF KRIS EQU __trainer_class__
 	const NORTON ; unused
 	const HUGH
 	const MARKUS
-	const WALT ; Route 11 (Gen 1 ENGINEER class, subbed to SUPER_NERD -- see model/trainers.toml)
+	const WALT_ROUTE11 ; Route 11 (renamed from WALT, collided with vanilla FIREBREATHER WALT;
+	; Gen 1 ENGINEER class, subbed to SUPER_NERD -- see model/trainers.toml)
 	const LENNY ; Route 11 (Gen 1 ENGINEER class, subbed to SUPER_NERD)
 	const FRANK ; Route 8
 	const DUANE ; Route 8
@@ -604,6 +605,9 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL2_2_CHIKORITA
 	const RIVAL2_2_CYNDAQUIL
 	const RIVAL2_2_TOTODILE
+	const RIVAL2_POKEMONTOWER_SQUIRTLE   ; Gen 1 Pokemon Tower: you chose Charmander
+	const RIVAL2_POKEMONTOWER_BULBASAUR  ; Gen 1 Pokemon Tower: you chose Squirtle
+	const RIVAL2_POKEMONTOWER_CHARMANDER ; Gen 1 Pokemon Tower: you chose Bulbasaur
 
 	trainerclass GUITARIST ; 2b
 	const CLYDE

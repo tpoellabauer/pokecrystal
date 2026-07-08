@@ -76,6 +76,7 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; gambler
 	db MUSIC_HIKER_ENCOUNTER       ; channeler
 	db MUSIC_ROCKET_ENCOUNTER      ; giovanni
+	db MUSIC_HIKER_ENCOUNTER       ; cue_ball
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

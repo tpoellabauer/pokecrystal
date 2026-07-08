@@ -72,4 +72,5 @@ BTTrainerClassSprites:
 	db SPRITE_BIKER
 	db SPRITE_SUPER_NERD
 	db SPRITE_ROCKET
+	db SPRITE_BIKER ; cue_ball (Gen 1's own sprite/class mismatch, see trainer_constants.asm)
 	assert_table_length NUM_TRAINER_CLASSES - 1 ; exclude MYSTICALMAN

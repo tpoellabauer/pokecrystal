@@ -111,9 +111,6 @@ TrainerYoungsterPhilip:
 	closetext
 	end
 
-Route24ThunderWave:
-	itemball TM_THUNDER_WAVE
-
 NuggetLeaderRoute24SeenText:
 	text "I saw your feat"
 	line "from the grass!"
@@ -372,4 +369,3 @@ Route24_MapEvents:
 	object_event  7,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterRamon, -1
 	object_event  3, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 8, TrainerLassRosie, -1
 	object_event  7, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 9, TrainerYoungsterPhilip, -1
-	object_event  5, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route24ThunderWave, EVENT_ROUTE_24_THUNDER_WAVE

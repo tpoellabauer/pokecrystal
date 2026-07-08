@@ -75,4 +75,5 @@ TrainerPicPointers::
 	dba_pic BikerPic
 	dba_pic PsychictPic
 	dba_pic ExecutivemPic
+	dba_pic BikerPic ; cue_ball (Gen 1 sprite is SPRITE_BIKER)
 	assert_table_length NUM_TRAINER_CLASSES

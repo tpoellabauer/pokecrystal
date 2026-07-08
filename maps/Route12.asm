@@ -72,7 +72,7 @@ TrainerRoute12Fisher1:
 	end
 
 TrainerRoute12Fisher2:
-	trainer FISHER, LEROY, EVENT_BEAT_ROUTE_12_TRAINER_1, Route12Fisher2SeenText, Route12Fisher2BeatenText, 0, .Script
+	trainer FISHER, LEROY_ROUTE12, EVENT_BEAT_ROUTE_12_TRAINER_1, Route12Fisher2SeenText, Route12Fisher2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext
@@ -82,7 +82,7 @@ TrainerRoute12Fisher2:
 	end
 
 TrainerRoute12Fisher3:
-	trainer FISHER, HANK, EVENT_BEAT_ROUTE_12_TRAINER_3, Route12Fisher3SeenText, Route12Fisher3BeatenText, 0, .Script
+	trainer FISHER, HANK_ROUTE12, EVENT_BEAT_ROUTE_12_TRAINER_3, Route12Fisher3SeenText, Route12Fisher3BeatenText, 0, .Script
 .Script:
 	endifjustbattled
 	opentext

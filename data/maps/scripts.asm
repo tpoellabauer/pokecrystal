@@ -206,9 +206,6 @@ INCLUDE "maps/TrainerHouseB1F.asm"
 INCLUDE "maps/ViridianMart.asm"
 INCLUDE "maps/ViridianPokecenter1F.asm"
 INCLUDE "maps/ViridianPokecenter2FBeta.asm"
-INCLUDE "maps/Route2NuggetHouse.asm"
-INCLUDE "maps/Route2Gate.asm"
-INCLUDE "maps/VictoryRoadGate.asm"
 
 
 SECTION "Map Scripts 12", ROMX
@@ -512,6 +509,14 @@ INCLUDE "maps/SSAnneCaptainsRoom.asm"
 INCLUDE "maps/SSAnne1FRooms.asm"
 INCLUDE "maps/SSAnne2FRooms.asm"
 INCLUDE "maps/SSAnneB1FRooms.asm"
+
+ENDSECTION
+
+
+; Split out of "Map Scripts 25" (2026-07-08): that bucket overflowed 0x4000 once Pokemon Tower
+; and other Kanto endgame dungeons grew past skeleton size. Floating section, any free bank.
+SECTION "Map Scripts 26", ROMX
+
 INCLUDE "maps/RocketHideoutB1F.asm"
 INCLUDE "maps/RocketHideoutB2F.asm"
 INCLUDE "maps/RocketHideoutB3F.asm"
@@ -546,5 +551,8 @@ INCLUDE "maps/Route2TradeHouse.asm"
 INCLUDE "maps/ViridianForestNorthGate.asm"
 INCLUDE "maps/ViridianForestSouthGate.asm"
 INCLUDE "maps/ViridianForest.asm"
+INCLUDE "maps/Route2NuggetHouse.asm"
+INCLUDE "maps/Route2Gate.asm"
+INCLUDE "maps/VictoryRoadGate.asm"
 
 ENDSECTION
