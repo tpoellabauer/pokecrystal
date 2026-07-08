@@ -489,6 +489,10 @@ DEF KRIS EQU __trainer_class__
 	const RALPH4
 	const RALPH5
 	const TULLY4
+	const DELBERT ; Route 21
+	const MOSES ; Route 21
+	const GARRY ; Route 21
+	const ALVIN ; Route 21
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -522,6 +526,10 @@ DEF KRIS EQU __trainer_class__
 	const RAFAEL ; Route 20 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
 	const DUSTIN ; Route 20 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
 	const MARCUS ; Route 20 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
+	const HOLLIS ; Route 21 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
+	const RUDY2 ; Route 21 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
+	const STANTON ; Route 21 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
+	const DUANE2 ; Route 21 (Gen 1 unisex SWIMMER class, subbed to SWIMMERM)
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -935,5 +943,6 @@ DEF KRIS EQU __trainer_class__
 	const CUE_BALL_6
 	const CUE_BALL_7
 	const CUE_BALL_8
+	const CUE_BALL_9 ; Route 21
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

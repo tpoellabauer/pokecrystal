@@ -2451,6 +2451,36 @@ FisherGroup:
 	db 24, MAGIKARP
 	db -1 ; end
 
+	; FISHER (31)
+	db "DELBERT@", TRAINERTYPE_NORMAL
+	db 28, SEAKING
+	db 28, GOLDEEN
+	db 28, SEAKING
+	db 28, SEAKING
+	db -1 ; end
+
+	; FISHER (32)
+	db "MOSES@", TRAINERTYPE_NORMAL
+	db 31, SHELLDER
+	db 31, CLOYSTER
+	db -1 ; end
+
+	; FISHER (33)
+	db "GARRY@", TRAINERTYPE_NORMAL
+	db 27, MAGIKARP
+	db 27, MAGIKARP
+	db 27, MAGIKARP
+	db 27, MAGIKARP
+	db 27, MAGIKARP
+	db 27, MAGIKARP
+	db -1 ; end
+
+	; FISHER (34)
+	db "ALVIN@", TRAINERTYPE_NORMAL
+	db 33, SEAKING
+	db 33, GOLDEEN
+	db -1 ; end
+
 SwimmerMGroup:
 	; SWIMMERM (1)
 	db "HAROLD@", TRAINERTYPE_NORMAL
@@ -2657,6 +2687,30 @@ SwimmerMGroup:
 	db 28, HORSEA
 	db 28, SEADRA
 	db 28, HORSEA
+	db -1 ; end
+
+	; SWIMMERM (32)
+	db "HOLLIS@", TRAINERTYPE_NORMAL
+	db 33, SEADRA
+	db 33, TENTACRUEL
+	db -1 ; end
+
+	; SWIMMERM (33)
+	db "RUDY@", TRAINERTYPE_NORMAL
+	db 37, STARMIE
+	db -1 ; end
+
+	; SWIMMERM (34)
+	db "STANTON@", TRAINERTYPE_NORMAL
+	db 33, STARYU
+	db 33, WARTORTLE
+	db -1 ; end
+
+	; SWIMMERM (35)
+	db "DUANE@", TRAINERTYPE_NORMAL
+	db 32, POLIWHIRL
+	db 32, TENTACOOL
+	db 32, SEADRA
 	db -1 ; end
 
 SwimmerFGroup:
@@ -4816,4 +4870,11 @@ CueBallGroup:
 	db "?@", TRAINERTYPE_NORMAL
 	db 29, PRIMEAPE
 	db 29, MACHOKE
+	db -1 ; end
+
+	; CUE_BALL (9)
+	db "?@", TRAINERTYPE_NORMAL
+	db 31, TENTACOOL
+	db 31, TENTACOOL
+	db 31, TENTACRUEL
 	db -1 ; end
