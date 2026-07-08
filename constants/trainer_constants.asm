@@ -343,6 +343,10 @@ DEF KRIS EQU __trainer_class__
 	const ZACH
 	const BRENT4
 	const MILLER
+	const CUBONE_HERMIT ; Rock Tunnel 1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC battle class
+	const POKEMANIAC_ROCKTUNNELB1F1 ; Rock Tunnel B1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC
+	const POKEMANIAC_ROCKTUNNELB1F2 ; Rock Tunnel B1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC
+	const POKEMANIAC_ROCKTUNNELB1F3 ; Rock Tunnel B1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -634,6 +638,11 @@ DEF KRIS EQU __trainer_class__
 	const DARRELL ; Route 9
 	const BUFORD ; Route 9
 	const CURTIS ; Route 9
+	const HIKER_ROCKTUNNEL1 ; Rock Tunnel 1F
+	const HIKER_ROCKTUNNEL2 ; Rock Tunnel 1F
+	const HIKER_ROCKTUNNEL3 ; Rock Tunnel 1F
+	const HIKER_ROCKTUNNELB1F1 ; Rock Tunnel B1F
+	const HIKER_ROCKTUNNELB1F2 ; Rock Tunnel B1F
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused
@@ -903,6 +912,11 @@ DEF KRIS EQU __trainer_class__
 	const JR_TRAINER_F_12 ; Route 15
 	const JR_TRAINER_F_13 ; Route 20
 	const JR_TRAINER_F_14 ; Route 20
+	const JR_TRAINER_F_15 ; Rock Tunnel 1F
+	const JR_TRAINER_F_16 ; Rock Tunnel 1F
+	const JR_TRAINER_F_17 ; Rock Tunnel 1F
+	const JR_TRAINER_F_18 ; Rock Tunnel B1F
+	const JR_TRAINER_F_19 ; Rock Tunnel B1F
 
 	trainerclass GAMBLER ; 46
 	const GAMBLER_1
