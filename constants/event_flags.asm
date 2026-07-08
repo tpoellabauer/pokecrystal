@@ -1862,6 +1862,16 @@
 	const EVENT_RESCUED_MR_FUJI
 ; Seafoam Islands (Articuno)
 	const EVENT_BEAT_ARTICUNO
+; Cerulean Cave (Mewtwo)
+	const EVENT_CERULEAN_CAVE_1F_FULL_RESTORE
+	const EVENT_CERULEAN_CAVE_1F_MAX_ELIXER
+	const EVENT_CERULEAN_CAVE_1F_NUGGET
+	const EVENT_CERULEAN_CAVE_2F_PP_UP
+	const EVENT_CERULEAN_CAVE_2F_ULTRA_BALL
+	const EVENT_CERULEAN_CAVE_2F_FULL_RESTORE
+	const EVENT_BEAT_MEWTWO
+	const EVENT_CERULEAN_CAVE_B1F_ULTRA_BALL
+	const EVENT_CERULEAN_CAVE_B1F_MAX_REVIVE
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
