@@ -1,3 +1,7 @@
+; Seafoam Islands B1F
+; Gen 1 source: pokeredDisassembly/scripts/SeafoamIslandsB1F.asm
+; Optional boulder shortcut skipped -- see SeafoamIslands1F.asm's note.
+
 SeafoamIslandsB1F_MapScripts:
 	def_scene_scripts
 
@@ -7,6 +11,13 @@ SeafoamIslandsB1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event  4,  2, SEAFOAM_ISLANDS_B2F, 1
+	warp_event  7,  5, SEAFOAM_ISLANDS_1F, 5
+	warp_event 13,  7, SEAFOAM_ISLANDS_B2F, 3
+	warp_event 19, 15, SEAFOAM_ISLANDS_B2F, 4
+	warp_event 23, 15, SEAFOAM_ISLANDS_1F, 7
+	warp_event 25, 11, SEAFOAM_ISLANDS_B2F, 6
+	warp_event 25,  3, SEAFOAM_ISLANDS_1F, 6
 
 	def_coord_events
 

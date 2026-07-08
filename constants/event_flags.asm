@@ -1860,6 +1860,8 @@
 	const EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_1
 	const EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_2
 	const EVENT_RESCUED_MR_FUJI
+; Seafoam Islands (Articuno)
+	const EVENT_BEAT_ARTICUNO
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
