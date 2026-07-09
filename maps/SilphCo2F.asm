@@ -10,30 +10,13 @@ SilphCo2F_MapScripts:
 
 	def_callbacks
 
-; Silph Worker F - gives TM_SELFDESTRUCT
+; Silph Worker F - Gen 1 gives TM_SELFDESTRUCT here; no Gen2 equivalent TM exists
+; (same gap as Route24/PowerPlant's TM_REFLECT/TM_THUNDER_WAVE), so this is flavor dialogue only.
 SilphCo2FSilphWorkerFScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM_SELFDESTRUCT
-	iftrue .AlreadyHaveTM
 	writetext SilphCo2FSilphWorkerFPleaseTakeThisText
-	promptbutton
-	verbosegiveitem TM_SELFDESTRUCT
-	iffalse .NoRoom
-	setevent EVENT_GOT_TM_SELFDESTRUCT
-	opentext
-	writetext SilphCo2FSilphWorkerFReceivedTMText
 	waitbutton
-	sjump .Explanation
-.AlreadyHaveTM:
-	writetext SilphCo2FSilphWorkerFTMExplanationText
-	waitbutton
-	closetext
-	end
-.NoRoom:
-	writetext SilphCo2FSilphWorkerFTMNoRoomText
-	waitbutton
-.Explanation:
 	writetext SilphCo2FSilphWorkerFTMExplanationText
 	waitbutton
 	closetext
@@ -125,26 +108,15 @@ SilphCo2FSilphWorkerFPleaseTakeThisText:
 	para "Oh, you're not"
 	line "with TEAM ROCKET."
 	cont "I thought..."
-	cont "I'm sorry. Here,"
-	cont "please take this!"
+	cont "I'm so relieved."
 	done
 
-SilphCo2FSilphWorkerFReceivedTMText:
-	text "<PLAYER> got"
-	line "TM_SELFDESTRUCT!@"
-	text_end
-
 SilphCo2FSilphWorkerFTMExplanationText:
-	text "TM_SELFDESTRUCT is"
+	text "SELFDESTRUCT is"
 	line "powerful, but"
 	cont "the #MON that"
 	cont "uses it faints!"
 	cont "Be careful."
-	done
-
-SilphCo2FSilphWorkerFTMNoRoomText:
-	text "You don't have any"
-	line "room for this."
 	done
 
 SilphCo2FScientist1BattleText:

@@ -14,7 +14,7 @@ SaffronMartClerkScript:
 	closetext
 	end
 
-SaffronMartSuperNerdScript:
+SaffronMartCooltrainerMScript:
 	jumptextfaceplayer SaffronMartSuperNerdText
 
 SaffronMartCooltrainerFScript:

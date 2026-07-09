@@ -14,10 +14,10 @@ LavenderMartClerkScript:
 	closetext
 	end
 
-LavenderMartBaldingGuyScript:
+LavenderMartPokefanMScript:
 	jumptextfaceplayer LavenderMartBaldingGuyText
 
-LavenderMartCooltrainerMScript:
+LavenderMartRockerScript:
 	jumptextfaceplayer LavenderMartCooltrainerMText
 
 LavenderMartBaldingGuyText:

@@ -14,7 +14,7 @@ FuchsiaMartClerkScript:
 	closetext
 	end
 
-FuchsiaMartMiddleAgedManScript:
+FuchsiaMartFisherScript:
 	jumptextfaceplayer FuchsiaMartMiddleAgedManText
 
 FuchsiaMartCooltrainerFScript:

@@ -14,10 +14,10 @@ VermilionMartClerkScript:
 	closetext
 	end
 
-VermilionMartCooltrainerMScript:
+VermilionMartSuperNerdScript:
 	jumptextfaceplayer VermilionMartCooltrainerMText
 
-VermilionMartCooltrainerFScript:
+VermilionMartBeautyScript:
 	jumptextfaceplayer VermilionMartCooltrainerFText
 
 VermilionMartCooltrainerMText:

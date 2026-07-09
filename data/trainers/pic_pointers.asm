@@ -73,7 +73,7 @@ TrainerPicPointers::
 	dba_pic SchoolboyPic
 	dba_pic PicnickerPic
 	dba_pic BikerPic
-	dba_pic PsychictPic
+	dba_pic PsychicTPic ; Channeler (no dedicated pic; reuses Psychic Trainer)
 	dba_pic ExecutivemPic
 	dba_pic BikerPic ; cue_ball (Gen 1 sprite is SPRITE_BIKER)
 	assert_table_length NUM_TRAINER_CLASSES

@@ -9,7 +9,6 @@
 	const SSANNE1FROOMS_LITTLEGIRL
 	const SSANNE1FROOMS_WIGGLYTUFF
 	const SSANNE1FROOMS_GIRL2
-	const SSANNE1FROOMS_ITEM
 
 SSAnne1FRooms_MapScripts:
 	def_scene_scripts
@@ -141,9 +140,6 @@ SSAnne1FRoomsWigglytuffScript:
 SSAnne1FRoomsGirl2Script:
 	jumptextfaceplayer SSAnne1FRoomsGirl2Text
 
-SSAnne1FRoomsItemScript:
-	itemball TM_BODY_SLAM
-
 SSAnne1FRoomsGentleman1BeforeText:
 	text "Hi!"
 	done
@@ -269,9 +265,8 @@ SSAnne1FRooms_MapEvents:
 	object_event 10,  2, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsGentleman3Script, -1
 	object_event  4,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsYoungsterScript, -1
 	object_event  8,  1, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsLassScript, -1
-	object_event  1,  4, SPRITE_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsGirl1Script, -1
+	object_event  1,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsGirl1Script, -1
 	object_event  3,  2, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsMiddlemanScript, -1
-	object_event  7,  5, SPRITE_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsLittleGirlScript, -1
-	object_event 11,  4, SPRITE_WIGGLYTUFF, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsWigglytuffScript, -1
-	object_event  9,  4, SPRITE_GIRL, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsGirl2Script, -1
-	object_event  5,  1, SPRITE_POKEBALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnne1FRoomsItemScript, -1
+	object_event  7,  5, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsLittleGirlScript, -1
+	object_event 11,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsWigglytuffScript, -1
+	object_event  9,  4, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne1FRoomsGirl2Script, -1

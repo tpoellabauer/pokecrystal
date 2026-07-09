@@ -28,7 +28,7 @@ ViridianMartClerkScript:
 	closetext
 	end
 
-ViridianMartYoungsterScript:
+ViridianMartLassScript:
 	jumptextfaceplayer ViridianMartYoungsterText
 
 ViridianMartCooltrainerMScript:

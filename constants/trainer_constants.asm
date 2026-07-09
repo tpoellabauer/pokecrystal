@@ -488,16 +488,16 @@ DEF KRIS EQU __trainer_class__
 	const TULLY2
 	const TULLY3
 	const WILTON2
-	const WADE ; Route 12
-	const LEROY_ROUTE12 ; Route 12 (renamed from LEROY, collided with the vanilla CAMPER LEROY)
-	const HANK_ROUTE12 ; Route 12 (renamed from HANK, collided with the vanilla BIRD_KEEPER HANK)
-	const CHET ; Route 12
-	const DUSTY ; Route 12
 	const SCOTT
 	const WILTON3
 	const RALPH4
 	const RALPH5
 	const TULLY4
+	const WADE ; Route 12
+	const LEROY_ROUTE12 ; Route 12 (renamed from LEROY, collided with the vanilla CAMPER LEROY)
+	const HANK_ROUTE12 ; Route 12 (renamed from HANK, collided with the vanilla BIRD_KEEPER HANK)
+	const CHET ; Route 12
+	const DUSTY ; Route 12
 	const DELBERT ; Route 21
 	const MOSES ; Route 21
 	const GARRY ; Route 21

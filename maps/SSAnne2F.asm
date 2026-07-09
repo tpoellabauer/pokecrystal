@@ -124,5 +124,5 @@ SSAnne2F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 12,  6, SPRITE_WAITER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FWaiterScript, -1
+	object_event 12,  6, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FWaiterScript, -1
 	object_event  3,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FRivalScript, EVENT_FOUGHT_BLUE_SSANNE
