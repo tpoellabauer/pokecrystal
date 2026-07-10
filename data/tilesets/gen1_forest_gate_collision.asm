@@ -3,17 +3,17 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 02
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 03
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 04
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 05
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 05
 	tilecoll WALL, WALL, WALL, FLOOR ; 06
 	tilecoll WALL, WALL, FLOOR, WALL ; 07
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 08
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 09
 	tilecoll WALL, WALL, WALL, WALL ; 0a
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 0b
-	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 0c
+	tilecoll FLOOR, FLOOR, WALL, WALL ; 0b
+	tilecoll FLOOR, WALL, WALL, FLOOR ; 0c
 	tilecoll WALL, WALL, FLOOR, WALL ; 0d
 	tilecoll WALL, WALL, WALL, FLOOR ; 0e
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 0f
+	tilecoll WALL, FLOOR, FLOOR, WALL ; 0f
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 10
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 11
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 12
@@ -33,12 +33,12 @@
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 20
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 21
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 22
-	tilecoll FLOOR, WALL, WALL, WALL ; 23
+	tilecoll WALL, WALL, WALL, WALL ; 23
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 24
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 25
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 26
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 27
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 28
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 28
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 29
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 2a
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 2b
@@ -52,19 +52,19 @@
 	tilecoll WALL, WALL, WALL, WALL ; 33
 	tilecoll WALL, WALL, WALL, WALL ; 34
 	tilecoll WALL, WALL, WALL, WALL ; 35
-	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 36
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 37
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 38
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 39
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 36
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 37
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 38
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 39
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 3a
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 3b
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 3b
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 3c
 	tilecoll WALL, WALL, WALL, WALL ; 3d
 	tilecoll WALL, WALL, WALL, FLOOR ; 3e
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 3f
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 40
 	tilecoll WALL, WALL, WALL, FLOOR ; 41
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 42
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 42
 	tilecoll WALL, WALL, FLOOR, WALL ; 43
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 44
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 45
@@ -76,22 +76,22 @@
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 4b
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 4c
 	tilecoll WALL, WALL, WALL, WALL ; 4d
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 4e
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 4e
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 4f
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 50
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 51
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 52
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 53
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 52
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 53
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 54
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 55
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 56
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 56
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 57
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 58
 	tilecoll WALL, WALL, WALL, FLOOR ; 59
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 5a
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 5b
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 5a
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 5b
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 5c
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 5d
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 5d
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 5e
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 5f
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 60
@@ -113,7 +113,7 @@
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 70
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 71
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 72
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 73
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 73
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 74
 	tilecoll WALL, WALL, WALL, WALL ; 75
 	tilecoll WALL, WALL, WALL, WALL ; 76
