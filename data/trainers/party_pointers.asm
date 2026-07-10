@@ -76,4 +76,6 @@ TrainerGroups:
 	dw ChannelerGroup
 	dw GiovanniGroup
 	dw CueBallGroup
+	dw LoreleiGroup
+	dw AgathaGroup
 	assert_table_length NUM_TRAINER_CLASSES

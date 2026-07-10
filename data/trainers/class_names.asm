@@ -74,4 +74,6 @@ TrainerClassNames::
 	li "CHANNELER"
 	li "GIOVANNI"
 	li "CUE BALL"
+	li "LORELEI"
+	li "AGATHA"
 	assert_list_length NUM_TRAINER_CLASSES

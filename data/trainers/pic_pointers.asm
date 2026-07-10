@@ -76,4 +76,6 @@ TrainerPicPointers::
 	dba_pic PsychicTPic ; Channeler (no dedicated pic; reuses Psychic Trainer)
 	dba_pic ExecutivemPic
 	dba_pic BikerPic ; cue_ball (Gen 1 sprite is SPRITE_BIKER)
+	dba_pic BeautyPic ; lorelei (no dedicated pic ported)
+	dba_pic MediumPic ; agatha (no dedicated pic ported)
 	assert_table_length NUM_TRAINER_CLASSES

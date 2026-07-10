@@ -224,6 +224,66 @@ Rival1Group:
 	db  8, CHARMANDER
 	db -1 ; end
 
+	; RIVAL1 (22) ; Gen 1 Route 22 2nd (final, pre-League) - you chose CHARMANDER, rival has SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db 47, PIDGEOT
+	db 45, RHYHORN
+	db 45, GROWLITHE
+	db 47, EXEGGCUTE
+	db 50, ALAKAZAM
+	db 53, BLASTOISE
+	db -1 ; end
+
+	; RIVAL1 (23) ; Gen 1 Route 22 2nd (final, pre-League) - you chose SQUIRTLE, rival has BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db 47, PIDGEOT
+	db 45, RHYHORN
+	db 45, GYARADOS
+	db 47, GROWLITHE
+	db 50, ALAKAZAM
+	db 53, VENUSAUR
+	db -1 ; end
+
+	; RIVAL1 (24) ; Gen 1 Route 22 2nd (final, pre-League) - you chose BULBASAUR, rival has CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db 47, PIDGEOT
+	db 45, RHYHORN
+	db 45, EXEGGCUTE
+	db 47, GYARADOS
+	db 50, ALAKAZAM
+	db 53, CHARIZARD
+	db -1 ; end
+
+	; RIVAL1 (25) ; Gen 1 Champion (ChampionsRoom) - you chose CHARMANDER, rival has SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db 61, PIDGEOT
+	db 59, ALAKAZAM
+	db 61, RHYDON
+	db 61, ARCANINE
+	db 63, EXEGGUTOR
+	db 65, BLASTOISE
+	db -1 ; end
+
+	; RIVAL1 (26) ; Gen 1 Champion (ChampionsRoom) - you chose SQUIRTLE, rival has BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db 61, PIDGEOT
+	db 59, ALAKAZAM
+	db 61, RHYDON
+	db 61, GYARADOS
+	db 63, ARCANINE
+	db 65, VENUSAUR
+	db -1 ; end
+
+	; RIVAL1 (27) ; Gen 1 Champion (ChampionsRoom) - you chose BULBASAUR, rival has CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db 61, PIDGEOT
+	db 59, ALAKAZAM
+	db 61, RHYDON
+	db 61, EXEGGUTOR
+	db 63, GYARADOS
+	db 65, CHARIZARD
+	db -1 ; end
+
 PokemonProfGroup:
 
 WillGroup:
@@ -268,6 +328,15 @@ BrunoGroup:
 	db 46, MACHAMP,    ROCK_SLIDE, FORESIGHT, VITAL_THROW, CROSS_CHOP
 	db -1 ; end
 
+	; BRUNO (2) ; Gen 1 Elite Four (2nd slot, port slot: KogasRoom hosts Bruno's Room)
+	db "BRUNO@", TRAINERTYPE_NORMAL
+	db 53, ONIX
+	db 55, HITMONCHAN
+	db 55, HITMONLEE
+	db 56, ONIX
+	db 58, MACHAMP
+	db -1 ; end
+
 KarenGroup:
 	; KAREN (1)
 	db "KAREN@", TRAINERTYPE_MOVES
@@ -305,6 +374,15 @@ ChampionGroup:
 	db 46, AERODACTYL, WING_ATTACK, ANCIENTPOWER, ROCK_SLIDE, HYPER_BEAM
 	db 46, CHARIZARD,  FLAMETHROWER, WING_ATTACK, SLASH, HYPER_BEAM
 	db 50, DRAGONITE,  FIRE_BLAST, SAFEGUARD, OUTRAGE, HYPER_BEAM
+	db -1 ; end
+
+	; CHAMPION (2) ; Gen 1 Elite Four (4th slot, port slot: KarensRoom hosts Lance's Room)
+	db "LANCE@", TRAINERTYPE_NORMAL
+	db 58, GYARADOS
+	db 56, DRAGONAIR
+	db 56, DRAGONAIR
+	db 60, AERODACTYL
+	db 62, DRAGONITE
 	db -1 ; end
 
 BrockGroup:
@@ -5046,4 +5124,24 @@ CueBallGroup:
 	db 31, TENTACOOL
 	db 31, TENTACOOL
 	db 31, TENTACRUEL
+	db -1 ; end
+
+LoreleiGroup:
+	; LORELEI (1) ; Gen 1 Elite Four (1st slot, port slot: WillsRoom hosts Lorelei's Room)
+	db "LORELEI@", TRAINERTYPE_NORMAL
+	db 54, DEWGONG
+	db 53, CLOYSTER
+	db 54, SLOWBRO
+	db 56, JYNX
+	db 56, LAPRAS
+	db -1 ; end
+
+AgathaGroup:
+	; AGATHA (1) ; Gen 1 Elite Four (3rd slot, port slot: BrunosRoom hosts Agatha's Room)
+	db "AGATHA@", TRAINERTYPE_NORMAL
+	db 56, GENGAR
+	db 56, GOLBAT
+	db 55, HAUNTER
+	db 58, ARBOK
+	db 60, GENGAR
 	db -1 ; end

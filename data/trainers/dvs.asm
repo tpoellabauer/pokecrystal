@@ -76,4 +76,6 @@ TrainerClassDVs:
 	dn  8, 10,  9,  9 ; CHANNELER
 	dn 13,  8, 10,  8 ; GIOVANNI
 	dn  9,  8,  8,  8 ; CUE_BALL
+	dn 13, 12, 13, 13 ; LORELEI
+	dn 13, 12, 13, 13 ; AGATHA
 	assert_table_length NUM_TRAINER_CLASSES

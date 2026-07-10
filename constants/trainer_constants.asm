@@ -74,9 +74,12 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL1_ROUTE22_SQUIRTLE   ; Gen 1 Route 22 (1st): you chose Charmander
 	const RIVAL1_ROUTE22_BULBASAUR  ; Gen 1 Route 22 (1st): you chose Squirtle
 	const RIVAL1_ROUTE22_CHARMANDER ; Gen 1 Route 22 (1st): you chose Bulbasaur
-	const RIVAL1_ROUTE22_2ND_SQUIRTLE   ; Gen 1 Route 22 (2nd): you chose Charmander
-	const RIVAL1_ROUTE22_2ND_BULBASAUR  ; Gen 1 Route 22 (2nd): you chose Squirtle
-	const RIVAL1_ROUTE22_2ND_CHARMANDER ; Gen 1 Route 22 (2nd): you chose Bulbasaur
+	const RIVAL1_ROUTE22_2ND_SQUIRTLE   ; Gen 1 Route 22 (2nd, final pre-League): you chose Charmander
+	const RIVAL1_ROUTE22_2ND_BULBASAUR  ; Gen 1 Route 22 (2nd, final pre-League): you chose Squirtle
+	const RIVAL1_ROUTE22_2ND_CHARMANDER ; Gen 1 Route 22 (2nd, final pre-League): you chose Bulbasaur
+	const RIVAL1_CHAMPION_SQUIRTLE      ; Gen 1 Champion (ChampionsRoom): you chose Charmander
+	const RIVAL1_CHAMPION_BULBASAUR     ; Gen 1 Champion (ChampionsRoom): you chose Squirtle
+	const RIVAL1_CHAMPION_CHARMANDER    ; Gen 1 Champion (ChampionsRoom): you chose Bulbasaur
 
 	trainerclass POKEMON_PROF ; a
 
@@ -90,6 +93,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass BRUNO ; d
 	const BRUNO1
+	const BRUNO2 ; Gen 1 Elite Four (port slot: KogasRoom hosts Bruno's Room)
 
 	trainerclass KAREN ; e
 	const KAREN1
@@ -99,7 +103,8 @@ DEF KRIS EQU __trainer_class__
 	const KOGA2 ; Fuchsia Gym (Gen 1 first encounter)
 
 	trainerclass CHAMPION ; 10
-	const LANCE
+	const LANCE1
+	const LANCE2 ; Gen 1 Elite Four (port slot: KarensRoom hosts Lance's Room)
 
 	trainerclass BROCK ; 11
 	const BROCK1
@@ -971,5 +976,13 @@ DEF KRIS EQU __trainer_class__
 	const CUE_BALL_7
 	const CUE_BALL_8
 	const CUE_BALL_9 ; Route 21
+
+; Gen 1 Elite Four (1st slot, no Johto equivalent). Port slot: WillsRoom hosts Lorelei's Room.
+	trainerclass LORELEI ; 4a
+	const LORELEI1
+
+; Gen 1 Elite Four (3rd slot, no Johto equivalent). Port slot: BrunosRoom (file) hosts Agatha's Room.
+	trainerclass AGATHA ; 4b
+	const AGATHA1
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

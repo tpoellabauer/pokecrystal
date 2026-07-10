@@ -1,5 +1,5 @@
 	object_const_def
-	const HALLOFFAME_LANCE
+	const HALLOFFAME_OAK
 
 HallOfFame_MapScripts:
 	def_scene_scripts
@@ -16,15 +16,15 @@ HallOfFameNoopScene:
 	end
 
 HallOfFameEnterScript:
-	follow HALLOFFAME_LANCE, PLAYER
-	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
+	follow HALLOFFAME_OAK, PLAYER
+	applymovement HALLOFFAME_OAK, HallOfFame_WalkUpWithLance
 	stopfollow
 	turnobject PLAYER, RIGHT
 	opentext
-	writetext HallOfFame_LanceText
+	writetext HallOfFame_OakText
 	waitbutton
 	closetext
-	turnobject HALLOFFAME_LANCE, UP
+	turnobject HALLOFFAME_OAK, UP
 	applymovement PLAYER, HallOfFame_SlowlyApproachMachine
 	setscene SCENE_HALLOFFAME_NOOP
 	pause 15
@@ -62,49 +62,18 @@ HallOfFame_SlowlyApproachMachine:
 	slow_step UP
 	step_end
 
-HallOfFame_LanceText:
-	text "LANCE: It's been a"
-	line "long time since I"
-	cont "last came here."
+HallOfFame_OakText:
+	text "PROF.OAK: This is"
+	line "the HALL OF FAME."
 
-	para "This is where we"
-	line "honor the LEAGUE"
+	para "Here, we honor"
+	line "the #MON LEAGUE"
+	cont "CHAMPIONS."
 
-	para "CHAMPIONS for all"
-	line "eternity."
-
-	para "Their courageous"
-	line "#MON are also"
-	cont "inducted."
-
-	para "Here today, we"
-	line "witnessed the rise"
-
-	para "of a new LEAGUE"
-	line "CHAMPION--a"
-
-	para "trainer who feels"
-	line "compassion for,"
-
-	para "and trust toward,"
-	line "all #MON."
-
-	para "A trainer who"
-	line "succeeded through"
-
-	para "perseverance and"
-	line "determination."
-
-	para "The new LEAGUE"
-	line "CHAMPION who has"
-
-	para "all the makings"
-	line "of greatness!"
-
-	para "<PLAY_G>, allow me"
+	para "<PLAYER>, allow me"
 	line "to register you"
 
-	para "and your partners"
+	para "and your #MON"
 	line "as CHAMPIONS!"
 	done
 
@@ -120,4 +89,4 @@ HallOfFame_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  4, 12, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  4, 12, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

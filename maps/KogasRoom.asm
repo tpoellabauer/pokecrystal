@@ -1,144 +1,95 @@
 	object_const_def
-	const KOGASROOM_KOGA
+	const KOGASROOM_BRUNO
 
+; Gen 1 Kanto Elite Four, 2nd slot: Bruno. Ported from pokered scripts/BrunosRoom.asm.
+; Port slot: this file (KogasRoom) hosts Bruno's Room; Johto's Koga has no Kanto E4 equivalent
+; (he's Fuchsia's gym leader instead, see FuchsiaGym.asm KOGA2). Reuses BRUNO's existing
+; trainerclass with a new Kanto-tier party (BRUNO2, model/trainers.toml BrunoGroup).
 KogasRoom_MapScripts:
 	def_scene_scripts
-	scene_script KogasRoomLockDoorScene, SCENE_KOGASROOM_LOCK_DOOR
-	scene_script KogasRoomNoopScene,     SCENE_KOGASROOM_NOOP
+	scene_script KogasRoomNoopScene, SCENE_KOGASROOM_LOCK_DOOR
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, KogasRoomDoorsCallback
-
-KogasRoomLockDoorScene:
-	sdefer KogasRoomDoorLocksBehindYouScript
-	end
 
 KogasRoomNoopScene:
 	end
 
 KogasRoomDoorsCallback:
-	checkevent EVENT_KOGAS_ROOM_ENTRANCE_CLOSED
-	iffalse .KeepEntranceOpen
-	changeblock 4, 14, $2a ; wall
-.KeepEntranceOpen:
 	checkevent EVENT_KOGAS_ROOM_EXIT_OPEN
 	iffalse .KeepExitClosed
-	changeblock 4, 2, $16 ; open door
+	changeblock 2, 0, $5 ; open door
 .KeepExitClosed:
 	endcallback
 
-KogasRoomDoorLocksBehindYouScript:
-	applymovement PLAYER, KogasRoom_EnterMovement
-	reanchormap $86
-	playsound SFX_STRENGTH
-	earthquake 80
-	changeblock 4, 14, $2a ; wall
-	refreshmap
-	closetext
-	setscene SCENE_KOGASROOM_NOOP
-	setevent EVENT_KOGAS_ROOM_ENTRANCE_CLOSED
-	waitsfx
-	end
-
-KogaScript_Battle:
+BrunoScript_Battle:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_KOGA
-	iftrue KogaScript_AfterBattle
-	writetext KogaScript_KogaBeforeText
+	iftrue BrunoScript_AfterBattle
+	writetext BrunoScript_BeforeText
 	waitbutton
 	closetext
-	winlosstext KogaScript_KogaBeatenText, 0
-	loadtrainer KOGA, KOGA1
+	winlosstext BrunoScript_BeatenText, 0
+	loadtrainer BRUNO, BRUNO2
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KOGA
 	opentext
-	writetext KogaScript_KogaDefeatText
+	writetext BrunoScript_DefeatText
 	waitbutton
 	closetext
 	playsound SFX_ENTER_DOOR
-	changeblock 4, 2, $16 ; open door
+	changeblock 2, 0, $5 ; open door
 	refreshmap
 	closetext
 	setevent EVENT_KOGAS_ROOM_EXIT_OPEN
 	waitsfx
 	end
 
-KogaScript_AfterBattle:
-	writetext KogaScript_KogaDefeatText
+BrunoScript_AfterBattle:
+	writetext BrunoScript_DefeatText
 	waitbutton
 	closetext
 	end
 
-KogasRoom_EnterMovement:
-	step UP
-	step UP
-	step UP
-	step UP
-	step_end
+BrunoScript_BeforeText:
+	text "BRUNO: Hmph!"
 
-KogaScript_KogaBeforeText:
-	text "Fwahahahaha!"
+	para "Talking is not"
+	line "my way, and neith-"
+	cont "er is losing!"
 
-	para "I am KOGA of the"
-	line "ELITE FOUR."
-
-	para "I live in shadows,"
-	line "a ninja!"
-
-	para "My intricate style"
-	line "will confound and"
-	cont "destroy you!"
-
-	para "Confusion, sleep,"
-	line "poison…"
-
-	para "Prepare to be the"
-	line "victim of my sin-"
-	cont "ister technique!"
-
-	para "Fwahahahaha!"
-
-	para "#MON is not"
-	line "merely about brute"
-
-	para "force--you shall"
-	line "see soon enough!"
+	para "The best kind of"
+	line "#MON training"
+	cont "is with the fists!"
 	done
 
-KogaScript_KogaBeatenText:
-	text "Ah!"
-	line "You have proven"
-	cont "your worth!"
+BrunoScript_BeatenText:
+	text "Nnnooo!"
+	line "How could I lose!"
 	done
 
-KogaScript_KogaDefeatText:
-	text "I subjected you to"
-	line "everything I could"
-	cont "muster."
+BrunoScript_DefeatText:
+	text "Hmph!"
 
-	para "But my efforts"
-	line "failed. I must"
-	cont "hone my skills."
-
-	para "Go on to the next"
-	line "room, and put your"
-	cont "abilities to test!"
+	para "You are strong."
+	line "But there's more"
+	cont "of us ahead."
 	done
 
 KogasRoom_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4, 17, WILLS_ROOM, 2
-	warp_event  5, 17, WILLS_ROOM, 3
-	warp_event  4,  2, BRUNOS_ROOM, 1
-	warp_event  5,  2, BRUNOS_ROOM, 2
+	warp_event  4, 11, WILLS_ROOM, 3
+	warp_event  5, 11, WILLS_ROOM, 4
+	warp_event  4,  0, BRUNOS_ROOM, 1
+	warp_event  5,  0, BRUNOS_ROOM, 2
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  5,  7, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, KogaScript_Battle, -1
+	object_event  5,  2, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BrunoScript_Battle, -1
