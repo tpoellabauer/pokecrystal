@@ -7,8 +7,8 @@ DiglettsCave_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, ROUTE_2, 5
-	warp_event 37, 31, ROUTE_11, 1
+	warp_event  5,  5, DIGLETTS_CAVE_ROUTE_2, 3
+	warp_event 37, 31, DIGLETTS_CAVE_ROUTE_11, 3
 
 	def_coord_events
 

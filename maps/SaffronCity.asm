@@ -1,12 +1,19 @@
 	object_const_def
-	const SAFFRONCITY_LASS1
-	const SAFFRONCITY_POKEFAN_M
-	const SAFFRONCITY_COOLTRAINER_M
-	const SAFFRONCITY_COOLTRAINER_F
-	const SAFFRONCITY_FISHER
-	const SAFFRONCITY_YOUNGSTER1
-	const SAFFRONCITY_YOUNGSTER2
-	const SAFFRONCITY_LASS2
+	const SAFFRONCITY_ROCKET1
+	const SAFFRONCITY_ROCKET2
+	const SAFFRONCITY_ROCKET3
+	const SAFFRONCITY_ROCKET4
+	const SAFFRONCITY_ROCKET5
+	const SAFFRONCITY_ROCKET6
+	const SAFFRONCITY_ROCKET7
+	const SAFFRONCITY_SCIENTIST
+	const SAFFRONCITY_SILPH_WORKER_M
+	const SAFFRONCITY_SILPH_WORKER_F
+	const SAFFRONCITY_GENTLEMAN
+	const SAFFRONCITY_PIDGEOT
+	const SAFFRONCITY_ROCKER
+	const SAFFRONCITY_ROCKET8
+	const SAFFRONCITY_ROCKET9
 
 SaffronCity_MapScripts:
 	def_scene_scripts
@@ -18,68 +25,65 @@ SaffronCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_SAFFRON
 	endcallback
 
-SaffronCityLass1Script:
-	faceplayer
+; Gen 1 Saffron City is occupied by loitering TEAM ROCKET grunts plus a
+; handful of civilians whose dialogue already assumes Silph Co. is cleared
+; (Rocket1/4/7 still threaten "SAFFRON belongs to TEAM ROCKET", while the
+; Scientist/Silph workers/Rocker talk about Rocket being gone) -- ported
+; verbatim, no event gating: Gen 1's own SaffronCity_Script has no checkevent
+; on any of these lines either, so the contradiction is faithful to Red, not
+; a bug to fix.
+SaffronCityRocket1Script:
+	jumptextfaceplayer SaffronCityRocket1Text
+
+SaffronCityRocket2Script:
+	jumptextfaceplayer SaffronCityRocket2Text
+
+SaffronCityRocket3Script:
+	jumptextfaceplayer SaffronCityRocket3Text
+
+SaffronCityRocket4Script:
+	jumptextfaceplayer SaffronCityRocket4Text
+
+SaffronCityRocket5Script:
+	jumptextfaceplayer SaffronCityRocket5Text
+
+SaffronCityRocket6Script:
+	jumptextfaceplayer SaffronCityRocket6Text
+
+SaffronCityRocket7Script:
+	jumptextfaceplayer SaffronCityRocket7Text
+
+SaffronCityScientistScript:
+	jumptextfaceplayer SaffronCityScientistText
+
+; Gen 1 SPRITE_SILPH_WORKER_M/F have no Gen 2 sprite sheet equivalent; reused
+; the same substitutes already established for Silph Co workers elsewhere in
+; this project (SafariZoneEastRestHouse/CinnabarMart): Gentleman for M, Pokefan F for F.
+SaffronCitySilphWorkerMScript:
+	jumptextfaceplayer SaffronCitySilphWorkerMText
+
+SaffronCitySilphWorkerFScript:
+	jumptextfaceplayer SaffronCitySilphWorkerFText
+
+SaffronCityGentlemanScript:
+	jumptextfaceplayer SaffronCityGentlemanText
+
+SaffronCityPidgeotScript:
 	opentext
-	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .ReturnedMachinePart
-	writetext SaffronCityLass1Text
+	writetext SaffronCityPidgeotText
+	cry PIDGEOT
 	waitbutton
 	closetext
 	end
 
-.ReturnedMachinePart:
-	writetext SaffronCityLass1Text_ReturnedMachinePart
-	waitbutton
-	closetext
-	end
+SaffronCityRockerScript:
+	jumptextfaceplayer SaffronCityRockerText
 
-SaffronCityPokefanMScript:
-	faceplayer
-	opentext
-	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .ReturnedMachinePart
-	writetext SaffronCityPokefanMText
-	waitbutton
-	closetext
-	end
+SaffronCityRocket8Script:
+	jumptextfaceplayer SaffronCityRocket8Text
 
-.ReturnedMachinePart:
-	writetext SaffronCityPokefanMText_ReturnedMachinePart
-	waitbutton
-	closetext
-	end
-
-SaffronCityCooltrainerMScript:
-	jumptextfaceplayer SaffronCityCooltrainerMText
-
-SaffronCityCooltrainerFScript:
-	jumptextfaceplayer SaffronCityCooltrainerFText
-
-SaffronCityFisherScript:
-	faceplayer
-	opentext
-	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .ReturnedMachinePart
-	writetext SaffronCityFisherText
-	waitbutton
-	closetext
-	end
-
-.ReturnedMachinePart:
-	writetext SaffronCityFisherText_ReturnedMachinePart
-	waitbutton
-	closetext
-	end
-
-SaffronCityYoungster1Script:
-	jumptextfaceplayer SaffronCityYoungster1Text
-
-SaffronCityYoungster2Script:
-	jumptextfaceplayer SaffronCityYoungster2Text
-
-SaffronCityLass2Script:
-	jumptextfaceplayer SaffronCityLass2Text
+SaffronCityRocket9Script:
+	jumptextfaceplayer SaffronCityRocket9Text
 
 SaffronCitySign:
 	jumptext SaffronCitySignText
@@ -105,125 +109,96 @@ SaffronCityPokecenterSign:
 SaffronCityMartSign:
 	jumpstd MartSignScript
 
-SaffronCityLass1Text:
-	text "A little girl who"
-	line "is an expert at"
-
-	para "mimicking people"
-	line "lives here."
-
-	para "She even mimics"
-	line "the people she's"
-
-	para "conversing with."
-	line "It's confusing."
+SaffronCityRocket1Text:
+	text "What do you want?"
+	line "Get lost!"
 	done
 
-SaffronCityLass1Text_ReturnedMachinePart:
-	text "The COPYCAT girl"
-	line "looked unhappy."
-
-	para "She said she lost"
-	line "her favorite #"
-	cont "DOLL--CLEFAIRY."
+SaffronCityRocket2Text:
+	text "BOSS said he'll"
+	line "take this town!"
 	done
 
-SaffronCityPokefanMText:
-	text "You came out from"
-	line "JOHTO?"
-
-	para "You can zip back"
-	line "home if the MAGNET"
-	cont "TRAIN's running."
+SaffronCityRocket3Text:
+	text "Get out of the"
+	line "way!"
 	done
 
-SaffronCityPokefanMText_ReturnedMachinePart:
-	text "You came out from"
-	line "JOHTO?"
-
-	para "You can zip back"
-	line "home by hopping on"
-	cont "the MAGNET TRAIN."
+SaffronCityRocket4Text:
+	text "SAFFRON belongs"
+	line "to TEAM ROCKET!"
 	done
 
-SaffronCityCooltrainerMText:
-	text "I went to the GYM,"
-	line "raring for battles"
-	cont "against trainers…"
-
-	para "It turns out, I"
-	line "stumbled into the"
-
-	para "unused GYM next"
-	line "door."
-
-	para "Boy, I was pretty"
-	line "embarrassed."
+SaffronCityRocket5Text:
+	text "Being evil makes"
+	line "me feel so alive!"
 	done
 
-SaffronCityCooltrainerFText:
-	text "This is SILPH CO.,"
-	line "famous for #MON"
-	cont "merchandise."
-
-	para "In the past, TEAM"
-	line "ROCKET wanted the"
-
-	para "company because of"
-	line "that."
+SaffronCityRocket6Text:
+	text "Ow! Watch where"
+	line "you're walking!"
 	done
 
-SaffronCityFisherText:
-	text "Chew… Chew…"
-
-	para "I hear there's big"
-	line "trouble brewing at"
-	cont "the POWER PLANT."
-
-	para "Chew… Chew…"
+SaffronCityRocket7Text:
+	text "With SILPH under"
+	line "control, we can"
+	cont "exploit #MON"
+	cont "around the world!"
 	done
 
-SaffronCityFisherText_ReturnedMachinePart:
-	text "Chew… Chew…"
-
-	para "I hear there was"
-	line "big trouble at the"
-	cont "POWER PLANT."
-
-	para "Chew… Chew…"
-	line "Haaah, I'm full!"
+SaffronCityScientistText:
+	text "You beat TEAM"
+	line "ROCKET all alone?"
+	cont "That's amazing!"
 	done
 
-SaffronCityYoungster1Text:
-	text "Going into an"
-	line "alley for the"
-
-	para "first time makes"
-	line "me sorta anxious."
+SaffronCitySilphWorkerMText:
+	text "Yeah! TEAM ROCKET"
+	line "is gone!"
+	cont "It's safe to go"
+	cont "out again!"
 	done
 
-SaffronCityYoungster2Text:
-	text "There's a place"
-	line "called TRAINER"
-
-	para "HOUSE in VIRIDIAN"
-	line "where trainers"
-
-	para "gather from all"
-	line "over the place."
+SaffronCitySilphWorkerFText:
+	text "People should be"
+	line "flocking back to"
+	cont "SAFFRON now."
 	done
 
-SaffronCityLass2Text:
-	text "Our city was"
-	line "featured on a"
-	cont "radio program."
+SaffronCityGentlemanText:
+	text "I flew here on my"
+	line "PIDGEOT when I"
+	cont "read about SILPH."
 
-	para "It's nice to hear"
-	line "praise for your"
+	para "It's already over?"
+	line "I missed the"
+	cont "media action."
+	done
 
-	para "city, but it's a"
-	line "bit embarrassing"
-	cont "too."
+SaffronCityPidgeotText:
+	text "PIDGEOT: Bi bibii!"
+	done
+
+SaffronCityRockerText:
+	text "I saw ROCKET"
+	line "BOSS escaping"
+	cont "SILPH's building."
+	done
+
+SaffronCityRocket8Text:
+	text "I'm a security"
+	line "guard."
+
+	para "Suspicious kids I"
+	line "don't allow in!"
+	done
+
+SaffronCityRocket9Text:
+	text "…"
+	line "Snore…"
+
+	para "Hah! He's taking"
+	line "a snooze!"
 	done
 
 SaffronCitySignText:
@@ -296,11 +271,18 @@ SaffronCity_MapEvents:
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
 
 	def_object_events
-	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1
-	object_event 19, 30, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SaffronCityPokefanMScript, -1
-	object_event 32,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityCooltrainerMScript, -1
-	object_event 20, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityCooltrainerFScript, -1
-	object_event 27, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityFisherScript, -1
-	object_event 15, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster1Script, -1
-	object_event 35, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster2Script, -1
-	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityLass2Script, -1
+	object_event  7,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket1Script, -1
+	object_event 20,  8, SPRITE_ROCKET, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket2Script, -1
+	object_event 34,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket3Script, -1
+	object_event 13, 12, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket4Script, -1
+	object_event 11, 25, SPRITE_ROCKET, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket5Script, -1
+	object_event 32, 13, SPRITE_ROCKET, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket6Script, -1
+	object_event 18, 30, SPRITE_ROCKET, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket7Script, -1
+	object_event  8, 14, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityScientistScript, -1
+	object_event 23, 23, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCitySilphWorkerMScript, -1
+	object_event 17, 30, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCitySilphWorkerFScript, -1
+	object_event 30, 12, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityGentlemanScript, -1
+	object_event 31, 12, SPRITE_BIRD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityPidgeotScript, -1
+	object_event 18,  8, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRockerScript, -1
+	object_event 18, 22, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket8Script, -1
+	object_event 19, 22, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket9Script, -1

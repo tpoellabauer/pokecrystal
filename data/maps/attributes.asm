@@ -838,3 +838,7 @@ ENDM
 	map_attributes ViridianForestSouthGate, VIRIDIAN_FOREST_SOUTH_GATE, $0a
 
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $03
+
+	map_attributes DiglettsCaveRoute2, DIGLETTS_CAVE_ROUTE_2, $09
+
+	map_attributes DiglettsCaveRoute11, DIGLETTS_CAVE_ROUTE_11, $09

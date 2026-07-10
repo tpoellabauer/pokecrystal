@@ -302,7 +302,7 @@ Route11_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  5, DIGLETTS_CAVE, 2
+	warp_event  4,  5, DIGLETTS_CAVE_ROUTE_11, 1
 
 	def_coord_events
 

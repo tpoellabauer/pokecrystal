@@ -4,13 +4,41 @@
 
 CinnabarIsland_MapScripts:
 	def_scene_scripts
+	scene_script CinnabarIslandNoop1Scene, SCENE_CINNABARISLAND_GYM_DOOR_CHECK
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, CinnabarIslandFlypointCallback
 
+CinnabarIslandNoop1Scene:
+	end
+
 CinnabarIslandFlypointCallback:
 	setflag ENGINE_FLYPOINT_CINNABAR
 	endcallback
+
+; Gen 1: the Cinnabar Gym door is locked until the player has the Secret Key (found in Pokemon
+; Mansion B1F, see PokemonMansionB1F.asm) -- pokeredDisassembly/scripts/CinnabarIsland.asm's
+; CinnabarIslandDefaultScript re-checks every step near the door tile and pushes the player back
+; if the key is missing (a per-frame wYCoord/wXCoord poll, no Gen 2 macro equivalent -- see
+; maps-and-scripting skill). Re-expressed here as a coord_event one tile south of the door warp
+; (18, 3), the same "auto-trigger + forced step back" idiom already used for VictoryRoadGate's
+; badge check. Always armed (SCENE_CINNABARISLAND_GYM_DOOR_CHECK is scene 0, the map's default,
+; and is never advanced away from) since possessing the key -- not any one-time flag -- is what
+; permanently unlocks the door.
+CinnabarIslandGymDoorCheckScript:
+	checkitem SECRET_KEY
+	iftrue .Unlocked
+	opentext
+	writetext CinnabarIslandGymDoorLockedText
+	waitbutton
+	closetext
+	applymovement PLAYER, CinnabarIslandStepBackMovement
+.Unlocked:
+	end
+
+CinnabarIslandStepBackMovement:
+	step DOWN
+	step_end
 
 CinnabarIslandGirlScript:
 	jumptextfaceplayer CinnabarIslandGirlText
@@ -72,6 +100,15 @@ CinnabarIslandLabSignText:
 	text "#MON LAB"
 	done
 
+CinnabarIslandGymDoorLockedText:
+	text "The door is"
+	line "locked."
+
+	para "You need the"
+	line "SECRET KEY to"
+	cont "get in."
+	done
+
 CinnabarIsland_MapEvents:
 	db 0, 0 ; filler
 
@@ -85,6 +122,7 @@ CinnabarIsland_MapEvents:
 	warp_event 15, 11, CINNABAR_MART, 1
 
 	def_coord_events
+	coord_event 18,  4, SCENE_CINNABARISLAND_GYM_DOOR_CHECK, CinnabarIslandGymDoorCheckScript
 
 	def_bg_events
 	bg_event  9,  5, BGEVENT_READ, CinnabarIslandSign

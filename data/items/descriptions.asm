@@ -45,12 +45,12 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw TeruSama3Desc
+	dw SecretKeyDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
 	dw XAttackDesc
-	dw TeruSama4Desc
+	dw GoldTeethDesc
 	dw XDefendDesc
 	dw XSpeedDesc
 	dw XSpecialDesc
@@ -1016,3 +1016,11 @@ OaksParcelDesc:
 	db "A parcel for"
 	next "PROF.OAK from the"
 	next "VIRIDIAN MART.@"
+
+SecretKeyDesc:
+	db   "Opens the door at"
+	next "CINNABAR GYM.@"
+
+GoldTeethDesc:
+	db   "The SAFARI ZONE"
+	next "WARDEN's teeth.@"

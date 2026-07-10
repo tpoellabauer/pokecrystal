@@ -1,7 +1,14 @@
 	object_const_def
-	const FUCHSIACITY_YOUNGSTER
-	const FUCHSIACITY_POKEFAN_M
-	const FUCHSIACITY_TEACHER
+	const FUCHSIACITY_YOUNGSTER1
+	const FUCHSIACITY_GAMBLER
+	const FUCHSIACITY_ERIK
+	const FUCHSIACITY_YOUNGSTER2
+	const FUCHSIACITY_CHANSEY
+	const FUCHSIACITY_VOLTORB
+	const FUCHSIACITY_KANGASKHAN
+	const FUCHSIACITY_SLOWPOKE
+	const FUCHSIACITY_LAPRAS
+	const FUCHSIACITY_FOSSIL
 	const FUCHSIACITY_FRUIT_TREE
 
 FuchsiaCity_MapScripts:
@@ -14,14 +21,48 @@ FuchsiaCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	endcallback
 
-FuchsiaCityYoungster:
-	jumptextfaceplayer FuchsiaCityYoungsterText
+FuchsiaCityYoungster1Script:
+	jumptextfaceplayer FuchsiaCityYoungster1Text
 
-FuchsiaCityPokefanM:
-	jumptextfaceplayer FuchsiaCityPokefanMText
+; Gen 1 SPRITE_GAMBLER has no Gen 2 sprite sheet; reused the Gentleman
+; substitute already established for the GAMBLER trainer class elsewhere in
+; this project (Route8/DiglettsCaveRoute11).
+FuchsiaCityGamblerScript:
+	jumptextfaceplayer FuchsiaCityGamblerText
 
-FuchsiaCityTeacher:
-	jumptextfaceplayer FuchsiaCityTeacherText
+FuchsiaCityErikScript:
+	jumptextfaceplayer FuchsiaCityErikText
+
+FuchsiaCityYoungster2Script:
+	jumptextfaceplayer FuchsiaCityYoungster2Text
+
+; Gen 1's Fuchsia City street displays 6 Pokemon statues (Chansey/Voltorb/
+; Kangaskhan/Slowpoke/Lapras/a fossil) each showing a Pokedex-style blurb when
+; read; ported as flavor-only signs (skipped the live DisplayDexEntry/
+; PlayCry engine call Gen 1 used -- that's an engine integration, not a
+; content-identity port). SPRITE_SEEL/SPRITE_FOSSIL have no Gen 2 sprite
+; sheet; substituted SPRITE_MONSTER/SPRITE_POKE_BALL respectively.
+FuchsiaCityChanseyScript:
+	jumptextfaceplayer FuchsiaCityChanseyText
+
+FuchsiaCityVoltorbScript:
+	jumptextfaceplayer FuchsiaCityVoltorbText
+
+FuchsiaCityKangaskhanScript:
+	jumptextfaceplayer FuchsiaCityKangaskhanText
+
+FuchsiaCitySlowpokeScript:
+	jumptextfaceplayer FuchsiaCitySlowpokeText
+
+FuchsiaCityLaprasScript:
+	jumptextfaceplayer FuchsiaCityLaprasText
+
+; Gen 1 gates this on EVENT_GOT_DOME_FOSSIL/EVENT_GOT_HELIX_FOSSIL (the Mt.
+; Moon fossil choice); neither event nor the fossil-choice mechanic exists in
+; this project yet, so this shows fixed flavor text instead of the dynamic
+; Omanyte/Kabuto/undetermined variants.
+FuchsiaCityFossilScript:
+	jumptextfaceplayer FuchsiaCityFossilText
 
 FuchsiaCitySign:
 	jumptext FuchsiaCitySignText
@@ -50,30 +91,77 @@ FuchsiaCityMartSign:
 FuchsiaCityFruitTree:
 	fruittree FRUITTREE_FUCHSIA_CITY
 
-FuchsiaCityYoungsterText:
-	text "One of the ELITE"
-	line "FOUR used to be"
-
-	para "the LEADER of"
-	line "FUCHSIA's GYM."
+FuchsiaCityYoungster1Text:
+	text "Did you try the"
+	line "SAFARI GAME? Some"
+	cont "#MON can only"
+	cont "be caught there."
 	done
 
-FuchsiaCityPokefanMText:
-	text "KOGA's daughter"
-	line "succeeded him as"
+FuchsiaCityGamblerText:
+	text "SAFARI ZONE has a"
+	line "zoo in front of"
+	cont "the entrance."
 
-	para "the GYM LEADER"
-	line "after he joined"
-	cont "the ELITE FOUR."
+	para "Out back is the"
+	line "SAFARI GAME for"
+	cont "catching #MON."
 	done
 
-FuchsiaCityTeacherText:
-	text "The SAFARI ZONE is"
-	line "closed… It's sad,"
+FuchsiaCityErikText:
+	text "ERIK: Where's"
+	line "SARA? I said I'd"
+	cont "meet her here."
+	done
 
-	para "considering it's"
-	line "FUCHSIA's main"
-	cont "attraction."
+FuchsiaCityYoungster2Text:
+	text "That item ball in"
+	line "there is really a"
+	cont "#MON."
+	done
+
+FuchsiaCityChanseyText:
+	text "Name: CHANSEY"
+
+	para "Catching one is"
+	line "all up to chance."
+	done
+
+FuchsiaCityVoltorbText:
+	text "Name: VOLTORB"
+
+	para "The very image of"
+	line "a # BALL."
+	done
+
+FuchsiaCityKangaskhanText:
+	text "Name: KANGASKHAN"
+
+	para "A maternal #MON"
+	line "that raises its"
+	cont "young in a pouch"
+	cont "on its belly."
+	done
+
+FuchsiaCitySlowpokeText:
+	text "Name: SLOWPOKE"
+
+	para "Friendly and very"
+	line "slow moving."
+	done
+
+FuchsiaCityLaprasText:
+	text "Name: LAPRAS"
+
+	para "A.K.A. the king"
+	line "of the seas."
+	done
+
+FuchsiaCityFossilText:
+	text "A #MON that was"
+	line "resurrected from"
+	cont "a fossil, on"
+	cont "display."
 	done
 
 FuchsiaCitySignText:
@@ -86,7 +174,7 @@ FuchsiaCitySignText:
 FuchsiaGymSignText:
 	text "FUCHSIA CITY"
 	line "#MON GYM"
-	cont "LEADER: JANINE"
+	cont "LEADER: KOGA"
 
 	para "The Poisonous"
 	line "Ninja Master"
@@ -151,7 +239,14 @@ FuchsiaCity_MapEvents:
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
 
 	def_object_events
-	object_event 23, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
-	object_event 13,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
-	object_event 16, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
+	object_event 10, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster1Script, -1
+	object_event 28, 17, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityGamblerScript, -1
+	object_event 30, 14, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityErikScript, -1
+	object_event 24,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster2Script, -1
+	object_event 31,  5, SPRITE_FAIRY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityChanseyScript, -1
+	object_event 25,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityVoltorbScript, -1
+	object_event 12,  6, SPRITE_MONSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityKangaskhanScript, -1
+	object_event 30, 12, SPRITE_MONSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCitySlowpokeScript, -1
+	object_event  8, 17, SPRITE_MONSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityLaprasScript, -1
+	object_event  6,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFossilScript, -1
 	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1

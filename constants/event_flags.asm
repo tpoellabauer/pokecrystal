@@ -1517,6 +1517,11 @@
 	const EVENT_SAFARI_ZONE_WEST_MAX_POTION
 	const EVENT_SAFARI_ZONE_WEST_MAX_REVIVE
 	const EVENT_SAFARI_ZONE_WEST_TM_DOUBLE_TEAM
+	const EVENT_SAFARI_ZONE_WEST_GOLD_TEETH
+; Gen 1 Safari Zone Warden's Gold Teeth quest (SafariZoneWest item -> SafariZoneWardensHome
+; turn-in -> HM04 Strength reward; EVENT_GOT_HM04_STRENGTH is reused from OlivineCafe's own
+; one-time Strength gift so the HM is never handed out twice)
+	const EVENT_GAVE_GOLD_TEETH
 ; Gen 1 Copycat doll -> TM Mimic trade
 	const EVENT_GOT_TM_MIMIC
 ; Blue's House: Daisy gives the Town Map errand
@@ -1571,6 +1576,7 @@
 	const EVENT_POKEMON_MANSION_B1F_FULL_RESTORE
 	const EVENT_POKEMON_MANSION_B1F_TM_BLIZZARD
 	const EVENT_POKEMON_MANSION_B1F_TM_SOLARBEAM
+	const EVENT_POKEMON_MANSION_B1F_SECRET_KEY ; Gen 1 Secret Key item ball (5,13), unlocks Cinnabar Gym
 ; Silph Co 2F-6F (batch SI1)
 	const EVENT_BEAT_SILPH_CO_2F_ROCKET_1
 	const EVENT_BEAT_SILPH_CO_2F_ROCKET_2
@@ -1914,6 +1920,16 @@
 	const EVENT_POKEMON_MANSION_1F_HIDDEN_MOON_STONE ; Gen 1 hidden_events.asm pickup, not in the objects dump
 	const EVENT_POKEMON_MANSION_3F_HIDDEN_MAX_REVIVE ; Gen 1 hidden_events.asm pickup, not in the objects dump
 	const EVENT_POKEMON_MANSION_B1F_HIDDEN_RARE_CANDY ; Gen 1 hidden_events.asm pickup, not in the objects dump
+; Gen 1 Route 23 7-guard progressive Kanto-badge gauntlet (port slot: Route23.asm) -- each flag
+; both gates re-showing a passed guard's dialogue and is that guard's object_event visibility flag
+; (disappear + setevent on pass, so the guard vanishes for good once its badge check is cleared).
+	const EVENT_ROUTE23_PASSED_CASCADE_GUARD
+	const EVENT_ROUTE23_PASSED_THUNDER_GUARD
+	const EVENT_ROUTE23_PASSED_RAINBOW_GUARD
+	const EVENT_ROUTE23_PASSED_SOUL_GUARD
+	const EVENT_ROUTE23_PASSED_MARSH_GUARD
+	const EVENT_ROUTE23_PASSED_VOLCANO_GUARD
+	const EVENT_ROUTE23_PASSED_EARTH_GUARD
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

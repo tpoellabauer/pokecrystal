@@ -38,7 +38,7 @@ Route2_MapEvents:
 	warp_event 15, 31, ROUTE_2_GATE, 3
 	warp_event 16, 27, ROUTE_2_GATE, 1
 	warp_event 17, 27, ROUTE_2_GATE, 2
-	warp_event 12,  7, DIGLETTS_CAVE, 3
+	warp_event 12,  7, DIGLETTS_CAVE_ROUTE_2, 1
 	; Viridian Forest gates + trade house restored from Gen 1 (see NEEDS-MAP
 	; backlog); appended after the 5 entries above, so their own doors target
 	; slots 6/7/8 here (not the Gen1 source's own numbering for this map).

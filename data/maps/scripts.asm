@@ -554,5 +554,7 @@ INCLUDE "maps/ViridianForest.asm"
 INCLUDE "maps/Route2NuggetHouse.asm"
 INCLUDE "maps/Route2Gate.asm"
 INCLUDE "maps/VictoryRoadGate.asm"
+INCLUDE "maps/DiglettsCaveRoute2.asm"
+INCLUDE "maps/DiglettsCaveRoute11.asm"
 
 ENDSECTION

@@ -1246,4 +1246,10 @@ ViridianForestSouthGate_Blocks:
 ViridianForest_Blocks:
 	INCBIN "maps/ViridianForest.blk"
 
+DiglettsCaveRoute2_Blocks:
+	INCBIN "maps/DiglettsCaveRoute2.blk"
+
+DiglettsCaveRoute11_Blocks:
+	INCBIN "maps/DiglettsCaveRoute11.blk"
+
 ENDSECTION

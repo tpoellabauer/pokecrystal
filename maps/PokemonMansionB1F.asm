@@ -9,6 +9,11 @@
 ; (hidden_events_for POKEMON_MANSION_B1F -> Mansion4Script_Switches at (20,3) and (18,25), two
 ; tiles for the same switch script). The old (13,7) single-tile guess is superseded; see
 ; docs/PORT_BACKLOG.md for the same fix still owed to PokemonMansion1F/2F/3F.
+;
+; Secret Key item ball wired 2026-07-10: SECRET_KEY repurposes the unused ITEM_2D placeholder
+; slot (precedent: ITEM_DC -> TM_MIMIC, see model/items.toml), item ball placed at Gen 1's exact
+; (5, 13) (pokeredDisassembly/data/maps/objects/PokemonMansionB1F.asm). CinnabarIsland.asm's gym
+; door now checks for it (see that map's file for the gate script).
 
 	object_const_def
 	const POKEMONMANSIONB1F_BURGLAR
@@ -18,10 +23,7 @@
 	const POKEMONMANSIONB1F_TM_BLIZZARD
 	const POKEMONMANSIONB1F_TM_SOLARBEAM
 	const POKEMONMANSIONB1F_DIARY
-; Gen 1's Secret Key (unlocks Cinnabar Gym) is skipped: no SECRET_KEY item const exists in this
-; project yet, and Cinnabar Gym doesn't check for one either (see CLAUDE.md's "Cinnabar Secret Key"
-; flavor blocker, and PORT_BACKLOG) -- wiring a new item type is out of scope for a map-content
-; port, same reasoning as the TM_REFLECT/TM_THUNDER_WAVE skips.
+	const POKEMONMANSIONB1F_SECRET_KEY
 
 PokemonMansionB1F_MapScripts:
 	def_scene_scripts
@@ -131,6 +133,9 @@ PokemonMansionB1FTMBlizzardBall:
 PokemonMansionB1FTMSolarbeamBall:
 	itemball TM_SOLARBEAM
 
+PokemonMansionB1FSecretKeyBall:
+	itemball SECRET_KEY
+
 PokemonMansionB1FBurglarBattleText:
 	text "Uh-oh. Where am"
 	line "I now?"
@@ -188,3 +193,4 @@ PokemonMansionB1F_MapEvents:
 	object_event 19, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PokemonMansionB1FTMBlizzardBall, EVENT_POKEMON_MANSION_B1F_TM_BLIZZARD
 	object_event  5,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PokemonMansionB1FTMSolarbeamBall, EVENT_POKEMON_MANSION_B1F_TM_SOLARBEAM
 	object_event 16, 20, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FDiaryScript, -1
+	object_event  5, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PokemonMansionB1FSecretKeyBall, EVENT_POKEMON_MANSION_B1F_SECRET_KEY

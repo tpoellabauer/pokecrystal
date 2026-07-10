@@ -1,3 +1,7 @@
+; Gen 1 Safari Warden's GOLD TEETH quest (2026-07-10): this item ball is the quest's start --
+; turn-in + HM04 Strength reward live at SafariZoneWardensHome.asm's Warden NPC. GOLD_TEETH
+; repurposes the ITEM_32 placeholder slot (precedent: ITEM_DC -> TM_MIMIC). See the REQUEST
+; NOTICE sign below for the in-fiction quest hook (SafariZoneWestFindWardensTeethSign).
 	object_const_def
 	const SAFARIZONEWEST_MAX_POTION
 	const SAFARIZONEWEST_TM_DOUBLE_TEAM
@@ -18,8 +22,8 @@ SafariZoneWestTMDoubleTeam:
 SafariZoneWestMaxRevive:
 	itemball MAX_REVIVE
 
-SafariZoneWestGoldTeethScript:
-	jumptextfaceplayer SafariZoneWestGoldTeethText
+SafariZoneWestGoldTeethBall:
+	itemball GOLD_TEETH
 
 SafariZoneWestRestHouseSign:
 	jumptext SafariZoneWestRestHouseSignText
@@ -32,20 +36,6 @@ SafariZoneWestTrainerTipsSign:
 
 SafariZoneWestSign:
 	jumptext SafariZoneWestSignText
-
-; GATED (NEEDS SHARED-TABLE WORK): the Safari Warden's GOLD TEETH quest item.
-; In Gen 1 this ball, MainOffice, and WardensHome all share an EVENT_ flag +
-; the HM01 CUT reward hand-off. Wiring it needs constants/event_flags.asm,
-; giveitem, and cross-map scene/setevent work — all out of scope here. Left
-; as inert flavor text; see the REQUEST NOTICE sign below for the quest hook.
-SafariZoneWestGoldTeethText:
-	text "Something shiny"
-	line "is glinting in"
-	cont "the grass here..."
-
-	para "Looks like a set"
-	line "of GOLD TEETH!"
-	done
 
 SafariZoneWestRestHouseSignText:
 	text "REST HOUSE"
@@ -104,4 +94,4 @@ SafariZoneWest_MapEvents:
 	object_event  8, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestMaxPotion, EVENT_SAFARI_ZONE_WEST_MAX_POTION
 	object_event  9,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestTMDoubleTeam, EVENT_SAFARI_ZONE_WEST_TM_DOUBLE_TEAM
 	object_event 18, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestMaxRevive, EVENT_SAFARI_ZONE_WEST_MAX_REVIVE
-	object_event 19,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneWestGoldTeethScript, -1
+	object_event 19,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestGoldTeethBall, EVENT_SAFARI_ZONE_WEST_GOLD_TEETH
