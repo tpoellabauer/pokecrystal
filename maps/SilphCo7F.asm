@@ -9,6 +9,7 @@
 	const SILPHCO7F_ROCKET3
 	const SILPHCO7F_RIVAL
 	const SILPHCO7F_CALCIUM
+	const SILPHCO7F_TM_SWORDS_DANCE
 
 SilphCo7F_MapScripts:
 	def_scene_scripts
@@ -212,6 +213,12 @@ SilphCo7FRivalScript:
 SilphCo7FCalciumItemScript:
 	itemball CALCIUM
 
+; Gen 1 gives TM_SWORDS_DANCE (Gen1 TM01) here; Swords Dance isn't a Gen2 TM
+; move, so substituted with the closest available GSC TM (self Attack/Defense
+; buff), same treatment as VictoryRoad's TM_SKY_ATTACK->TM_HYPER_BEAM swap.
+SilphCo7FTMSwordsDanceItemScript:
+	itemball TM_CURSE
+
 ; Text
 SilphCo7FSilphWorkerM1HaveThisPokemonText:
 	text "Oh! Hi! You're"
@@ -408,3 +415,4 @@ SilphCo7F_MapEvents:
 	object_event 19, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo7FRocket3Script, EVENT_BEAT_SILPH_CO_7F_ROCKET_3
 	object_event  3,  7, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo7FRivalScript, -1
 	object_event  1,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo7FCalciumItemScript, EVENT_SILPH_CO_7F_CALCIUM
+	object_event 24, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo7FTMSwordsDanceItemScript, EVENT_SILPH_CO_7F_TM_SWORDS_DANCE

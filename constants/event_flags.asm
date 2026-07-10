@@ -1579,6 +1579,9 @@
 	const EVENT_BEAT_SILPH_CO_4F_ROCKET_1
 	const EVENT_BEAT_SILPH_CO_4F_ROCKET_2
 	const EVENT_BEAT_SILPH_CO_4F_SCIENTIST
+	const EVENT_SILPH_CO_4F_FULL_HEAL
+	const EVENT_SILPH_CO_4F_MAX_REVIVE
+	const EVENT_SILPH_CO_4F_ESCAPE_ROPE
 	const EVENT_BEAT_SILPH_CO_5F_COOLTRAINERM
 	const EVENT_BEAT_SILPH_CO_5F_ROCKET_1
 	const EVENT_BEAT_SILPH_CO_5F_ROCKET_2
@@ -1601,6 +1604,7 @@
 	const EVENT_BEAT_SILPH_CO_RIVAL
 	const EVENT_GOT_LAPRAS_FROM_SILPH_CO_7F
 	const EVENT_SILPH_CO_7F_CALCIUM
+	const EVENT_SILPH_CO_7F_TM_SWORDS_DANCE
 	const EVENT_BEAT_SILPH_CO_8F_ROCKET_1
 	const EVENT_BEAT_SILPH_CO_8F_ROCKET_2
 	const EVENT_BEAT_SILPH_CO_8F_SCIENTIST
@@ -1893,6 +1897,7 @@
 	const EVENT_BEAT_SAILOR_SSANNEBOW_2
 	const EVENT_BEAT_MOLTRES ; Gen 1 Victory Road static encounter (port slot: VictoryRoad.asm)
 	const EVENT_BEAT_CERULEAN_RIVAL ; Gen 1 Cerulean City rival battle (port slot: CeruleanCity.asm)
+	const EVENT_SILPH_CO_3F_HYPER_POTION ; Gen 1 SilphCo3F item ball (never added when the floor's trainers were first ported; overworld_parity obj 4->3)
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

@@ -3,6 +3,9 @@
 	const SILPHCO4F_SCIENTIST
 	const SILPHCO4F_ROCKET1
 	const SILPHCO4F_ROCKET2
+	const SILPHCO4F_FULL_HEAL
+	const SILPHCO4F_MAX_REVIVE
+	const SILPHCO4F_ESCAPE_ROPE
 
 SilphCo4F_MapScripts:
 	def_scene_scripts
@@ -139,6 +142,15 @@ SilphCo4FRocket2AfterBattleText:
 	line "BOSS on 11F!"
 	done
 
+SilphCo4FFullHealItemScript:
+	itemball FULL_HEAL
+
+SilphCo4FMaxReviveItemScript:
+	itemball MAX_REVIVE
+
+SilphCo4FEscapeRopeItemScript:
+	itemball ESCAPE_ROPE
+
 SilphCo4F_MapEvents:
 	db 0, 0 ; filler
 
@@ -160,3 +172,6 @@ SilphCo4F_MapEvents:
 	object_event 14,  6, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo4FScientistScript, EVENT_BEAT_SILPH_CO_4F_SCIENTIST
 	object_event  9, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo4FRocket1Script, EVENT_BEAT_SILPH_CO_4F_ROCKET_1
 	object_event 26, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo4FRocket2Script, EVENT_BEAT_SILPH_CO_4F_ROCKET_2
+	object_event  3,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo4FFullHealItemScript, EVENT_SILPH_CO_4F_FULL_HEAL
+	object_event  4,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo4FMaxReviveItemScript, EVENT_SILPH_CO_4F_MAX_REVIVE
+	object_event  5,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo4FEscapeRopeItemScript, EVENT_SILPH_CO_4F_ESCAPE_ROPE

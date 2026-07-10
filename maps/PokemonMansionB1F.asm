@@ -3,6 +3,12 @@
 ; Switch puzzle: see PokemonMansion1F.asm for the shared EVENT_MANSION_SWITCH_ON design note.
 ; Holds the Secret Key that unlocks Cinnabar Gym (see CLAUDE.md's "Cinnabar Secret Key" flavor
 ; blocker) and this Diary reveals Team Rocket's failure to control MEWTWO.
+;
+; Switch tile coords (model/maps/PokemonMansionB1F.toml bg_events) corrected 2026-07-10: Gen 1
+; stores these outside data/maps/objects/*.asm, in pokeredDisassembly/data/events/hidden_events.asm
+; (hidden_events_for POKEMON_MANSION_B1F -> Mansion4Script_Switches at (20,3) and (18,25), two
+; tiles for the same switch script). The old (13,7) single-tile guess is superseded; see
+; docs/PORT_BACKLOG.md for the same fix still owed to PokemonMansion1F/2F/3F.
 
 	object_const_def
 	const POKEMONMANSIONB1F_BURGLAR
@@ -162,8 +168,13 @@ PokemonMansionB1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	; Switch tile coordinate is approximate -- see PokemonMansion2F.asm's note.
-	bg_event 13,  7, BGEVENT_READ, PokemonMansionB1FSwitchScript
+	; Switch tiles: Gen 1 exposes these via hidden_events.asm (not the objects dump), keyed
+	; to Mansion4Script_Switches at (20,3) and (18,25) -- pokeredDisassembly/data/events/
+	; hidden_events.asm, hidden_events_for POKEMON_MANSION_B1F. Two tiles both run the same
+	; switch script (Gen 1's console spans 2 interactive tiles). Coordinates below are exact,
+	; not approximated -- supersedes the old single-tile guess at (13,7).
+	bg_event 20,  3, BGEVENT_READ, PokemonMansionB1FSwitchScript
+	bg_event 18, 25, BGEVENT_READ, PokemonMansionB1FSwitchScript
 
 	def_object_events
 	object_event 16, 23, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBurglarScript, EVENT_BEAT_MANSION_4_TRAINER_0

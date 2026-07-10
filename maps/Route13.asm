@@ -123,9 +123,6 @@ Route13TrainerTips:
 Route13Sign:
 	jumptext Route13SignText
 
-Route13DirectionsSign:
-	jumptext Route13DirectionsSignText
-
 Route13HiddenCalcium:
 	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
 
@@ -303,14 +300,6 @@ Route13SignText:
 	line "BRIDGE"
 	done
 
-Route13DirectionsSignText:
-	text "NORTH TO LAVENDER"
-	line "TOWN"
-
-	para "WEST TO FUCHSIA"
-	line "CITY"
-	done
-
 Route13_MapEvents:
 	db 0, 0 ; filler
 
@@ -320,9 +309,8 @@ Route13_MapEvents:
 
 	def_bg_events
 	bg_event 15, 13, BGEVENT_READ, Route13TrainerTips
-	bg_event 33,  5, BGEVENT_READ, Route13Sign
-	bg_event 17, 13, BGEVENT_READ, Route13DirectionsSign
-	bg_event 30, 13, BGEVENT_ITEM, Route13HiddenCalcium
+	bg_event 31, 11, BGEVENT_READ, Route13Sign
+	bg_event 16, 13, BGEVENT_ITEM, Route13HiddenCalcium
 
 	def_object_events
 	object_event 49, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerM1, -1

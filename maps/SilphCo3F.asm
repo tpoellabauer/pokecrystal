@@ -2,6 +2,7 @@
 	const SILPHCO3F_SILPH_WORKER_M
 	const SILPHCO3F_SCIENTIST
 	const SILPHCO3F_ROCKET
+	const SILPHCO3F_HYPER_POTION
 
 SilphCo3F_MapScripts:
 	def_scene_scripts
@@ -63,6 +64,10 @@ SilphCo3FRocketScript:
 	waitbutton
 	closetext
 	end
+
+; Item ball
+SilphCo3FHyperPotionItemScript:
+	itemball HYPER_POTION
 
 ; Text
 SilphCo3FSilphWorkerMWhatShouldIDoText:
@@ -135,3 +140,4 @@ SilphCo3F_MapEvents:
 	object_event 24,  8, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo3FSilphWorkerMScript, -1
 	object_event  7,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo3FScientistScript, EVENT_BEAT_SILPH_CO_3F_SCIENTIST
 	object_event 20,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo3FRocketScript, EVENT_BEAT_SILPH_CO_3F_ROCKET
+	object_event  8,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo3FHyperPotionItemScript, EVENT_SILPH_CO_3F_HYPER_POTION

@@ -9,20 +9,11 @@
 	const ROUTE14_BIKER2
 	const ROUTE14_BIKER3
 	const ROUTE14_BIKER4
-	const ROUTE14_KIM
 
 Route14_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-
-Kim:
-	faceplayer
-	opentext
-	trade NPC_TRADE_KIM
-	waitbutton
-	closetext
-	end
 
 ; Gen 1: all six are CoolTrainerM sprite, BIRD_KEEPER class.
 TrainerRoute14CoolTrainerM1:
@@ -323,4 +314,3 @@ Route14_MapEvents:
 	object_event  4, 30, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute14Biker2, -1
 	object_event 15, 30, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute14Biker3, -1
 	object_event  4, 31, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute14Biker4, -1
-	object_event  7,  5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 4, Kim, -1

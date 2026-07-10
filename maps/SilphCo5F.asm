@@ -7,6 +7,9 @@
 	const SILPHCO5F_TM_TAKE_DOWN
 	const SILPHCO5F_PROTEIN
 	const SILPHCO5F_CARD_KEY
+	const SILPHCO5F_POKEMON_REPORT1
+	const SILPHCO5F_POKEMON_REPORT2
+	const SILPHCO5F_POKEMON_REPORT3
 
 SilphCo5F_MapScripts:
 	def_scene_scripts
@@ -111,6 +114,19 @@ SilphCo5FProteinItemScript:
 SilphCo5FCardKeyItemScript:
 	itemball CARD_KEY
 
+; Gen 1's SPRITE_CLIPBOARD (the "#MON REPORT" sign props) has no GSC
+; equivalent sprite; substituted with SPRITE_POKEDEX, the same stand-in this
+; port already uses for stationary readable documents (see PokemonMansion2F/
+; 3F's diary props).
+SilphCo5FPokemonReport1Script:
+	jumptextfaceplayer SilphCo5FPokemonReport1Text
+
+SilphCo5FPokemonReport2Script:
+	jumptextfaceplayer SilphCo5FPokemonReport2Text
+
+SilphCo5FPokemonReport3Script:
+	jumptextfaceplayer SilphCo5FPokemonReport3Text
+
 SilphCo5FSilphWorkerMThatsYouRightText:
 	text "TEAM ROCKET is"
 	line "in an uproar over"
@@ -191,6 +207,34 @@ SilphCo5FRocket2AfterBattleText:
 	line "into WEEZING!"
 	done
 
+SilphCo5FPokemonReport1Text:
+	text "It's a #MON"
+	line "REPORT!"
+
+	para "#MON LAB"
+	line "created PORYGON,"
+	cont "the first virtual"
+	cont "reality #MON."
+	done
+
+SilphCo5FPokemonReport2Text:
+	text "It's a #MON"
+	line "REPORT!"
+
+	para "Over 160 #MON"
+	line "techniques have"
+	cont "been confirmed."
+	done
+
+SilphCo5FPokemonReport3Text:
+	text "It's a #MON"
+	line "REPORT!"
+
+	para "4 #MON evolve"
+	line "only when traded"
+	cont "by link-cable."
+	done
+
 SilphCo5F_MapEvents:
 	db 0, 0 ; filler
 
@@ -216,3 +260,6 @@ SilphCo5F_MapEvents:
 	object_event  2, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo5FTakDownItemScript, EVENT_SILPH_CO_5F_TM_TAKE_DOWN
 	object_event  4,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo5FProteinItemScript, EVENT_SILPH_CO_5F_PROTEIN
 	object_event 21, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilphCo5FCardKeyItemScript, EVENT_SILPH_CO_5F_CARD_KEY
+	object_event 22, 12, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo5FPokemonReport1Script, -1
+	object_event 25, 10, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo5FPokemonReport2Script, -1
+	object_event 24,  6, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo5FPokemonReport3Script, -1
