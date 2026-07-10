@@ -170,10 +170,8 @@ SilphCo7FRocket3Script:
 ; Rival battle. Gen 1 ambushes the player at a coordinate trigger and picks the
 ; type-counter starter (matches Route22.asm's RIVAL1 counter idiom); simplified
 ; here to a talk-triggered battle (precedent: Events 1-4 used talk-triggered
-; handoffs instead of Gen1 auto-ambush). Reuses the existing RIVAL1_ROUTE22_*
-; trainer parties (Pidgey + type-counter starter) rather than adding new RIVAL1
-; sub-entries, since RIVAL1's model/trainers.toml group is already out of sync
-; with pokecrystal/data/trainers/parties.asm above index 21 (see report).
+; handoffs instead of Gen1 auto-ambush). Uses the real Gen1 Silph Co. 7F roster
+; (Rival2Data's 3rd tier, Lv35-40) via the RIVAL1_SILPHCO_* trainer parties.
 SilphCo7FRivalScript:
 	faceplayer
 	opentext
@@ -186,13 +184,13 @@ SilphCo7FRivalScript:
 	iftrue .Charmander
 	checkevent EVENT_CHOSE_SQUIRTLE
 	iftrue .Squirtle
-	loadtrainer RIVAL1, RIVAL1_ROUTE22_CHARMANDER
+	loadtrainer RIVAL1, RIVAL1_SILPHCO_CHARMANDER
 	sjump .Fight
 .Squirtle:
-	loadtrainer RIVAL1, RIVAL1_ROUTE22_BULBASAUR
+	loadtrainer RIVAL1, RIVAL1_SILPHCO_BULBASAUR
 	sjump .Fight
 .Charmander:
-	loadtrainer RIVAL1, RIVAL1_ROUTE22_SQUIRTLE
+	loadtrainer RIVAL1, RIVAL1_SILPHCO_SQUIRTLE
 .Fight:
 	startbattle
 	dontrestartmapmusic

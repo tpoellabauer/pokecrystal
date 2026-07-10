@@ -5,6 +5,7 @@
 	const CERULEANCITY_COOLTRAINER_F
 	const CERULEANCITY_FISHER
 	const CERULEANCITY_YOUNGSTER
+	const CERULEANCITY_RIVAL
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
@@ -116,6 +117,53 @@ CeruleanCityYoungsterScript:
 	turnobject CERULEANCITY_YOUNGSTER, LEFT
 	opentext
 	writetext CeruleanCityYoungsterText2
+	waitbutton
+	closetext
+	end
+
+; Gen 1 rival battle 3 (walkthrough "Rival battle 3"), triggered heading north toward Route 24.
+; Ambushes the player at a coord trigger in Gen1 (scripts/CeruleanCity.asm); simplified to a
+; talk-triggered battle (precedent: Events 1-4 used talk-triggered handoffs instead of Gen1
+; auto-ambush). Roster is Rival1Data's Cerulean tier (Pidgeotto/Abra/Rattata + type-counter
+; starter, Lv15-18) via the RIVAL1_CERULEAN_* trainer parties.
+CeruleanCityRivalScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_CERULEAN_RIVAL
+	iftrue .AlreadyBattled
+	writetext CeruleanCityRivalBeforeText
+	waitbutton
+	closetext
+	checkevent EVENT_CHOSE_CHARMANDER
+	iftrue .Charmander
+	checkevent EVENT_CHOSE_SQUIRTLE
+	iftrue .Squirtle
+	loadtrainer RIVAL1, RIVAL1_CERULEAN_CHARMANDER
+	sjump .Fight
+.Squirtle:
+	loadtrainer RIVAL1, RIVAL1_CERULEAN_BULBASAUR
+	sjump .Fight
+.Charmander:
+	loadtrainer RIVAL1, RIVAL1_CERULEAN_SQUIRTLE
+.Fight:
+	winlosstext CeruleanCityRivalDefeatedText, CeruleanCityRivalVictoryText
+	setlasttalked CERULEANCITY_RIVAL
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	setevent EVENT_BEAT_CERULEAN_RIVAL
+	playmusic MUSIC_RIVAL_AFTER
+	opentext
+	writetext CeruleanCityRivalAfterText
+	waitbutton
+	closetext
+	special HealParty
+	playmapmusic
+	end
+
+.AlreadyBattled:
+	writetext CeruleanCityRivalAfterText
 	waitbutton
 	closetext
 	end
@@ -273,6 +321,50 @@ CeruleanLockedDoorText:
 	text "It's locked…"
 	done
 
+CeruleanCityRivalBeforeText:
+	text "<RIVAL>: Yo!"
+	line "<PLAYER>!"
+
+	para "You're still"
+	line "struggling along"
+	cont "back here?"
+
+	para "I'm doing great!"
+	line "I caught a bunch"
+	cont "of strong and"
+	cont "smart #MON!"
+
+	para "Here, let me see"
+	line "what you caught,"
+	cont "<PLAYER>!"
+	done
+
+CeruleanCityRivalDefeatedText:
+	text "Hey!"
+	line "Take it easy!"
+	cont "You won already!"
+	done
+
+CeruleanCityRivalVictoryText:
+	text "Heh!"
+	line "You're no match"
+	cont "for my genius!"
+	done
+
+CeruleanCityRivalAfterText:
+	text "<RIVAL>: Hey,"
+	line "guess what?"
+
+	para "I went to BILL's"
+	line "and got him to"
+	cont "show me his rare"
+	cont "#MON!"
+
+	para "That added a lot"
+	line "of pages to my"
+	cont "#DEX!"
+	done
+
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -305,3 +397,4 @@ CeruleanCity_MapEvents:
 	object_event 21, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerFScript, -1
 	object_event 30, 26, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityFisherScript, -1
 	object_event  6, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityYoungsterScript, -1
+	object_event 20, 10, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityRivalScript, -1

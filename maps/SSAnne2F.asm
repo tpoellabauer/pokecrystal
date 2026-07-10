@@ -20,7 +20,10 @@ SSAnne2FWaiterScript:
 	jumptextfaceplayer SSAnne2FWaiterText
 
 ; Rival encounter: armored by EVENT_FOUGHT_BLUE_SSANNE (armed by Vermilion Port)
-; Once beaten, disarmed and scene switches to noop
+; Once beaten, disarmed and scene switches to noop. Type-counter starter branch added +
+; retargeted to the real Gen1 S.S. Anne roster (Rival2Data's 1st tier, Lv16-20) via the
+; RIVAL1_SSANNE_* trainer parties -- previously hardcoded to the wrong (Route 22, Lv8/9) tier
+; with no starter branching at all.
 SSAnne2FRivalScript:
 	faceplayer
 	opentext
@@ -38,7 +41,19 @@ SSAnne2FRivalScript:
 	writetext SSAnne2FRivalBeforeText
 	waitbutton
 	closetext
-	loadtrainer RIVAL1, RIVAL1_ROUTE22_CHARMANDER
+	checkevent EVENT_CHOSE_CHARMANDER
+	iftrue .Charmander
+	checkevent EVENT_CHOSE_SQUIRTLE
+	iftrue .Squirtle
+	; you chose Bulbasaur (or, defensively, nothing) -> rival's Charmander line
+	loadtrainer RIVAL1, RIVAL1_SSANNE_CHARMANDER
+	sjump .Fight
+.Squirtle:
+	loadtrainer RIVAL1, RIVAL1_SSANNE_BULBASAUR
+	sjump .Fight
+.Charmander:
+	loadtrainer RIVAL1, RIVAL1_SSANNE_SQUIRTLE
+.Fight:
 	winlosstext SSAnne2FRivalDefeatedText, SSAnne2FRivalVictoryText
 	setlasttalked SSANNE2F_RIVAL
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE

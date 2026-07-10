@@ -80,6 +80,15 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL1_CHAMPION_SQUIRTLE      ; Gen 1 Champion (ChampionsRoom): you chose Charmander
 	const RIVAL1_CHAMPION_BULBASAUR     ; Gen 1 Champion (ChampionsRoom): you chose Squirtle
 	const RIVAL1_CHAMPION_CHARMANDER    ; Gen 1 Champion (ChampionsRoom): you chose Bulbasaur
+	const RIVAL1_CERULEAN_SQUIRTLE      ; Gen 1 Cerulean City: you chose Charmander
+	const RIVAL1_CERULEAN_BULBASAUR     ; Gen 1 Cerulean City: you chose Squirtle
+	const RIVAL1_CERULEAN_CHARMANDER    ; Gen 1 Cerulean City: you chose Bulbasaur
+	const RIVAL1_SSANNE_SQUIRTLE        ; Gen 1 S.S. Anne (2F): you chose Charmander
+	const RIVAL1_SSANNE_BULBASAUR       ; Gen 1 S.S. Anne (2F): you chose Squirtle
+	const RIVAL1_SSANNE_CHARMANDER      ; Gen 1 S.S. Anne (2F): you chose Bulbasaur
+	const RIVAL1_SILPHCO_SQUIRTLE       ; Gen 1 Silph Co. (7F): you chose Charmander
+	const RIVAL1_SILPHCO_BULBASAUR      ; Gen 1 Silph Co. (7F): you chose Squirtle
+	const RIVAL1_SILPHCO_CHARMANDER     ; Gen 1 Silph Co. (7F): you chose Bulbasaur
 
 	trainerclass POKEMON_PROF ; a
 

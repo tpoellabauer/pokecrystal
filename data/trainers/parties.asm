@@ -284,6 +284,81 @@ Rival1Group:
 	db 65, CHARIZARD
 	db -1 ; end
 
+	; RIVAL1 (28) ; Gen 1 Cerulean City - you chose CHARMANDER, rival has SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, PIDGEOTTO
+	db 15, ABRA
+	db 15, RATTATA
+	db 17, SQUIRTLE
+	db -1 ; end
+
+	; RIVAL1 (29) ; Gen 1 Cerulean City - you chose SQUIRTLE, rival has BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, PIDGEOTTO
+	db 15, ABRA
+	db 15, RATTATA
+	db 17, BULBASAUR
+	db -1 ; end
+
+	; RIVAL1 (30) ; Gen 1 Cerulean City - you chose BULBASAUR, rival has CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db 18, PIDGEOTTO
+	db 15, ABRA
+	db 15, RATTATA
+	db 17, CHARMANDER
+	db -1 ; end
+
+	; RIVAL1 (31) ; Gen 1 S.S. Anne (2F) - you chose CHARMANDER, rival has SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db 19, PIDGEOTTO
+	db 16, RATICATE
+	db 18, KADABRA
+	db 20, WARTORTLE
+	db -1 ; end
+
+	; RIVAL1 (32) ; Gen 1 S.S. Anne (2F) - you chose SQUIRTLE, rival has BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db 19, PIDGEOTTO
+	db 16, RATICATE
+	db 18, KADABRA
+	db 20, IVYSAUR
+	db -1 ; end
+
+	; RIVAL1 (33) ; Gen 1 S.S. Anne (2F) - you chose BULBASAUR, rival has CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db 19, PIDGEOTTO
+	db 16, RATICATE
+	db 18, KADABRA
+	db 20, CHARMELEON
+	db -1 ; end
+
+	; RIVAL1 (34) ; Gen 1 Silph Co. (7F) - you chose CHARMANDER, rival has SQUIRTLE
+	db "?@", TRAINERTYPE_NORMAL
+	db 37, PIDGEOT
+	db 38, GROWLITHE
+	db 35, EXEGGCUTE
+	db 35, ALAKAZAM
+	db 40, BLASTOISE
+	db -1 ; end
+
+	; RIVAL1 (35) ; Gen 1 Silph Co. (7F) - you chose SQUIRTLE, rival has BULBASAUR
+	db "?@", TRAINERTYPE_NORMAL
+	db 37, PIDGEOT
+	db 38, GYARADOS
+	db 35, GROWLITHE
+	db 35, ALAKAZAM
+	db 40, VENUSAUR
+	db -1 ; end
+
+	; RIVAL1 (36) ; Gen 1 Silph Co. (7F) - you chose BULBASAUR, rival has CHARMANDER
+	db "?@", TRAINERTYPE_NORMAL
+	db 37, PIDGEOT
+	db 38, EXEGGCUTE
+	db 35, GYARADOS
+	db 35, ALAKAZAM
+	db 40, CHARIZARD
+	db -1 ; end
+
 PokemonProfGroup:
 
 WillGroup:

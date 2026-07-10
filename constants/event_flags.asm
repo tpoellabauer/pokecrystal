@@ -1891,6 +1891,8 @@
 	const EVENT_BEAT_GENTLEMAN_SSANNE2_2
 	const EVENT_BEAT_SAILOR_SSANNEBOW_1
 	const EVENT_BEAT_SAILOR_SSANNEBOW_2
+	const EVENT_BEAT_MOLTRES ; Gen 1 Victory Road static encounter (port slot: VictoryRoad.asm)
+	const EVENT_BEAT_CERULEAN_RIVAL ; Gen 1 Cerulean City rival battle (port slot: CeruleanCity.asm)
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
