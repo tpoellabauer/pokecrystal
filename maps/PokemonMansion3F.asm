@@ -58,6 +58,9 @@ PokemonMansion3FSwitchScript:
 	closetext
 	end
 
+PokemonMansion3FHiddenMaxRevive:
+	hiddenitem MAX_REVIVE, EVENT_POKEMON_MANSION_3F_HIDDEN_MAX_REVIVE
+
 PokemonMansion3FSuperNerdScript:
 	faceplayer
 	opentext
@@ -146,8 +149,10 @@ PokemonMansion3F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	; Switch tile coordinate is approximate -- see PokemonMansion2F.asm's note.
-	bg_event  7,  1, BGEVENT_READ, PokemonMansion3FSwitchScript
+	; Switch tile is Gen 1's exact hidden_events.asm coordinate (hidden_events_for
+	; POKEMON_MANSION_3F, Mansion3Script_Switches), not an approximation.
+	bg_event 10,  5, BGEVENT_READ, PokemonMansion3FSwitchScript
+	bg_event  1,  9, BGEVENT_ITEM, PokemonMansion3FHiddenMaxRevive
 
 	def_object_events
 	object_event  5, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokemonMansion3FSuperNerdScript, EVENT_BEAT_MANSION_3_TRAINER_0

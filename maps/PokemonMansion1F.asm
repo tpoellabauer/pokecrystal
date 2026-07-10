@@ -80,6 +80,9 @@ PokemonMansion1FSwitchScript:
 	closetext
 	end
 
+PokemonMansion1FHiddenMoonStone:
+	hiddenitem MOON_STONE, EVENT_POKEMON_MANSION_1F_HIDDEN_MOON_STONE
+
 PokemonMansion1FScientistBattleText:
 	text "Who are you? There"
 	line "shouldn't be"
@@ -130,7 +133,8 @@ PokemonMansion1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 12, 12, BGEVENT_READ, PokemonMansion1FSwitchScript
+	bg_event  2,  5, BGEVENT_READ, PokemonMansion1FSwitchScript
+	bg_event  8, 16, BGEVENT_ITEM, PokemonMansion1FHiddenMoonStone
 
 	def_object_events
 	object_event 17, 17, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansion1FScientistScript, -1

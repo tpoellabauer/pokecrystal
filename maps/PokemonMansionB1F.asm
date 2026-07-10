@@ -119,6 +119,9 @@ PokemonMansionB1FDiaryScript:
 PokemonMansionB1FRareCandyBall:
 	itemball RARE_CANDY
 
+PokemonMansionB1FHiddenRareCandy:
+	hiddenitem RARE_CANDY, EVENT_POKEMON_MANSION_B1F_HIDDEN_RARE_CANDY
+
 PokemonMansionB1FFullRestoreBall:
 	itemball FULL_RESTORE
 
@@ -175,6 +178,7 @@ PokemonMansionB1F_MapEvents:
 	; not approximated -- supersedes the old single-tile guess at (13,7).
 	bg_event 20,  3, BGEVENT_READ, PokemonMansionB1FSwitchScript
 	bg_event 18, 25, BGEVENT_READ, PokemonMansionB1FSwitchScript
+	bg_event  1,  9, BGEVENT_ITEM, PokemonMansionB1FHiddenRareCandy
 
 	def_object_events
 	object_event 16, 23, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBurglarScript, EVENT_BEAT_MANSION_4_TRAINER_0

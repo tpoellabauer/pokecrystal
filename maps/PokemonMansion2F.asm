@@ -143,10 +143,9 @@ PokemonMansion2F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	; Switch tile coordinate is approximate (Gen 1 places it via a raw tile-script hook,
-	; not an object dump entry) -- verify against Polished Map and adjust if it lands on a
-	; wall/blocked tile. See PORT_BACKLOG.
-	bg_event 12,  1, BGEVENT_READ, PokemonMansion2FSwitchScript
+	; Switch tile is Gen 1's exact hidden_events.asm coordinate (hidden_events_for
+	; POKEMON_MANSION_2F, Mansion2Script_Switches), not an approximation.
+	bg_event  2, 11, BGEVENT_READ, PokemonMansion2FSwitchScript
 
 	def_object_events
 	object_event  3, 17, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokemonMansion2FSuperNerdScript, EVENT_BEAT_MANSION_2_TRAINER_0
