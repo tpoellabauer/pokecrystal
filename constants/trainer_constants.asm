@@ -171,6 +171,9 @@ DEF KRIS EQU __trainer_class__
 	const GRANT ; Route 3
 	const GRADY ; Route 3
 	const RAMON ; Route 24
+	const BENNY ; Route 25
+	const TODD ; Route 25
+	const LUCAS ; Route 25
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -262,6 +265,8 @@ DEF KRIS EQU __trainer_class__
 	const OLIVE ; Route 8
 	const FELICIA ; Route 24
 	const ROSIE ; Route 24
+	const HEATHER ; Route 25
+	const NANCY ; Route 25
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -661,6 +666,9 @@ DEF KRIS EQU __trainer_class__
 	const HIKER_ROCKTUNNEL3 ; Rock Tunnel 1F
 	const HIKER_ROCKTUNNELB1F1 ; Rock Tunnel B1F
 	const HIKER_ROCKTUNNELB1F2 ; Rock Tunnel B1F
+	const HIKER_ROUTE25_1 ; Route 25
+	const HIKER_ROUTE25_2 ; Route 25
+	const HIKER_ROUTE25_3 ; Route 25
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused

@@ -2,14 +2,14 @@
 	const ROUTE25_MISTY
 	const ROUTE25_COOLTRAINER_M1
 	const ROUTE25_YOUNGSTER1
-	const ROUTE25_LASS1
 	const ROUTE25_YOUNGSTER2
-	const ROUTE25_LASS2
-	const ROUTE25_YOUNGSTER3
-	const ROUTE25_LASS3
-	const ROUTE25_SUPER_NERD
 	const ROUTE25_COOLTRAINER_M2
-	const ROUTE25_POKE_BALL
+	const ROUTE25_COOLTRAINER_F1
+	const ROUTE25_YOUNGSTER3
+	const ROUTE25_COOLTRAINER_F2
+	const ROUTE25_HIKER1
+	const ROUTE25_HIKER2
+	const ROUTE25_HIKER3
 
 Route25_MapScripts:
 	def_scene_scripts
@@ -76,120 +76,120 @@ Route25MistyDate2Script:
 	special RestartMapMusic
 	end
 
-TrainerSchoolboyDudley:
-	trainer SCHOOLBOY, DUDLEY, EVENT_BEAT_SCHOOLBOY_DUDLEY, SchoolboyDudleySeenText, SchoolboyDudleyBeatenText, 0, .Script
+; Gen 1 Route 25 trainer roster, ported from pokeredDisassembly/data/maps/objects/Route25.asm +
+; scripts/Route25.asm + text/Route25.asm. Sprite vs battle-class follows Gen 1 exactly: the two
+; SPRITE_COOLTRAINER_F NPCs battle as OPP_LASS, and the SPRITE_COOLTRAINER_M NPC battles as
+; OPP_JR_TRAINER_M (row 2 of Gen 1's JrTrainerMData, a row Gen 1 itself shares with a Route 24
+; trainer -- reuses the same JR_TRAINER_M_6 const/data already added for Route24). Gen 1's Hiker
+; class has no dedicated Gen 2 sprite; substituted with SPRITE_POKEFAN_M (same convention as
+; Route9's Hikers).
+TrainerYoungsterBenny:
+	trainer YOUNGSTER, BENNY, EVENT_BEAT_ROUTE_25_TRAINER_0, YoungsterBennySeenText, YoungsterBennyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyDudleyAfterBattleText
+	writetext YoungsterBennyAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerLassEllen:
-	trainer LASS, ELLEN, EVENT_BEAT_LASS_ELLEN, LassEllenSeenText, LassEllenBeatenText, 0, .Script
+TrainerYoungsterTodd:
+	trainer YOUNGSTER, TODD, EVENT_BEAT_ROUTE_25_TRAINER_1, YoungsterToddSeenText, YoungsterToddBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext LassEllenAfterBattleText
+	writetext YoungsterToddAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyJoe:
-	trainer SCHOOLBOY, JOE, EVENT_BEAT_SCHOOLBOY_JOE, SchoolboyJoeSeenText, SchoolboyJoeBeatenText, 0, .Script
+TrainerCooltrainerMRoute25:
+	trainer JR_TRAINER_M, JR_TRAINER_M_6, EVENT_BEAT_ROUTE_25_TRAINER_2, CooltrainerMRoute25SeenText, CooltrainerMRoute25BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyJoeAfterBattleText
+	writetext CooltrainerMRoute25AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerLassLaura:
-	trainer LASS, LAURA, EVENT_BEAT_LASS_LAURA, LassLauraSeenText, LassLauraBeatenText, 0, .Script
+TrainerCooltrainerFHeather:
+	trainer LASS, HEATHER, EVENT_BEAT_ROUTE_25_TRAINER_3, CooltrainerFHeatherSeenText, CooltrainerFHeatherBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext LassLauraAfterBattleText
+	writetext CooltrainerFHeatherAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerCamperLloyd:
-	trainer CAMPER, LLOYD, EVENT_BEAT_CAMPER_LLOYD, CamperLloydSeenText, CamperLloydBeatenText, 0, .Script
+TrainerYoungsterLucas:
+	trainer YOUNGSTER, LUCAS, EVENT_BEAT_ROUTE_25_TRAINER_4, YoungsterLucasSeenText, YoungsterLucasBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext CamperLloydAfterBattleText
+	writetext YoungsterLucasAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerLassShannon:
-	trainer LASS, SHANNON, EVENT_BEAT_LASS_SHANNON, LassShannonSeenText, LassShannonBeatenText, 0, .Script
+TrainerCooltrainerFNancy:
+	trainer LASS, NANCY, EVENT_BEAT_ROUTE_25_TRAINER_5, CooltrainerFNancySeenText, CooltrainerFNancyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext LassShannonAfterBattleText
+	writetext CooltrainerFNancyAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSupernerdPat:
-	trainer SUPER_NERD, PAT, EVENT_BEAT_SUPER_NERD_PAT, SupernerdPatSeenText, SupernerdPatBeatenText, 0, .Script
+TrainerHikerRoute25_1:
+	trainer HIKER, HIKER_ROUTE25_1, EVENT_BEAT_ROUTE_25_TRAINER_6, HikerRoute25_1SeenText, HikerRoute25_1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SupernerdPatAfterBattleText
+	writetext HikerRoute25_1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerCooltrainermKevin:
-	faceplayer
+TrainerHikerRoute25_2:
+	trainer HIKER, HIKER_ROUTE25_2, EVENT_BEAT_ROUTE_25_TRAINER_7, HikerRoute25_2SeenText, HikerRoute25_2BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	checkevent EVENT_BEAT_COOLTRAINERM_KEVIN
-	iftrue .AfterBattle
-	checkevent EVENT_CLEARED_NUGGET_BRIDGE
-	iftrue .AfterNuggetBridge
-	writetext CooltrainermKevinNuggetText
-	promptbutton
-	verbosegiveitem NUGGET
-	iffalse .NoRoomForNugget
-	setevent EVENT_CLEARED_NUGGET_BRIDGE
-.AfterNuggetBridge:
-	writetext CooltrainermKevinSeenText
+	writetext HikerRoute25_2AfterBattleText
 	waitbutton
 	closetext
-	winlosstext CooltrainermKevinBeatenText, 0
-	loadtrainer COOLTRAINERM, KEVIN
-	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_COOLTRAINERM_KEVIN
+	end
+
+TrainerHikerRoute25_3:
+	trainer HIKER, HIKER_ROUTE25_3, EVENT_BEAT_ROUTE_25_TRAINER_8, HikerRoute25_3SeenText, HikerRoute25_3BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-.AfterBattle:
-	writetext CooltrainermKevinAfterBattleText
+	writetext HikerRoute25_3AfterBattleText
 	waitbutton
-.NoRoomForNugget:
 	closetext
 	end
 
 BillsHouseSign:
 	jumptext BillsHouseSignText
 
-Route25Protein:
-	itemball PROTEIN
+Route25HiddenEther:
+	hiddenitem ETHER, EVENT_ROUTE_25_HIDDEN_ETHER
 
-Route25HiddenPotion:
-	hiddenitem POTION, EVENT_ROUTE_25_HIDDEN_POTION
+Route25HiddenElixer:
+	hiddenitem ELIXER, EVENT_ROUTE_25_HIDDEN_ELIXER
 
 Route25MistysDateLeavesMovement1:
 	big_step DOWN
@@ -269,158 +269,161 @@ Route25MistyDateText:
 	cont "CERULEAN."
 	done
 
-SchoolboyDudleySeenText:
-	text "Beat the six of us"
-	line "trainers to win a"
-	cont "fabulous prize!"
-
-	para "Think you've got"
-	line "what it takes?"
+YoungsterBennySeenText:
+	text "Local trainers"
+	line "come here to"
+	cont "practice!"
 	done
 
-SchoolboyDudleyBeatenText:
-	text "Whoo! Good stuff."
+YoungsterBennyBeatenText:
+	text "You're"
+	line "decent."
 	done
 
-SchoolboyDudleyAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+YoungsterBennyAfterBattleText:
+	text "All #MON have"
+	line "weaknesses. It's"
+	cont "best to raise"
+	cont "different kinds."
 	done
 
-LassEllenSeenText:
-	text "I'm second."
-	line "Now it's serious!"
+YoungsterToddSeenText:
+	text "Dad took me to a"
+	line "great party on"
+	cont "S.S.ANNE at"
+	cont "VERMILION CITY!"
 	done
 
-LassEllenBeatenText:
-	text "How could I lose?"
+YoungsterToddBeatenText:
+	text "I'm"
+	line "not mad!"
 	done
 
-LassEllenAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+YoungsterToddAfterBattleText:
+	text "On S.S.ANNE, I"
+	line "saw trainers from"
+	cont "around the world."
 	done
 
-SchoolboyJoeSeenText:
-	text "Here's No. 3!"
-	line "I won't be easy."
+CooltrainerMRoute25SeenText:
+	text "I'm a cool guy."
+	line "I've got a girl"
+	cont "friend!"
 	done
 
-SchoolboyJoeBeatenText:
-	text "Ow! Stomped flat!"
+CooltrainerMRoute25BeatenText:
+	text "Aww,"
+	line "darn..."
 	done
 
-SchoolboyJoeAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+CooltrainerMRoute25AfterBattleText:
+	text "Oh well. My girl"
+	line "will cheer me up."
 	done
 
-LassLauraSeenText:
-	text "I'm No. 4!"
-	line "Getting tired?"
+CooltrainerFHeatherSeenText:
+	text "Hi! My boy"
+	line "friend is cool!"
 	done
 
-LassLauraBeatenText:
-	text "I lost too…"
+CooltrainerFHeatherBeatenText:
+	text "I was in"
+	line "bad condition!"
 	done
 
-LassLauraAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+CooltrainerFHeatherAfterBattleText:
+	text "I wish my guy was"
+	line "as good as you!"
 	done
 
-CamperLloydSeenText:
-	text "OK! I'm No. 5."
-	line "I'll stomp you!"
+YoungsterLucasSeenText:
+	text "I knew I had to"
+	line "fight you!"
 	done
 
-CamperLloydBeatenText:
-	text "Whoa! Too much."
+YoungsterLucasBeatenText:
+	text "I knew"
+	line "I'd lose too!"
 	done
 
-CamperLloydAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+YoungsterLucasAfterBattleText:
+	text "If your #MON"
+	line "gets confused or"
+	cont "falls asleep,"
+	cont "switch it!"
 	done
 
-LassShannonSeenText:
-	text "I'm the last in"
-	line "line, but I tell"
-	cont "you, I'm tough!"
+CooltrainerFNancySeenText:
+	text "My friend has a"
+	line "cute #MON."
+	cont "I'm so jealous!"
 	done
 
-LassShannonBeatenText:
-	text "You're kidding."
+CooltrainerFNancyBeatenText:
+	text "I'm"
+	line "not so jealous!"
 	done
 
-LassShannonAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+CooltrainerFNancyAfterBattleText:
+	text "You came from MT."
+	line "MOON? May I have"
+	cont "a CLEFAIRY?"
 	done
 
-SupernerdPatSeenText:
-	text "Mufufufu…"
-
-	para "I have nothing to"
-	line "do with the six-"
-	cont "pack trainers."
-
-	para "I waited here to"
-	line "beat you when you"
-
-	para "were tired out by"
-	line "all the battles."
+HikerRoute25_1SeenText:
+	text "I just got down"
+	line "from MT.MOON,"
+	cont "but I'm ready!"
 	done
 
-SupernerdPatBeatenText:
-	text "Aren't you tired"
-	line "at all?"
+HikerRoute25_1BeatenText:
+	text "You"
+	line "worked hard!"
 	done
 
-SupernerdPatAfterBattleText:
-	text "I'm sorry… I won't"
-	line "cheat anymore…"
+HikerRoute25_1AfterBattleText:
+	text "Drat!"
+	line "A ZUBAT bit me"
+	cont "back in there."
 	done
 
-CooltrainermKevinNuggetText:
-	text "You took on one"
-	line "more battle than"
-
-	para "you expected, but"
-	line "you won anyway."
-
-	para "As promised, you"
-	line "win a prize."
+HikerRoute25_2SeenText:
+	text "I'm off to see a"
+	line "#MON collector"
+	cont "at the cape!"
 	done
 
-CooltrainermKevinSeenText:
-	text "But after seeing"
-	line "how you battle, I"
-
-	para "want to see how"
-	line "I'll fare."
-
-	para "How about it? Let"
-	line "me take you on."
+HikerRoute25_2BeatenText:
+	text "You"
+	line "got me."
 	done
 
-CooltrainermKevinBeatenText:
-	text "I've never had a"
-	line "battle this good!"
+HikerRoute25_2AfterBattleText:
+	text "The collector has"
+	line "many rare kinds"
+	cont "of #MON."
 	done
 
-CooltrainermKevinAfterBattleText:
-	text "That was a great"
-	line "battle!"
+HikerRoute25_3SeenText:
+	text "You're going to"
+	line "see BILL? First,"
+	cont "let's fight!"
+	done
 
-	para "You and your #-"
-	line "MON are truly out-"
-	cont "standing!"
+HikerRoute25_3BeatenText:
+	text "You're"
+	line "something."
+	done
+
+HikerRoute25_3AfterBattleText:
+	text "The trail below"
+	line "is a shortcut to"
+	cont "CERULEAN CITY."
 	done
 
 BillsHouseSignText:
 	text "SEA COTTAGE"
-	line "BILL'S HOUSE"
+	line "BILL lives here!"
 	done
 
 UnusedBillsHouseSignText: ; unreferenced
@@ -431,25 +434,26 @@ Route25_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 47,  5, BILLS_HOUSE, 1
+	warp_event 45,  3, BILLS_HOUSE, 1
 
 	def_coord_events
 	coord_event 42,  6, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate1Script
 	coord_event 42,  7, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate2Script
 
 	def_bg_events
-	bg_event 45,  5, BGEVENT_READ, BillsHouseSign
-	bg_event  4,  5, BGEVENT_ITEM, Route25HiddenPotion
+	bg_event 43,  3, BGEVENT_READ, BillsHouseSign
+	bg_event 38,  3, BGEVENT_ITEM, Route25HiddenEther
+	bg_event 10,  1, BGEVENT_ITEM, Route25HiddenElixer
 
 	def_object_events
 	object_event 46,  9, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND
 	object_event 46, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND
-	object_event 12,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyDudley, -1
-	object_event 16, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassEllen, -1
-	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyJoe, -1
-	object_event 22,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassLaura, -1
-	object_event 25,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperLloyd, -1
-	object_event 28, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassShannon, -1
-	object_event 31,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerSupernerdPat, -1
-	object_event 37,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerCooltrainermKevin, -1
-	object_event 32,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route25Protein, EVENT_ROUTE_25_PROTEIN
+	object_event 14,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterBenny, -1
+	object_event 18,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterTodd, -1
+	object_event 24,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerMRoute25, -1
+	object_event 18,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerFHeather, -1
+	object_event 32,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterLucas, -1
+	object_event 37,  4, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerFNancy, -1
+	object_event  8,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerRoute25_1, -1
+	object_event 23,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerRoute25_2, -1
+	object_event 13,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerRoute25_3, -1

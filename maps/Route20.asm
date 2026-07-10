@@ -130,8 +130,11 @@ TrainerBeautyDelia:
 	closetext
 	end
 
-CinnabarGymSign:
-	jumptext CinnabarGymSignText
+Route20SeafoamIslandsWestSign:
+	jumptext Route20SeafoamIslandsSignText
+
+Route20SeafoamIslandsEastSign:
+	jumptext Route20SeafoamIslandsSignText
 
 SwimmerRafaelSeenText:
 	text "The water is"
@@ -282,26 +285,27 @@ BeautyDeliaAfterBattleText:
 	line "volcanic island!"
 	done
 
-CinnabarGymSignText:
-	text "What does this"
-	line "sign say?"
-
-	para "CINNABAR GYM"
-	line "LEADER: BLAINE"
+Route20SeafoamIslandsSignText:
+	text "SEAFOAM ISLANDS"
 	done
 
 Route20_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 38,  7, SEAFOAM_GYM, 1
 	warp_event 48,  5, SEAFOAM_ISLANDS_1F, 1
 	warp_event 58,  9, SEAFOAM_ISLANDS_1F, 3
+	; SEAFOAM_GYM has no Gen 1 basis (Blaine's gym is Cinnabar Gym in Gen 1) but is this
+	; project's only warp into SeafoamGym, which is where Blaine's real badge fight lives
+	; (CinnabarGym.asm is flavor-only, to avoid double-granting VOLCANOBADGE). Removing this
+	; warp orphans a required gym -- keep it despite the overworld_parity 'extra warp' flag.
+	warp_event 38,  7, SEAFOAM_GYM, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 37, 11, BGEVENT_READ, CinnabarGymSign
+	bg_event 51,  7, BGEVENT_READ, Route20SeafoamIslandsWestSign
+	bg_event 57, 11, BGEVENT_READ, Route20SeafoamIslandsEastSign
 
 	def_object_events
 	object_event 49,  8, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 9, TrainerSwimmerRafael, -1

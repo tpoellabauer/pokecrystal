@@ -723,6 +723,23 @@ YoungsterGroup:
 	db 14, ZUBAT
 	db -1 ; end
 
+	; YOUNGSTER (22)
+	db "BENNY@", TRAINERTYPE_NORMAL
+	db 15, RATTATA
+	db 15, SPEAROW
+	db -1 ; end
+
+	; YOUNGSTER (23)
+	db "TODD@", TRAINERTYPE_NORMAL
+	db 17, SLOWPOKE
+	db -1 ; end
+
+	; YOUNGSTER (24)
+	db "LUCAS@", TRAINERTYPE_NORMAL
+	db 14, EKANS
+	db 14, SANDSHREW
+	db -1 ; end
+
 SchoolboyGroup:
 	; SCHOOLBOY (1)
 	db "JACK@", TRAINERTYPE_NORMAL
@@ -1265,6 +1282,19 @@ LassGroup:
 	db "ROSIE@", TRAINERTYPE_NORMAL
 	db 14, PIDGEY
 	db 14, NIDORAN_F
+	db -1 ; end
+
+	; LASS (28)
+	db "HEATHER@", TRAINERTYPE_NORMAL
+	db 15, NIDORAN_M
+	db 15, NIDORAN_F
+	db -1 ; end
+
+	; LASS (29)
+	db "NANCY@", TRAINERTYPE_NORMAL
+	db 13, ODDISH
+	db 13, PIDGEY
+	db 13, ODDISH
 	db -1 ; end
 
 JanineGroup:
@@ -3542,6 +3572,25 @@ HikerGroup:
 	; HIKER (30)
 	db "LOUIE@", TRAINERTYPE_NORMAL
 	db 25, GEODUDE
+	db -1 ; end
+
+	; HIKER (31)
+	db "HIKER_ROUTE25_1@", TRAINERTYPE_NORMAL
+	db 15, MACHOP
+	db 15, GEODUDE
+	db -1 ; end
+
+	; HIKER (32)
+	db "HIKER_ROUTE25_2@", TRAINERTYPE_NORMAL
+	db 13, GEODUDE
+	db 13, GEODUDE
+	db 13, MACHOP
+	db 13, GEODUDE
+	db -1 ; end
+
+	; HIKER (33)
+	db "HIKER_ROUTE25_3@", TRAINERTYPE_NORMAL
+	db 17, ONIX
 	db -1 ; end
 
 BikerGroup:
