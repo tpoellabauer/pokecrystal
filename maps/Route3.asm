@@ -260,6 +260,12 @@ Route3_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	; MOUNT_MOON warp has no Gen 1 basis on ROUTE_3 (Gen 1's real Mt Moon entrance sits
+	; on Route4 instead -- pokeredDisassembly's Route3.asm def_warp_events is empty).
+	; But this project kept GSC-Kanto's original single merged MountMoon map, which
+	; already has its own warp_event back to ROUTE_3 warp index 1 (maps/MountMoon.asm).
+	; Removing this warp orphans that return warp and Route3's only Mt Moon entrance --
+	; keep it despite the overworld_parity 'extra warp' flag.
 	warp_event 52,  1, MOUNT_MOON, 1
 
 	def_coord_events

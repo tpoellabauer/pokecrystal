@@ -141,7 +141,7 @@ CopycatsHouse2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  0, COPYCATS_HOUSE_1F, 3
+	warp_event  7,  1, COPYCATS_HOUSE_1F, 3
 
 	def_coord_events
 
