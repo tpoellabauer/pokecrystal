@@ -72,7 +72,7 @@ SSAnneKitchen_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  7, SS_ANNE_1F, 9
+	warp_event  6,  0, SS_ANNE_1F, 11
 
 	def_coord_events
 
