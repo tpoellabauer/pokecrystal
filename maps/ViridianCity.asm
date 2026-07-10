@@ -67,6 +67,27 @@ ViridianCityDreamEaterFisher:
 ViridianCityYoungsterScript:
 	jumptextfaceplayer ViridianCityYoungsterText
 
+; Ported from pokered ViridianCityCheckGotPokedexScript: the sleeping old man blocks the
+; northern path to Route 2 ("private property!") until you deliver Oak's Parcel and get the
+; Pokedex. Coord events at the 3-wide choke (17..19, 9) shove the player back down until
+; EVENT_GOT_KANTO_POKEDEX is set (Gen 1 gated on EVENT_GOT_POKEDEX at X=19,Y=9; the Gen 1
+; old-man sprite fills the other two lanes, so all three are gated here). Armed SCENE_ALWAYS
+; (event-, not scene-, gated). See maps-and-scripting skill.
+ViridianCityPokedexGate:
+	checkevent EVENT_GOT_KANTO_POKEDEX
+	iftrue .open
+	opentext
+	writetext ViridianCityOldManSleepyText
+	waitbutton
+	closetext
+	applymovement PLAYER, ViridianCityPokedexGatePushbackMovement
+.open:
+	end
+
+ViridianCityPokedexGatePushbackMovement:
+	step DOWN
+	step_end
+
 ViridianCitySign:
 	jumptext ViridianCitySignText
 
@@ -175,6 +196,14 @@ ViridianCityYoungsterText:
 	line "VIRIDIAN FOREST."
 	done
 
+ViridianCityOldManSleepyText:
+	text "You can't go"
+	line "through here!"
+
+	para "This is private"
+	line "property!"
+	done
+
 ViridianCitySignText:
 	text "VIRIDIAN CITY"
 
@@ -217,6 +246,9 @@ ViridianCity_MapEvents:
 	warp_event 23, 25, VIRIDIAN_POKECENTER_1F, 1
 
 	def_coord_events
+	coord_event 17,  9, SCENE_ALWAYS, ViridianCityPokedexGate
+	coord_event 18,  9, SCENE_ALWAYS, ViridianCityPokedexGate
+	coord_event 19,  9, SCENE_ALWAYS, ViridianCityPokedexGate
 
 	def_bg_events
 	bg_event 17, 17, BGEVENT_READ, ViridianCitySign
