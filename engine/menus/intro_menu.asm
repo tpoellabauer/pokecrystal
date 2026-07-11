@@ -7,6 +7,11 @@ Intro_MainMenu:
 	ld [wMapMusic], a
 	call PlayMusic
 	farcall MainMenu
+	IF VANILLA_RED
+	; VANILLA_RED: let the caller (IntroSequence's Red intro loop) return to the ported
+	; Gen 1 title screen instead of falling through to Crystal's own.
+	ret
+	ENDC
 	jp StartTitleScreen
 
 IntroMenu_DummyFunction: ; unreferenced
@@ -64,7 +69,11 @@ NewGame:
 	call ResetWRAM
 	call NewGame_ClearTilemapEtc
 	call PlayerProfileSetup
+	IF VANILLA_RED
+	farcall RedOakSpeech
+	ELSE
 	call OakSpeech
+	ENDC
 	call InitializeWorld
 
 	ld a, LANDMARK_PALLET_TOWN ; Gen 1 Kanto start: home is Pallet Town / Red's house
@@ -962,6 +971,17 @@ Intro_PlacePlayerSprite:
 DEF NUM_TITLESCREENOPTIONS EQU const_value
 
 IntroSequence:
+	IF VANILLA_RED
+	; Gen 1 Kanto on Crystal: replaces Crystal's own splash/CrystalIntro/title with the
+	; ported Gen 1 boot cinematic (engine/movie/red_intro.asm) -- GameFreak splash ->
+	; Nidorino-vs-Gengar battle intro -> title screen -> main menu, looping back to the
+	; title screen (instead of Crystal's StartTitleScreen) if the player backs out of the
+	; menu (see the matching VANILLA_RED gate in Intro_MainMenu above).
+.RedLoop
+	farcall RedIntroSequence
+	call Intro_MainMenu
+	jr .RedLoop
+	ENDC
 	callfar SplashScreen
 	jr c, StartTitleScreen
 	; Gen 1 Kanto on Crystal: Gen 1 boots GameFreak splash -> title (no Suicune/Unown

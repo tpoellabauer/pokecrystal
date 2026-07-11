@@ -291,6 +291,15 @@ gfx/title/crystal.2bpp: tools/gfx += --interleave --png=$<
 gfx/title/old_fg.2bpp: tools/gfx += --interleave --png=$<
 gfx/title/logo.2bpp: RGBGFXFLAGS += --trim-end 4
 
+# Gen 1 Kanto on Crystal: ported Gen 1 boot cinematic assets (VANILLA_RED), byte-faithful to
+# pokeredDisassembly/gfx/{intro,splash,title} -- same RGBGFXFLAGS/tools/gfx overrides as pokered's
+# own Makefile so the rebuilt .2bpp matches Red's committed .2bpp bit for bit.
+gfx/red_intro/red_nidorino_1.2bpp: RGBGFXFLAGS += --columns
+gfx/red_intro/red_nidorino_2.2bpp: RGBGFXFLAGS += --columns
+gfx/red_intro/red_nidorino_3.2bpp: RGBGFXFLAGS += --columns
+gfx/red_intro/gengar.2bpp: RGBGFXFLAGS += --columns
+gfx/red_intro/gengar.2bpp: tools/gfx += --remove-duplicates --preserve=0x19,0x76
+
 gfx/trade/ball.2bpp: tools/gfx += --remove-whitespace
 gfx/trade/game_boy.2bpp: tools/gfx += --remove-duplicates --preserve=0x23,0x27
 gfx/trade/game_boy_cable.2bpp: gfx/trade/game_boy.2bpp gfx/trade/link_cable.2bpp ; cat $^ > $@

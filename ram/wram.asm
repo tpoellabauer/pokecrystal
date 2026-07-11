@@ -1522,6 +1522,15 @@ wTitleScreenSelectedOption:: db
 wTitleScreenTimer:: dw
 
 NEXTU
+; Gen 1 Kanto on Crystal: scratch for the ported Red intro cinematic (engine/movie/red_intro.asm),
+; VANILLA_RED only. Shares this UNION like the other intro/title/credits scratch above, since none
+; of these contexts are ever live at the same time.
+wRedIntroBaseCoordX:: db
+wRedIntroBaseCoordY:: db
+wRedIntroNidorinoBaseTile:: db
+wRedIntroTitleTile:: db
+
+NEXTU
 ; credits data
 wCreditsBorderFrame:: db
 wCreditsBorderMon:: db

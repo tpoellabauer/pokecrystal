@@ -473,6 +473,15 @@ INCLUDE "engine/movie/splash.asm"
 INCLUDE "engine/movie/intro.asm"
 
 
+SECTION "Red Intro", ROMX, BANK[$79]
+
+; Gen 1 Kanto on Crystal: ported Gen 1 boot cinematic (VANILLA_RED only). Pinned to bank
+; $79, one of the still-empty tail banks (see docs/PORT_BACKLOG.md sec 2 for why: letting
+; rgblink auto-place this ~8 KiB section pushed bank #40's free space from 2445 to 336
+; bytes, below the bank-report --min-free 0x200 gate). See engine/movie/red_intro.asm.
+INCLUDE "engine/movie/red_intro.asm"
+
+
 SECTION "bank3E", ROMX
 
 INCLUDE "engine/gfx/load_font.asm"
