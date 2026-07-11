@@ -549,6 +549,7 @@ ENDM
 	map_const SILPH_CO_10F,                                 8,  9 ; 24
 	map_const SILPH_CO_11F,                                 9,  9 ; 25
 	map_const SILPH_CO_ELEVATOR,                            2,  2 ; 26
+	map_const SAFFRON_PIDGEY_HOUSE,                         4,  4 ; 27
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26

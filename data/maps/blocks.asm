@@ -1252,4 +1252,7 @@ DiglettsCaveRoute2_Blocks:
 DiglettsCaveRoute11_Blocks:
 	INCBIN "maps/DiglettsCaveRoute11.blk"
 
+SaffronPidgeyHouse_Blocks:
+	INCBIN "maps/SaffronPidgeyHouse.blk"
+
 ENDSECTION

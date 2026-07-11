@@ -1930,6 +1930,10 @@
 	const EVENT_ROUTE23_PASSED_MARSH_GUARD
 	const EVENT_ROUTE23_PASSED_VOLCANO_GUARD
 	const EVENT_ROUTE23_PASSED_EARTH_GUARD
+; Gen 1 Safari Zone Gate entry fee (500 pokedollar). The ball-limit/step-timer session
+; itself is a separate, larger follow-up -- see docs/PORT_BACKLOG.md.
+	const EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

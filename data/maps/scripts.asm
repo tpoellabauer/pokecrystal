@@ -556,5 +556,6 @@ INCLUDE "maps/Route2Gate.asm"
 INCLUDE "maps/VictoryRoadGate.asm"
 INCLUDE "maps/DiglettsCaveRoute2.asm"
 INCLUDE "maps/DiglettsCaveRoute11.asm"
+INCLUDE "maps/SaffronPidgeyHouse.asm"
 
 ENDSECTION

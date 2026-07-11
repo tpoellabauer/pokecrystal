@@ -279,8 +279,16 @@ FlashFunction:
 
 .CheckUseFlash:
 	ld de, ENGINE_ZEPHYRBADGE
+	farcall CheckEngineFlag
+	jr nc, .hasflashbadge
+	; Kanto is act one in this project (Johto's Zephyr Badge doesn't exist yet), so also
+	; accept Kanto's own first badge (Boulder Badge, Pewter Gym) so Flash is usable in
+	; Rock Tunnel during the Kanto playthrough. Falls through to CheckBadge's normal
+	; "Badge required" textbox only if neither badge is owned.
+	ld de, ENGINE_BOULDERBADGE
 	farcall CheckBadge
 	jr c, .nozephyrbadge
+.hasflashbadge
 	push hl
 	farcall SpecialAerodactylChamber
 	pop hl

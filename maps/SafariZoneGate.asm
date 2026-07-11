@@ -1,3 +1,5 @@
+DEF SAFARI_ZONE_ENTRANCE_FEE EQU 500
+
 	object_const_def
 	const SAFARIZONEGATE_SAFARI_ZONE_WORKER1
 	const SAFARIZONEGATE_SAFARI_ZONE_WORKER2
@@ -7,8 +9,41 @@ SafariZoneGate_MapScripts:
 
 	def_callbacks
 
+; Gen 1 SafariZoneGate.asm: pay 500 to enter, one time (afterward you can come and go freely
+; through this gate, matching Gen1's `EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE`-gated dialogue below).
+; The ball-limit/step-timer session itself (30 Safari Balls, step-counted forced exit) is not
+; wired yet -- see docs/PORT_BACKLOG.md for the reusable engine pointers.
 SafariZoneGateWorker1Script:
-	jumptextfaceplayer SafariZoneGateWorker1Text
+	checkevent EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
+	iftrue .AlreadyPaid
+	opentext
+	writetext SafariZoneGateWorker1Text
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, SAFARI_ZONE_ENTRANCE_FEE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	takemoney YOUR_MONEY, SAFARI_ZONE_ENTRANCE_FEE
+	special PlaceMoneyTopRight
+	setevent EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
+	writetext SafariZoneGateWorker1PaidText
+	waitbutton
+	closetext
+	end
+
+.AlreadyPaid:
+	jumptextfaceplayer SafariZoneGateWorker1WelcomeBackText
+
+.NotEnoughMoney:
+	writetext SafariZoneGateWorker1NotEnoughMoneyText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext SafariZoneGateWorker1RefusedText
+	waitbutton
+	closetext
+	end
 
 SafariZoneGateWorker2Script:
 	jumptextfaceplayer SafariZoneGateWorker2Text
@@ -16,6 +51,34 @@ SafariZoneGateWorker2Script:
 SafariZoneGateWorker1Text:
 	text "Welcome to the"
 	line "SAFARI ZONE!"
+
+	para "For ¥{d:SAFARI_ZONE_ENTRANCE_FEE}, you"
+	line "can catch rare"
+	cont "#MON inside."
+
+	para "Would you like"
+	line "to play?"
+	done
+
+SafariZoneGateWorker1PaidText:
+	text "Have fun! Use"
+	line "SAFARI BALLs to"
+	cont "catch #MON."
+	done
+
+SafariZoneGateWorker1WelcomeBackText:
+	text "Welcome back to"
+	line "the SAFARI ZONE!"
+	done
+
+SafariZoneGateWorker1NotEnoughMoneyText:
+	text "You don't have"
+	line "enough money."
+	done
+
+SafariZoneGateWorker1RefusedText:
+	text "Come back if you"
+	line "change your mind!"
 	done
 
 SafariZoneGateWorker2Text:

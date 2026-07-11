@@ -22,6 +22,19 @@ FishGroups:
 	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
 	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
 	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
+; Gen 1 Kanto Super Rod groups (pokeredDisassembly/data/wild/super_rod.asm); Old/Good Rod are
+; universal in Gen 1 (always MAGIKARP / GOLDEEN-POLIWAG) so all 10 Kanto groups share the same
+; Old/Good sub-tables and only the Super sub-table varies -- see tools/port_fish.py.
+	fishgroup 50 percent + 1, .KantoGroup1_Old,  .KantoGroup1_Good,  .KantoGroup1_Super
+	fishgroup 50 percent + 1, .KantoGroup2_Old,  .KantoGroup2_Good,  .KantoGroup2_Super
+	fishgroup 50 percent + 1, .KantoGroup3_Old,  .KantoGroup3_Good,  .KantoGroup3_Super
+	fishgroup 50 percent + 1, .KantoGroup4_Old,  .KantoGroup4_Good,  .KantoGroup4_Super
+	fishgroup 50 percent + 1, .KantoGroup5_Old,  .KantoGroup5_Good,  .KantoGroup5_Super
+	fishgroup 50 percent + 1, .KantoGroup6_Old,  .KantoGroup6_Good,  .KantoGroup6_Super
+	fishgroup 50 percent + 1, .KantoGroup7_Old,  .KantoGroup7_Good,  .KantoGroup7_Super
+	fishgroup 50 percent + 1, .KantoGroup8_Old,  .KantoGroup8_Good,  .KantoGroup8_Super
+	fishgroup 50 percent + 1, .KantoGroup9_Old,  .KantoGroup9_Good,  .KantoGroup9_Super
+	fishgroup 50 percent + 1, .KantoGroup10_Old, .KantoGroup10_Good, .KantoGroup10_Super
 	assert_table_length NUM_FISHGROUPS
 
 .Shore_Old:
@@ -206,6 +219,114 @@ FishGroups:
 	db  70 percent,     time_group 7
 	db  90 percent + 1, MAGIKARP,   40
 	db 100 percent,     REMORAID,   40
+
+; Gen 1 Kanto Super Rod groups. Old/Good Rod have no map-to-map variance in Gen 1 (Old Rod is
+; always MAGIKARP lvl 5; Good Rod is a uniform 50/50 between GOLDEEN/POLIWAG lvl 10, see
+; ItemUseOldRod/ItemUseGoodRod + data/wild/good_rod.asm in pokeredDisassembly), so every
+; KantoGroup shares identical Old/Good sub-tables; only Super varies, 1:1 with
+; pokeredDisassembly/data/wild/super_rod.asm's .Group1-.Group10 (uniform random pick, no
+; Gen 2 time_group rare-species mechanic -- Gen 1 has none, so cutoffs are an even split of
+; 100% across each group's species count instead of Crystal's usual 40/70/90/100 pattern).
+.KantoGroup1_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup1_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup1_Super: ; pokeredDisassembly .Group1: TENTACOOL/POLIWAG
+	db  50 percent,     TENTACOOL,    15
+	db  100 percent,     POLIWAG,    15
+
+.KantoGroup2_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup2_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup2_Super: ; pokeredDisassembly .Group2: GOLDEEN/POLIWAG
+	db  50 percent,     GOLDEEN,    15
+	db  100 percent,     POLIWAG,    15
+
+.KantoGroup3_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup3_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup3_Super: ; pokeredDisassembly .Group3: PSYDUCK/GOLDEEN/KRABBY
+	db  34 percent,     PSYDUCK,    15
+	db  67 percent,     GOLDEEN,    15
+	db  100 percent,     KRABBY,    15
+
+.KantoGroup4_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup4_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup4_Super: ; pokeredDisassembly .Group4: KRABBY/SHELLDER
+	db  50 percent,     KRABBY,    15
+	db  100 percent,     SHELLDER,    15
+
+.KantoGroup5_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup5_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup5_Super: ; pokeredDisassembly .Group5: POLIWHIRL/SLOWPOKE
+	db  50 percent,     POLIWHIRL,    23
+	db  100 percent,     SLOWPOKE,    15
+
+.KantoGroup6_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup6_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup6_Super: ; pokeredDisassembly .Group6: DRATINI/KRABBY/PSYDUCK/SLOWPOKE
+	db  25 percent,     DRATINI,    15
+	db  50 percent,     KRABBY,    15
+	db  75 percent,     PSYDUCK,    15
+	db  100 percent,     SLOWPOKE,    15
+
+.KantoGroup7_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup7_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup7_Super: ; pokeredDisassembly .Group7: TENTACOOL/KRABBY/GOLDEEN/MAGIKARP
+	db  25 percent,     TENTACOOL,    5
+	db  50 percent,     KRABBY,    15
+	db  75 percent,     GOLDEEN,    15
+	db  100 percent,     MAGIKARP,    15
+
+.KantoGroup8_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup8_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup8_Super: ; pokeredDisassembly .Group8: STARYU/HORSEA/SHELLDER/GOLDEEN
+	db  25 percent,     STARYU,    15
+	db  50 percent,     HORSEA,    15
+	db  75 percent,     SHELLDER,    15
+	db  100 percent,     GOLDEEN,    15
+
+.KantoGroup9_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup9_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup9_Super: ; pokeredDisassembly .Group9: SLOWBRO/SEAKING/KINGLER/SEADRA
+	db  25 percent,     SLOWBRO,    23
+	db  50 percent,     SEAKING,    23
+	db  75 percent,     KINGLER,    23
+	db  100 percent,     SEADRA,    23
+
+.KantoGroup10_Old:
+	db 100 percent,     MAGIKARP,   5
+.KantoGroup10_Good:
+	db 50 percent,     GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.KantoGroup10_Super: ; pokeredDisassembly .Group10: SEAKING/KRABBY/GOLDEEN/MAGIKARP
+	db  25 percent,     SEAKING,    23
+	db  50 percent,     KRABBY,    15
+	db  75 percent,     GOLDEEN,    15
+	db  100 percent,     MAGIKARP,    15
 
 TimeFishGroups:
 	;  day              nite
