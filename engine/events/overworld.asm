@@ -131,8 +131,15 @@ CutFunction:
 
 .CheckAble:
 	ld de, ENGINE_HIVEBADGE
+	call CheckEngineFlag
+	jr nc, .hashivebadge
+	; Kanto is act one in this project (Johto's Hive Badge doesn't exist yet), so also
+	; accept Kanto's own Cut badge (Cascade Badge, Cerulean Gym). Falls through to
+	; CheckBadge's normal "Badge required" textbox only if neither badge is owned.
+	ld de, ENGINE_CASCADEBADGE
 	call CheckBadge
 	jr c, .nohivebadge
+.hashivebadge
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 	ld a, $1
@@ -353,8 +360,15 @@ SurfFunction:
 
 .TrySurf:
 	ld de, ENGINE_FOGBADGE
+	call CheckEngineFlag
+	jr nc, .hasfogbadge
+	; Kanto is act one in this project (Johto's Fog Badge doesn't exist yet), so also
+	; accept Kanto's own Surf badge (Soul Badge, Fuchsia Gym). Falls through to
+	; CheckBadge's normal "Badge required" textbox only if neither badge is owned.
+	ld de, ENGINE_SOULBADGE
 	call CheckBadge
 	jr c, .nofogbadge
+.hasfogbadge
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .cannotsurf
@@ -566,8 +580,15 @@ FlyFunction:
 
 .TryFly:
 	ld de, ENGINE_STORMBADGE
+	call CheckEngineFlag
+	jr nc, .hasstormbadge
+	; Kanto is act one in this project (Johto's Storm Badge doesn't exist yet), so also
+	; accept Kanto's own Fly badge (Thunder Badge, Vermilion Gym). Falls through to
+	; CheckBadge's normal "Badge required" textbox only if neither badge is owned.
+	ld de, ENGINE_THUNDERBADGE
 	call CheckBadge
 	jr c, .nostormbadge
+.hasstormbadge
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -970,6 +991,12 @@ StrengthFunction:
 
 .TryStrength:
 	ld de, ENGINE_PLAINBADGE
+	call CheckEngineFlag
+	jr nc, .UseStrength
+	; Kanto is act one in this project (Johto's Plain Badge doesn't exist yet), so also
+	; accept Kanto's own Strength badge (Rainbow Badge, Celadon Gym). Falls through to
+	; CheckBadge's normal "Badge required" textbox only if neither badge is owned.
+	ld de, ENGINE_RAINBOWBADGE
 	call CheckBadge
 	jr c, .Failed
 	jr .UseStrength
