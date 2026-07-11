@@ -780,6 +780,11 @@ INCBIN "gfx/pokemon/unown_r/back.2bpp.lz"
 
 SECTION "Pics 20", ROMX
 
+; Gen 1 Kanto on Crystal: dedicated Elite Four pics ported from pokeredDisassembly
+; (previously substituted with BeautyPic/MediumPic, see docs/PORT_BACKLOG.md).
+LoreleiPic:          INCBIN "gfx/trainers/lorelei.2bpp.lz"
+AgathaPic:           INCBIN "gfx/trainers/agatha.2bpp.lz"
+
 SECTION "Pics 21", ROMX
 
 SECTION "Pics 22", ROMX
