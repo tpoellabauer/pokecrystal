@@ -2,6 +2,7 @@
 	const VERMILIONPORT_SAILOR1
 	const VERMILIONPORT_SAILOR2
 	const VERMILIONPORT_SUPER_NERD
+	const VERMILIONPORT_SAILOR3
 
 VermilionPort_MapScripts:
 	def_scene_scripts
@@ -20,6 +21,13 @@ VermilionPortLeaveShipScene:
 
 VermilionPortFlypointCallback:
 	setflag ENGINE_FLYPOINT_VERMILION
+; The S.S. Anne sailor (VERMILIONPORT_SAILOR3) disappears mid-boarding-script and
+; is only re-shown by that same script on a scripted return trip (see the Fast
+; Ship's VermilionPortLeaveShipScene precedent). The S.S. Anne has no such
+; departure/return scene of its own (SSAnne1F.asm's exit is a plain warp_event,
+; not a scene script, and is out of scope to touch here), so re-show the sailor
+; unconditionally on every map (re)load instead.
+	appear VERMILIONPORT_SAILOR3
 	endcallback
 
 VermilionPortLeaveShipScript:
@@ -296,11 +304,78 @@ VermilionPortSuperNerdText:
 	cont "there."
 	done
 
+; Gen 1 Vermilion Dock (pokeredDisassembly/data/maps/objects/VermilionDock.asm) is
+; just two tiles: one warp back to Vermilion City, one warp onto the S.S. Anne, no
+; NPC at all -- the ticket check happens back in VermilionCity's own script. This
+; port instead relocated that check here (see VermilionCity.asm's comment), so this
+; sailor is the one that actually gates + performs S.S. Anne boarding; the Fast
+; Ship's separate sailor/gangway above is unrelated Johto Act 2 content and is left
+; untouched. No weekday gate: unlike the Fast Ship, Gen 1's S.S. Anne isn't
+; schedule-gated.
+VermilionPortSSAnneSailorScript:
+	faceplayer
+	opentext
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iftrue VermilionPortCantBoardSSAnneScript
+	writetext VermilionPortSSAnneAskBoardingText
+	yesorno
+	iffalse VermilionPortNotRidingSSAnneScript
+	writetext VermilionPortAskTicketText
+	promptbutton
+	checkitem S_S_TICKET
+	iffalse VermilionPortSSAnneNoTicketScript
+	writetext VermilionPortSSTicketText
+	waitbutton
+	closetext
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	turnobject VERMILIONPORT_SAILOR3, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR3
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterSSAnneMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
+	warp SS_ANNE_1F, 26, 0
+	end
+
+VermilionPortSSAnneNoTicketScript:
+	writetext VermilionPortNoTicketText
+	waitbutton
+	closetext
+	end
+
+VermilionPortNotRidingSSAnneScript:
+	writetext VermilionPortComeAgainText
+	waitbutton
+	closetext
+	end
+
+VermilionPortCantBoardSSAnneScript:
+	writetext VermilionPortCantBoardText
+	waitbutton
+	closetext
+	end
+
+VermilionPortEnterSSAnneMovement:
+	step DOWN
+	step_end
+
+VermilionPortSSAnneAskBoardingText:
+	text "Welcome to the"
+	line "S.S.ANNE!"
+
+	para "Will you be board-"
+	line "ing today?"
+	done
+
 VermilionPort_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
 	warp_event  9,  5, VERMILION_PORT_PASSAGE, 5
+	warp_event  3, 14, SS_ANNE_1F, 1
 	warp_event  7, 17, FAST_SHIP_1F, 1
 
 	def_coord_events
@@ -313,3 +388,4 @@ VermilionPort_MapEvents:
 	object_event  7, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorAtGangwayScript, EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
 	object_event  6, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorScript, -1
 	object_event 11, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
+	object_event  3, 14, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSSAnneSailorScript, -1
