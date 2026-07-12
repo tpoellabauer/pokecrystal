@@ -375,12 +375,12 @@ ENDM
 	connection west, Route24, ROUTE_24, 0
 
 	map_attributes Route3, ROUTE_3, $2c
+	connection north, Route4, ROUTE_4, 25
 	connection west, PewterCity, PEWTER_CITY, -4
-	connection east, Route4, ROUTE_4, 0
 
 	map_attributes Route4, ROUTE_4, $2c
-	connection west, Route3, ROUTE_3, 0
-	connection east, CeruleanCity, CERULEAN_CITY, -5
+	connection south, Route3, ROUTE_3, -25
+	connection east, CeruleanCity, CERULEAN_CITY, -4
 
 	map_attributes Route8, ROUTE_8, $2c
 	connection west, SaffronCity, SAFFRON_CITY, -9
