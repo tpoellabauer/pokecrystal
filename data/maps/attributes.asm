@@ -844,3 +844,5 @@ ENDM
 	map_attributes DiglettsCaveRoute11, DIGLETTS_CAVE_ROUTE_11, $09
 
 	map_attributes SaffronPidgeyHouse, SAFFRON_PIDGEY_HOUSE, $00
+
+	map_attributes Museum1F, MUSEUM_1F, $00
