@@ -70,14 +70,17 @@ CeladonCityMansionSign:
 CeladonCityGameCornerSign:
 	jumptext CeladonCityGameCornerSignText
 
-CeladonCityTrainerTips:
-	jumptext CeladonCityTrainerTipsText
+CeladonCityTrainerTips1:
+	jumptext CeladonCityTrainerTips1Text
+
+CeladonCityTrainerTips2:
+	jumptext CeladonCityTrainerTips2Text
+
+CeladonCityPrizeExchangeSign:
+	jumptext CeladonCityPrizeExchangeSignText
 
 CeladonCityPokecenterSign:
 	jumpstd PokecenterSignScript
-
-CeladonCityHiddenPpUp:
-	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
 
 CeladonCityLittleGirlText:
 	text "I got my KOFFING"
@@ -180,7 +183,7 @@ else
 	done
 endc
 
-CeladonCityTrainerTipsText:
+CeladonCityTrainerTips1Text:
 	text "TRAINER TIPS"
 
 	para "X ACCURACY boosts"
@@ -196,31 +199,53 @@ CeladonCityTrainerTipsText:
 	cont "STORE!"
 	done
 
+CeladonCityTrainerTips2Text:
+	text "TRAINER TIPS"
+
+	para "GUARD SPEC."
+	line "protects #MON"
+	cont "against SPECIAL"
+	cont "attacks such as"
+	cont "fire and water!"
+
+	para "Get your items at"
+	line "CELADON DEPT."
+	cont "STORE!"
+	done
+
+CeladonCityPrizeExchangeSignText:
+	text "Coins exchanged"
+	line "for prizes!"
+	cont "PRIZE EXCHANGE"
+	done
+
 CeladonCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  9, CELADON_DEPT_STORE_1F, 1
-	warp_event 16,  9, CELADON_MANSION_1F, 1
-	warp_event 16,  3, CELADON_MANSION_1F, 3
-	warp_event 17,  3, CELADON_MANSION_1F, 3
-	warp_event 29,  9, CELADON_POKECENTER_1F, 1
-	warp_event 18, 19, CELADON_GAME_CORNER, 1
-	warp_event 23, 19, CELADON_GAME_CORNER_PRIZE_ROOM, 1
-	warp_event 10, 29, CELADON_GYM, 1
-	warp_event 25, 29, CELADON_CAFE, 1
+	warp_event  8, 13, CELADON_DEPT_STORE_1F, 1
+	warp_event 10, 13, CELADON_DEPT_STORE_1F, 1
+	warp_event 24,  9, CELADON_MANSION_1F, 1
+	warp_event 24,  3, CELADON_MANSION_1F, 3
+	warp_event 25,  3, CELADON_MANSION_1F, 3
+	warp_event 41,  9, CELADON_POKECENTER_1F, 1
+	warp_event 12, 27, CELADON_GYM, 1
+	warp_event 28, 19, CELADON_GAME_CORNER, 1
+	warp_event 33, 19, CELADON_GAME_CORNER_PRIZE_ROOM, 1
+	warp_event 31, 27, CELADON_CAFE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 23, 21, BGEVENT_READ, CeladonCitySign
-	bg_event 11, 31, BGEVENT_READ, CeladonGymSign
-	bg_event  6,  9, BGEVENT_READ, CeladonCityDeptStoreSign
-	bg_event 13,  9, BGEVENT_READ, CeladonCityMansionSign
-	bg_event 19, 21, BGEVENT_READ, CeladonCityGameCornerSign
-	bg_event 29, 21, BGEVENT_READ, CeladonCityTrainerTips
-	bg_event 30,  9, BGEVENT_READ, CeladonCityPokecenterSign
-	bg_event 37, 21, BGEVENT_ITEM, CeladonCityHiddenPpUp
+	bg_event 12, 13, BGEVENT_READ, CeladonCityDeptStoreSign
+	bg_event 13, 29, BGEVENT_READ, CeladonGymSign
+	bg_event 19, 15, BGEVENT_READ, CeladonCitySign
+	bg_event 21,  9, BGEVENT_READ, CeladonCityMansionSign
+	bg_event 27, 15, BGEVENT_READ, CeladonCityTrainerTips1
+	bg_event 27, 21, BGEVENT_READ, CeladonCityGameCornerSign
+	bg_event 33, 21, BGEVENT_READ, CeladonCityPrizeExchangeSign
+	bg_event 39, 21, BGEVENT_READ, CeladonCityTrainerTips2
+	bg_event 42,  9, BGEVENT_READ, CeladonCityPokecenterSign
 
 	def_object_events
 	object_event  8, 17, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCityLittleGirlScript, -1
