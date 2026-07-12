@@ -5,280 +5,241 @@
 	const SSANNEB1FROOMS_SAILOR4
 	const SSANNEB1FROOMS_SAILOR5
 	const SSANNEB1FROOMS_FISHER
-	const SSANNEB1FROOMS_NPC1
-	const SSANNEB1FROOMS_NPC2
-	const SSANNEB1FROOMS_ITEM1
-	const SSANNEB1FROOMS_ITEM2
-	const SSANNEB1FROOMS_ITEM3
+	const SSANNEB1FROOMS_SUPER_NERD
+	const SSANNEB1FROOMS_MACHOKE
+	const SSANNEB1FROOMS_ETHER
+	const SSANNEB1FROOMS_TM_REST
+	const SSANNEB1FROOMS_MAX_POTION
 
 SSAnneB1FRooms_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-SSAnneB1FRoomsSailor1Script:
-	faceplayer
+TrainerSailorBart:
+	trainer SAILOR, BART, EVENT_BEAT_SAILOR_SSANNEB1_1, SSAnneB1FRoomsSailor1BattleText, SSAnneB1FRoomsSailor1EndBattleText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	writetext SSAnneB1FRoomsSailor1BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 14
-	winlosstext SSAnneB1FRoomsSailor1WinText, SSAnneB1FRoomsSailor1LossText
-	setlasttalked SSANNEB1FROOMS_SAILOR1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNE_1
-	opentext
-	writetext SSAnneB1FRoomsSailor1AfterText
+	writetext SSAnneB1FRoomsSailor1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-SSAnneB1FRoomsSailor2Script:
-	faceplayer
+TrainerSailorFlint:
+	trainer SAILOR, FLINT, EVENT_BEAT_SAILOR_SSANNEB1_2, SSAnneB1FRoomsSailor2BattleText, SSAnneB1FRoomsSailor2EndBattleText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	writetext SSAnneB1FRoomsSailor2BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 15
-	winlosstext SSAnneB1FRoomsSailor2WinText, SSAnneB1FRoomsSailor2LossText
-	setlasttalked SSANNEB1FROOMS_SAILOR2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNE_2
-	opentext
-	writetext SSAnneB1FRoomsSailor2AfterText
+	writetext SSAnneB1FRoomsSailor2AfterBattleText
 	waitbutton
 	closetext
 	end
 
-SSAnneB1FRoomsSailor3Script:
-	faceplayer
+TrainerSailorReuben:
+	trainer SAILOR, REUBEN, EVENT_BEAT_SAILOR_SSANNEB1_3, SSAnneB1FRoomsSailor3BattleText, SSAnneB1FRoomsSailor3EndBattleText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	writetext SSAnneB1FRoomsSailor3BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 16
-	winlosstext SSAnneB1FRoomsSailor3WinText, SSAnneB1FRoomsSailor3LossText
-	setlasttalked SSANNEB1FROOMS_SAILOR3
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNE_3
-	opentext
-	writetext SSAnneB1FRoomsSailor3AfterText
+	writetext SSAnneB1FRoomsSailor3AfterBattleText
 	waitbutton
 	closetext
 	end
 
-SSAnneB1FRoomsSailor4Script:
-	faceplayer
+TrainerSailorGunnar:
+	trainer SAILOR, GUNNAR, EVENT_BEAT_SAILOR_SSANNEB1_4, SSAnneB1FRoomsSailor4BattleText, SSAnneB1FRoomsSailor4EndBattleText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	writetext SSAnneB1FRoomsSailor4BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 17
-	winlosstext SSAnneB1FRoomsSailor4WinText, SSAnneB1FRoomsSailor4LossText
-	setlasttalked SSANNEB1FROOMS_SAILOR4
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNE_4
-	opentext
-	writetext SSAnneB1FRoomsSailor4AfterText
+	writetext SSAnneB1FRoomsSailor4AfterBattleText
 	waitbutton
 	closetext
 	end
 
-SSAnneB1FRoomsSailor5Script:
-	faceplayer
+TrainerSailorRufus:
+	trainer SAILOR, RUFUS, EVENT_BEAT_SAILOR_SSANNEB1_5, SSAnneB1FRoomsSailor5BattleText, SSAnneB1FRoomsSailor5EndBattleText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	writetext SSAnneB1FRoomsSailor5BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 18
-	winlosstext SSAnneB1FRoomsSailor5WinText, SSAnneB1FRoomsSailor5LossText
-	setlasttalked SSANNEB1FROOMS_SAILOR5
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNE_5
-	opentext
-	writetext SSAnneB1FRoomsSailor5AfterText
+	writetext SSAnneB1FRoomsSailor5AfterBattleText
 	waitbutton
 	closetext
 	end
 
-SSAnneB1FRoomsFisherScript:
-	faceplayer
+TrainerFisherOrville:
+	trainer FISHER, ORVILLE, EVENT_BEAT_FISHER_SSANNEB1, SSAnneB1FRoomsFisherBattleText, SSAnneB1FRoomsFisherEndBattleText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	writetext SSAnneB1FRoomsFisherBeforeText
-	waitbutton
-	closetext
-	loadtrainer FISHER, 27
-	winlosstext SSAnneB1FRoomsFisherWinText, SSAnneB1FRoomsFisherLossText
-	setlasttalked SSANNEB1FROOMS_FISHER
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_FISHER_SSANNEB1
-	opentext
-	writetext SSAnneB1FRoomsFisherAfterText
+	writetext SSAnneB1FRoomsFisherAfterBattleText
 	waitbutton
 	closetext
 	end
 
-SSAnneB1FRoomsNPC1Script:
-	jumptextfaceplayer SSAnneB1FRoomsNPC1Text
+SSAnneB1FRoomsSuperNerdScript:
+	jumptextfaceplayer SSAnneB1FRoomsSuperNerdText
 
-SSAnneB1FRoomsNPC2Script:
-	jumptextfaceplayer SSAnneB1FRoomsNPC2Text
+SSAnneB1FRoomsMachokeScript:
+	jumptextfaceplayer SSAnneB1FRoomsMachokeText
 
-SSAnneB1FRoomsItem1Script:
+SSAnneB1FRoomsEtherScript:
 	itemball ETHER
 
-SSAnneB1FRoomsItem2Script:
+SSAnneB1FRoomsTmRestScript:
 	itemball TM_REST
 
-SSAnneB1FRoomsItem3Script:
+SSAnneB1FRoomsMaxPotionScript:
 	itemball MAX_POTION
 
-; Placeholder battle texts
-SSAnneB1FRoomsSailor1BeforeText:
-	text "Battle!"
+SSAnneB1FRoomsSailor1BattleText:
+	text "You know what they"
+	line "say about sailors"
+	cont "and fighting!"
 	done
 
-SSAnneB1FRoomsSailor1WinText:
-	text "Arrr!"
+SSAnneB1FRoomsSailor1EndBattleText:
+	text "Right!"
+	line "Good fight, mate!"
 	done
 
-SSAnneB1FRoomsSailor1LossText:
-	text "Ahoy!"
+SSAnneB1FRoomsSailor1AfterBattleText:
+	text "Haha! Want to be"
+	line "a sailor, mate?"
 	done
 
-SSAnneB1FRoomsSailor1AfterText:
-	text "Shiver me timbers!"
+SSAnneB1FRoomsSailor2BattleText:
+	text "My sailor's pride"
+	line "is at stake!"
 	done
 
-SSAnneB1FRoomsSailor2BeforeText:
-	text "Battle!"
+SSAnneB1FRoomsSailor2EndBattleText:
+	text "Your"
+	line "spirit sank me!"
 	done
 
-SSAnneB1FRoomsSailor2WinText:
-	text "Lost!"
+SSAnneB1FRoomsSailor2AfterBattleText:
+	text "Did you see the"
+	line "FISHING GURU in"
+	cont "VERMILION CITY?"
 	done
 
-SSAnneB1FRoomsSailor2LossText:
-	text "Won!"
+SSAnneB1FRoomsSailor3BattleText:
+	text "Us sailors have"
+	line "#MON too!"
 	done
 
-SSAnneB1FRoomsSailor2AfterText:
-	text "Sea legs!"
+SSAnneB1FRoomsSailor3EndBattleText:
+	text "OK, "
+	line "you're not bad."
 	done
 
-SSAnneB1FRoomsSailor3BeforeText:
-	text "Battle!"
+SSAnneB1FRoomsSailor3AfterBattleText:
+	text "We caught all our"
+	line "#MON while"
+	cont "out at sea!"
 	done
 
-SSAnneB1FRoomsSailor3WinText:
-	text "Lost!"
+SSAnneB1FRoomsSailor4BattleText:
+	text "I like feisty"
+	line "kids like you!"
 	done
 
-SSAnneB1FRoomsSailor3LossText:
-	text "Won!"
+SSAnneB1FRoomsSailor4EndBattleText:
+	text "Argh!"
+	line "Lost it!"
 	done
 
-SSAnneB1FRoomsSailor3AfterText:
-	text "Fair winds!"
+SSAnneB1FRoomsSailor4AfterBattleText:
+	text "Sea #MON live"
+	line "in deep water."
+	cont "You'll need a ROD!"
 	done
 
-SSAnneB1FRoomsSailor4BeforeText:
-	text "Battle!"
+SSAnneB1FRoomsSailor5BattleText:
+	text "Matey, you're"
+	line "walking the plank"
+	cont "if you lose!"
 	done
 
-SSAnneB1FRoomsSailor4WinText:
-	text "Lost!"
+SSAnneB1FRoomsSailor5EndBattleText:
+	text "Argh!"
+	line "Beaten by a kid!"
 	done
 
-SSAnneB1FRoomsSailor4LossText:
-	text "Won!"
+SSAnneB1FRoomsSailor5AfterBattleText:
+	text "Jellyfish some-"
+	line "times drift into"
+	cont "the ship."
 	done
 
-SSAnneB1FRoomsSailor4AfterText:
-	text "Good sailing!"
+SSAnneB1FRoomsFisherBattleText:
+	text "Hello stranger!"
+	line "Stop and chat!"
+
+	para "All my #MON"
+	line "are from the sea!"
 	done
 
-SSAnneB1FRoomsSailor5BeforeText:
-	text "Battle!"
+SSAnneB1FRoomsFisherEndBattleText:
+	text "Darn!"
+	line "I let that one"
+	cont "get away!"
 	done
 
-SSAnneB1FRoomsSailor5WinText:
-	text "Lost!"
+SSAnneB1FRoomsFisherAfterBattleText:
+	text "I was going to"
+	line "make you my"
+	cont "assistant too!"
 	done
 
-SSAnneB1FRoomsSailor5LossText:
-	text "Won!"
+SSAnneB1FRoomsSuperNerdText:
+	text "My buddy, MACHOKE,"
+	line "is super strong!"
+
+	para "He has enough"
+	line "STRENGTH to move"
+	cont "big rocks!"
 	done
 
-SSAnneB1FRoomsSailor5AfterText:
-	text "Smooth sailing!"
-	done
-
-SSAnneB1FRoomsFisherBeforeText:
-	text "Fish battle?"
-	done
-
-SSAnneB1FRoomsFisherWinText:
-	text "Caught!"
-	done
-
-SSAnneB1FRoomsFisherLossText:
-	text "Got away!"
-	done
-
-SSAnneB1FRoomsFisherAfterText:
-	text "Good catch!"
-	done
-
-SSAnneB1FRoomsNPC1Text:
-	text "Worker here!"
-	done
-
-SSAnneB1FRoomsNPC2Text:
-	text "Engine room!"
+SSAnneB1FRoomsMachokeText:
+	text "MACHOKE: Gwoh!"
+	line "Goggoh!"
 	done
 
 SSAnneB1FRooms_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  7, SS_ANNE_B1F, 1
-	warp_event  5,  7, SS_ANNE_B1F, 2
-	warp_event  7,  7, SS_ANNE_B1F, 3
-	warp_event  9,  7, SS_ANNE_B1F, 4
-	warp_event 11,  7, SS_ANNE_B1F, 5
+	warp_event  2,  5, SS_ANNE_B1F, 5
+	warp_event  3,  5, SS_ANNE_B1F, 5
+	warp_event 12,  5, SS_ANNE_B1F, 4
+	warp_event 13,  5, SS_ANNE_B1F, 4
+	warp_event 22,  5, SS_ANNE_B1F, 3
+	warp_event 23,  5, SS_ANNE_B1F, 3
+	warp_event  2, 15, SS_ANNE_B1F, 2
+	warp_event  3, 15, SS_ANNE_B1F, 2
+	warp_event 12, 15, SS_ANNE_B1F, 1
+	warp_event 13, 15, SS_ANNE_B1F, 1
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  2,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor1Script, -1
-	object_event  4,  3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor2Script, -1
-	object_event  6,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor3Script, -1
-	object_event  8,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor4Script, -1
-	object_event 10,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSailor5Script, -1
-	object_event  3,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsFisherScript, -1
-	object_event  1,  3, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsNPC1Script, -1
-	object_event  7,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsNPC2Script, -1
-	object_event  2,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem1Script, -1
-	object_event  5,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem2Script, -1
-	object_event  8,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsItem3Script, -1
+	object_event  0, 13, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorBart, -1
+	object_event  2, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorFlint, -1
+	object_event 12,  3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorReuben, -1
+	object_event 22,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorGunnar, -1
+	object_event  0,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorRufus, -1
+	object_event  0,  4, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerFisherOrville, -1
+	object_event 10, 13, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsSuperNerdScript, -1
+	object_event 11, 12, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneB1FRoomsMachokeScript, -1
+	object_event 20,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsEtherScript, -1
+	object_event 10,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsTmRestScript, -1
+	object_event 12, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SSAnneB1FRoomsMaxPotionScript, -1
