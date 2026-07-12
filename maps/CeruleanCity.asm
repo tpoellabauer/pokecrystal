@@ -1,11 +1,17 @@
 	object_const_def
 	const CERULEANCITY_COOLTRAINER_M
-	const CERULEANCITY_SUPER_NERD
+	const CERULEANCITY_SUPER_NERD1
+	const CERULEANCITY_SUPER_NERD2
+	const CERULEANCITY_GUARD1
+	const CERULEANCITY_COOLTRAINER_F1
 	const CERULEANCITY_SLOWPOKE
-	const CERULEANCITY_COOLTRAINER_F
+	const CERULEANCITY_COOLTRAINER_F2
+	const CERULEANCITY_SUPER_NERD3
+	const CERULEANCITY_GUARD2
 	const CERULEANCITY_FISHER
 	const CERULEANCITY_YOUNGSTER
 	const CERULEANCITY_RIVAL
+	const CERULEANCITY_ROCKET
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
@@ -33,8 +39,21 @@ CeruleanCityCooltrainerMScript:
 	closetext
 	end
 
-CeruleanCitySuperNerdScript:
-	jumptextfaceplayer CeruleanCitySuperNerdText
+; Gen 1 "bush blocking shop, there might be a way around" hint NPC.
+CeruleanCitySuperNerd1Script:
+	jumptextfaceplayer CeruleanCitySuperNerd1Text
+
+; Gen 1 "you're making an encyclopedia on #MON?" NPC.
+CeruleanCitySuperNerd2Script:
+	jumptextfaceplayer CeruleanCitySuperNerd2Text
+
+; Gen 1 "the people here were robbed... TEAM ROCKET" guard NPC (one of two identical guards
+; flanking the burgled house's back alley, see GUARD2 below).
+CeruleanCityGuard1Script:
+	jumptextfaceplayer CeruleanCityGuardText
+
+CeruleanCityGuard2Script:
+	jumptextfaceplayer CeruleanCityGuardText
 
 CeruleanCitySlowbro:
 	opentext
@@ -44,15 +63,15 @@ CeruleanCitySlowbro:
 	closetext
 	end
 
-CeruleanCityCooltrainerFScript:
+CeruleanCityCooltrainerF1Script:
 	faceplayer
 	opentext
-	writetext CeruleanCityCooltrainerFText1
+	writetext CeruleanCityCooltrainerF1Text1
 	waitbutton
 	closetext
-	turnobject CERULEANCITY_COOLTRAINER_F, LEFT
+	turnobject CERULEANCITY_COOLTRAINER_F1, LEFT
 	opentext
-	writetext CeruleanCityCooltrainerFText2
+	writetext CeruleanCityCooltrainerF1Text2
 	waitbutton
 	closetext
 	opentext
@@ -61,10 +80,19 @@ CeruleanCityCooltrainerFScript:
 	waitbutton
 	closetext
 	opentext
-	writetext CeruleanCityCooltrainerFText3
+	writetext CeruleanCityCooltrainerF1Text3
 	waitbutton
 	closetext
 	end
+
+; Gen 1 "I want a bright red BICYCLE!" NPC.
+CeruleanCityCooltrainerF2Script:
+	jumptextfaceplayer CeruleanCityCooltrainerF2Text
+
+; Gen 1 "this is CERULEAN CAVE! ...only the #MON LEAGUE champion is allowed in!" lore NPC,
+; positioned by the cave mouth.
+CeruleanCitySuperNerd3Script:
+	jumptextfaceplayer CeruleanCitySuperNerd3Text
 
 CeruleanCityFisherScript:
 	faceplayer
@@ -168,6 +196,37 @@ CeruleanCityRivalScript:
 	closetext
 	end
 
+; Gen 1 Cerulean City TM28(Dig) Rocket thief (pokeredDisassembly/scripts/CeruleanCity.asm
+; CeruleanCityRocketDefeatedScript/CeruleanCityRocketText): steals TM28 from the burgled house,
+; gives it back once beaten. Simplified to a single post-battle hand-back (precedent
+; TrainerNuggetLeaderRoute24 in maps/Route24.asm) rather than Gen1's two-step "agrees to return it,
+; give it to him again next visit" sequence.
+TrainerCeruleanCityRocket:
+	trainer GRUNTM, GRUNTM_66, EVENT_BEAT_CERULEAN_ROCKET_THIEF, CeruleanCityRocketSeenText, CeruleanCityRocketBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	checkevent EVENT_GOT_CERULEAN_TM28
+	iftrue .AlreadyReturned
+	writetext CeruleanCityRocketReturnText
+	verbosegiveitem TM_DIG
+	iffalse .NoRoom
+	setevent EVENT_GOT_CERULEAN_TM28
+	waitbutton
+	closetext
+	end
+
+.AlreadyReturned:
+	writetext CeruleanCityRocketAfterText
+	waitbutton
+	closetext
+	end
+
+.NoRoom:
+	closetext
+	end
+
 CeruleanCitySign:
 	jumptext CeruleanCitySignText
 
@@ -177,11 +236,8 @@ CeruleanGymSign:
 CeruleanBikeShopSign:
 	jumptext CeruleanBikeShopSignText
 
-CeruleanPoliceSign:
-	jumptext CeruleanPoliceSignText
-
-CeruleanCapeSign:
-	jumptext CeruleanCapeSignText
+CeruleanCityTrainerTips:
+	jumptext CeruleanCityTrainerTipsText
 
 CeruleanLockedDoor:
 	jumptext CeruleanLockedDoorText
@@ -220,7 +276,7 @@ CeruleanCityCooltrainerMText2:
 	cont "it sounds fun too."
 	done
 
-CeruleanCitySuperNerdText:
+CeruleanCitySuperNerd1Text:
 	text "The CAPE in the"
 	line "north is a good"
 
@@ -228,23 +284,65 @@ CeruleanCitySuperNerdText:
 	line "Girls like it!"
 	done
 
+CeruleanCitySuperNerd2Text:
+	text "You're making an"
+	line "encyclopedia on"
+	cont "#MON? That"
+	cont "sounds amusing."
+	done
+
+CeruleanCityGuardText:
+	text "The people here"
+	line "were robbed."
+
+	para "It's obvious that"
+	line "TEAM ROCKET is"
+	cont "behind this most"
+	cont "heinous crime!"
+
+	para "Even our POLICE"
+	line "force has trouble"
+	cont "with the ROCKETs!"
+	done
+
 CeruleanCitySlowbroText:
 	text "SLOWBRO: Yarah?"
 	done
 
-CeruleanCityCooltrainerFText1:
+CeruleanCityCooltrainerF1Text1:
 	text "My SLOWBRO and I"
 	line "make an awesome"
 	cont "combination!"
 	done
 
-CeruleanCityCooltrainerFText2:
+CeruleanCityCooltrainerF1Text2:
 	text "SLOWBRO, show me"
 	line "your CONFUSION!"
 	done
 
-CeruleanCityCooltrainerFText3:
+CeruleanCityCooltrainerF1Text3:
 	text "…"
+	done
+
+CeruleanCityCooltrainerF2Text:
+	text "I want a bright"
+	line "red BICYCLE!"
+
+	para "I'll keep it at"
+	line "home, so it won't"
+	cont "get dirty!"
+	done
+
+CeruleanCitySuperNerd3Text:
+	text "This is CERULEAN"
+	line "CAVE! Horribly"
+	cont "strong #MON"
+	cont "live in there!"
+
+	para "The #MON LEAGUE"
+	line "champion is the"
+	cont "only person who"
+	cont "is allowed in!"
 	done
 
 CeruleanCityFisherText:
@@ -299,22 +397,13 @@ CeruleanBikeShopSignText:
 	cont "CITY in JOHTO…"
 	done
 
-CeruleanPoliceSignText:
-	text "There's a notice"
-	line "here…"
+CeruleanCityTrainerTipsText:
+	text "TRAINER TIPS"
 
-	para "Stamp out thievery"
-	line "and make the city"
-
-	para "a friendlier, more"
-	line "cheerful place!"
-
-	para "CERULEAN POLICE"
-	done
-
-CeruleanCapeSignText:
-	text "CERULEAN CAPE"
-	line "AHEAD"
+	para "Pressing B Button"
+	line "during evolution"
+	cont "cancels the whole"
+	cont "process."
 	done
 
 CeruleanLockedDoorText:
@@ -365,36 +454,67 @@ CeruleanCityRivalAfterText:
 	cont "#DEX!"
 	done
 
+CeruleanCityRocketSeenText:
+	text "Hey! Stay out!"
+	line "It's not your"
+	cont "yard! Huh? Me?"
+
+	para "I'm an innocent"
+	line "bystander! Don't"
+	cont "you believe me?"
+	done
+
+CeruleanCityRocketBeatenText:
+	text "Stop!"
+	line "I give up! I'll"
+	cont "leave quietly!"
+	done
+
+CeruleanCityRocketReturnText:
+	text "OK! I'll return"
+	line "the TM I stole!"
+	done
+
+CeruleanCityRocketAfterText:
+	text "I gave back that"
+	line "TM28, right?"
+	done
+
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  7, 15, CERULEAN_GYM_BADGE_SPEECH_HOUSE, 1
-	warp_event 28, 17, CERULEAN_POLICE_STATION, 1
-	warp_event 13, 19, CERULEAN_TRADE_SPEECH_HOUSE, 1
-	warp_event 19, 21, CERULEAN_POKECENTER_1F, 1
-	warp_event 30, 23, CERULEAN_GYM, 1
-	warp_event 25, 29, CERULEAN_MART, 2
+	warp_event  9,  9, CERULEAN_GYM_BADGE_SPEECH_HOUSE, 1
+	warp_event 27, 11, CERULEAN_POLICE_STATION, 1
+	warp_event 13, 15, CERULEAN_TRADE_SPEECH_HOUSE, 1
+	warp_event 19, 17, CERULEAN_POKECENTER_1F, 1
+	warp_event 30, 19, CERULEAN_GYM, 1
+	warp_event 25, 25, CERULEAN_MART, 2
 	warp_event  4, 11, CERULEAN_CAVE_1F, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 23, 23, BGEVENT_READ, CeruleanCitySign
-	bg_event 27, 25, BGEVENT_READ, CeruleanGymSign
-	bg_event 11, 29, BGEVENT_READ, CeruleanBikeShopSign
-	bg_event 25, 17, BGEVENT_READ, CeruleanPoliceSign
-	bg_event 23,  7, BGEVENT_READ, CeruleanCapeSign
-	bg_event 14, 29, BGEVENT_READ, CeruleanLockedDoor
-	bg_event 20, 21, BGEVENT_READ, CeruleanCityPokecenterSign
-	bg_event 26, 29, BGEVENT_READ, CeruleanCityMartSign
+	bg_event 23, 19, BGEVENT_READ, CeruleanCitySign
+	bg_event 17, 29, BGEVENT_READ, CeruleanCityTrainerTips
+	bg_event 26, 25, BGEVENT_READ, CeruleanCityMartSign
+	bg_event 20, 17, BGEVENT_READ, CeruleanCityPokecenterSign
+	bg_event 11, 25, BGEVENT_READ, CeruleanBikeShopSign
+	bg_event 27, 21, BGEVENT_READ, CeruleanGymSign
+	bg_event 13, 25, BGEVENT_READ, CeruleanLockedDoor
 	bg_event  2, 12, BGEVENT_ITEM, CeruleanCityHiddenBerserkGene
 
 	def_object_events
-	object_event 15, 23, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerMScript, -1
-	object_event 23, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySuperNerdScript, -1
-	object_event 20, 24, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCitySlowbro, -1
-	object_event 21, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerFScript, -1
+	object_event 31, 20, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerMScript, -1
+	object_event 15, 18, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySuperNerd1Script, -1
+	object_event  9, 21, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySuperNerd2Script, -1
+	object_event 28, 12, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityGuard1Script, -1
+	object_event 29, 26, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerF1Script, -1
+	object_event 28, 26, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCitySlowbro, -1
+	object_event  9, 27, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerF2Script, -1
+	object_event  4, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySuperNerd3Script, -1
+	object_event 27, 12, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityGuard2Script, -1
 	object_event 30, 26, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityFisherScript, -1
 	object_event  6, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityYoungsterScript, -1
-	object_event 20, 10, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityRivalScript, -1
+	object_event 20,  2, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityRivalScript, -1
+	object_event 30,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCeruleanCityRocket, -1

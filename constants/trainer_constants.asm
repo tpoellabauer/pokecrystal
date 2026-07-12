@@ -437,6 +437,7 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_63
 	const GRUNTM_64
 	const GRUNTM_65 ; Route 24 (Gen 1 disguised-Rocket Nugget Bridge leader, OPP_ROCKET class)
+	const GRUNTM_66 ; Cerulean City (Gen 1 TM28 Dig thief, OPP_ROCKET 5)
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON

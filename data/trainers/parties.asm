@@ -2257,6 +2257,12 @@ GruntMGroup:
 	db 15, ZUBAT
 	db -1 ; end
 
+	; GRUNTM (66)
+	db "ROCKET@", TRAINERTYPE_NORMAL
+	db 17, MACHOP
+	db 17, DROWZEE
+	db -1 ; end
+
 GentlemanGroup:
 	; GENTLEMAN (1)
 	db "PRESTON@", TRAINERTYPE_NORMAL

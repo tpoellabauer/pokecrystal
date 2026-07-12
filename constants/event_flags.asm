@@ -1916,6 +1916,8 @@
 	const EVENT_BEAT_SAILOR_SSANNEBOW_2
 	const EVENT_BEAT_MOLTRES ; Gen 1 Victory Road static encounter (port slot: VictoryRoad.asm)
 	const EVENT_BEAT_CERULEAN_RIVAL ; Gen 1 Cerulean City rival battle (port slot: CeruleanCity.asm)
+	const EVENT_BEAT_CERULEAN_ROCKET_THIEF ; Gen 1 Cerulean City TM28(Dig) Rocket thief (port slot: CeruleanCity.asm)
+	const EVENT_GOT_CERULEAN_TM28 ; TM28(Dig) handed back by the above, once (post-battle re-visit)
 	const EVENT_SILPH_CO_3F_HYPER_POTION ; Gen 1 SilphCo3F item ball (never added when the floor's trainers were first ported; overworld_parity obj 4->3)
 	const EVENT_POKEMON_MANSION_1F_HIDDEN_MOON_STONE ; Gen 1 hidden_events.asm pickup, not in the objects dump
 	const EVENT_POKEMON_MANSION_3F_HIDDEN_MAX_REVIVE ; Gen 1 hidden_events.asm pickup, not in the objects dump
