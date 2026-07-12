@@ -267,6 +267,7 @@ DEF KRIS EQU __trainer_class__
 	const ROSIE ; Route 24
 	const HEATHER ; Route 25
 	const NANCY ; Route 25
+	const MYRA ; Gen 1 S.S. Anne 2F Rooms LASS (12), sprite SPRITE_COOLTRAINER_F
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -445,6 +446,8 @@ DEF KRIS EQU __trainer_class__
 	const GREGORY
 	const VIRGIL ; unused
 	const ALFRED
+	const HORACE ; Gen 1 S.S. Anne 2F Rooms GENTLEMAN (3)
+	const CLEM ; Gen 1 S.S. Anne 2F Rooms GENTLEMAN (5)
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -522,6 +525,8 @@ DEF KRIS EQU __trainer_class__
 	const MOSES ; Route 21
 	const GARRY ; Route 21
 	const ALVIN ; Route 21
+	const LOUIS ; Gen 1 S.S. Anne 2F Rooms FISHER (1)
+	const ORVILLE ; Gen 1 S.S. Anne B1F Rooms FISHER (2)
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -595,6 +600,13 @@ DEF KRIS EQU __trainer_class__
 	const HUEY2
 	const HUEY3
 	const HUEY4
+	const HOYT ; Gen 1 S.S. Anne Stern (1)
+	const PERCY  ; Gen 1 S.S. Anne Stern (2)
+	const BART ; Gen 1 S.S. Anne B1F Rooms SAILOR (3)
+	const FLINT ; Gen 1 S.S. Anne B1F Rooms SAILOR (4)
+	const REUBEN ; Gen 1 S.S. Anne B1F Rooms SAILOR (5)
+	const GUNNAR ; Gen 1 S.S. Anne B1F Rooms SAILOR (6)
+	const RUFUS ; Gen 1 S.S. Anne B1F Rooms SAILOR (7)
 
 	trainerclass SUPER_NERD ; 29
 	const STAN

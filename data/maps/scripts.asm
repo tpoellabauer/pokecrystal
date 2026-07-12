@@ -507,8 +507,17 @@ INCLUDE "maps/SSAnneBow.asm"
 INCLUDE "maps/SSAnneKitchen.asm"
 INCLUDE "maps/SSAnneCaptainsRoom.asm"
 INCLUDE "maps/SSAnne1FRooms.asm"
-INCLUDE "maps/SSAnne2FRooms.asm"
 INCLUDE "maps/SSAnneB1FRooms.asm"
+
+ENDSECTION
+
+
+; Split out of "Map Scripts 25" (2026-07-12): SSAnne2FRooms grew past skeleton size once its
+; Gen 1 trainers/NPCs were re-authored (S.S. Anne content-completion pass). Floating section,
+; any free bank -- same pattern as "Map Scripts 26" below.
+SECTION "Map Scripts 27", ROMX
+
+INCLUDE "maps/SSAnne2FRooms.asm"
 
 ENDSECTION
 

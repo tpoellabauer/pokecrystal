@@ -124,20 +124,20 @@ SSAnne2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  7, SS_ANNE_1F, 7
-	warp_event  5,  0, SS_ANNE_3F, 1
-	warp_event  8,  0, SS_ANNE_3F, 2
-	warp_event 10,  4, SS_ANNE_2F_ROOMS, 1
-	warp_event  6,  4, SS_ANNE_2F_ROOMS, 2
-	warp_event 15,  4, SS_ANNE_2F_ROOMS, 3
-	warp_event 20,  4, SS_ANNE_2F_ROOMS, 4
-	warp_event 25,  4, SS_ANNE_2F_ROOMS, 5
-	warp_event  2,  5, SS_ANNE_CAPTAINS_ROOM, 1
+	warp_event  9, 11, SS_ANNE_2F_ROOMS, 1
+	warp_event 13, 11, SS_ANNE_2F_ROOMS, 3
+	warp_event 17, 11, SS_ANNE_2F_ROOMS, 5
+	warp_event 21, 11, SS_ANNE_2F_ROOMS, 7
+	warp_event 25, 11, SS_ANNE_2F_ROOMS, 9
+	warp_event 29, 11, SS_ANNE_2F_ROOMS, 11
+	warp_event  2,  4, SS_ANNE_1F, 9
+	warp_event  2, 12, SS_ANNE_3F, 2
+	warp_event 36,  4, SS_ANNE_CAPTAINS_ROOM, 1
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event 12,  6, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FWaiterScript, -1
-	object_event  3,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FRivalScript, EVENT_FOUGHT_BLUE_SSANNE
+	object_event  3,  7, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FWaiterScript, -1
+	object_event 36,  4, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnne2FRivalScript, EVENT_FOUGHT_BLUE_SSANNE

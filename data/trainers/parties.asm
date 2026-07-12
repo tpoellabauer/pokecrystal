@@ -1297,6 +1297,12 @@ LassGroup:
 	db 13, ODDISH
 	db -1 ; end
 
+	; LASS (30)
+	db "MYRA@", TRAINERTYPE_NORMAL
+	db 18, RATTATA
+	db 18, PIKACHU
+	db -1 ; end
+
 JanineGroup:
 	; JANINE (1)
 	db "JANINE@", TRAINERTYPE_MOVES
@@ -2291,6 +2297,17 @@ GentlemanGroup:
 	db 20, NOCTOWL
 	db -1 ; end
 
+	; GENTLEMAN (6)
+	db "HORACE@", TRAINERTYPE_NORMAL
+	db 23, PIKACHU
+	db -1 ; end
+
+	; GENTLEMAN (7)
+	db "CLEM@", TRAINERTYPE_NORMAL
+	db 17, GROWLITHE
+	db 17, PONYTA
+	db -1 ; end
+
 SkierGroup:
 	; SKIER (1)
 	db "ROXANNE@", TRAINERTYPE_NORMAL
@@ -2725,6 +2742,20 @@ FisherGroup:
 	db 33, GOLDEEN
 	db -1 ; end
 
+	; FISHER (35)
+	db "LOUIS@", TRAINERTYPE_NORMAL
+	db 17, GOLDEEN
+	db 17, TENTACOOL
+	db 17, GOLDEEN
+	db -1 ; end
+
+	; FISHER (36)
+	db "ORVILLE@", TRAINERTYPE_NORMAL
+	db 17, TENTACOOL
+	db 17, STARYU
+	db 17, SHELLDER
+	db -1 ; end
+
 SwimmerMGroup:
 	; SWIMMERM (1)
 	db "HAROLD@", TRAINERTYPE_NORMAL
@@ -3145,6 +3176,48 @@ SailorGroup:
 	db "HUEY@", TRAINERTYPE_MOVES
 	db 38, POLITOED,   WHIRLPOOL, RAIN_DANCE, BODY_SLAM, PERISH_SONG
 	db 38, POLIWRATH,  SURF, STRENGTH, ICE_PUNCH, SUBMISSION
+	db -1 ; end
+
+	; SAILOR (14)
+	db "HOYT@", TRAINERTYPE_NORMAL
+	db 18, MACHOP
+	db 18, SHELLDER
+	db -1 ; end
+
+	; SAILOR (15)
+	db "PERCY@", TRAINERTYPE_NORMAL
+	db 17, MACHOP
+	db 17, TENTACOOL
+	db -1 ; end
+
+	; SAILOR (16)
+	db "BART@", TRAINERTYPE_NORMAL
+	db 21, SHELLDER
+	db -1 ; end
+
+	; SAILOR (17)
+	db "FLINT@", TRAINERTYPE_NORMAL
+	db 17, HORSEA
+	db 17, SHELLDER
+	db 17, TENTACOOL
+	db -1 ; end
+
+	; SAILOR (18)
+	db "REUBEN@", TRAINERTYPE_NORMAL
+	db 18, TENTACOOL
+	db 18, STARYU
+	db -1 ; end
+
+	; SAILOR (19)
+	db "GUNNAR@", TRAINERTYPE_NORMAL
+	db 17, HORSEA
+	db 17, HORSEA
+	db 17, HORSEA
+	db -1 ; end
+
+	; SAILOR (20)
+	db "RUFUS@", TRAINERTYPE_NORMAL
+	db 20, MACHOP
 	db -1 ; end
 
 SuperNerdGroup:

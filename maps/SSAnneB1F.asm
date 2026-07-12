@@ -7,12 +7,12 @@ SSAnneB1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event 23,  3, SS_ANNE_B1F_ROOMS, 9
+	warp_event 19,  3, SS_ANNE_B1F_ROOMS, 7
+	warp_event 15,  3, SS_ANNE_B1F_ROOMS, 5
+	warp_event 11,  3, SS_ANNE_B1F_ROOMS, 3
 	warp_event  7,  3, SS_ANNE_B1F_ROOMS, 1
-	warp_event  8,  3, SS_ANNE_B1F_ROOMS, 2
-	warp_event 10,  3, SS_ANNE_B1F_ROOMS, 3
-	warp_event 12,  3, SS_ANNE_B1F_ROOMS, 4
-	warp_event 14,  3, SS_ANNE_B1F_ROOMS, 5
-	warp_event  2,  2, SS_ANNE_1F, 8
+	warp_event 27,  5, SS_ANNE_1F, 10
 
 	def_coord_events
 

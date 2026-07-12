@@ -1,123 +1,113 @@
 	object_const_def
-	const SSANNE_BOW_SAILOR1
-	const SSANNE_BOW_SAILOR2
 	const SSANNE_BOW_SUPERNERD
-	const SSANNE_BOW_SAILOR3
+	const SSANNE_BOW_SAILOR1
 	const SSANNE_BOW_COOLTRAIN_M
+	const SSANNE_BOW_SAILOR2
+	const SSANNE_BOW_SAILOR3
 
 SSAnneBow_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-SSAnneBowSailor1Script:
-	faceplayer
-	opentext
-	writetext SSAnneBowSailor1BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 19
-	winlosstext SSAnneBowSailor1WinText, SSAnneBowSailor1LossText
-	setlasttalked SSANNE_BOW_SAILOR1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNEBOW_1
-	opentext
-	writetext SSAnneBowSailor1AfterText
-	waitbutton
-	closetext
-	end
+SSAnneBowSupernerdScript:
+	jumptextfaceplayer SSAnneBowSupernerdText
 
-SSAnneBowSailor2Script:
-	faceplayer
-	opentext
-	writetext SSAnneBowSailor2BeforeText
-	waitbutton
-	closetext
-	loadtrainer SAILOR, 20
-	winlosstext SSAnneBowSailor2WinText, SSAnneBowSailor2LossText
-	setlasttalked SSANNE_BOW_SAILOR2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	setevent EVENT_BEAT_SAILOR_SSANNEBOW_2
+SSAnneBowSailor1Script:
+	jumptextfaceplayer SSAnneBowSailor1Text
+
+SSAnneBowCooltrainMScript:
+	jumptextfaceplayer SSAnneBowCooltrainMText
+
+TrainerSailorHoyt:
+	trainer SAILOR, HOYT, EVENT_BEAT_SAILOR_SSANNEBOW_1, SSAnneBowSailor2BeforeText, SSAnneBowSailor2WinText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
 	writetext SSAnneBowSailor2AfterText
 	waitbutton
 	closetext
 	end
 
-SSAnneBowSupernerdScript:
-	jumptextfaceplayer SSAnneBowSupernerdText
+TrainerSailorPercy:
+	trainer SAILOR, PERCY, EVENT_BEAT_SAILOR_SSANNEBOW_2, SSAnneBowSailor3BeforeText, SSAnneBowSailor3WinText, 0, .Script
 
-SSAnneBowSailor3Script:
-	jumptextfaceplayer SSAnneBowSailor3Text
-
-SSAnneBowCooltrainMScript:
-	jumptextfaceplayer SSAnneBowCooltrainMText
-
-SSAnneBowSailor1BeforeText:
-	text "Battle?"
-	done
-
-SSAnneBowSailor1WinText:
-	text "Lost!"
-	done
-
-SSAnneBowSailor1LossText:
-	text "Won!"
-	done
-
-SSAnneBowSailor1AfterText:
-	text "Nice duel!"
-	done
-
-SSAnneBowSailor2BeforeText:
-	text "Battle?"
-	done
-
-SSAnneBowSailor2WinText:
-	text "Lost!"
-	done
-
-SSAnneBowSailor2LossText:
-	text "Won!"
-	done
-
-SSAnneBowSailor2AfterText:
-	text "Well fought!"
-	done
+.Script:
+	endifjustbattled
+	opentext
+	writetext SSAnneBowSailor3AfterText
+	waitbutton
+	closetext
+	end
 
 SSAnneBowSupernerdText:
-	text "I'm studying the"
-	line "ocean depths!"
+	text "The party's over."
+	line "The ship will be"
+	cont "departing soon."
 	done
 
-SSAnneBowSailor3Text:
-	text "What a voyage!"
+SSAnneBowSailor1Text:
+	text "Scrubbing decks"
+	line "is hard work!"
 	done
 
 SSAnneBowCooltrainMText:
-	text "Enjoy the view!"
+	text "Urf. I feel ill."
+
+	para "I stepped out to"
+	line "get some air."
+	done
+
+SSAnneBowSailor2BeforeText:
+	text "Hey matey!"
+
+	para "Let's do a little"
+	line "jig!"
+	done
+
+SSAnneBowSailor2WinText:
+	text "You're"
+	line "impressive!"
+	done
+
+SSAnneBowSailor2AfterText:
+	text "How many kinds of"
+	line "Pokemon do you"
+	cont "think there are?"
+	done
+
+SSAnneBowSailor3BeforeText:
+	text "Ahoy there!"
+	line "Are you seasick?"
+	done
+
+SSAnneBowSailor3WinText:
+	text "I was"
+	line "just careless!"
+	done
+
+SSAnneBowSailor3AfterText:
+	text "My Pa said there"
+	line "are 100 kinds of"
+	cont "Pokemon. I think"
+	cont "there are more."
 	done
 
 SSAnneBow_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  6, SS_ANNE_3F, 3
-	warp_event  5,  6, SS_ANNE_3F, 3
+	warp_event 13,  6, SS_ANNE_3F, 1
+	warp_event 13,  7, SS_ANNE_3F, 1
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  2,  3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowSailor1Script, -1
-	object_event  7,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowSailor2Script, -1
-	object_event  1,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowSupernerdScript, -1
-	object_event  5,  1, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowSailor3Script, -1
-	object_event  8,  2, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowCooltrainMScript, -1
+	object_event  5,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowSupernerdScript, -1
+	object_event  4,  9, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowSailor1Script, -1
+	object_event  7, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneBowCooltrainMScript, -1
+	object_event  4,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorHoyt, -1
+	object_event 10,  8, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorPercy, -1
