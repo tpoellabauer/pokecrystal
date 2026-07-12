@@ -15,10 +15,6 @@
 	const POWERPLANT_ELECTRODE2
 	const POWERPLANT_VOLTORB6
 	const POWERPLANT_ZAPDOS
-	const POWERPLANT_CARBOS
-	const POWERPLANT_HP_UP
-	const POWERPLANT_RARE_CANDY
-	const POWERPLANT_TM_THUNDER
 
 PowerPlant_MapScripts:
 	def_scene_scripts
@@ -339,16 +335,16 @@ PowerPlantZapdos:
 	end
 
 PowerPlantCarbos:
-	itemball CARBOS
+	hiddenitem CARBOS, EVENT_POWER_PLANT_CARBOS
 
 PowerPlantHPUp:
-	itemball HP_UP
+	hiddenitem HP_UP, EVENT_POWER_PLANT_HP_UP
 
 PowerPlantRareCandy:
-	itemball RARE_CANDY
+	hiddenitem RARE_CANDY, EVENT_POWER_PLANT_RARE_CANDY
 
 PowerPlantTMThunder:
-	itemball TM_THUNDER
+	hiddenitem TM_THUNDER, EVENT_POWER_PLANT_TM_THUNDER
 
 PowerPlantVoltorbBattleText:
 	text "Bzzzt!"
@@ -560,6 +556,10 @@ PowerPlant_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PowerPlantBookshelf
 	bg_event  1,  1, BGEVENT_READ, PowerPlantBookshelf
+	bg_event  7, 25, BGEVENT_ITEM, PowerPlantCarbos
+	bg_event 28,  3, BGEVENT_ITEM, PowerPlantHPUp
+	bg_event 34,  3, BGEVENT_ITEM, PowerPlantRareCandy
+	bg_event 26, 32, BGEVENT_ITEM, PowerPlantTMThunder
 
 	def_object_events
 	object_event  4, 14, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PowerPlantOfficerScript, -1
@@ -578,7 +578,3 @@ PowerPlant_MapEvents:
 	object_event 21, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantElectrode2, EVENT_BEAT_POWER_PLANT_VOLTORB_6
 	object_event 37, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantVoltorb6, EVENT_BEAT_POWER_PLANT_VOLTORB_7
 	object_event  4,  9, SPRITE_BIRD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PowerPlantZapdos, EVENT_BEAT_ZAPDOS
-	object_event  7, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantCarbos, EVENT_POWER_PLANT_CARBOS
-	object_event 28,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantHPUp, EVENT_POWER_PLANT_HP_UP
-	object_event 34,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantRareCandy, EVENT_POWER_PLANT_RARE_CANDY
-	object_event 26, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PowerPlantTMThunder, EVENT_POWER_PLANT_TM_THUNDER
