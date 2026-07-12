@@ -234,23 +234,27 @@ Route16_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  1, ROUTE_16_FUCHSIA_SPEECH_HOUSE, 1
-	warp_event 14,  6, ROUTE_16_GATE, 3
-	warp_event 14,  7, ROUTE_16_GATE, 4
-	warp_event  9,  6, ROUTE_16_GATE, 1
-	warp_event  9,  7, ROUTE_16_GATE, 2
+	warp_event  7,  5, ROUTE_16_FUCHSIA_SPEECH_HOUSE, 1
+	warp_event 24, 10, ROUTE_16_GATE, 3
+	warp_event 24, 11, ROUTE_16_GATE, 4
+	warp_event 17, 10, ROUTE_16_GATE, 1
+	warp_event 17, 11, ROUTE_16_GATE, 2
+	warp_event 24,  4, ROUTE_16_GATE, 3
+	warp_event 24,  5, ROUTE_16_GATE, 4
+	warp_event 17,  4, ROUTE_16_GATE, 1
+	warp_event 17,  5, ROUTE_16_GATE, 2
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  5,  5, BGEVENT_READ, CyclingRoadSign
-	bg_event 17,  2, BGEVENT_READ, Route16Sign
+	bg_event 27, 11, BGEVENT_READ, CyclingRoadSign
+	bg_event  5, 17, BGEVENT_READ, Route16Sign
 
 	def_object_events
-	object_event 12,  2, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16Biker1, -1
-	object_event  6,  3, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16CueBall1, -1
-	object_event  4,  4, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16CueBall2, -1
-	object_event  2,  6, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16Biker4, -1
-	object_event  1,  3, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16CueBall3, -1
-	object_event 17,  7, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16Biker6, -1
-	object_event 16,  4, SPRITE_SNORLAX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route16Snorlax, EVENT_ROUTE_16_SNORLAX
+	object_event 17, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16Biker1, -1
+	object_event 14, 13, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16CueBall1, -1
+	object_event 11, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16CueBall2, -1
+	object_event  9, 11, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16Biker4, -1
+	object_event  6, 10, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16CueBall3, -1
+	object_event  3, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute16Biker6, -1
+	object_event 26, 10, SPRITE_SNORLAX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route16Snorlax, EVENT_ROUTE_16_SNORLAX
