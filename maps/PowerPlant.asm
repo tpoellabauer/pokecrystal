@@ -203,9 +203,6 @@ Forest:
 	closetext
 	end
 
-PowerPlantBookshelf:
-	jumpstd DifficultBookshelfScript
-
 ; Gen 1's Power Plant hides wild Voltorb/Electrode disguised as item balls. Ported as
 ; OBJECTTYPE_SCRIPT wild encounters (precedent: UnionCaveB2F's Lapras) instead of fake itemballs.
 PowerPlantVoltorb1:
@@ -547,15 +544,14 @@ PowerPlant_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2, 17, ROUTE_10_NORTH, 2
-	warp_event  3, 17, ROUTE_10_NORTH, 2
+	warp_event  4, 35, ROUTE_10_NORTH, 2
+	warp_event  5, 35, ROUTE_10_NORTH, 2
+	warp_event  0, 11, ROUTE_10_NORTH, 2
 
 	def_coord_events
 	coord_event  5, 12, SCENE_POWERPLANT_GUARD_GETS_PHONE_CALL, PowerPlantGuardPhoneScript
 
 	def_bg_events
-	bg_event  0,  1, BGEVENT_READ, PowerPlantBookshelf
-	bg_event  1,  1, BGEVENT_READ, PowerPlantBookshelf
 	bg_event  7, 25, BGEVENT_ITEM, PowerPlantCarbos
 	bg_event 28,  3, BGEVENT_ITEM, PowerPlantHPUp
 	bg_event 34,  3, BGEVENT_ITEM, PowerPlantRareCandy
