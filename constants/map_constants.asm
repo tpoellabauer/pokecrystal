@@ -310,6 +310,9 @@ ENDM
 	map_const VERMILION_GYM,                                5,  9 ; 11
 	map_const ROUTE_6_SAFFRON_GATE,                         5,  4 ; 12
 	map_const ROUTE_6_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 13
+	map_const VERMILION_PIDGEY_HOUSE,                       4,  4 ; 14
+	map_const VERMILION_TRADE_HOUSE,                        4,  4 ; 15
+	map_const VERMILION_OLD_ROD_HOUSE,                      4,  4 ; 16
 	endgroup
 
 	newgroup PALLET                                               ; 13

@@ -846,3 +846,9 @@ ENDM
 	map_attributes SaffronPidgeyHouse, SAFFRON_PIDGEY_HOUSE, $00
 
 	map_attributes Museum1F, MUSEUM_1F, $00
+
+	map_attributes VermilionPidgeyHouse, VERMILION_PIDGEY_HOUSE, $0a
+
+	map_attributes VermilionTradeHouse, VERMILION_TRADE_HOUSE, $0a
+
+	map_attributes VermilionOldRodHouse, VERMILION_OLD_ROD_HOUSE, $0a

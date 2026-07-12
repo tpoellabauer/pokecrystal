@@ -1258,4 +1258,13 @@ SaffronPidgeyHouse_Blocks:
 Museum1F_Blocks:
 	INCBIN "maps/Museum1F.blk"
 
+VermilionPidgeyHouse_Blocks:
+	INCBIN "maps/VermilionPidgeyHouse.blk"
+
+VermilionTradeHouse_Blocks:
+	INCBIN "maps/VermilionTradeHouse.blk"
+
+VermilionOldRodHouse_Blocks:
+	INCBIN "maps/VermilionOldRodHouse.blk"
+
 ENDSECTION

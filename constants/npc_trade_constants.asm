@@ -22,6 +22,7 @@ DEF NPCTRADE_STRUCT_LENGTH EQU _RS
 	const NPC_TRADE_KIM    ; 5
 	const NPC_TRADE_FOREST ; 6
 	const NPC_TRADE_MARCEL ; 7 ; Gen 1 Route 2 Trade House (TRADE_FOR_MARCEL): ABRA -> MR_MIME
+	const NPC_TRADE_DUX    ; 8 ; Gen 1 Vermilion Trade House (TRADE_FOR_DUX): SPEAROW -> FARFETCH'D
 DEF NUM_NPC_TRADES EQU const_value
 
 ; trade gender limits

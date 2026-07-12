@@ -558,5 +558,8 @@ INCLUDE "maps/DiglettsCaveRoute2.asm"
 INCLUDE "maps/DiglettsCaveRoute11.asm"
 INCLUDE "maps/SaffronPidgeyHouse.asm"
 INCLUDE "maps/Museum1F.asm"
+INCLUDE "maps/VermilionPidgeyHouse.asm"
+INCLUDE "maps/VermilionTradeHouse.asm"
+INCLUDE "maps/VermilionOldRodHouse.asm"
 
 ENDSECTION
