@@ -470,8 +470,8 @@ Options_Sound:
 .Stereo: db "STEREO@"
 
 Options_Music:
-; Gen 1 Kanto on Crystal: choose between the original Crystal music and the ported
-; Red soundtrack (wOptions MUSIC_SOURCE bit; see audio/engine.asm _PlayMusic).
+; Gen 1 Kanto on Crystal: choose between the original Crystal audio and the ported
+; Red music+sfx (wOptions MUSIC_SOURCE bit; see audio/engine.asm _PlayMusic/GetSFXHeader).
 	ld hl, wOptions
 	ldh a, [hJoyPressed]
 	bit B_PAD_LEFT, a

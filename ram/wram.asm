@@ -1793,7 +1793,7 @@ wBattleAfterAnim:: db
 wOptions::
 ; bit 0-2: number of frames to delay when printing text
 ;   fast 1; mid 3; slow 5
-; bit 3: music source (0 = original Crystal, 1 = ported Red) -- MUSIC_SOURCE
+; bit 3: audio source (0 = original Crystal, 1 = ported Red music+sfx) -- MUSIC_SOURCE
 ; bit 4: no text delay
 ; bit 5: stereo off/on
 ; bit 6: battle style shift/set
