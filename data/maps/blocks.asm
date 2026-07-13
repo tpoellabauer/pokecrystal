@@ -130,7 +130,6 @@ MoveDeletersHouse_Blocks:
 CeruleanGymBadgeSpeechHouse_Blocks:
 CeruleanPoliceStation_Blocks:
 CeruleanTradeSpeechHouse_Blocks:
-BillsHouse_Blocks:
 CharcoalKiln_Blocks:
 LakeOfRageHiddenPowerHouse_Blocks:
 LakeOfRageMagikarpHouse_Blocks:
@@ -146,9 +145,7 @@ PewterSnoozeSpeechHouse_Blocks:
 BillsOlderSistersHouse_Blocks:
 LavenderSpeechHouse_Blocks:
 LavenderNameRater_Blocks:
-Route12SuperRodHouse_Blocks:
 Route28SteelWingHouse_Blocks:
-CeladonMansionRoofHouse_Blocks:
 Route16FuchsiaSpeechHouse_Blocks:
 ManiasHouse_Blocks:
 CianwoodPharmacy_Blocks:
@@ -161,13 +158,27 @@ PlayersNeighborsHouse_Blocks:
 Route26HealHouse_Blocks:
 DayOfWeekSiblingsHouse_Blocks:
 Route27SandstormHouse_Blocks:
-MrPsychicsHouse_Blocks:
 Route5CleanseTagHouse_Blocks:
 CherrygroveGymSpeechHouse_Blocks:
 GuideGentsHouse_Blocks:
 CherrygroveEvolutionSpeechHouse_Blocks:
 Route30BerryHouse_Blocks:
 	INCBIN "maps/House1.blk"
+
+BillsHouse_Blocks:
+	INCBIN "maps/BillsHouse.blk"
+
+CeladonMansionRoofHouse_Blocks:
+	INCBIN "maps/CeladonMansionRoofHouse.blk"
+
+MrPsychicsHouse_Blocks:
+	INCBIN "maps/MrPsychicsHouse.blk"
+
+Route12SuperRodHouse_Blocks:
+	INCBIN "maps/Route12SuperRodHouse.blk"
+
+Route2Gate_Blocks:
+	INCBIN "maps/Route2Gate.blk"
 
 SafariZoneFuchsiaGateBeta_Blocks:
 Route19FuchsiaGate_Blocks:
@@ -178,7 +189,6 @@ Route36RuinsOfAlphGate_Blocks:
 Route34IlexForestGate_Blocks:
 Route6SaffronGate_Blocks:
 Route40BattleTowerGate_Blocks:
-Route2Gate_Blocks:
 Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
