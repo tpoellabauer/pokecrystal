@@ -8,6 +8,7 @@
 	const ROUTE9_YOUNGSTER1
 	const ROUTE9_HIKER3
 	const ROUTE9_YOUNGSTER2
+	const ROUTE9_TM_TELEPORT
 
 Route9_MapScripts:
 	def_scene_scripts
@@ -116,8 +117,11 @@ TrainerYoungsterClay:
 Route9Sign:
 	jumptext Route9SignText
 
-Route9HiddenEther:
-	hiddenitem ETHER, EVENT_ROUTE_9_HIDDEN_ETHER
+; Gen1 field itemball. TM_TELEPORT (TM30) has no Gen2 equivalent -> TM_RETURN substitute
+; (Normal-type, same precedent as RocketHideoutB2F/B3F's TM_HORN_DRILL/TM_DOUBLE_EDGE subs).
+; object_item whitelisted.
+Route9TmTeleport:
+	itemball TM_RETURN
 
 Cooltrainerf1Route9SeenText:
 	text "You have #MON"
@@ -282,16 +286,16 @@ Route9_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 15,  7, BGEVENT_READ, Route9Sign
-	bg_event 41, 15, BGEVENT_ITEM, Route9HiddenEther
+	bg_event 25,  7, BGEVENT_READ, Route9Sign
 
 	def_object_events
-	object_event 23, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerf1Route9, -1
-	object_event 11,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerm1Route9, -1
-	object_event 28,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerm2Route9, -1
-	object_event 39,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerf2Route9, -1
-	object_event 12, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 11, TrainerHikerCurtis, -1
-	object_event 36, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 6, TrainerHikerBuford, -1
-	object_event 16,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 13, TrainerYoungsterStuart, -1
-	object_event 20, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerHikerDarrell, -1
-	object_event 33, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 14, TrainerYoungsterClay, -1
+	object_event 13, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerf1Route9, -1
+	object_event 24,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerm1Route9, -1
+	object_event 31,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerm2Route9, -1
+	object_event 48,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerf2Route9, -1
+	object_event 16, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 11, TrainerHikerCurtis, -1
+	object_event 43,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 6, TrainerHikerBuford, -1
+	object_event 22,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 13, TrainerYoungsterStuart, -1
+	object_event 45, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerHikerDarrell, -1
+	object_event 40,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 14, TrainerYoungsterClay, -1
+	object_event 10, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route9TmTeleport, EVENT_ROUTE_9_TM_TELEPORT
