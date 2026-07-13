@@ -465,7 +465,6 @@ INCLUDE "maps/Route17.asm"
 INCLUDE "maps/Route16.asm"
 INCLUDE "maps/Route7.asm"
 INCLUDE "maps/Route14.asm"
-INCLUDE "maps/LavenderTown.asm"
 INCLUDE "maps/Route6.asm"
 INCLUDE "maps/Route5.asm"
 INCLUDE "maps/Route24.asm"
@@ -570,5 +569,15 @@ INCLUDE "maps/Museum1F.asm"
 INCLUDE "maps/VermilionPidgeyHouse.asm"
 INCLUDE "maps/VermilionTradeHouse.asm"
 INCLUDE "maps/VermilionOldRodHouse.asm"
+
+ENDSECTION
+
+
+; Split out of "Map Scripts 24" (2026-07-13): that bucket overflowed 0x4000 once
+; LavenderTown grew past skeleton size during its Gen1 re-author. Floating section, any
+; free bank -- same pattern as "Map Scripts 26"/"Map Scripts 27" above.
+SECTION "Map Scripts 28", ROMX
+
+INCLUDE "maps/LavenderTown.asm"
 
 ENDSECTION
