@@ -267,17 +267,21 @@ BetaSproutTower8_Blocks: ; unreferenced
 OlivineMart_Blocks:
 EcruteakMart_Blocks:
 BlackthornMart_Blocks:
-CeruleanMart_Blocks:
 AzaleaMart_Blocks:
 VioletMart_Blocks:
+CherrygroveMart_Blocks:
+	INCBIN "maps/Mart.blk"
+
+; Kanto Marts use the Gen 1 4x4 mart layout (byte-identical to Red's shared PokeMart.blk,
+; same as CinnabarMart) on TILESET_GEN1_MART -- moved off the GSC 6x4 Mart.blk.
+CeruleanMart_Blocks:
 VermilionMart_Blocks:
 PewterMart_Blocks:
 FuchsiaMart_Blocks:
 LavenderMart_Blocks:
 ViridianMart_Blocks:
 SaffronMart_Blocks:
-CherrygroveMart_Blocks:
-	INCBIN "maps/Mart.blk"
+	INCBIN "maps/KantoMart.blk"
 
 Route10North_Blocks:
 	INCBIN "maps/Route10North.blk"
