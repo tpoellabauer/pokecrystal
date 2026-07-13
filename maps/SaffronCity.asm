@@ -109,6 +109,15 @@ SaffronCityPokecenterSign:
 SaffronCityMartSign:
 	jumpstd MartSignScript
 
+SaffronCityTrainerTips1Sign:
+	jumptext SaffronCityTrainerTips1Text
+
+SaffronCityTrainerTips2Sign:
+	jumptext SaffronCityTrainerTips2Text
+
+SaffronCitySilphCoLatestProductSign:
+	jumptext SaffronCitySilphCoLatestProductText
+
 SaffronCityRocket1Text:
 	text "What do you want?"
 	line "Get lost!"
@@ -238,6 +247,38 @@ SaffronCityMagnetTrainStationSignText:
 	cont "STATION"
 	done
 
+SaffronCityTrainerTips1Text:
+	text "TRAINER TIPS"
+
+	para "FULL HEAL cures"
+	line "all ailments like"
+	cont "sleep and burns."
+
+	para "It costs a bit"
+	line "more, but it's"
+	cont "more convenient."
+	done
+
+SaffronCityTrainerTips2Text:
+	text "TRAINER TIPS"
+
+	para "New GREAT BALL"
+	line "offers improved"
+	cont "capture rates."
+
+	para "Try it on those"
+	line "hard-to-catch"
+	cont "#MON."
+	done
+
+SaffronCitySilphCoLatestProductText:
+	text "SILPH's latest"
+	line "product!"
+
+	para "Release to be"
+	line "determined..."
+	done
+
 SaffronCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -246,7 +287,7 @@ SaffronCity_MapEvents:
 	warp_event 34,  3, SAFFRON_GYM, 1
 	warp_event 25, 11, SAFFRON_MART, 2
 	warp_event  9, 29, SAFFRON_POKECENTER_1F, 1
-	warp_event 27, 29, MR_PSYCHICS_HOUSE, 1
+	warp_event 29, 29, MR_PSYCHICS_HOUSE, 1
 	warp_event  8,  3, SAFFRON_MAGNET_TRAIN_STATION, 2
 	warp_event 18, 21, SILPH_CO_1F, 1
 	warp_event  7,  5, COPYCATS_HOUSE_1F, 1
@@ -262,14 +303,17 @@ SaffronCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 21,  5, BGEVENT_READ, SaffronCitySign
-	bg_event 33,  5, BGEVENT_READ, SaffronGymSign
-	bg_event 25,  5, BGEVENT_READ, FightingDojoSign
+	bg_event 17,  5, BGEVENT_READ, SaffronCitySign
+	bg_event 35,  5, BGEVENT_READ, SaffronGymSign
+	bg_event 27,  5, BGEVENT_READ, FightingDojoSign
 	bg_event 15, 21, BGEVENT_READ, SilphCoSign
-	bg_event 25, 29, BGEVENT_READ, MrPsychicsHouseSign
+	bg_event 27, 29, BGEVENT_READ, MrPsychicsHouseSign
 	bg_event 11,  5, BGEVENT_READ, SaffronCityMagnetTrainStationSign
 	bg_event 10, 29, BGEVENT_READ, SaffronCityPokecenterSign
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
+	bg_event 39, 19, BGEVENT_READ, SaffronCityTrainerTips1Sign
+	bg_event  5, 21, BGEVENT_READ, SaffronCityTrainerTips2Sign
+	bg_event  1, 19, BGEVENT_READ, SaffronCitySilphCoLatestProductSign
 
 	def_object_events
 	object_event  7,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCityRocket1Script, -1
