@@ -2500,6 +2500,36 @@ _PlayCry::
 	call MusicOn
 	ret
 
+GetSFXHeader:
+; Gen 1 Kanto on Crystal: resolve sfx id de's 3-byte pointer entry, from RedSFX (the
+; ported Red sound pilot table) instead of SFX when the MUSIC_SOURCE option bit is set
+; (the same "RED" toggle already used for RedMusic; one option governs both). RedSFX
+; lives in a different ROMX bank than this routine (this bank is packed -- see
+; audio/sfx_red_pointers.asm's GetRedSFXHeader), so the red path farcalls out to read
+; it there instead of an inline cross-bank read: the same hazard RedMusic hit in
+; _PlayMusic above (an inline read at another bank's address fetches THIS bank's bytes
+; instead -- a garbage header that leaves a channel stuck SOUND_CHANNEL_ON and hangs
+; WaitSFX), avoided here by actually switching into RedSFX's bank instead of guessing
+; its layout from afar.
+; out: wMusicBank set, de = sfx header address. Clobbers a, hl.
+	ld a, [wOptions]
+	bit MUSIC_SOURCE, a
+	jr nz, .red
+	ld hl, SFX
+	add hl, de
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld [wMusicBank], a
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	ret
+
+.red
+	farcall GetRedSFXHeader
+	ret
+
 _PlaySFX::
 ; clear channels if they aren't already
 	call MusicOff
@@ -2567,17 +2597,7 @@ _PlaySFX::
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	ld hl, SFX
-	add hl, de ; three
-	add hl, de ; byte
-	add hl, de ; pointers
-	; get bank
-	ld a, [hli]
-	ld [wMusicBank], a
-	; get address
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
+	call GetSFXHeader
 	; get # channels
 	call LoadMusicByte
 	rlca ; top 2
@@ -2616,18 +2636,7 @@ PlayStereoSFX::
 	ld [hl], d
 
 ; get sfx ptr
-	ld hl, SFX
-	add hl, de
-	add hl, de
-	add hl, de
-
-; bank
-	ld a, [hli]
-	ld [wMusicBank], a
-; address
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
+	call GetSFXHeader
 
 ; bit 2-3
 	call LoadMusicByte

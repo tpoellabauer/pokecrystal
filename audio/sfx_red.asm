@@ -1,5 +1,6 @@
-; Gen 1 Kanto on Crystal: ported Red SFX (see tools/port_sfx.py).
-; Data-only -- not wired to a runtime toggle (see script docstring).
+; Gen 1 Kanto on Crystal: ported Red SFX (see tools/port_sfx.py). Selected by the
+; MUSIC_SOURCE option bit (wOptions), same toggle as RedMusic -- see GetSFXHeader
+; in audio/engine.asm.
 
 SECTION "Red SFX Pointers", ROMX
 
