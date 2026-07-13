@@ -22,6 +22,13 @@ Route19_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_TILES, Route19ClearRocksCallback
 
+; Gen 1: Route19_Object has an EMPTY def_warp_events -- Route 19 is pure open water between
+; Fuchsia City and Seafoam Islands, no gate building, no boulders. This whole rocks/gate
+; mechanic (this callback, ROUTE19_FUCHSIA_GATE, and EVENT_CINNABAR_ROCKS_CLEARED, also used by
+; Route19FuchsiaGate.asm + Route20.asm) is retained vanilla-GSC content spanning 3 maps; removing
+; it here alone would orphan Route19FuchsiaGate's south exit warp. Out of scope for a
+; Route19-only content pass (parity_static_whitelist.toml documents the resulting warp:1
+; divergence, same treatment as ROUTE_17's Route17Route18Gate).
 Route19ClearRocksCallback:
 	checkevent EVENT_CINNABAR_ROCKS_CLEARED
 	iftrue .Done
@@ -481,7 +488,7 @@ Route19Swimmer8AfterBattleText:
 	done
 
 Route19SignText:
-	text "ROUTE 19"
+	text "SEA ROUTE 19"
 
 	para "FUCHSIA CITY -"
 	line "SEAFOAM ISLANDS"
@@ -505,7 +512,7 @@ Route19_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 11, 13, BGEVENT_READ, Route19Sign
+	bg_event 11,  9, BGEVENT_READ, Route19Sign
 	bg_event 11,  1, BGEVENT_READ, CarefulSwimmingSign
 
 	def_object_events
@@ -515,13 +522,13 @@ Route19_MapEvents:
 	object_event  8, 23, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerSwimmermTucker, -1
 	object_event  9,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 1, Route19Fisher1Script, -1
 	object_event 11,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, Route19Fisher2Script, -1
-	object_event  6, 32, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19CoolTrainerM1, -1
-	object_event 11, 32, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19CoolTrainerM2, -1
-	object_event  4, 35, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer1, -1
-	object_event 14, 35, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer2, -1
-	object_event  6, 38, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer3, -1
-	object_event 12, 38, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer4, -1
-	object_event  4, 41, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer5, -1
-	object_event 14, 41, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer6, -1
-	object_event  9, 43, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer7, -1
-	object_event  9, 46, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer8, -1
+	object_event  8,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19CoolTrainerM1, -1
+	object_event 13,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19CoolTrainerM2, -1
+	object_event 13, 25, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer1, -1
+	object_event  4, 27, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer2, -1
+	object_event 16, 31, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer3, -1
+	object_event  9, 11, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer4, -1
+	object_event  8, 43, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer5, -1
+	object_event 11, 43, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer6, -1
+	object_event  9, 42, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer7, -1
+	object_event 10, 44, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerRoute19Swimmer8, -1
