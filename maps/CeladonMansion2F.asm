@@ -51,16 +51,14 @@ CeladonMansion2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  0,  0, CELADON_MANSION_1F, 4
-	warp_event  1,  0, CELADON_MANSION_3F, 2
-	warp_event  6,  0, CELADON_MANSION_3F, 3
-	warp_event  7,  0, CELADON_MANSION_1F, 5
+	warp_event  6,  1, CELADON_MANSION_3F, 1
+	warp_event  7,  1, CELADON_MANSION_1F, 4
+	warp_event  2,  1, CELADON_MANSION_1F, 5
+	warp_event  4,  1, CELADON_MANSION_3F, 4
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  0,  3, BGEVENT_READ, CeladonMansion2FComputer
-	bg_event  5,  8, BGEVENT_UP, CeladonMansion2FMeetingRoomSign
-	bg_event  2,  3, BGEVENT_READ, CeladonMansion2FBookshelf
+	bg_event  4,  9, BGEVENT_UP, CeladonMansion2FMeetingRoomSign
 
 	def_object_events
