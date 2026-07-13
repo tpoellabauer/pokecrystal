@@ -1,6 +1,8 @@
 	object_const_def
 	const ROCKETHIDEOUTB3F_ROCKET1
 	const ROCKETHIDEOUTB3F_ROCKET2
+	const ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE
+	const ROCKETHIDEOUTB3F_RARE_CANDY
 
 RocketHideoutB3F_MapScripts:
 	def_scene_scripts
@@ -83,17 +85,27 @@ RocketHideoutB3FRocket2AfterBattleText:
 	cont "inevitable!"
 	done
 
+; Gen1 field itemballs. TM_DOUBLE_EDGE has no Gen2 equivalent -> TM_RETURN substitute
+; (Normal-type, same as SS Anne's TM_BODY_SLAM sub); object_item whitelisted.
+RocketHideoutB3FTMDoubleEdge:
+	itemball TM_RETURN
+
+RocketHideoutB3FRareCandy:
+	itemball RARE_CANDY
+
 RocketHideoutB3F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 13,  2, ROCKET_HIDEOUT_B2F, 2
-	warp_event 13, 18, ROCKET_HIDEOUT_B4F, 1
+	warp_event 25,  6, ROCKET_HIDEOUT_B2F, 2
+	warp_event 19, 18, ROCKET_HIDEOUT_B4F, 1
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  8, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket1Script, -1
-	object_event 18, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket2Script, -1
+	object_event 10, 22, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket1Script, -1
+	object_event 26, 12, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket2Script, -1
+	object_event 26, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB3FTMDoubleEdge, EVENT_ROCKET_HIDEOUT_B3F_TM_DOUBLE_EDGE
+	object_event 20, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB3FRareCandy, EVENT_ROCKET_HIDEOUT_B3F_RARE_CANDY
