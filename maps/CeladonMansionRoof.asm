@@ -1,5 +1,3 @@
-	object_const_def
-	const CELADONMANSIONROOF_FISHER
 
 CeladonMansionRoof_MapScripts:
 	def_scene_scripts
@@ -35,14 +33,13 @@ CeladonMansionRoof_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  1,  1, CELADON_MANSION_3F, 1
-	warp_event  6,  1, CELADON_MANSION_3F, 4
-	warp_event  2,  5, CELADON_MANSION_ROOF_HOUSE, 1
+	warp_event  6,  1, CELADON_MANSION_3F, 2
+	warp_event  2,  1, CELADON_MANSION_3F, 3
+	warp_event  2,  7, CELADON_MANSION_ROOF_HOUSE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  6,  1, BGEVENT_LEFT, CeladonMansionRoofGraffiti
+	bg_event  3,  7, BGEVENT_READ, CeladonMansionRoofGraffiti
 
 	def_object_events
-	object_event  7,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofFisherScript, -1

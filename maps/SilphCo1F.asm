@@ -57,8 +57,11 @@ SilphCo1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  7, SAFFRON_CITY, 7
-	warp_event  3,  7, SAFFRON_CITY, 7
+	warp_event 10, 17, SAFFRON_CITY, 7
+	warp_event 11, 17, SAFFRON_CITY, 7
+	warp_event 26,  0, SILPH_CO_2F, 1
+	warp_event 20,  0, SILPH_CO_ELEVATOR, 1
+	warp_event 16, 10, SILPH_CO_3F, 7
 
 	def_coord_events
 

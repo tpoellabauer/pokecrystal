@@ -10,6 +10,7 @@
 	const ROUTE25_HIKER1
 	const ROUTE25_HIKER2
 	const ROUTE25_HIKER3
+	const ROUTE25_TM_SEISMIC_TOSS
 
 Route25_MapScripts:
 	def_scene_scripts
@@ -430,6 +431,11 @@ UnusedBillsHouseSignText: ; unreferenced
 	text "BILL'S HOUSE"
 	done
 
+; Gen1 field itemball. TM_SEISMIC_TOSS has no Gen2 equivalent -> TM_RETURN substitute
+; (Normal-type, SS Anne TM_BODY_SLAM precedent); object_item whitelisted.
+Route25TMSeismicToss:
+	itemball TM_RETURN
+
 Route25_MapEvents:
 	db 0, 0 ; filler
 
@@ -457,3 +463,4 @@ Route25_MapEvents:
 	object_event  8,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerRoute25_1, -1
 	object_event 23,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerRoute25_2, -1
 	object_event 13,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerRoute25_3, -1
+	object_event 22,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route25TMSeismicToss, EVENT_ROUTE_25_TM_SEISMIC_TOSS

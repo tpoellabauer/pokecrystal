@@ -21,7 +21,7 @@ SilphCoElevator_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  2, SILPH_CO_1F, 1
+	warp_event  2,  2, SILPH_CO_1F, 4
 
 	def_coord_events
 
