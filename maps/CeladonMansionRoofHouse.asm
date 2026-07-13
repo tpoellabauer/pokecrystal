@@ -60,5 +60,5 @@ CeladonMansionRoofHouse_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  3,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseHikerScript, -1
-	object_event  5,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseEeveePokeballScript, EVENT_GOT_EEVEE
+	object_event  2,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseHikerScript, -1
+	object_event  4,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseEeveePokeballScript, EVENT_GOT_EEVEE

@@ -1,5 +1,3 @@
-	object_const_def
-	const ROCKETHIDOUTELEVATOR_ELEVATOR
 
 RocketHideoutElevator_MapScripts:
 	def_scene_scripts
@@ -23,11 +21,12 @@ RocketHideoutElevator_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  2, ROCKET_HIDEOUT_B1F, 3
+	warp_event  2,  1, ROCKET_HIDEOUT_B1F, 3
+	warp_event  3,  1, ROCKET_HIDEOUT_B1F, 5
 
 	def_coord_events
 
 	def_bg_events
+	bg_event  1,  1, BGEVENT_READ, RocketHideoutElevatorScript
 
 	def_object_events
-	object_event  2,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutElevatorScript, -1

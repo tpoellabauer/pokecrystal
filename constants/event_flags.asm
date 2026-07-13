@@ -1545,6 +1545,8 @@
 ; Route 2: Gen 1 field item balls
 	const EVENT_ROUTE_2_MOON_STONE
 	const EVENT_ROUTE_2_HP_UP
+; Route 25: Gen 1 field item ball
+	const EVENT_ROUTE_25_TM_SEISMIC_TOSS
 ; Rocket Hideout B1F-B4F (batch RH1)
 	const EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_0
 	const EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_1
