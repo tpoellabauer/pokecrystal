@@ -1946,6 +1946,8 @@
 ; Gen 1 Safari Zone Gate entry fee (500 pokedollar). The ball-limit/step-timer session
 ; itself is a separate, larger follow-up -- see docs/PORT_BACKLOG.md.
 	const EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
+; Gen1 Route 9 field itemball (TM_TELEPORT -> TM_RETURN substitute, see Route9.asm).
+	const EVENT_ROUTE_9_TM_TELEPORT
 
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)

@@ -364,8 +364,8 @@ ENDM
 	connection east, Route9, ROUTE_9, 4
 
 	map_attributes Route9, ROUTE_9, $2c
-	connection south, Route10North, ROUTE_10_NORTH, 20
 	connection west, CeruleanCity, CERULEAN_CITY, -4
+	connection east, Route10North, ROUTE_10_NORTH, 0
 
 	map_attributes Route24, ROUTE_24, $2c
 	connection south, CeruleanCity, CERULEAN_CITY, -5
@@ -387,8 +387,8 @@ ENDM
 	connection east, LavenderTown, LAVENDER_TOWN, 0
 
 	map_attributes Route10North, ROUTE_10_NORTH, $2c
-	connection north, Route9, ROUTE_9, -20
 	connection south, Route10South, ROUTE_10_SOUTH, 0
+	connection west, Route9, ROUTE_9, 0
 
 	map_attributes Route10South, ROUTE_10_SOUTH, $2c
 	connection north, Route10North, ROUTE_10_NORTH, 0
