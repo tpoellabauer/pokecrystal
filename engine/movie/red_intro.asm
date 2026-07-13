@@ -186,9 +186,20 @@ RedIntroBattle:
 	ld hl, RedGengarTilemap1
 	call RedIntro_PlaceGengar
 
-; Resting position (skips Gen1's IntroMoveMon camera-pan slide-in -- see file header).
+; Resting position (skips Gen1's IntroMoveMon camera-pan slide-in ANIMATION -- see file
+; header -- but keeps its net FRAMING: over its 40 steps, Gen1's slide accumulates +80
+; onto both Nidorino's baseline X and the BG scroll (hSCX), which is what puts Nidorino
+; right-of-center facing a left-of-center Gengar. Dropping the animation but not this
+; offset left Nidorino scrunched at the far-left screen edge (X 0-48) while Gengar, with
+; hSCX still 0, sat pinned to the right edge -- confirmed via PyBoy OAM/hSCX inspection
+; (docs/PORT_BACKLOG.md #2). The raise/slash beats' own hSCX shake deltas (MOVE_GENGAR_
+; LEFT/RIGHT in Gen1) net to zero across the sequence and stay cut; only this one-time
+; slide-in offset actually affects final positioning.
+	ld a, 80
+	ldh [hSCX], a
 	xor a
 	ld [wRedIntroNidorinoBaseTile], a
+	ld a, 80
 	ld [wRedIntroBaseCoordX], a
 	ld a, 80
 	ld [wRedIntroBaseCoordY], a
