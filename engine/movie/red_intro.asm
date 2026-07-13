@@ -48,14 +48,32 @@ RedIntroSequence::
 ; ---------------------------------------------------------------------------
 ; Copyright screen + GAME FREAK PRESENTS bumper (ported gfx, static display).
 RedSplashScreen:
-	xor a
+; This engine leaves the window layer permanently enabled in LCDC (LCDC_DEFAULT,
+; home/init.asm) and hides it purely via hWY = SCREEN_HEIGHT_PX (off past the visible
+; 144 rows); hWY = 0 instead makes the (blank) window cover the whole screen, hiding
+; the background underneath -- confirmed via PyBoy: every frame of the intro rendered
+; a uniform blank screen until this was fixed.
+	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
+	xor a
 	ldh [hSCX], a
 	ldh [hSCY], a
 	call ClearSprites
 	call ClearBGPalettes
 	call ClearTilemap
 	call ClearScreen
+
+; Gen 1 Kanto on Crystal: DmgToCgbBGPals/ObjPals (used throughout this file) only
+; *reorder* whatever is already staged in wBGPals1/wOBPals1 -- they don't define a
+; palette from scratch. Without a preceding GetSGBLayout to populate that staging
+; area, wBGPals1 stays at its post-boot default and every beat below renders as a
+; uniform blank screen (confirmed via PyBoy: this was the actual bug, not a tile/
+; tilemap/window issue -- those were all already correct). SetDefaultBGPAndOBP is
+; the DmgToCgbBGPals/ObjPals pair below, done for us; pairing it with GetSGBLayout
+; matches pokecrystal's own SplashScreen (engine/movie/splash.asm).
+	ld b, SCGB_GAMEFREAK_LOGO
+	call GetSGBLayout
+	call SetDefaultBGPAndOBP
 
 ; Copyright strip: 19 tiles, single row, compiled with no --columns/dedup flags, so a
 ; plain sequential placement reproduces the source image exactly.
@@ -135,6 +153,10 @@ RedIntroBattle:
 	call ClearSprites
 	call ClearBGPalettes
 
+; See RedSplashScreen's comment above: GetSGBLayout must run before DmgToCgbBGPals/
+; ObjPals populate wBGPals1/wOBPals1, or these reorder stale/blank data.
+	ld b, SCGB_GAMEFREAK_LOGO
+	call GetSGBLayout
 	ld a, %11100100
 	call DmgToCgbBGPals
 	lb de, %11100100, %11100100
@@ -351,6 +373,12 @@ RedTitleScreen:
 	call ClearBGPalettes
 	call ClearTilemap
 	call ClearScreen
+
+; See RedSplashScreen's comment above.
+	ld b, SCGB_GAMEFREAK_LOGO
+	call GetSGBLayout
+	call SetDefaultBGPAndOBP
+
 	xor a
 	ldh [hSCX], a
 	ld a, 64
