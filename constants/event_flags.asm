@@ -1789,7 +1789,7 @@
 	const EVENT_BEAT_ROUTE_15_TRAINER_7
 	const EVENT_BEAT_ROUTE_15_TRAINER_8
 	const EVENT_BEAT_ROUTE_15_TRAINER_9
-	const EVENT_ROUTE_15_CARBOS
+	const EVENT_ROUTE_15_TM_RAGE
 ; Route 16 (6 Biker, 3 Cue Ball, Snorlax roadblock)
 	const EVENT_BEAT_ROUTE_16_TRAINER_0
 	const EVENT_BEAT_ROUTE_16_TRAINER_1
@@ -1950,6 +1950,25 @@
 	const EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
 ; Gen1 Route 9 field itemball (TM_TELEPORT -> TM_RETURN substitute, see Route9.asm).
 	const EVENT_ROUTE_9_TM_TELEPORT
+
+; Gen1 Rocket Hideout field itemballs + Giovanni/Rocket3 reveal gates (see
+; RocketHideoutB1F.asm / RocketHideoutB4F.asm).
+	const EVENT_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE
+	const EVENT_ROCKET_HIDEOUT_B1F_HYPER_POTION
+	const EVENT_ROCKET_HIDEOUT_B4F_HP_UP
+	const EVENT_ROCKET_HIDEOUT_B4F_TM_RAZOR_WIND
+	const EVENT_ROCKET_HIDEOUT_B4F_IRON
+	const EVENT_ROCKET_HIDEOUT_B4F_SILPH_SCOPE
+	const EVENT_ROCKET_HIDEOUT_B4F_LIFT_KEY
+	const EVENT_ROCKET_DROPPED_LIFT_KEY
+
+; Gen1 Route 4 field itemball (TM_WHIRLWIND -> TM_ROAR substitute, see Route4.asm).
+	const EVENT_ROUTE_4_TM_WHIRLWIND
+
+; Gen1 Bill's House: Bill-as-#MON / Bill NPC visibility + S.S.Ticket gift (BillsHouse.asm).
+	const EVENT_SEPARATED_BILL
+	const EVENT_BILLS_HOUSE_BILL
+	const EVENT_GOT_SS_TICKET_FROM_BILL
 
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)

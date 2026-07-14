@@ -160,6 +160,14 @@ Route22RivalExitMovement:
 VictoryRoadEntranceSign:
 	jumptext VictoryRoadEntranceSignText
 
+Route22PokemonLeagueSign:
+	jumptext Route22PokemonLeagueSignText
+
+Route22PokemonLeagueSignText:
+	text "#MON LEAGUE"
+	line "Front Gate"
+	done
+
 VictoryRoadEntranceSignText:
 	text "#MON LEAGUE"
 
@@ -279,6 +287,7 @@ Route22_MapEvents:
 
 	def_bg_events
 	bg_event 15,  7, BGEVENT_READ, VictoryRoadEntranceSign
+	bg_event  7, 11, BGEVENT_READ, Route22PokemonLeagueSign
 
 	def_object_events
 	object_event 25,  5, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route22RivalScript, EVENT_1ST_ROUTE22_RIVAL_BATTLE

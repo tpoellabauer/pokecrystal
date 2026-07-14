@@ -3,6 +3,7 @@
 	const MUSEUM1F_GAMBLER
 	const MUSEUM1F_SCIENTIST2
 	const MUSEUM1F_SCIENTIST3
+	const MUSEUM1F_OLD_AMBER
 
 Museum1F_MapScripts:
 	def_scene_scripts
@@ -26,6 +27,11 @@ Museum1FScientist2Script:
 
 Museum1FScientist3Script:
 	jumptextfaceplayer Museum1FScientist3Text
+
+; Gen 1's OLD_AMBER display object (SPRITE_OLD_AMBER, no Gen 2 sprite or OLD_AMBER item
+; exists) -- kept as the same examinable exhibit at the same tile, flavor text only.
+Museum1FOldAmberScript:
+	jumptext Museum1FOldAmberText
 
 Museum1FScientist1Text:
 	text "Welcome to the"
@@ -62,6 +68,11 @@ Museum1FScientist3Text:
 	cont "#MON!"
 	done
 
+Museum1FOldAmberText:
+	text "The AMBER is"
+	line "clear and gold!"
+	done
+
 Museum1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -80,3 +91,4 @@ Museum1F_MapEvents:
 	object_event  1,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Museum1FGamblerScript, -1
 	object_event 15,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Museum1FScientist2Script, -1
 	object_event 17,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Museum1FScientist3Script, -1
+	object_event 16,  2, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Museum1FOldAmberScript, -1

@@ -90,7 +90,7 @@ ItemDescriptions:
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw TeruSama6Desc
+	dw SilphScopeDesc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -100,7 +100,7 @@ ItemDescriptions:
 	dw WhtApricornDesc
 	dw BlackbeltDesc
 	dw BlkApricornDesc
-	dw TeruSama7Desc
+	dw LiftKeyDesc
 	dw PnkApricornDesc
 	dw BlackGlassesDesc
 	dw SlowpokeTailDesc
@@ -1024,3 +1024,11 @@ SecretKeyDesc:
 GoldTeethDesc:
 	db   "The SAFARI ZONE"
 	next "WARDEN's teeth.@"
+
+SilphScopeDesc:
+	db   "Lets you identify"
+	next "GHOST #MON.@"
+
+LiftKeyDesc:
+	db   "Operates the lift"
+	next "in ROCKET HIDEOUT.@"

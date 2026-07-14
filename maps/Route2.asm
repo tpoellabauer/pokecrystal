@@ -49,8 +49,8 @@ Route2_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  7, 51, BGEVENT_READ, Route2Sign
-	bg_event 11,  9, BGEVENT_READ, Route2DiglettsCaveSign
+	bg_event  5, 65, BGEVENT_READ, Route2Sign
+	bg_event 11, 11, BGEVENT_READ, Route2DiglettsCaveSign
 
 	def_object_events
 	object_event 13, 54, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2MoonStone, EVENT_ROUTE_2_MOON_STONE

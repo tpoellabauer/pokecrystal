@@ -122,9 +122,6 @@ TrainerRoute11Youngster4:
 Route11DiglettsCaveSign:
 	jumptext Route11DiglettsCaveSignText
 
-Route11Sign:
-	jumptext Route11SignText
-
 Route11FruitTree:
 	fruittree FRUITTREE_ROUTE_11
 
@@ -294,10 +291,6 @@ Route11DiglettsCaveSignText:
 	text "DIGLETT's CAVE"
 	done
 
-Route11SignText:
-	text "ROUTE 11"
-	done
-
 Route11_MapEvents:
 	db 0, 0 ; filler
 
@@ -307,7 +300,6 @@ Route11_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3,  7, BGEVENT_READ, Route11Sign
 	bg_event 32,  5, BGEVENT_ITEM, Route11HiddenRevive
 	bg_event  1,  5, BGEVENT_READ, Route11DiglettsCaveSign
 

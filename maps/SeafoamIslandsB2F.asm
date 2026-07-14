@@ -1,11 +1,18 @@
 ; Seafoam Islands B2F
 ; Gen 1 source: pokeredDisassembly/scripts/SeafoamIslandsB2F.asm
-; Optional boulder shortcut skipped -- see SeafoamIslands1F.asm's note.
+; Boulders ported as plain Gen 2 STRENGTH boulders, no floor-relay gate -- see SeafoamIslands1F.asm.
+
+	object_const_def
+	const SEAFOAMISLANDSB2F_BOULDER1
+	const SEAFOAMISLANDSB2F_BOULDER2
 
 SeafoamIslandsB2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+
+SeafoamIslandsB2FBoulder:
+	jumpstd StrengthBoulderScript
 
 SeafoamIslandsB2F_MapEvents:
 	db 0, 0 ; filler
@@ -24,3 +31,5 @@ SeafoamIslandsB2F_MapEvents:
 	def_bg_events
 
 	def_object_events
+	object_event 18,  6, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamIslandsB2FBoulder, -1
+	object_event 23,  6, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamIslandsB2FBoulder, -1

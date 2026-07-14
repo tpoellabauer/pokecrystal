@@ -27,11 +27,19 @@ TrainerLassTammy:
 	closetext
 	end
 
-MtMoonSquareSign:
-	jumptext MtMoonSquareSignText
+Route4PokecenterSign:
+	jumptext Route4PokecenterSignText
 
-Route4HPUp:
-	itemball HP_UP
+Route4MtMoonSign:
+	jumptext Route4MtMoonSignText
+
+Route4Sign:
+	jumptext Route4SignText
+
+; Gen 1 has TM32 Whirlwind here; Gen 2 has no Whirlwind TM, so the port gives its
+; direct functional equivalent, TM05 Roar (same force-switch effect).
+Route4TMWhirlwind:
+	itemball TM_ROAR
 
 Route4HiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_ROUTE_4_HIDDEN_ULTRA_BALL
@@ -61,11 +69,21 @@ LassTammyAfterBattleText:
 	line "them all."
 	done
 
-MtMoonSquareSignText:
-	text "MT.MOON SQUARE"
+Route4PokecenterSignText:
+	text "Heal Your #MON!"
+	line "#MON CENTER"
+	done
 
-	para "Just go up the"
-	line "stairs."
+Route4MtMoonSignText:
+	text "MT.MOON"
+	line "Tunnel Entrance"
+	done
+
+Route4SignText:
+	text "ROUTE 4"
+
+	para "MT.MOON -"
+	line "CERULEAN CITY"
 	done
 
 Route4_MapEvents:
@@ -77,10 +95,12 @@ Route4_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3,  7, BGEVENT_READ, MtMoonSquareSign
+	bg_event 12,  5, BGEVENT_READ, Route4PokecenterSign
+	bg_event 17,  7, BGEVENT_READ, Route4MtMoonSign
+	bg_event 27,  7, BGEVENT_READ, Route4Sign
 	bg_event 10,  3, BGEVENT_ITEM, Route4HiddenUltraBall
 
 	def_object_events
 	object_event  9,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route4CooltrainerFScript, -1
 	object_event 63,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerLassTammy, -1
-	object_event 26,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route4HPUp, EVENT_ROUTE_4_HP_UP
+	object_event 57,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route4TMWhirlwind, EVENT_ROUTE_4_TM_WHIRLWIND

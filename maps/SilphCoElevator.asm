@@ -1,11 +1,11 @@
-	object_const_def
-	const SILPHCOELEVATOR_ELEVATOR
-
 SilphCoElevator_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
+; Gen 1's elevator is an interactive floor panel (bg_event 3, 0 -> TEXT_SILPHCOELEVATOR_ELEVATOR,
+; which opens DisplayElevatorFloorMenu), not an NPC. The old port had a SPRITE_RECEPTIONIST
+; standing on the elevator's own warp tile (2, 2); removed. Same idiom as RocketHideoutElevator.
 SilphCoElevatorScript:
 	opentext
 	writetext SilphCoElevatorText
@@ -26,6 +26,6 @@ SilphCoElevator_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  3,  0, BGEVENT_READ, SilphCoElevatorScript
 
 	def_object_events
-	object_event  2,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoElevatorScript, -1

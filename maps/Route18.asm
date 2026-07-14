@@ -115,10 +115,10 @@ Route18_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  9,  5, BGEVENT_READ, Route18Sign
-	bg_event 15,  5, BGEVENT_READ, Route18CyclingRoadSign
+	bg_event 43,  7, BGEVENT_READ, Route18Sign
+	bg_event 33,  5, BGEVENT_READ, Route18CyclingRoadSign
 
 	def_object_events
-	object_event 12,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM1, -1
-	object_event 16,  9, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM2, -1
-	object_event 18,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM3, -1
+	object_event 36, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM1, -1
+	object_event 40, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM2, -1
+	object_event 42, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute18CoolTrainerM3, -1

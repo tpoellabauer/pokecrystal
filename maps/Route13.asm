@@ -120,6 +120,9 @@ TrainerRoute13CoolTrainerM3:
 Route13TrainerTips:
 	jumptext Route13TrainerTipsText
 
+Route13TrainerTips2:
+	jumptext Route13TrainerTips2Text
+
 Route13Sign:
 	jumptext Route13SignText
 
@@ -293,6 +296,14 @@ Route13TrainerTipsText:
 	cont "of the post."
 	done
 
+Route13TrainerTips2Text:
+	text "TRAINER TIPS"
+
+	para "Use SELECT to"
+	line "switch items in"
+	cont "the ITEM window!"
+	done
+
 Route13SignText:
 	text "ROUTE 13"
 
@@ -309,6 +320,7 @@ Route13_MapEvents:
 
 	def_bg_events
 	bg_event 15, 13, BGEVENT_READ, Route13TrainerTips
+	bg_event 33,  5, BGEVENT_READ, Route13TrainerTips2
 	bg_event 31, 11, BGEVENT_READ, Route13Sign
 	bg_event 16, 13, BGEVENT_ITEM, Route13HiddenCalcium
 

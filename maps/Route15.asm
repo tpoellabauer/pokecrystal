@@ -121,10 +121,11 @@ TrainerRoute15CoolTrainerF4:
 Route15Sign:
 	jumptext Route15SignText
 
-; Gen 1: this was TM_RAGE, not portable to Gen 2 (Rage isn't a TM here); subbed to
-; CARBOS to match CoolTrainerF4's own dialogue ("I found CARBOS in a cave once").
-Route15Carbos:
-	itemball CARBOS
+; Gen 1: TM_RAGE (TM20). Rage isn't a TM in Gen 2, so this is substituted with the
+; closest available Normal-type attacking TM, following the same substitution precedent
+; as TM_BODY_SLAM/TM_HORN_DRILL -> TM_RETURN and TM_EGG_BOMB -> TM_SWIFT.
+Route15TMRage:
+	itemball TM_HEADBUTT
 
 Route15CoolTrainerF1SeenText:
 	text "Let me try out the"
@@ -321,4 +322,4 @@ Route15_MapEvents:
 	object_event 46, 10, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute15Biker2, -1
 	object_event 37,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerF3, -1
 	object_event 18, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, TrainerRoute15CoolTrainerF4, -1
-	object_event 18,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15Carbos, EVENT_ROUTE_15_CARBOS
+	object_event 18,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15TMRage, EVENT_ROUTE_15_TM_RAGE

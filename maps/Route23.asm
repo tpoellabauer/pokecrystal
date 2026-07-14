@@ -38,6 +38,15 @@ Route23FlypointCallback:
 IndigoPlateauSign:
 	jumptext IndigoPlateauSignText
 
+; Gen 1 Route 23 sign, at the foot of the badge checkpoints (pokered text/Route23.asm).
+Route23VictoryRoadGateSign:
+	jumptext Route23VictoryRoadGateSignText
+
+Route23VictoryRoadGateSignText:
+	text "VICTORY ROAD GATE"
+	line "- #MON LEAGUE"
+	done
+
 IndigoPlateauSignText:
 	text "INDIGO PLATEAU"
 
@@ -367,6 +376,7 @@ Route23_MapEvents:
 
 	def_bg_events
 	bg_event 11,  7, BGEVENT_READ, IndigoPlateauSign
+	bg_event  3, 33, BGEVENT_READ, Route23VictoryRoadGateSign
 
 	def_object_events
 	object_event  4, 35, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route23EarthGuardScript, EVENT_ROUTE23_PASSED_EARTH_GUARD

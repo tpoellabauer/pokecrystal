@@ -4,6 +4,8 @@
 	const ROCKETHIDEOUTB1F_ROCKET3
 	const ROCKETHIDEOUTB1F_ROCKET4
 	const ROCKETHIDEOUTB1F_ROCKET5
+	const ROCKETHIDEOUTB1F_ESCAPE_ROPE
+	const ROCKETHIDEOUTB1F_HYPER_POTION
 
 RocketHideoutB1F_MapScripts:
 	def_scene_scripts
@@ -203,6 +205,13 @@ RocketHideoutB1FRocket5AfterBattleText:
 	line "opened the door!"
 	done
 
+; Gen1 field itemballs (pokeredDisassembly/data/maps/objects/RocketHideoutB1F.asm).
+RocketHideoutB1FEscapeRope:
+	itemball ESCAPE_ROPE
+
+RocketHideoutB1FHyperPotion:
+	itemball HYPER_POTION
+
 RocketHideoutB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -223,3 +232,5 @@ RocketHideoutB1F_MapEvents:
 	object_event 18, 17, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB1FRocket3Script, -1
 	object_event 15, 25, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB1FRocket4Script, -1
 	object_event 28, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB1FRocket5Script, -1
+	object_event 11, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB1FEscapeRope, EVENT_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE
+	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB1FHyperPotion, EVENT_ROCKET_HIDEOUT_B1F_HYPER_POTION

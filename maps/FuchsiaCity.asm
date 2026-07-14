@@ -9,7 +9,6 @@
 	const FUCHSIACITY_SLOWPOKE
 	const FUCHSIACITY_LAPRAS
 	const FUCHSIACITY_FOSSIL
-	const FUCHSIACITY_FRUIT_TREE
 
 FuchsiaCity_MapScripts:
 	def_scene_scripts
@@ -67,20 +66,20 @@ FuchsiaCityFossilScript:
 FuchsiaCitySign:
 	jumptext FuchsiaCitySignText
 
+FuchsiaCitySign2:
+	jumptext FuchsiaCitySignText
+
 FuchsiaGymSign:
 	jumptext FuchsiaGymSignText
 
-SafariZoneOfficeSign:
-	jumptext SafariZoneOfficeSignText
+SafariZoneSign:
+	jumptext SafariZoneSignText
 
 WardensHomeSign:
 	jumptext WardensHomeSignText
 
-SafariZoneClosedSign:
-	jumptext SafariZoneClosedSignText
-
-NoLitteringSign:
-	jumptext NoLitteringSignText
+SafariGameSign:
+	jumptext SafariGameSignText
 
 FuchsiaCityPokecenterSign:
 	jumpstd PokecenterSignScript
@@ -88,8 +87,28 @@ FuchsiaCityPokecenterSign:
 FuchsiaCityMartSign:
 	jumpstd MartSignScript
 
-FuchsiaCityFruitTree:
-	fruittree FRUITTREE_FUCHSIA_CITY
+; Gen 1's zoo exhibit plaques, one per caged #MON object (see the Gen 1 bg_event
+; table in pokeredDisassembly/data/maps/objects/FuchsiaCity.asm).
+FuchsiaCityChanseySign:
+	jumptext FuchsiaCityChanseySignText
+
+FuchsiaCityVoltorbSign:
+	jumptext FuchsiaCityVoltorbSignText
+
+FuchsiaCityKangaskhanSign:
+	jumptext FuchsiaCityKangaskhanSignText
+
+FuchsiaCitySlowpokeSign:
+	jumptext FuchsiaCitySlowpokeSignText
+
+FuchsiaCityLaprasSign:
+	jumptext FuchsiaCityLaprasSignText
+
+; Gen 1 shows OMANYTE or KABUTO here depending on the Mt. Moon fossil choice
+; (EVENT_GOT_DOME_FOSSIL/EVENT_GOT_HELIX_FOSSIL) -- not modeled yet, see
+; FuchsiaCityFossilScript above -- so this plaque reads the OMANYTE variant.
+FuchsiaCityFossilSign:
+	jumptext FuchsiaCityFossilSignText
 
 FuchsiaCityYoungster1Text:
 	text "Did you try the"
@@ -180,13 +199,9 @@ FuchsiaGymSignText:
 	line "Ninja Master"
 	done
 
-SafariZoneOfficeSignText:
-	text "There's a notice"
-	line "here…"
-
-	para "SAFARI ZONE OFFICE"
-	line "is closed until"
-	cont "further notice."
+SafariZoneSignText:
+	text "#MON PARADISE"
+	line "SAFARI ZONE"
 	done
 
 WardensHomeSignText:
@@ -194,20 +209,55 @@ WardensHomeSignText:
 	line "WARDEN'S HOME"
 	done
 
-SafariZoneClosedSignText:
-	text "The WARDEN is"
-	line "traveling abroad."
-
-	para "Therefore, the"
-	line "SAFARI ZONE is"
-	cont "closed."
+SafariGameSignText:
+	text "SAFARI GAME"
+	line "#MON-U-CATCH!"
 	done
 
-NoLitteringSignText:
-	text "No littering."
+FuchsiaCityChanseySignText:
+	text "Name: CHANSEY"
 
-	para "Please take your"
-	line "waste with you."
+	para "Catching one is"
+	line "all up to chance."
+	done
+
+FuchsiaCityVoltorbSignText:
+	text "Name: VOLTORB"
+
+	para "The very image of"
+	line "a # BALL."
+	done
+
+FuchsiaCityKangaskhanSignText:
+	text "Name: KANGASKHAN"
+
+	para "A maternal #MON"
+	line "that raises its"
+
+	para "young in a pouch"
+	line "on its belly."
+	done
+
+FuchsiaCitySlowpokeSignText:
+	text "Name: SLOWPOKE"
+
+	para "Friendly and very"
+	line "slow moving."
+	done
+
+FuchsiaCityLaprasSignText:
+	text "Name: LAPRAS"
+
+	para "A.K.A. the king"
+	line "of the seas."
+	done
+
+FuchsiaCityFossilSignText:
+	text "Name: OMANYTE"
+
+	para "A #MON that"
+	line "was resurrected"
+	cont "from a fossil."
 	done
 
 FuchsiaCity_MapEvents:
@@ -229,14 +279,20 @@ FuchsiaCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 21, 15, BGEVENT_READ, FuchsiaCitySign
+	bg_event 21, 15, BGEVENT_READ, SafariZoneSign
 	bg_event  5, 29, BGEVENT_READ, FuchsiaGymSign
-	bg_event 25, 15, BGEVENT_READ, SafariZoneOfficeSign
+	bg_event 25, 15, BGEVENT_READ, FuchsiaCitySign2
 	bg_event 27, 29, BGEVENT_READ, WardensHomeSign
-	bg_event 17,  5, BGEVENT_READ, SafariZoneClosedSign
-	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
+	bg_event 17,  5, BGEVENT_READ, SafariGameSign
+	bg_event 13, 15, BGEVENT_READ, FuchsiaCityLaprasSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
+	bg_event 15, 23, BGEVENT_READ, FuchsiaCitySign
+	bg_event 33,  7, BGEVENT_READ, FuchsiaCityChanseySign
+	bg_event 27,  7, BGEVENT_READ, FuchsiaCityVoltorbSign
+	bg_event 13,  7, BGEVENT_READ, FuchsiaCityKangaskhanSign
+	bg_event 31, 13, BGEVENT_READ, FuchsiaCitySlowpokeSign
+	bg_event  7,  7, BGEVENT_READ, FuchsiaCityFossilSign
 
 	def_object_events
 	object_event 10, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster1Script, -1
@@ -249,4 +305,3 @@ FuchsiaCity_MapEvents:
 	object_event 30, 12, SPRITE_MONSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCitySlowpokeScript, -1
 	object_event  8, 17, SPRITE_MONSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityLaprasScript, -1
 	object_event  6,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFossilScript, -1
-	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1

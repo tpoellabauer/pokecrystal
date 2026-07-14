@@ -428,7 +428,7 @@ SaffronGym_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  8, 15, BGEVENT_READ, SaffronGymStatue
+	bg_event  9, 15, BGEVENT_READ, SaffronGymStatue
 
 	def_object_events
 	object_event  9,  8, SPRITE_SABRINA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronGymSabrinaScript, -1

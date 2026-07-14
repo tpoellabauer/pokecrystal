@@ -25,6 +25,6 @@ Route7_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  5, 11, BGEVENT_READ, Route7UndergroundPathSign
+	bg_event  3, 13, BGEVENT_READ, Route7UndergroundPathSign
 
 	def_object_events

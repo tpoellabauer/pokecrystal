@@ -460,7 +460,6 @@ INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/Route21.asm"
 INCLUDE "maps/CinnabarIsland.asm"
 INCLUDE "maps/Route20.asm"
-INCLUDE "maps/Route18.asm"
 INCLUDE "maps/Route17.asm"
 INCLUDE "maps/Route16.asm"
 INCLUDE "maps/Route7.asm"
@@ -525,10 +524,8 @@ ENDSECTION
 ; and other Kanto endgame dungeons grew past skeleton size. Floating section, any free bank.
 SECTION "Map Scripts 26", ROMX
 
-INCLUDE "maps/RocketHideoutB1F.asm"
 INCLUDE "maps/RocketHideoutB2F.asm"
 INCLUDE "maps/RocketHideoutB3F.asm"
-INCLUDE "maps/RocketHideoutB4F.asm"
 INCLUDE "maps/RocketHideoutElevator.asm"
 INCLUDE "maps/SafariZoneCenter.asm"
 INCLUDE "maps/SafariZoneEast.asm"
@@ -579,5 +576,26 @@ ENDSECTION
 SECTION "Map Scripts 28", ROMX
 
 INCLUDE "maps/LavenderTown.asm"
+
+ENDSECTION
+
+
+; Split out of "Map Scripts 24" (2026-07-14): the Kanto-route bucket dropped under the
+; bank-budget floor once Route 18's Gen1 signs/trainers were re-authored. Floating
+; section, any free bank -- same pattern as "Map Scripts 28" above.
+SECTION "Map Scripts 29", ROMX
+
+INCLUDE "maps/Route18.asm"
+
+ENDSECTION
+
+
+; Split out of "Map Scripts 26" (2026-07-14): the Rocket Hideout bucket dropped under the
+; bank-budget floor once RocketHideoutB4F was re-authored from a stub to Gen1's full
+; Giovanni fight + 5 item balls. Floating section, any free bank.
+SECTION "Map Scripts 30", ROMX
+
+INCLUDE "maps/RocketHideoutB1F.asm"
+INCLUDE "maps/RocketHideoutB4F.asm"
 
 ENDSECTION

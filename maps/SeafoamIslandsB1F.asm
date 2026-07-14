@@ -1,11 +1,18 @@
 ; Seafoam Islands B1F
 ; Gen 1 source: pokeredDisassembly/scripts/SeafoamIslandsB1F.asm
-; Optional boulder shortcut skipped -- see SeafoamIslands1F.asm's note.
+; Boulders ported as plain Gen 2 STRENGTH boulders, no floor-relay gate -- see SeafoamIslands1F.asm.
+
+	object_const_def
+	const SEAFOAMISLANDSB1F_BOULDER1
+	const SEAFOAMISLANDSB1F_BOULDER2
 
 SeafoamIslandsB1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+
+SeafoamIslandsB1FBoulder:
+	jumpstd StrengthBoulderScript
 
 SeafoamIslandsB1F_MapEvents:
 	db 0, 0 ; filler
@@ -24,3 +31,5 @@ SeafoamIslandsB1F_MapEvents:
 	def_bg_events
 
 	def_object_events
+	object_event 17,  6, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamIslandsB1FBoulder, -1
+	object_event 22,  6, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamIslandsB1FBoulder, -1

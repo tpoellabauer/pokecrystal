@@ -90,7 +90,7 @@ Route1_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  7, 27, BGEVENT_READ, Route1Sign
+	bg_event  9, 27, BGEVENT_READ, Route1Sign
 
 	def_object_events
 	object_event  5, 24, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route1Youngster1Script, -1
