@@ -8027,7 +8027,24 @@ StartBattle:
 ; This check prevents you from entering a battle without any Pokemon.
 ; Those using walk-through-walls to bypass getting a Pokemon experience
 ; the effects of this check.
+;
+; wPartyCount (and the rest of "Party") isn't pinned to a fixed WRAMX bank
+; in this layout.link (unpinned to fix a bank-1 overflow) -- it floats to
+; wherever the linker fits it, unlike the rest of the "ambient bank 1"
+; cluster (wOTPartyCount, wCurBattleMon, wTrainerClass, ...) that the whole
+; battle engine reads unguarded. So switch just for this one read -- not
+; the whole battle -- and restore before BattleIntro/DoBattle run, so
+; everything else downstream still sees the ambient bank it expects.
+	ldh a, [rWBK]
+	push af
+	ld a, BANK(wPartyCount)
+	ldh [rWBK], a
 	ld a, [wPartyCount]
+	ld b, a
+	pop af
+	ldh [rWBK], a
+
+	ld a, b
 	and a
 	ret z
 
