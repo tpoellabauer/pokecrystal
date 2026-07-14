@@ -11,8 +11,10 @@ SafariZoneGate_MapScripts:
 
 ; Gen 1 SafariZoneGate.asm: pay 500 to enter, one time (afterward you can come and go freely
 ; through this gate, matching Gen1's `EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE`-gated dialogue below).
-; The ball-limit/step-timer session itself (30 Safari Balls, step-counted forced exit) is not
-; wired yet -- see docs/PORT_BACKLOG.md for the reusable engine pointers.
+; Each entry (first paid visit or a later free one) grants a fresh 30 Safari Balls
+; (`special GiveSafariBalls`, engine/events/bug_contest/contest.asm -- shares Gen1's ball
+; counter WRAM byte, wParkBallsRemaining/wSafariBallsRemaining). The step-counted timer that
+; forces you out at 0 steps remaining is still not wired -- see docs/PORT_BACKLOG.md.
 SafariZoneGateWorker1Script:
 	checkevent EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
 	iftrue .AlreadyPaid
@@ -25,12 +27,14 @@ SafariZoneGateWorker1Script:
 	takemoney YOUR_MONEY, SAFARI_ZONE_ENTRANCE_FEE
 	special PlaceMoneyTopRight
 	setevent EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
+	special GiveSafariBalls
 	writetext SafariZoneGateWorker1PaidText
 	waitbutton
 	closetext
 	end
 
 .AlreadyPaid:
+	special GiveSafariBalls
 	jumptextfaceplayer SafariZoneGateWorker1WelcomeBackText
 
 .NotEnoughMoney:

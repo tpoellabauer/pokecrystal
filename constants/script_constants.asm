@@ -294,6 +294,10 @@ DEF BUG_CONTEST_BALLS EQU 20
 DEF BUG_CONTEST_MINUTES EQU 20
 DEF BUG_CONTEST_SECONDS EQU 0
 DEF BUG_CONTEST_PLAYER EQU 1
+
+; Safari Zone Gate: Gen1 grants 30 Safari Balls per paid entry (GiveSafariBalls,
+; engine/events/bug_contest/contest.asm).
+DEF SAFARI_ZONE_BALLS EQU 30
 DEF NUM_BUG_CONTESTANTS EQU 10 ; not counting the player
 DEF BUG_CONTESTANT_SIZE EQU 4
 

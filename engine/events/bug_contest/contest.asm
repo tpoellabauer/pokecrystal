@@ -6,6 +6,15 @@ GiveParkBalls:
 	farcall StartBugContestTimer
 	ret
 
+; Gen1's Safari Zone reuses this same ball counter (wParkBallsRemaining ==
+; wSafariBallsRemaining, see ram/wram.asm) but has its own step-counted (not wall-clock)
+; timer that isn't wired yet (see docs/PORT_BACKLOG.md) -- this only grants the balls,
+; called from SafariZoneGate.asm's entrance-fee script.
+GiveSafariBalls:
+	ld a, SAFARI_ZONE_BALLS
+	ld [wSafariBallsRemaining], a
+	ret
+
 BugCatchingContestBattleScript::
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CONTEST
 	randomwildmon
