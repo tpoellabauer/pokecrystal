@@ -86,7 +86,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 55
 	tilecoll DOOR, FLOOR, DOOR, FLOOR ; 56
 	tilecoll FLOOR, DOOR, FLOOR, DOOR ; 57
-	tilecoll DOOR, DOOR, CAVE, CAVE ; 58
+	tilecoll WALL, FLOOR, CAVE, CAVE ; 58
 	tilecoll FLOOR, FLOOR, DOOR, DOOR ; 59
 	tilecoll WALL, WALL, WALL, WALL ; 5a
 	tilecoll WALL, WALL, WALL, WALL ; 5b
