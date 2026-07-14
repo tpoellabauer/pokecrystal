@@ -6,12 +6,20 @@ SSAnneCaptainsRoom_MapScripts:
 
 	def_callbacks
 
-; Captain gives HM01 (Cut) on back rub
+; Captain gives HM01 (Cut) on back rub. Gen1 gates this behind a repeated-B-press
+; minigame with no Gen2 macro equivalent; simplified to a straight one-time gift
+; on first talk (precedent: BillsHouse/one-time-item-give idiom).
 SSAnneCaptainsRoomCaptainScript:
 	faceplayer
 	opentext
+	checkevent EVENT_GOT_HM01_CUT
+	iftrue .Done
 	writetext SSAnneCaptainsRoomCaptainText
 	waitbutton
+	giveitem HM_CUT
+	iffalse .Done
+	setevent EVENT_GOT_HM01_CUT
+.Done:
 	closetext
 	end
 
