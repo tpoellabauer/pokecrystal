@@ -59,8 +59,11 @@ IndigoPlateauSignText:
 ; Gen 1: Route 23 is the 7-guard progressive-badge gauntlet blocking the final approach to the
 ; #MON League (pokeredDisassembly/scripts/Route23.asm) -- one guard per Kanto badge, checked in
 ; the order a player earns them (Cascade..Earth; Boulder isn't checked, same as Gen 1, since it's
-; the very first gym). This port's Route23.blk is byte-identical to Gen 1's real Route23 (10x72),
-; so Gen 1's real guard Y-coordinates are reused directly. Simplified from Gen 1's raw per-step
+; the very first gym). The gauntlet corridor matches Gen 1's Route23 (10x72) closely enough that
+; Gen 1's real guard Y-coordinates are reused directly and verified walkable in PyBoy; the map's
+; League approach, however, uses GSC topology (warps to VICTORY_ROAD / INDIGO_PLATEAU_POKECENTER_1F,
+; NOT Gen 1's map-edge connections + ROUTE_22_GATE -- see issue #43 / the parity whitelist), so the
+; .blk is NOT byte-identical to Gen 1's. Simplified from Gen 1's raw per-step
 ; wYCoord auto-block (bespoke asm, no Gen 2 macro equivalent -- see maps-and-scripting skill) to
 ; the established Gen 2 idiom instead (precedent: VictoryRoadGate's coord_event/scene gate): each
 ; guard is a solid, badge-gated NPC with its own coord_event one tile south of it (so a
