@@ -3340,6 +3340,20 @@ wPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
 endr
 wPartyMonNicknamesEnd::
 
+; Gen 1 Kanto on Crystal: SVBK-bank tripwires (issue #35). The game runs party/overworld state at
+; the ambient SVBK=1 set once in home/init.asm, so every section below MUST link to WRAM bank 1. A
+; section silently floating to another bank -- as "Party" did on 2026-07-08, which became #35 --
+; still builds, but then givepoke/HealParty no-op and some map loads wedge. Fail the link instead of
+; shipping the corruption. If one trips: reclaim WRAM bank-1 space (see the `ds 44` reserve above),
+; do NOT move the section to another bank.
+assert BANK(wPartyCount) == 1        ; "Party"
+assert BANK(wOTPartyCount) == 1      ; "Enemy Party" (enemy/OT battle party)
+assert BANK(wEventFlags) == 1        ; "Enemy Party" (NUM_EVENTS $800->$a00 grew this, forced #35)
+assert BANK(wMapStatus) == 1         ; "Enemy Party" (warp/map-load status; harness hardcodes it)
+assert BANK(wStringBuffer1) == 1     ; "More WRAM 1"
+assert BANK(wBufferMonNickname) == 1 ; "Miscellaneous WRAM 1"
+assert BANK(wDefaultSpawnpoint) == 1 ; "WRAM 1" (harness hardcodes 0xD001)
+
 	ds 22
 
 wPokedexCaught:: flag_array NUM_POKEMON
