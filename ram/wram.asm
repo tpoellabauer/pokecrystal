@@ -3162,7 +3162,10 @@ wKenjiFightCount::   db ; unreferenced
 wParryFightCount::   db
 wErinFightCount::    db
 
-	ds 100
+	ds 44 ; Gen 1 Kanto on Crystal: was `ds 100` upstream reserve; 56 bytes reclaimed so the
+	      ; enlarged wEventFlags (NUM_EVENTS $800->$a00) plus "Party" both fit in WRAM bank 1.
+	      ; "Party" MUST stay in bank 1 (layout.link): the game runs party ops at ambient SVBK=1,
+	      ; so a bank-2 party silently no-ops givepoke/HealParty (issue #35).
 
 wEventFlags:: flag_array NUM_EVENTS
 
