@@ -600,5 +600,7 @@ INCLUDE "maps/RocketHideoutB4F.asm"
 INCLUDE "maps/CinnabarLabTradeRoom.asm"
 INCLUDE "maps/CinnabarLabMetronomeRoom.asm"
 INCLUDE "maps/CinnabarLabFossilRoom.asm"
+INCLUDE "maps/ViridianSchoolHouse.asm"
+INCLUDE "maps/FuchsiaGoodRodHouse.asm"
 
 ENDSECTION

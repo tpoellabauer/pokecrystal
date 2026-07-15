@@ -507,7 +507,8 @@ Route19_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  7,  3, ROUTE_19_FUCHSIA_GATE, 3
+	; No warps here in Gen 1 (issue #44): Route19<->FuchsiaCity connects normally;
+	; ROUTE_19_FUCHSIA_GATE was a GSC-era bogus border gate with no Gen1 counterpart.
 
 	def_coord_events
 

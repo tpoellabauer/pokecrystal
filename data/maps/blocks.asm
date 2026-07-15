@@ -1290,4 +1290,10 @@ CinnabarLabMetronomeRoom_Blocks:
 CinnabarLabFossilRoom_Blocks:
 	INCBIN "maps/CinnabarLabFossilRoom.blk"
 
+ViridianSchoolHouse_Blocks:
+	INCBIN "maps/ViridianSchoolHouse.blk"
+
+FuchsiaGoodRodHouse_Blocks:
+	INCBIN "maps/FuchsiaGoodRodHouse.blk"
+
 ENDSECTION

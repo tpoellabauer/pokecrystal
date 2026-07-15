@@ -72,10 +72,12 @@ Route2Gate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  0, ROUTE_2, 3
-	warp_event  5,  0, ROUTE_2, 4
-	warp_event  4,  7, ROUTE_2, 2
-	warp_event  5,  7, ROUTE_2, 2
+	; Route2's north/south doors now collapse to single slots 5/6 (issue #44 Gen 1
+	; geometry fix); both physical door tiles on each side land on the same slot.
+	warp_event  4,  0, ROUTE_2, 5
+	warp_event  5,  0, ROUTE_2, 5
+	warp_event  4,  7, ROUTE_2, 6
+	warp_event  5,  7, ROUTE_2, 6
 
 	def_coord_events
 

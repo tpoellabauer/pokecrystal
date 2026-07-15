@@ -32,10 +32,10 @@ Route2TradeHouse_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	; Front door; Route2's warp list gains 3 entries (north gate/trade house/south
-	; gate) appended after its existing 5, so this map's own slot there is #7.
-	warp_event  2,  7, ROUTE_2, 7
-	warp_event  3,  7, ROUTE_2, 7
+	; Front door; Route2's Gen1-geometry warp list (issue #44) has this map's own
+	; slot at #4.
+	warp_event  2,  7, ROUTE_2, 4
+	warp_event  3,  7, ROUTE_2, 4
 
 	def_coord_events
 

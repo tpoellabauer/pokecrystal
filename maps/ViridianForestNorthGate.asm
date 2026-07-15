@@ -39,10 +39,10 @@ ViridianForestNorthGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	; South (Route 2) side; Route2's warp list gains 3 entries appended after its
-	; existing 5, so this gate's slot there is #6, not Gen1's "2".
-	warp_event  4,  0, ROUTE_2, 6
-	warp_event  5,  0, ROUTE_2, 6
+	; South (Route 2) side; Route2's Gen1-geometry warp list (issue #44) has this
+	; gate's slot at #3, not Gen1's "2".
+	warp_event  4,  0, ROUTE_2, 3
+	warp_event  5,  0, ROUTE_2, 3
 	warp_event  4,  7, VIRIDIAN_FOREST, 1
 	warp_event  5,  7, VIRIDIAN_FOREST, 1
 

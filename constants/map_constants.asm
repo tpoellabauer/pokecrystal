@@ -399,6 +399,7 @@ ENDM
 	map_const SAFARI_ZONE_NORTH_REST_HOUSE,                 4,  4 ; 21
 	map_const SAFARI_ZONE_WEST_REST_HOUSE,                  4,  4 ; 22
 	map_const SAFARI_ZONE_SECRET_HOUSE,                     4,  4 ; 23
+	map_const FUCHSIA_GOOD_ROD_HOUSE,                       4,  4 ; 24
 	endgroup
 
 	newgroup LAVENDER                                             ; 18
@@ -511,6 +512,7 @@ ENDM
 	map_const ROUTE_2_TRADE_HOUSE,                          4,  4 ; 14
 	map_const VIRIDIAN_FOREST_NORTH_GATE,                   5,  4 ; 15
 	map_const VIRIDIAN_FOREST_SOUTH_GATE,                   5,  4 ; 16
+	map_const VIRIDIAN_SCHOOL_HOUSE,                        4,  4 ; 17
 	endgroup
 
 	newgroup NEW_BARK                                             ; 24

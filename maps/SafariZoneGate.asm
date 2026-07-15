@@ -100,8 +100,10 @@ SafariZoneGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  5, ROUTE_19_FUCHSIA_GATE, 5
-	warp_event  4,  5, ROUTE_19_FUCHSIA_GATE, 5
+	; Gen 1 geometry (issue #44): retargeted from the bogus ROUTE_19_FUCHSIA_GATE
+	; stub straight to FuchsiaCity's (18,3) door (this map's south side).
+	warp_event  3,  5, FUCHSIA_CITY, 7
+	warp_event  4,  5, FUCHSIA_CITY, 7
 	warp_event  3,  0, SAFARI_ZONE_CENTER, 1
 	warp_event  4,  0, SAFARI_ZONE_CENTER, 2
 

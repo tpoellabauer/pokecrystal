@@ -35,15 +35,14 @@ Route2_MapEvents:
 
 	def_warp_events
 	warp_event 15, 15, ROUTE_2_NUGGET_HOUSE, 1
-	warp_event 15, 31, ROUTE_2_GATE, 3
-	warp_event 16, 27, ROUTE_2_GATE, 1
-	warp_event 17, 27, ROUTE_2_GATE, 2
-	warp_event 12,  7, DIGLETTS_CAVE_ROUTE_2, 1
-	; Viridian Forest gates + trade house restored from Gen 1 (see NEEDS-MAP
-	; backlog); appended after the 5 entries above, so their own doors target
-	; slots 6/7/8 here (not the Gen1 source's own numbering for this map).
+	warp_event 12,  9, DIGLETTS_CAVE_ROUTE_2, 1
 	warp_event  3, 11, VIRIDIAN_FOREST_NORTH_GATE, 2
 	warp_event 15, 19, ROUTE_2_TRADE_HOUSE, 1
+	; Gen 1 geometry (issue #44): Route2Gate is one north/south pass-through door
+	; pair (not the old 3-slot GSC layout); both physical doors on each side
+	; collapse to a single landing slot (5/6), matching Route2Gate's own doors.
+	warp_event 16, 35, ROUTE_2_GATE, 1
+	warp_event 15, 39, ROUTE_2_GATE, 3
 	warp_event  3, 43, VIRIDIAN_FOREST_SOUTH_GATE, 3
 
 	def_coord_events

@@ -303,8 +303,10 @@ Route15_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  4, ROUTE_15_FUCHSIA_GATE, 3
-	warp_event  2,  5, ROUTE_15_FUCHSIA_GATE, 4
+	; No gate here in Gen 1 (issue #44): Route15<->FuchsiaCity connects normally;
+	; Route15Gate1F is a real Gen1 mid-route Cycling-style checkpoint (see
+	; pokeredDisassembly/data/maps/objects/Route15.asm) still unported -- deferred,
+	; not part of this issue's scope (tracked as remaining work).
 
 	def_coord_events
 

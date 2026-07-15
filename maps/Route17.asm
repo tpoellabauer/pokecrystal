@@ -346,8 +346,9 @@ Route17_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 82, ROUTE_17_ROUTE_18_GATE, 1
-	warp_event 17, 83, ROUTE_17_ROUTE_18_GATE, 2
+	; No warps here in Gen 1 (issue #44): Route17Route18Gate was a GSC-era bogus
+	; Route17/Route18-border crossing; repurposed as Route18's own mid-route gate.
+	; Route17<->Route18 connects via the normal map connection only.
 
 	def_coord_events
 

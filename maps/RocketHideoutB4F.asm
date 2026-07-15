@@ -216,7 +216,11 @@ RocketHideoutB4F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 13, 18, ROCKET_HIDEOUT_B3F, 2
+	; Gen 1 geometry (issue #44): moved to match pokeredDisassembly's coordinate
+	; (.blk is already Gen1-ported; only this coord was stale). The Elevator
+	; connection (Gen1 floor-select warp to B1F/B2F/B4F) is not yet ported --
+	; RocketHideoutElevator.asm only implements the B1F leg so far; deferred.
+	warp_event 19, 10, ROCKET_HIDEOUT_B3F, 2
 
 	def_coord_events
 

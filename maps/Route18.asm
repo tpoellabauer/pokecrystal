@@ -109,8 +109,14 @@ Route18_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  6, ROUTE_17_ROUTE_18_GATE, 3
-	warp_event  2,  7, ROUTE_17_ROUTE_18_GATE, 4
+	; Gen 1 geometry (issue #44): the Cycling Road gate sits mid-route (west/east
+	; doors), not on the Route17 border -- Route17<->Route18 already has a normal
+	; map connection (data/maps/attributes.asm); Route17Route18Gate is repurposed
+	; as this map's own west/east pass-through (see Route17Route18Gate.asm).
+	warp_event 33,  8, ROUTE_17_ROUTE_18_GATE, 1
+	warp_event 33,  9, ROUTE_17_ROUTE_18_GATE, 2
+	warp_event 40,  8, ROUTE_17_ROUTE_18_GATE, 3
+	warp_event 40,  9, ROUTE_17_ROUTE_18_GATE, 4
 
 	def_coord_events
 

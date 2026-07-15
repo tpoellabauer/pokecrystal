@@ -858,3 +858,7 @@ ENDM
 	map_attributes CinnabarLabMetronomeRoom, CINNABAR_LAB_METRONOME_ROOM, $17
 
 	map_attributes CinnabarLabFossilRoom, CINNABAR_LAB_FOSSIL_ROOM, $17
+
+	map_attributes ViridianSchoolHouse, VIRIDIAN_SCHOOL_HOUSE, $0a
+
+	map_attributes FuchsiaGoodRodHouse, FUCHSIA_GOOD_ROD_HOUSE, $0c

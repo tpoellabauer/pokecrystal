@@ -347,6 +347,10 @@ ViridianCity_MapEvents:
 	warp_event 23, 15, TRAINER_HOUSE_1F, 1
 	warp_event 29, 19, VIRIDIAN_MART, 2
 	warp_event 23, 25, VIRIDIAN_POKECENTER_1F, 1
+	; Gen 1 VIRIDIAN_SCHOOL_HOUSE (issue #44): authored as a distinct map from
+	; pokeredDisassembly (was entirely missing; TRAINER_HOUSE_1F above is a
+	; separate, unrelated Gen2-era building kept as bonus content).
+	warp_event 21, 15, VIRIDIAN_SCHOOL_HOUSE, 6
 
 	def_coord_events
 	coord_event 17,  9, SCENE_ALWAYS, ViridianCityPokedexGate

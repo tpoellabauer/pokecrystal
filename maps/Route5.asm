@@ -19,9 +19,11 @@ Route5_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 15, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 1
-	warp_event  8, 17, ROUTE_5_SAFFRON_GATE, 1
-	warp_event  9, 17, ROUTE_5_SAFFRON_GATE, 2
+	; Gen 1 geometry (issue #44): moved to match pokeredDisassembly/data/maps/objects/
+	; Route5.asm coordinates (.blk is already Gen1-ported; only these coords were stale).
+	warp_event 17, 27, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 1
+	warp_event  9, 29, ROUTE_5_SAFFRON_GATE, 1
+	warp_event 10, 29, ROUTE_5_SAFFRON_GATE, 2
 	warp_event 10, 11, ROUTE_5_CLEANSE_TAG_HOUSE, 1
 
 	def_coord_events

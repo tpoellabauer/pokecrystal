@@ -270,11 +270,14 @@ FuchsiaCity_MapEvents:
 	warp_event 11, 27, BILLS_OLDER_SISTERS_HOUSE, 1
 	warp_event 19, 27, FUCHSIA_POKECENTER_1F, 1
 	warp_event 27, 27, SAFARI_ZONE_WARDENS_HOME, 1
-	warp_event 18,  3, SAFARI_ZONE_FUCHSIA_GATE_BETA, 3 ; inaccessible
-	warp_event 37, 22, ROUTE_15_FUCHSIA_GATE, 1
-	warp_event 37, 23, ROUTE_15_FUCHSIA_GATE, 2
-	warp_event  7, 35, ROUTE_19_FUCHSIA_GATE, 1
-	warp_event  8, 35, ROUTE_19_FUCHSIA_GATE, 2
+	; Gen 1 geometry (issue #44): was wired to the unreachable GSC-beta
+	; SafariZoneFuchsiaGateBeta stub; the real, fully-authored SafariZoneGate
+	; (entrance fee + Safari Balls) sat unreferenced from this side.
+	warp_event 18,  3, SAFARI_ZONE_GATE, 1
+	; FuchsiaGoodRodHouse was entirely missing (issue #44); authored from
+	; pokeredDisassembly's FuchsiaGoodRodHouse (Gen 1 Good Rod giver).
+	warp_event 31, 27, FUCHSIA_GOOD_ROD_HOUSE, 1
+	warp_event 31, 24, FUCHSIA_GOOD_ROD_HOUSE, 3
 
 	def_coord_events
 
