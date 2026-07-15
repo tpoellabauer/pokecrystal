@@ -295,6 +295,9 @@ DEF KRIS EQU __trainer_class__
 	const STEVE ; unused
 	const ALLEN
 	const DARIN
+	const COOLTRAINERM_VICTORYROAD_1F ; Gen 1 Victory Road 1F
+	const COOLTRAINERM_VICTORYROAD_3F_1 ; Gen 1 Victory Road 3F
+	const COOLTRAINERM_VICTORYROAD_3F_2 ; Gen 1 Victory Road 3F
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -318,6 +321,9 @@ DEF KRIS EQU __trainer_class__
 	const REENA2
 	const REENA3
 	const CARA
+	const COOLTRAINERF_VICTORYROAD_1F ; Gen 1 Victory Road 1F
+	const COOLTRAINERF_VICTORYROAD_3F_1 ; Gen 1 Victory Road 3F
+	const COOLTRAINERF_VICTORYROAD_3F_2 ; Gen 1 Victory Road 3F
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -369,6 +375,7 @@ DEF KRIS EQU __trainer_class__
 	const POKEMANIAC_ROCKTUNNELB1F1 ; Rock Tunnel B1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC
 	const POKEMANIAC_ROCKTUNNELB1F2 ; Rock Tunnel B1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC
 	const POKEMANIAC_ROCKTUNNELB1F3 ; Rock Tunnel B1F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC
+	const POKEMANIAC_VICTORYROAD_2F ; Victory Road 2F, Gen 1 sprite SUPER_NERD subbed to POKEMANIAC (OPP_POKEMANIAC 6)
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -744,6 +751,9 @@ DEF KRIS EQU __trainer_class__
 	const JUGGLER_FUCHSIAGYM_1
 	const JUGGLER_FUCHSIAGYM_2
 	const JUGGLER_FUCHSIAGYM_3
+	const JUGGLER_VICTORYROAD_2F_1 ; Victory Road 2F, Gen 1 sprite SUPER_NERD (OPP_JUGGLER 2)
+	const JUGGLER_VICTORYROAD_2F_2 ; Victory Road 2F, Gen 1 sprite COOLTRAINER_M, OPP_TAMER 5 folded into JUGGLER: Gen2 has no TAMER class
+	const JUGGLER_VICTORYROAD_2F_3 ; Victory Road 2F, Gen 1 sprite SUPER_NERD (OPP_JUGGLER 5)
 
 	trainerclass BLACKBELT_T ; 32
 	const KENJI1 ; Viridian Gym
@@ -761,6 +771,7 @@ DEF KRIS EQU __trainer_class__
 	const RYU ; Fighting Dojo
 	const TAKESHI ; Fighting Dojo
 	const TETSU ; Fighting Dojo
+	const BLACKBELT_VICTORYROAD_2F ; Victory Road 2F, Gen 1 sprite HIKER subbed to BLACKBELT_T (OPP_BLACKBELT 9)
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1

@@ -1928,6 +1928,20 @@
 	const EVENT_BEAT_SAILOR_SSANNEB1_4
 	const EVENT_BEAT_SAILOR_SSANNEB1_5
 	const EVENT_BEAT_MOLTRES ; Gen 1 Victory Road static encounter (port slot: VictoryRoad.asm)
+; Gen 1 Victory Road's 11 trainers (2x Cooltrainer 1F, Blackbelt+3x Juggler+Pokemaniac 2F,
+; 4x Cooltrainer 3F -- see maps-and-scripting skill re: the merged single-map port; issue #6
+; recounted this as 9 in its prose but the Gen1 data has 11). port slot: VictoryRoad.asm.
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_0
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_1
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_2
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_3
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_4
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_5
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_6
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_7
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_8
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_9
+	const EVENT_BEAT_VICTORY_ROAD_TRAINER_10
 	const EVENT_BEAT_CERULEAN_RIVAL ; Gen 1 Cerulean City rival battle (port slot: CeruleanCity.asm)
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF ; Gen 1 Cerulean City TM28(Dig) Rocket thief (port slot: CeruleanCity.asm)
 	const EVENT_GOT_CERULEAN_TM28 ; TM28(Dig) handed back by the above, once (post-battle re-visit)

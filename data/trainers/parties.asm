@@ -1450,6 +1450,28 @@ CooltrainerMGroup:
 	db 37, DRAGONAIR,  WRAP, SURF, DRAGON_RAGE, SLAM
 	db -1 ; end
 
+	; COOLTRAINERM (21)
+	db "GAVIN@", TRAINERTYPE_NORMAL
+	db 42, IVYSAUR
+	db 42, WARTORTLE
+	db 42, CHARMELEON
+	db 42, CHARIZARD
+	db -1 ; end
+
+	; COOLTRAINERM (22)
+	db "TRENT@", TRAINERTYPE_NORMAL
+	db 43, EXEGGUTOR
+	db 43, CLOYSTER
+	db 43, ARCANINE
+	db -1 ; end
+
+	; COOLTRAINERM (23)
+	db "DALE@", TRAINERTYPE_NORMAL
+	db 43, KINGLER
+	db 43, TENTACRUEL
+	db 43, BLASTOISE
+	db -1 ; end
+
 CooltrainerFGroup:
 	; COOLTRAINERF (1)
 	db "GWEN@", TRAINERTYPE_NORMAL
@@ -1579,6 +1601,26 @@ CooltrainerFGroup:
 	db 33, HORSEA,     SMOKESCREEN, LEER, WHIRLPOOL, TWISTER
 	db 33, HORSEA,     SMOKESCREEN, LEER, WHIRLPOOL, TWISTER
 	db 35, SEADRA,     SWIFT, LEER, WATERFALL, TWISTER
+	db -1 ; end
+
+	; COOLTRAINERF (22)
+	db "REIKO@", TRAINERTYPE_NORMAL
+	db 44, PERSIAN
+	db 44, NINETALES
+	db -1 ; end
+
+	; COOLTRAINERF (23)
+	db "IRIS@", TRAINERTYPE_NORMAL
+	db 43, BELLSPROUT
+	db 43, WEEPINBELL
+	db 43, VICTREEBEL
+	db -1 ; end
+
+	; COOLTRAINERF (24)
+	db "NINA@", TRAINERTYPE_NORMAL
+	db 43, PARASECT
+	db 43, DEWGONG
+	db 43, CHANSEY
 	db -1 ; end
 
 BeautyGroup:
@@ -1851,6 +1893,13 @@ PokemaniacGroup:
 	; POKEMANIAC (19)
 	db "BOYD@", TRAINERTYPE_NORMAL
 	db 25, SLOWPOKE
+	db -1 ; end
+
+	; POKEMANIAC (20)
+	db "IGOR@", TRAINERTYPE_NORMAL
+	db 40, CHARMELEON
+	db 40, LAPRAS
+	db 40, LICKITUNG
 	db -1 ; end
 
 GruntMGroup:
@@ -4015,6 +4064,25 @@ JugglerGroup:
 	db 34, HYPNO
 	db -1 ; end
 
+	; JUGGLER (10) ; Victory Road 2F, JUGGLER_VICTORYROAD_2F_1
+	db "NOLAN@", TRAINERTYPE_NORMAL
+	db 41, DROWZEE
+	db 41, HYPNO
+	db 41, KADABRA
+	db 41, KADABRA
+	db -1 ; end
+
+	; JUGGLER (11) ; Victory Road 2F, JUGGLER_VICTORYROAD_2F_2 (Gen 1 sprite COOLTRAINER_M, OPP_TAMER folded in)
+	db "DEXTER@", TRAINERTYPE_NORMAL
+	db 44, PERSIAN
+	db 44, GOLDUCK
+	db -1 ; end
+
+	; JUGGLER (12) ; Victory Road 2F, JUGGLER_VICTORYROAD_2F_3
+	db "MERLE@", TRAINERTYPE_NORMAL
+	db 48, MR__MIME
+	db -1 ; end
+
 BlackbeltGroup:
 	; BLACKBELT_T (1)
 	db "KENJI@", TRAINERTYPE_NORMAL
@@ -4104,6 +4172,13 @@ BlackbeltGroup:
 	db 31, MACHOP
 	db 31, MANKEY
 	db 31, PRIMEAPE
+	db -1 ; end
+
+	; BLACKBELT_T (16) ; Victory Road 2F, BLACKBELT_VICTORYROAD_2F (Gen 1 sprite HIKER subbed to BLACKBELT_T)
+	db "KENJI@", TRAINERTYPE_NORMAL
+	db 43, MACHOKE
+	db 43, MACHOP
+	db 43, MACHOKE
 	db -1 ; end
 
 ExecutiveMGroup:
