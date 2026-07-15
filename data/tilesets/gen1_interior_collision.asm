@@ -10,7 +10,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 09
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 0a
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 0b
-	tilecoll FLOOR, FLOOR, DOOR, DOOR ; 0c
+	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 0c
 	tilecoll WALL, WALL, WALL, WALL ; 0d
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 0e
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 0f
