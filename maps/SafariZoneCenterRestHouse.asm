@@ -1,4 +1,4 @@
-object_const_def
+	object_const_def
 	const SAFARIZONECENTERRESTHOUSE_GIRL
 	const SAFARIZONECENTERRESTHOUSE_SCIENTIST
 

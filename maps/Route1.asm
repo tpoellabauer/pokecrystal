@@ -18,6 +18,7 @@ Route1Youngster1Script:
 	writetext Route1Youngster1MartSampleText
 	waitbutton
 	closetext
+	giveitem POTION
 	setevent EVENT_GOT_POTION_SAMPLE
 	opentext
 	writetext Route1Youngster1GotPotionText
