@@ -1281,4 +1281,13 @@ VermilionTradeHouse_Blocks:
 VermilionOldRodHouse_Blocks:
 	INCBIN "maps/VermilionOldRodHouse.blk"
 
+CinnabarLabTradeRoom_Blocks:
+	INCBIN "maps/CinnabarLabTradeRoom.blk"
+
+CinnabarLabMetronomeRoom_Blocks:
+	INCBIN "maps/CinnabarLabMetronomeRoom.blk"
+
+CinnabarLabFossilRoom_Blocks:
+	INCBIN "maps/CinnabarLabFossilRoom.blk"
+
 ENDSECTION

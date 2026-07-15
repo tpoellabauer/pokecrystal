@@ -852,3 +852,9 @@ ENDM
 	map_attributes VermilionTradeHouse, VERMILION_TRADE_HOUSE, $0a
 
 	map_attributes VermilionOldRodHouse, VERMILION_OLD_ROD_HOUSE, $0a
+
+	map_attributes CinnabarLabTradeRoom, CINNABAR_LAB_TRADE_ROOM, $17
+
+	map_attributes CinnabarLabMetronomeRoom, CINNABAR_LAB_METRONOME_ROOM, $17
+
+	map_attributes CinnabarLabFossilRoom, CINNABAR_LAB_FOSSIL_ROOM, $17

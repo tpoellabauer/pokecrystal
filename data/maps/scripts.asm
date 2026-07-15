@@ -597,5 +597,8 @@ SECTION "Map Scripts 30", ROMX
 
 INCLUDE "maps/RocketHideoutB1F.asm"
 INCLUDE "maps/RocketHideoutB4F.asm"
+INCLUDE "maps/CinnabarLabTradeRoom.asm"
+INCLUDE "maps/CinnabarLabMetronomeRoom.asm"
+INCLUDE "maps/CinnabarLabFossilRoom.asm"
 
 ENDSECTION

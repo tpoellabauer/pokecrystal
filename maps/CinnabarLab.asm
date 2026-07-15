@@ -2,10 +2,9 @@
 	const CINNABARLAB_FISHING_GURU
 
 ; Gen 1 Cinnabar Lab, ported from pokered data/maps/objects/CinnabarLab.asm. The three
-; interior doors (Trade Room / Metronome Room / Fossil Room) are Gen1 sub-maps that
-; don't exist in pokecrystal yet (CINNABAR_LAB_TRADE_ROOM etc. would be their own
-; NEEDS-MAP follow-up, out of this port's scope) -- the signs stay as flavor text but
-; the doors don't warp anywhere yet.
+; interior doors warp to CINNABAR_LAB_TRADE_ROOM/CINNABAR_LAB_METRONOME_ROOM/
+; CINNABAR_LAB_FOSSIL_ROOM (see CinnabarLabTradeRoom.asm / CinnabarLabMetronomeRoom.asm /
+; CinnabarLabFossilRoom.asm).
 CinnabarLab_MapScripts:
 	def_scene_scripts
 
@@ -64,6 +63,10 @@ CinnabarLab_MapEvents:
 	; after its existing 2, so this map's own slot there is #4, not Gen1's "1".
 	warp_event  2,  7, CINNABAR_ISLAND, 4
 	warp_event  3,  7, CINNABAR_ISLAND, 4
+	; Interior doors; ids 3/4/5 must match each sub-room's own return warp id.
+	warp_event  8,  4, CINNABAR_LAB_TRADE_ROOM, 1
+	warp_event 12,  4, CINNABAR_LAB_METRONOME_ROOM, 1
+	warp_event 16,  4, CINNABAR_LAB_FOSSIL_ROOM, 1
 
 	def_coord_events
 

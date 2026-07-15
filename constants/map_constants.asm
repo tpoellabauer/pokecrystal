@@ -205,6 +205,9 @@ ENDM
 	map_const CINNABAR_GYM,                                10,  9 ; 18
 	map_const CINNABAR_LAB,                                 9,  4 ; 19
 	map_const CINNABAR_MART,                                4,  4 ; 20
+	map_const CINNABAR_LAB_TRADE_ROOM,                      4,  4 ; 21
+	map_const CINNABAR_LAB_METRONOME_ROOM,                  4,  4 ; 22
+	map_const CINNABAR_LAB_FOSSIL_ROOM,                     4,  4 ; 23
 	endgroup
 
 	newgroup CERULEAN                                             ;  7

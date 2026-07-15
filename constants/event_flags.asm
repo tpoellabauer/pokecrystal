@@ -1970,6 +1970,9 @@
 	const EVENT_BILLS_HOUSE_BILL
 	const EVENT_GOT_SS_TICKET_FROM_BILL
 
+; Gen1 Cinnabar Lab Metronome Room one-time TM give (CinnabarLabMetronomeRoom.asm).
+	const EVENT_CINNABAR_LAB_TM_METRONOME
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

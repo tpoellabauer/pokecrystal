@@ -21,8 +21,11 @@ DEF NPCTRADE_STRUCT_LENGTH EQU _RS
 	const NPC_TRADE_CHRIS  ; 4
 	const NPC_TRADE_KIM    ; 5
 	const NPC_TRADE_FOREST ; 6
-	const NPC_TRADE_MARCEL ; 7 ; Gen 1 Route 2 Trade House (TRADE_FOR_MARCEL): ABRA -> MR_MIME
-	const NPC_TRADE_DUX    ; 8 ; Gen 1 Vermilion Trade House (TRADE_FOR_DUX): SPEAROW -> FARFETCH'D
+	const NPC_TRADE_MARCEL   ; 7 ; Gen 1 Route 2 Trade House (TRADE_FOR_MARCEL): ABRA -> MR_MIME
+	const NPC_TRADE_DUX      ; 8 ; Gen 1 Vermilion Trade House (TRADE_FOR_DUX): SPEAROW -> FARFETCH'D
+	const NPC_TRADE_DORIS    ; 9 ; Gen 1 Cinnabar Lab Trade Room (TRADE_FOR_DORIS): RAICHU -> ELECTRODE
+	const NPC_TRADE_CRINKLES ; 10 ; Gen 1 Cinnabar Lab Trade Room (TRADE_FOR_CRINKLES): VENONAT -> TANGELA
+	const NPC_TRADE_SAILOR   ; 11 ; Gen 1 Cinnabar Lab Fossil Room (TRADE_FOR_SAILOR): PONYTA -> SEEL
 DEF NUM_NPC_TRADES EQU const_value
 
 ; trade gender limits
