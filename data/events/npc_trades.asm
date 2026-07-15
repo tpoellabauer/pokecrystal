@@ -22,4 +22,11 @@ NPCTrades:
 	npctrade TRADE_DIALOGSET_NEWBIE,    ABRA,       MR__MIME,    "MARCEL", $88, $66, TWISTEDSPOON, 30301, "MARCEL", TRADE_GENDER_EITHER
 	; Gen 1 Vermilion Trade House (TRADE_FOR_DUX): give SPEAROW, get nicknamed FARFETCH'D
 	npctrade TRADE_DIALOGSET_HAPPY,     SPEAROW,    FARFETCH_D, "DUX",    $79, $66, STICK,        19910, "DUX",    TRADE_GENDER_EITHER
+	; Gen 1 Cinnabar Lab Trade Room (TRADE_FOR_DORIS): give RAICHU, get nicknamed ELECTRODE.
+	; Gen1 used TRADE_DIALOGSET_EVOLUTION (Japanese-Blue leftover, no Gen2 equivalent) -> COLLECTOR.
+	npctrade TRADE_DIALOGSET_COLLECTOR, RAICHU,     ELECTRODE,  "DORIS",  $88, $66, GOLD_BERRY,   41234, "DORIS",  TRADE_GENDER_EITHER
+	; Gen 1 Cinnabar Lab Trade Room (TRADE_FOR_CRINKLES): give VENONAT, get nicknamed TANGELA
+	npctrade TRADE_DIALOGSET_HAPPY,     VENONAT,    TANGELA,    "CRINKLES", $88, $66, MYSTERYBERRY, 52341, "CRINKLES", TRADE_GENDER_EITHER
+	; Gen 1 Cinnabar Lab Fossil Room (TRADE_FOR_SAILOR): give PONYTA, get nicknamed SEEL
+	npctrade TRADE_DIALOGSET_NEWBIE,    PONYTA,     SEEL,       "SAILOR", $88, $66, PRZCUREBERRY, 63412, "SAILOR", TRADE_GENDER_EITHER
 	assert_table_length NUM_NPC_TRADES
