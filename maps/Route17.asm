@@ -342,6 +342,21 @@ Route17CyclingRoadEndsSignText:
 	line "Slope ends here!"
 	done
 
+Route17HiddenRareCandy:
+	hiddenitem RARE_CANDY, EVENT_ROUTE_17_HIDDEN_RARE_CANDY
+
+Route17HiddenFullRestore:
+	hiddenitem FULL_RESTORE, EVENT_ROUTE_17_HIDDEN_FULL_RESTORE
+
+Route17HiddenPpUp:
+	hiddenitem PP_UP, EVENT_ROUTE_17_HIDDEN_PP_UP
+
+Route17HiddenMaxRevive:
+	hiddenitem MAX_REVIVE, EVENT_ROUTE_17_HIDDEN_MAX_REVIVE
+
+Route17HiddenMaxElixer2:
+	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER_2
+
 Route17_MapEvents:
 	db 0, 0 ; filler
 
@@ -361,6 +376,11 @@ Route17_MapEvents:
 	bg_event  9, 87, BGEVENT_READ, Route17Sign
 	bg_event  9, 111, BGEVENT_READ, Route17NoticeSign2
 	bg_event  9, 141, BGEVENT_READ, Route17CyclingRoadEndsSign
+	bg_event 15, 14, BGEVENT_ITEM, Route17HiddenRareCandy
+	bg_event  8, 45, BGEVENT_ITEM, Route17HiddenFullRestore
+	bg_event 17, 72, BGEVENT_ITEM, Route17HiddenPpUp
+	bg_event  4, 91, BGEVENT_ITEM, Route17HiddenMaxRevive
+	bg_event  8, 121, BGEVENT_ITEM, Route17HiddenMaxElixer2
 
 	def_object_events
 	object_event 12, 19, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerRoute17CueBall4, -1

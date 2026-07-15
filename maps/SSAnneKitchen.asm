@@ -84,6 +84,9 @@ SSAnneKitchenCook7Text:
 	line "Salmon du Salad!"
 	done
 
+SSAnneKitchenHiddenGreatBall:
+	hiddenitem GREAT_BALL, EVENT_SS_ANNE_KITCHEN_HIDDEN_GREAT_BALL
+
 SSAnneKitchen_MapEvents:
 	db 0, 0 ; filler
 
@@ -93,6 +96,7 @@ SSAnneKitchen_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 13,  9, BGEVENT_ITEM, SSAnneKitchenHiddenGreatBall
 
 	def_object_events
 	object_event  1,  8, SPRITE_CLERK, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAnneKitchenCook1Script, -1

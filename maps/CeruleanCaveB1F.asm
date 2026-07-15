@@ -37,6 +37,9 @@ CeruleanCaveB1FMewtwoBattleText:
 	text "Mew!"
 	done
 
+CeruleanCaveB1FHiddenUltraBall:
+	hiddenitem ULTRA_BALL, EVENT_CERULEAN_CAVE_B1F_HIDDEN_ULTRA_BALL
+
 CeruleanCaveB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -46,6 +49,7 @@ CeruleanCaveB1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 27,  3, BGEVENT_ITEM, CeruleanCaveB1FHiddenUltraBall
 
 	def_object_events
 	object_event 27, 13, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FMewtwo, EVENT_BEAT_MEWTWO

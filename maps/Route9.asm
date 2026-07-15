@@ -277,6 +277,9 @@ Route9SignText:
 	line "ROCK TUNNEL"
 	done
 
+Route9HiddenEther:
+	hiddenitem ETHER, EVENT_ROUTE_9_HIDDEN_ETHER
+
 Route9_MapEvents:
 	db 0, 0 ; filler
 
@@ -287,6 +290,7 @@ Route9_MapEvents:
 
 	def_bg_events
 	bg_event 25,  7, BGEVENT_READ, Route9Sign
+	bg_event 14,  7, BGEVENT_ITEM, Route9HiddenEther
 
 	def_object_events
 	object_event 13, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerf1Route9, -1

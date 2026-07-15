@@ -96,6 +96,9 @@ SafariZoneGateWorker2Text:
 	cont "catch them!"
 	done
 
+SafariZoneGateHiddenNugget:
+	hiddenitem NUGGET, EVENT_SAFARI_ZONE_GATE_HIDDEN_NUGGET
+
 SafariZoneGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -110,6 +113,7 @@ SafariZoneGate_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 10,  1, BGEVENT_ITEM, SafariZoneGateHiddenNugget
 
 	def_object_events
 	object_event  6,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneGateWorker1Script, -1

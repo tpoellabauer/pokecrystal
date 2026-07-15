@@ -69,6 +69,9 @@ SafariZoneWestSignText:
 	line "EAST: CENTER AREA"
 	done
 
+SafariZoneWestHiddenRevive:
+	hiddenitem REVIVE, EVENT_SAFARI_ZONE_WEST_HIDDEN_REVIVE
+
 SafariZoneWest_MapEvents:
 	db 0, 0 ; filler
 
@@ -89,6 +92,7 @@ SafariZoneWest_MapEvents:
 	bg_event 17,  3, BGEVENT_READ, SafariZoneWestFindWardensTeethSign
 	bg_event 26,  4, BGEVENT_READ, SafariZoneWestTrainerTipsSign
 	bg_event 24, 22, BGEVENT_READ, SafariZoneWestSign
+	bg_event  6,  5, BGEVENT_ITEM, SafariZoneWestHiddenRevive
 
 	def_object_events
 	object_event  8, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneWestMaxPotion, EVENT_SAFARI_ZONE_WEST_MAX_POTION

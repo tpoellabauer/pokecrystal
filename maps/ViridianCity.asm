@@ -338,6 +338,9 @@ ViridianCityTrainerTips2Text:
 	line "#MON CENTER!"
 	done
 
+ViridianCityHiddenPotion:
+	hiddenitem POTION, EVENT_VIRIDIAN_CITY_HIDDEN_POTION
+
 ViridianCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -364,6 +367,7 @@ ViridianCity_MapEvents:
 	bg_event 21, 29, BGEVENT_READ, ViridianCityTrainerTips2
 	bg_event 24, 25, BGEVENT_READ, ViridianCityPokecenterSign
 	bg_event 30, 19, BGEVENT_READ, ViridianCityMartSign
+	bg_event 14,  4, BGEVENT_ITEM, ViridianCityHiddenPotion
 
 	def_object_events
 	object_event 17,  5, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianCityOldMan, -1

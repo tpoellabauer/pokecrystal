@@ -50,6 +50,9 @@ SeafoamIslandsB4FArticunoBattleText:
 	text "Gyaoo!"
 	done
 
+SeafoamIslandsB4FHiddenUltraBall:
+	hiddenitem ULTRA_BALL, EVENT_SEAFOAM_ISLANDS_B4F_HIDDEN_ULTRA_BALL
+
 SeafoamIslandsB4F_MapEvents:
 	db 0, 0 ; filler
 
@@ -64,6 +67,7 @@ SeafoamIslandsB4F_MapEvents:
 	def_bg_events
 	bg_event  9, 15, BGEVENT_READ, SeafoamIslandsB4FBouldersSign
 	bg_event 23,  1, BGEVENT_READ, SeafoamIslandsB4FDangerSign
+	bg_event 25, 17, BGEVENT_ITEM, SeafoamIslandsB4FHiddenUltraBall
 
 	def_object_events
 	object_event  6,  1, SPRITE_BIRD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamIslandsB4FArticuno, EVENT_BEAT_ARTICUNO

@@ -480,6 +480,9 @@ CeruleanCityRocketAfterText:
 	line "TM28, right?"
 	done
 
+CeruleanCityHiddenRareCandy:
+	hiddenitem RARE_CANDY, EVENT_CERULEAN_CITY_HIDDEN_RARE_CANDY
+
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -503,6 +506,7 @@ CeruleanCity_MapEvents:
 	bg_event 27, 21, BGEVENT_READ, CeruleanGymSign
 	bg_event 13, 25, BGEVENT_READ, CeruleanLockedDoor
 	bg_event  2, 12, BGEVENT_ITEM, CeruleanCityHiddenBerserkGene
+	bg_event 15,  8, BGEVENT_ITEM, CeruleanCityHiddenRareCandy
 
 	def_object_events
 	object_event 31, 20, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerMScript, -1

@@ -300,6 +300,9 @@ VermilionCityPortSignText:
 	text "VERMILION HARBOR"
 	done
 
+VermilionCityHiddenMaxEther:
+	hiddenitem MAX_ETHER, EVENT_VERMILION_CITY_HIDDEN_MAX_ETHER
+
 VermilionCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -327,6 +330,7 @@ VermilionCity_MapEvents:
 	bg_event  7, 13, BGEVENT_READ, PokemonFanClubSign
 	bg_event  7, 19, BGEVENT_READ, VermilionGymSign
 	bg_event 29, 15, BGEVENT_READ, VermilionCityPortSign
+	bg_event 14, 11, BGEVENT_ITEM, VermilionCityHiddenMaxEther
 
 	def_object_events
 	object_event 19,  7, SPRITE_BEAUTY, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionCityBeautyScript, -1

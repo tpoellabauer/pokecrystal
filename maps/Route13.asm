@@ -311,6 +311,9 @@ Route13SignText:
 	line "BRIDGE"
 	done
 
+Route13HiddenPpUp:
+	hiddenitem PP_UP, EVENT_ROUTE_13_HIDDEN_PP_UP
+
 Route13_MapEvents:
 	db 0, 0 ; filler
 
@@ -323,6 +326,7 @@ Route13_MapEvents:
 	bg_event 33,  5, BGEVENT_READ, Route13TrainerTips2
 	bg_event 31, 11, BGEVENT_READ, Route13Sign
 	bg_event 16, 13, BGEVENT_ITEM, Route13HiddenCalcium
+	bg_event  1, 14, BGEVENT_ITEM, Route13HiddenPpUp
 
 	def_object_events
 	object_event 49, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerRoute13CoolTrainerM1, -1

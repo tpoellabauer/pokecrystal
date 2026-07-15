@@ -231,6 +231,12 @@ ViridianForestLeavingSignText:
 	cont "PEWTER CITY AHEAD"
 	done
 
+ViridianForestHiddenPotion:
+	hiddenitem POTION, EVENT_VIRIDIAN_FOREST_HIDDEN_POTION
+
+ViridianForestHiddenAntidote:
+	hiddenitem ANTIDOTE, EVENT_VIRIDIAN_FOREST_HIDDEN_ANTIDOTE
+
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
 
@@ -251,6 +257,8 @@ ViridianForest_MapEvents:
 	bg_event  4, 24, BGEVENT_READ, ViridianForestTrainerTips3Sign
 	bg_event 18, 45, BGEVENT_READ, ViridianForestTrainerTips4Sign
 	bg_event  2,  1, BGEVENT_READ, ViridianForestLeavingSign
+	bg_event  1, 18, BGEVENT_ITEM, ViridianForestHiddenPotion
+	bg_event 16, 42, BGEVENT_ITEM, ViridianForestHiddenAntidote
 
 	def_object_events
 	object_event 16, 43, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ViridianForestYoungster1Script, -1
