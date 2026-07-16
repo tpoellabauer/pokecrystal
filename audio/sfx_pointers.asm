@@ -209,4 +209,9 @@ SFX:
 	dba Sfx_TwoPcBeeps
 	dba Sfx_4NoteDitty
 	dba Sfx_Twinkle
+; Gen 1 Kanto on Crystal: dedicated appended ids (issue #45/#47). Crystal mode:
+; point at the existing header the animation already used -- byte-identical.
+	dba Sfx_HornAttack
+	dba Sfx_Psychic
+	dba Sfx_PayDay
 	assert_table_length NUM_SFX

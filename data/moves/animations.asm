@@ -2269,16 +2269,16 @@ BattleAnim_HornDrill:
 	anim_obj BATTLE_ANIM_OBJ_HORN, 72, 80, $3
 	anim_wait 8
 .loop
-	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_sound 0, 1, SFX_RED_HORN_DRILL
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 132, 40, $0
 	anim_wait 8
-	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_sound 0, 1, SFX_RED_HORN_DRILL
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 140, 48, $0
 	anim_wait 8
-	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_sound 0, 1, SFX_RED_HORN_DRILL
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 132, 56, $0
 	anim_wait 8
-	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_sound 0, 1, SFX_RED_HORN_DRILL
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 124, 48, $0
 	anim_wait 8
 	anim_loop 3, .loop
@@ -2385,7 +2385,7 @@ BattleAnim_PayDay:
 	anim_sound 0, 1, SFX_POUND
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 56, $0
 	anim_wait 16
-	anim_sound 0, 1, SFX_PAY_DAY
+	anim_sound 0, 1, SFX_RED_TRAINER_APPEARED
 	anim_obj BATTLE_ANIM_OBJ_PAY_DAY, 120, 76, $1
 	anim_wait 64
 	anim_ret
@@ -2974,7 +2974,7 @@ BattleAnim_PsychicM:
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_PSYCHIC, $0, $0, $0
 .loop
-	anim_sound 6, 2, SFX_PSYCHIC
+	anim_sound 6, 2, SFX_RED_PSYCHIC_M
 	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 88, $2
 	anim_wait 8
 	anim_loop 8, .loop

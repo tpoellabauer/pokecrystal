@@ -208,4 +208,10 @@
 	const SFX_TWO_PC_BEEPS                ; cc
 	const SFX_4_NOTE_DITTY                ; cd
 	const SFX_TWINKLE                     ; ce
+; Gen 1 Kanto on Crystal: dedicated appended ids (issue #45/#47) -- never override
+; a shared Crystal slot; Crystal mode points these at the existing header the
+; animation already used, Red mode points them at the newly-ported Gen1 body.
+	const SFX_RED_HORN_DRILL              ; cf
+	const SFX_RED_PSYCHIC_M               ; d0
+	const SFX_RED_TRAINER_APPEARED        ; d1
 DEF NUM_SFX EQU const_value
