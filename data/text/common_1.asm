@@ -1303,6 +1303,12 @@ _BugCatchingContestIsOverText::
 	line "Contest is over!"
 	done
 
+_SafariZoneTimeUpText::
+	text "Time's up! Your"
+	line "SAFARI GAME is"
+	cont "over."
+	done
+
 _RepelWoreOffText::
 	text "REPEL's effect"
 	line "wore off."
