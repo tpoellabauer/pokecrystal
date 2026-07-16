@@ -343,6 +343,18 @@ PowerPlantRareCandy:
 PowerPlantTMThunder:
 	hiddenitem TM_THUNDER, EVENT_POWER_PLANT_TM_THUNDER
 
+; Gen1 (pokeredDisassembly/data/maps/objects/PowerPlant.asm) has a 5th item ball here at the
+; same (20, 32) giving TM33 REFLECT -- Gen2 Crystal has no TM/HM/tutor for Reflect at all (the
+; move exists, `const REFLECT` in move_constants.asm, but no delivery item), so this needs a
+; substitute TM, same decision class as TM_EGG_BOMB->TM_SWIFT (Safari Zone East) and
+; TM_SKULL_BASH->TM_MUD_SLAP (Safari Zone North). Reflect is a non-damaging stat/defense-utility
+; status move; of Crystal's TMs, TM_PSYCH_UP is the closest available match on that axis (also a
+; non-damaging stat-utility status move) and, unlike every other candidate TM, is not sold in any
+; mart nor already handed out as a gift anywhere in this port -- picking it avoids handing the
+; player a duplicate of a TM they can already buy or have already received elsewhere.
+PowerPlantTMReflect:
+	hiddenitem TM_PSYCH_UP, EVENT_POWER_PLANT_TM_REFLECT
+
 PowerPlantVoltorbBattleText:
 	text "Bzzzt!"
 	done
@@ -556,6 +568,7 @@ PowerPlant_MapEvents:
 	bg_event 28,  3, BGEVENT_ITEM, PowerPlantHPUp
 	bg_event 34,  3, BGEVENT_ITEM, PowerPlantRareCandy
 	bg_event 26, 32, BGEVENT_ITEM, PowerPlantTMThunder
+	bg_event 20, 32, BGEVENT_ITEM, PowerPlantTMReflect
 
 	def_object_events
 	object_event  4, 14, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PowerPlantOfficerScript, -1

@@ -13,8 +13,8 @@ SafariZoneGate_MapScripts:
 ; through this gate, matching Gen1's `EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE`-gated dialogue below).
 ; Each entry (first paid visit or a later free one) grants a fresh 30 Safari Balls
 ; (`special GiveSafariBalls`, engine/events/bug_contest/contest.asm -- shares Gen1's ball
-; counter WRAM byte, wParkBallsRemaining/wSafariBallsRemaining). The step-counted timer that
-; forces you out at 0 steps remaining is still not wired -- see docs/PORT_BACKLOG.md.
+; counter WRAM byte, wParkBallsRemaining/wSafariBallsRemaining), plus a fresh 500-step
+; timer that forces you out at 0 steps remaining (DoSafariStep, engine/overworld/events.asm).
 SafariZoneGateWorker1Script:
 	checkevent EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
 	iftrue .AlreadyPaid

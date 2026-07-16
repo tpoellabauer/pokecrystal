@@ -452,6 +452,18 @@ CheckTimeEvents:
 	jr nz, .nothing
 
 	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr z, .not_safari_zone
+
+	ld a, [wSafariTimeRemaining]
+	ld b, a
+	ld a, [wSafariTimeRemaining + 1]
+	or b
+	jr z, .end_safari_zone
+	xor a
+	ret
+
+.not_safari_zone
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr z, .do_daily
 
@@ -473,6 +485,17 @@ CheckTimeEvents:
 .end_bug_contest
 	ld a, BANK(BugCatchingContestOverScript)
 	ld hl, BugCatchingContestOverScript
+	call CallScript
+	scf
+	ret
+
+; Gen1's Safari Zone step-timer expiry (DoSafariStep above ticks wSafariTimeRemaining
+; to 0; this is what actually ejects the player, matching Gen1's SafariZoneGameOver).
+.end_safari_zone
+	ld hl, wStatusFlags2
+	res STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	ld a, BANK(SafariZoneTimeUpScript)
+	ld hl, SafariZoneTimeUpScript
 	call CallScript
 	scf
 	ret
@@ -877,6 +900,10 @@ CountStep:
 	call DoRepelStep
 	jr c, .doscript
 
+	; Tick the Safari Zone step-timer (no-op outside a paid session; never sets carry --
+	; CheckTimeEvents triggers the actual ejection once the timer hits 0).
+	call DoSafariStep
+
 	; Count the step for poison and total steps
 	ld hl, wPoisonStepCount
 	inc [hl]
@@ -947,6 +974,43 @@ DoRepelStep:
 	ld hl, RepelWoreOffScript
 	call CallScript
 	scf
+	ret
+
+; Gen1's Safari Zone step-timer (SafariZoneCheckSteps), re-armed by GiveSafariBalls
+; (engine/events/bug_contest/contest.asm). No-ops (STATUSFLAGS2_SAFARI_GAME_F clear) on
+; every step outside a paid Safari Zone session -- same shape as DoRepelStep above.
+;
+; Only decrements here -- does NOT CallScript the ejection itself. CountStep runs mid
+; player-movement processing (deep in the per-step call chain, well before this frame's
+; script-dispatch point), and queuing a script here that ends in a `warp` command was
+; found (empirically, via the PyBoy harness) to land the player at the default spawn
+; point instead of the intended map -- the warp command's own setup evidently assumes
+; the shallower, per-frame call depth that CheckTimeEvents runs at (proven safe there
+; already, by BugContestResultsWarpScript's own `warp` call). So expiry is only flagged
+; here (wSafariTimeRemaining reaching 0); CheckTimeEvents (below) does the actual
+; CallScript + warp once time is up, mirroring how it already drives the Bug Contest's
+; own wall-clock expiry via the sibling STATUSFLAGS2_BUG_CONTEST_TIMER_F flag.
+DoSafariStep:
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	ret z
+
+	ld hl, wSafariTimeRemaining
+	ld a, [hl]
+	or a
+	jr nz, .dec_low_byte
+
+	inc hl
+	ld a, [hl]
+	or a
+	ret z ; already 0 -- CheckTimeEvents ejects the player, nothing more to do here
+	dec [hl] ; high byte nonzero, low byte was 0: borrow
+	dec hl
+	ld [hl], $ff ; low byte wraps 0 -> 0xff
+	ret
+
+.dec_low_byte
+	dec [hl] ; low byte nonzero: no borrow needed
 	ret
 
 DoPlayerEvent:

@@ -1859,6 +1859,7 @@
 	const EVENT_POWER_PLANT_HP_UP
 	const EVENT_POWER_PLANT_RARE_CANDY
 	const EVENT_POWER_PLANT_TM_THUNDER
+	const EVENT_POWER_PLANT_TM_REFLECT ; Gen1 TM33; Gen2 gives TM_PSYCH_UP
 ; Pokemon Tower 2F (Gen 1 3rd rival battle, OPP_RIVAL2 class)
 	const EVENT_BEAT_POKEMON_TOWER_RIVAL
 ; Pokemon Tower 3F (3 Channeler)
