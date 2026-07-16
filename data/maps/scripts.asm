@@ -504,26 +504,15 @@ INCLUDE "maps/SSAnneB1F.asm"
 INCLUDE "maps/SSAnneBow.asm"
 INCLUDE "maps/SSAnneKitchen.asm"
 INCLUDE "maps/SSAnneCaptainsRoom.asm"
-INCLUDE "maps/SSAnne1FRooms.asm"
-INCLUDE "maps/SSAnneB1FRooms.asm"
 
 ENDSECTION
 
 
-; Split out of "Map Scripts 25" (2026-07-12): SSAnne2FRooms grew past skeleton size once its
-; Gen 1 trainers/NPCs were re-authored (S.S. Anne content-completion pass). Floating section,
-; any free bank -- same pattern as "Map Scripts 26" below.
-SECTION "Map Scripts 27", ROMX
-
-INCLUDE "maps/SSAnne2FRooms.asm"
-
-ENDSECTION
-
-
-; Split out of "Map Scripts 25" (2026-07-08): that bucket overflowed 0x4000 once Pokemon Tower
-; and other Kanto endgame dungeons grew past skeleton size. Floating section, any free bank.
 SECTION "Map Scripts 26", ROMX
 
+INCLUDE "maps/SSAnne1FRooms.asm"
+INCLUDE "maps/SSAnneB1FRooms.asm"
+INCLUDE "maps/SSAnne2FRooms.asm"
 INCLUDE "maps/RocketHideoutB2F.asm"
 INCLUDE "maps/RocketHideoutB3F.asm"
 INCLUDE "maps/RocketHideoutElevator.asm"
@@ -561,40 +550,19 @@ INCLUDE "maps/Route2Gate.asm"
 INCLUDE "maps/VictoryRoadGate.asm"
 INCLUDE "maps/DiglettsCaveRoute2.asm"
 INCLUDE "maps/DiglettsCaveRoute11.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27", ROMX
+
 INCLUDE "maps/SaffronPidgeyHouse.asm"
 INCLUDE "maps/Museum1F.asm"
 INCLUDE "maps/VermilionPidgeyHouse.asm"
 INCLUDE "maps/VermilionTradeHouse.asm"
 INCLUDE "maps/VermilionOldRodHouse.asm"
-
-ENDSECTION
-
-
-; Split out of "Map Scripts 24" (2026-07-13): that bucket overflowed 0x4000 once
-; LavenderTown grew past skeleton size during its Gen1 re-author. Floating section, any
-; free bank -- same pattern as "Map Scripts 26"/"Map Scripts 27" above.
-SECTION "Map Scripts 28", ROMX
-
 INCLUDE "maps/LavenderTown.asm"
-
-ENDSECTION
-
-
-; Split out of "Map Scripts 24" (2026-07-14): the Kanto-route bucket dropped under the
-; bank-budget floor once Route 18's Gen1 signs/trainers were re-authored. Floating
-; section, any free bank -- same pattern as "Map Scripts 28" above.
-SECTION "Map Scripts 29", ROMX
-
 INCLUDE "maps/Route18.asm"
-
-ENDSECTION
-
-
-; Split out of "Map Scripts 26" (2026-07-14): the Rocket Hideout bucket dropped under the
-; bank-budget floor once RocketHideoutB4F was re-authored from a stub to Gen1's full
-; Giovanni fight + 5 item balls. Floating section, any free bank.
-SECTION "Map Scripts 30", ROMX
-
 INCLUDE "maps/RocketHideoutB1F.asm"
 INCLUDE "maps/RocketHideoutB4F.asm"
 INCLUDE "maps/CinnabarLabTradeRoom.asm"
