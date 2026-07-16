@@ -22,9 +22,19 @@ INCLUDE "audio/music/newbarktown.asm"
 INCLUDE "audio/music/goldenrodcity.asm"
 INCLUDE "audio/music/vermilioncity.asm"
 INCLUDE "audio/music/titlescreen.asm"
-INCLUDE "audio/music/ruinsofalphinterior.asm"
 INCLUDE "audio/music/lookpokemaniac.asm"
 INCLUDE "audio/music/trainervictory.asm"
+
+
+; Gen 1 Kanto on Crystal (#49/#51): moved out of "Songs 1" (bank $3a) to free room
+; for the phase-2 SFX stock pointer table growth -- that bank is shared with
+; GetSFXHeader's in-bank SFX table read (see audio/engine.asm) and was down to
+; single-digit bytes free even before this port. Placement here is arbitrary
+; (the music pointer table stores bank+address for every song), just a bank
+; with slack.
+SECTION "Ruins Of Alph Interior Song", ROMX
+
+INCLUDE "audio/music/ruinsofalphinterior.asm"
 
 
 SECTION "Songs 2", ROMX

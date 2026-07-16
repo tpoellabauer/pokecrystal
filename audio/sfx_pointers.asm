@@ -214,4 +214,20 @@ SFX:
 	dba Sfx_HornAttack
 	dba Sfx_Psychic
 	dba Sfx_PayDay
+; Gen 1 Kanto on Crystal: phase-2 dedicated appended ids (issue #49/#51). Crystal
+; mode: point at the existing header the animation already used -- byte-identical.
+	dba Sfx_Lick
+	dba Sfx_MegaPunch
+	dba Sfx_Vicegrip
+	dba Sfx_Bind
+	dba Sfx_Ember
+	dba Sfx_PoisonSting
+	dba Sfx_Bite
+	dba Sfx_HornAttack
+	dba Sfx_TailWhip
+	dba Sfx_WaterGun
+	dba Sfx_SwordsDance
+	dba Sfx_Ember
+	dba Sfx_Surf
+	dba Sfx_Thundershock
 	assert_table_length NUM_SFX

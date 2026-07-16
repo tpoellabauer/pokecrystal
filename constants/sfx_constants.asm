@@ -214,4 +214,21 @@
 	const SFX_RED_HORN_DRILL              ; cf
 	const SFX_RED_PSYCHIC_M               ; d0
 	const SFX_RED_TRAINER_APPEARED        ; d1
+; Gen 1 Kanto on Crystal: phase-2 dedicated appended ids (issue #49/#51) -- one
+; per (Gen1 MoveSoundTable bucket, Crystal header) group with >= 2 clean sharer
+; moves; same never-override-a-shared-slot rule as the phase-1 ids above.
+	const SFX_RED_BATTLE_09               ; d2
+	const SFX_RED_BATTLE_0D               ; d3
+	const SFX_RED_BATTLE_0F               ; d4
+	const SFX_RED_BATTLE_14               ; d5
+	const SFX_RED_BATTLE_19               ; d6
+	const SFX_RED_BATTLE_1B               ; d7
+	const SFX_RED_BATTLE_1E_BITE          ; d8
+	const SFX_RED_BATTLE_1E_HORN          ; d9
+	const SFX_RED_BATTLE_21               ; da
+	const SFX_RED_BATTLE_24               ; db
+	const SFX_RED_BATTLE_25               ; dc
+	const SFX_RED_BATTLE_29               ; dd
+	const SFX_RED_BATTLE_2C               ; de
+	const SFX_RED_BATTLE_2F               ; df
 DEF NUM_SFX EQU const_value

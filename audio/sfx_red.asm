@@ -430,3 +430,206 @@ Sfx_RedTrainerAppeared_Ch5:
 	square_note 10, 14, 1, 2016
 	square_note 1, 0, 0, 0
 	sound_ret
+
+Sfx_RedBattle09:
+	channel_count 1
+	channel 5, Sfx_RedBattle09_Ch5
+
+Sfx_RedBattle09_Ch5:
+	duty_cycle 1
+	pitch_sweep 9, 7
+	square_note 15, 15, 2, 1280
+	pitch_sweep 0, 8
+	sound_ret
+
+Sfx_RedBattle0D:
+	channel_count 1
+	channel 8, Sfx_RedBattle0D_Ch8
+
+Sfx_RedBattle0D_Ch8:
+	noise_note 15, 8, -7, 52
+	noise_note 8, 15, 2, 53
+	noise_note 10, 15, 1, 85
+	sound_ret
+
+Sfx_RedBattle0F:
+	channel_count 1
+	channel 8, Sfx_RedBattle0F_Ch8
+
+Sfx_RedBattle0F_Ch8:
+	noise_note 2, 14, 1, 75
+	noise_note 10, 15, 1, 68
+	noise_note 2, 14, 1, 58
+	noise_note 6, 15, 1, 52
+	sound_ret
+
+Sfx_RedBattle14:
+	channel_count 1
+	channel 8, Sfx_RedBattle14_Ch8
+
+Sfx_RedBattle14_Ch8:
+	noise_note 8, 15, -7, 50
+	noise_note 8, 15, 4, 67
+	noise_note 8, 15, 2, 84
+	noise_note 8, 15, 1, 101
+	sound_ret
+
+Sfx_RedBattle19:
+	channel_count 1
+	channel 8, Sfx_RedBattle19_Ch8
+
+Sfx_RedBattle19_Ch8:
+	noise_note 2, 8, 4, 67
+	noise_note 2, 12, 4, 34
+	noise_note 8, 15, 2, 52
+	sound_ret
+
+Sfx_RedBattle1B:
+	channel_count 1
+	channel 8, Sfx_RedBattle1B_Ch8
+
+Sfx_RedBattle1B_Ch8:
+	noise_note 2, 15, 1, 34
+	noise_note 15, 15, 2, 18
+	sound_ret
+
+Sfx_RedBattle1E:
+	channel_count 2
+	channel 5, Sfx_RedBattle1E_Ch5
+	channel 8, Sfx_RedBattle1E_Ch8
+
+Sfx_RedBattle1E_Ch5:
+	duty_cycle 0
+	pitch_sweep 3, -2
+	square_note 4, 15, 2, 512
+	pitch_sweep 2, 2
+	square_note 8, 14, 2, 512
+	pitch_sweep 0, 8
+	sound_ret
+
+Sfx_RedBattle1E_Ch8:
+	noise_note 0, 13, 1, 66
+	noise_note 4, 10, 1, 50
+	noise_note 0, 13, 1, 34
+	noise_note 6, 10, 1, 50
+	sound_ret
+
+Sfx_RedBattle21:
+	channel_count 1
+	channel 8, Sfx_RedBattle21_Ch8
+
+Sfx_RedBattle21_Ch8:
+	noise_note 2, 15, 1, 51
+	noise_note 2, 12, 1, 50
+	noise_note 2, 10, 1, 49
+	noise_note 15, 8, 2, 50
+	noise_note 8, 15, 1, 52
+	sound_ret
+
+Sfx_RedBattle24:
+	channel_count 2
+	channel 5, Sfx_RedBattle24_Ch5
+	channel 8, Sfx_RedBattle24_Ch8
+
+Sfx_RedBattle24_Ch5:
+	duty_cycle 1
+	pitch_sweep 9, 7
+	square_note 15, 15, 2, 1792
+	pitch_sweep 0, 8
+	sound_ret
+
+Sfx_RedBattle24_Ch8:
+	noise_note 15, 3, -7, 34
+	noise_note 15, 15, 2, 33
+	sound_ret
+
+Sfx_RedBattle25:
+	channel_count 1
+	channel 8, Sfx_RedBattle25_Ch8
+
+Sfx_RedBattle25_Ch8:
+	noise_note 15, 4, -7, 65
+	noise_note 8, 8, -7, 65
+	noise_note 8, 12, -7, 65
+	noise_note 8, 15, 2, 66
+	noise_note 15, 15, 2, 65
+	sound_ret
+
+Sfx_RedBattle29:
+	channel_count 2
+	channel 5, Sfx_RedBattle29_Ch5
+	channel 8, Sfx_RedBattle29_Ch8
+
+Sfx_RedBattle29_Ch5:
+	duty_cycle_pattern 3, 0, 2, 1
+	square_note 11, 15, 3, 288
+	square_note 9, 13, 3, 336
+	sound_loop 5, Sfx_RedBattle29_Ch5
+	square_note 8, 14, 3, 304
+	square_note 15, 12, 2, 272
+	sound_ret
+
+Sfx_RedBattle29_Ch8:
+	noise_note 10, 15, 3, 53
+	noise_note 14, 15, 6, 69
+	sound_loop 4, Sfx_RedBattle29_Ch8
+	noise_note 12, 15, 4, 188
+	noise_note 12, 15, 5, 156
+	noise_note 15, 15, 4, 172
+	sound_ret
+
+Sfx_RedBattle2C:
+	channel_count 3
+	channel 5, Sfx_RedBattle2C_Ch5
+	channel 6, Sfx_RedBattle2C_Ch6
+	channel 8, Sfx_RedBattle2C_Ch8
+
+Sfx_RedBattle2C_Ch5:
+	duty_cycle_pattern 0, 3, 2, 1
+	square_note 15, 15, 4, 1280
+	square_note 15, 12, 4, 1024
+	square_note 15, 14, 2, 1472
+	sound_loop 3, Sfx_RedBattle2C_Ch5
+	sound_ret
+
+Sfx_RedBattle2C_Ch6:
+	duty_cycle_pattern 2, 0, 3, 1
+	square_note 7, 14, 4, 1072
+	square_note 15, 11, 4, 816
+	square_note 15, 10, 2, 1080
+	sound_loop 4, Sfx_RedBattle2C_Ch6
+	sound_ret
+
+Sfx_RedBattle2C_Ch8:
+	noise_note 9, 15, 4, 68
+	noise_note 9, 15, 2, 67
+	noise_note 15, 15, 4, 66
+	noise_note 15, 15, 4, 65
+	sound_loop 3, Sfx_RedBattle2C_Ch8
+	sound_ret
+
+Sfx_RedBattle2F:
+	channel_count 3
+	channel 5, Sfx_RedBattle2F_Ch5
+	channel 6, Sfx_RedBattle2F_Ch6
+	channel 8, Sfx_RedBattle2F_Ch8
+
+Sfx_RedBattle2F_Ch5:
+	duty_cycle_pattern 0, 2, 2, 3
+	square_note 3, 15, 1, 2032
+	square_note 4, 15, 2, 512
+	sound_loop 8, Sfx_RedBattle2F_Ch5
+	sound_ret
+
+Sfx_RedBattle2F_Ch6:
+	duty_cycle_pattern 2, 3, 0, 3
+	square_note 4, 14, 2, 514
+	square_note 4, 14, 1, 2018
+	sound_loop 9, Sfx_RedBattle2F_Ch6
+	sound_ret
+
+Sfx_RedBattle2F_Ch8:
+	noise_note 4, 15, -7, 67
+	noise_note 4, 15, 2, 68
+	sound_loop 9, Sfx_RedBattle2F_Ch8
+	sound_ret
