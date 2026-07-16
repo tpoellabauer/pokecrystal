@@ -261,6 +261,9 @@ FishingSpotSignText:
 	text "SPORT FISHING AREA"
 	done
 
+Route12HiddenHyperPotion:
+	hiddenitem HYPER_POTION, EVENT_ROUTE_12_HIDDEN_HYPER_POTION
+
 Route12_MapEvents:
 	db 0, 0 ; filler
 
@@ -272,6 +275,7 @@ Route12_MapEvents:
 	def_bg_events
 	bg_event 13, 13, BGEVENT_READ, Route12Sign
 	bg_event 11, 63, BGEVENT_READ, FishingSpotSign
+	bg_event  2, 63, BGEVENT_ITEM, Route12HiddenHyperPotion
 
 	def_object_events
 	object_event 10, 62, SPRITE_SNORLAX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route12Snorlax, EVENT_ROUTE_12_SNORLAX

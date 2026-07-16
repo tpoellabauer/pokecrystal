@@ -150,6 +150,9 @@ PokemonTower5FPurifiedZoneText:
 	line "are fully healed!"
 	done
 
+PokemonTower5FHiddenElixer:
+	hiddenitem ELIXER, EVENT_POKEMON_TOWER_5F_HIDDEN_ELIXER
+
 PokemonTower5F_MapEvents:
 	db 0, 0 ; filler
 
@@ -164,6 +167,7 @@ PokemonTower5F_MapEvents:
 	coord_event 11,  9, SCENE_POKEMONTOWER5F_DEFAULT, PokemonTower5FPurifiedZoneScript
 
 	def_bg_events
+	bg_event  4, 12, BGEVENT_ITEM, PokemonTower5FHiddenElixer
 
 	def_object_events
 	object_event 12,  8, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokemonTower5FChannelerScript, -1

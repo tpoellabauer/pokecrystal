@@ -212,6 +212,9 @@ SSAnneB1FRoomsMachokeText:
 	line "Goggoh!"
 	done
 
+SSAnneB1FRoomsHiddenHyperPotion:
+	hiddenitem HYPER_POTION, EVENT_SS_ANNE_B1F_ROOMS_HIDDEN_HYPER_POTION
+
 SSAnneB1FRooms_MapEvents:
 	db 0, 0 ; filler
 
@@ -230,6 +233,7 @@ SSAnneB1FRooms_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  3,  1, BGEVENT_ITEM, SSAnneB1FRoomsHiddenHyperPotion
 
 	def_object_events
 	object_event  0, 13, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerSailorBart, -1

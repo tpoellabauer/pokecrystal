@@ -212,6 +212,9 @@ RocketHideoutB1FEscapeRope:
 RocketHideoutB1FHyperPotion:
 	itemball HYPER_POTION
 
+RocketHideoutB1FHiddenPpUp:
+	hiddenitem PP_UP, EVENT_ROCKET_HIDEOUT_B1F_HIDDEN_PP_UP
+
 RocketHideoutB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -225,6 +228,7 @@ RocketHideoutB1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 21, 15, BGEVENT_ITEM, RocketHideoutB1FHiddenPpUp
 
 	def_object_events
 	object_event 26,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB1FRocket1Script, -1

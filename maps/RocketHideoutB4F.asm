@@ -212,6 +212,9 @@ RocketHideoutB4FRocket3AfterBattleText:
 	line "the LIFT KEY!"
 	done
 
+RocketHideoutB4FHiddenSuperPotion:
+	hiddenitem SUPER_POTION, EVENT_ROCKET_HIDEOUT_B4F_HIDDEN_SUPER_POTION
+
 RocketHideoutB4F_MapEvents:
 	db 0, 0 ; filler
 
@@ -225,6 +228,7 @@ RocketHideoutB4F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 25,  1, BGEVENT_ITEM, RocketHideoutB4FHiddenSuperPotion
 
 	def_object_events
 	object_event 25,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RocketHideoutB4FGiovanniScript, EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI

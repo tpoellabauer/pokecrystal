@@ -359,6 +359,15 @@ Route23EarthBadgeOkText:
 	para "Go right ahead!"
 	done
 
+Route23HiddenFullRestore:
+	hiddenitem FULL_RESTORE, EVENT_ROUTE_23_HIDDEN_FULL_RESTORE
+
+Route23HiddenUltraBall:
+	hiddenitem ULTRA_BALL, EVENT_ROUTE_23_HIDDEN_ULTRA_BALL
+
+Route23HiddenMaxEther:
+	hiddenitem MAX_ETHER, EVENT_ROUTE_23_HIDDEN_MAX_ETHER
+
 Route23_MapEvents:
 	db 0, 0 ; filler
 
@@ -380,6 +389,9 @@ Route23_MapEvents:
 	def_bg_events
 	bg_event 11,  7, BGEVENT_READ, IndigoPlateauSign
 	bg_event  3, 33, BGEVENT_READ, Route23VictoryRoadGateSign
+	bg_event  9, 44, BGEVENT_ITEM, Route23HiddenFullRestore
+	bg_event 19, 70, BGEVENT_ITEM, Route23HiddenUltraBall
+	bg_event  8, 90, BGEVENT_ITEM, Route23HiddenMaxEther
 
 	def_object_events
 	object_event  4, 35, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route23EarthGuardScript, EVENT_ROUTE23_PASSED_EARTH_GUARD

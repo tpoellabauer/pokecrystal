@@ -1988,6 +1988,114 @@
 ; Gen1 Cinnabar Lab Metronome Room one-time TM give (CinnabarLabMetronomeRoom.asm).
 	const EVENT_CINNABAR_LAB_TM_METRONOME
 
+; Gen1 VIRIDIAN_CITY hidden POTION (ViridianCity.asm, issue #9).
+	const EVENT_VIRIDIAN_CITY_HIDDEN_POTION
+
+; Gen1 CERULEAN_CITY hidden RARE_CANDY (CeruleanCity.asm, issue #9).
+	const EVENT_CERULEAN_CITY_HIDDEN_RARE_CANDY
+
+; Gen1 VERMILION_CITY hidden MAX_ETHER (VermilionCity.asm, issue #9).
+	const EVENT_VERMILION_CITY_HIDDEN_MAX_ETHER
+
+; Gen1 CELADON_CITY hidden PP_UP (CeladonCity.asm, issue #9).
+	const EVENT_CELADON_CITY_HIDDEN_PP_UP
+
+; Gen1 ROUTE_4 hidden GREAT_BALL (Route4.asm, issue #9).
+	const EVENT_ROUTE_4_HIDDEN_GREAT_BALL
+
+; Gen1 ROUTE_11 hidden ESCAPE_ROPE (Route11.asm, issue #9).
+	const EVENT_ROUTE_11_HIDDEN_ESCAPE_ROPE
+
+; Gen1 ROUTE_12 hidden HYPER_POTION (Route12.asm, issue #9).
+	const EVENT_ROUTE_12_HIDDEN_HYPER_POTION
+
+; Gen1 ROUTE_13 hidden PP_UP (Route13.asm, issue #9).
+	const EVENT_ROUTE_13_HIDDEN_PP_UP
+
+; Gen1 ROUTE_17 hidden RARE_CANDY (Route17.asm, issue #9).
+	const EVENT_ROUTE_17_HIDDEN_RARE_CANDY
+
+; Gen1 ROUTE_17 hidden FULL_RESTORE (Route17.asm, issue #9).
+	const EVENT_ROUTE_17_HIDDEN_FULL_RESTORE
+
+; Gen1 ROUTE_17 hidden PP_UP (Route17.asm, issue #9).
+	const EVENT_ROUTE_17_HIDDEN_PP_UP
+
+; Gen1 ROUTE_17 hidden MAX_REVIVE (Route17.asm, issue #9).
+	const EVENT_ROUTE_17_HIDDEN_MAX_REVIVE
+
+; Gen1 ROUTE_17 hidden MAX_ELIXER (Route17.asm, issue #9).
+	const EVENT_ROUTE_17_HIDDEN_MAX_ELIXER_2
+
+; Gen1 ROUTE_23 hidden FULL_RESTORE (Route23.asm, issue #9).
+	const EVENT_ROUTE_23_HIDDEN_FULL_RESTORE
+
+; Gen1 ROUTE_23 hidden ULTRA_BALL (Route23.asm, issue #9).
+	const EVENT_ROUTE_23_HIDDEN_ULTRA_BALL
+
+; Gen1 ROUTE_23 hidden MAX_ETHER (Route23.asm, issue #9).
+	const EVENT_ROUTE_23_HIDDEN_MAX_ETHER
+
+; Gen1 VIRIDIAN_FOREST hidden POTION (ViridianForest.asm, issue #9).
+	const EVENT_VIRIDIAN_FOREST_HIDDEN_POTION
+
+; Gen1 VIRIDIAN_FOREST hidden ANTIDOTE (ViridianForest.asm, issue #9).
+	const EVENT_VIRIDIAN_FOREST_HIDDEN_ANTIDOTE
+
+; Gen1 POWER_PLANT hidden MAX_ELIXER (PowerPlant.asm, issue #9).
+	const EVENT_POWER_PLANT_HIDDEN_MAX_ELIXER
+
+; Gen1 POWER_PLANT hidden PP_UP (PowerPlant.asm, issue #9).
+	const EVENT_POWER_PLANT_HIDDEN_PP_UP
+
+; Gen1 SS_ANNE_KITCHEN hidden GREAT_BALL (SSAnneKitchen.asm, issue #9).
+	const EVENT_SS_ANNE_KITCHEN_HIDDEN_GREAT_BALL
+
+; Gen1 SS_ANNE_B1F_ROOMS hidden HYPER_POTION (SSAnneB1FRooms.asm, issue #9).
+	const EVENT_SS_ANNE_B1F_ROOMS_HIDDEN_HYPER_POTION
+
+; Gen1 POKEMON_TOWER_5F hidden ELIXER (PokemonTower5F.asm, issue #9).
+	const EVENT_POKEMON_TOWER_5F_HIDDEN_ELIXER
+
+; Gen1 SAFARI_ZONE_GATE hidden NUGGET (SafariZoneGate.asm, issue #9).
+	const EVENT_SAFARI_ZONE_GATE_HIDDEN_NUGGET
+
+; Gen1 SEAFOAM_ISLANDS_B2F hidden NUGGET (SeafoamIslandsB2F.asm, issue #9).
+	const EVENT_SEAFOAM_ISLANDS_B2F_HIDDEN_NUGGET
+
+; Gen1 SEAFOAM_ISLANDS_B3F hidden MAX_ELIXER (SeafoamIslandsB3F.asm, issue #9).
+	const EVENT_SEAFOAM_ISLANDS_B3F_HIDDEN_MAX_ELIXER
+
+; Gen1 SEAFOAM_ISLANDS_B4F hidden ULTRA_BALL (SeafoamIslandsB4F.asm, issue #9).
+	const EVENT_SEAFOAM_ISLANDS_B4F_HIDDEN_ULTRA_BALL
+
+; Gen1 COPYCATS_HOUSE_2F hidden NUGGET (CopycatsHouse2F.asm, issue #9).
+	const EVENT_COPYCATS_HOUSE_2F_HIDDEN_NUGGET
+
+; Gen1 ROCKET_HIDEOUT_B1F hidden PP_UP (RocketHideoutB1F.asm, issue #9).
+	const EVENT_ROCKET_HIDEOUT_B1F_HIDDEN_PP_UP
+
+; Gen1 ROCKET_HIDEOUT_B3F hidden NUGGET (RocketHideoutB3F.asm, issue #9).
+	const EVENT_ROCKET_HIDEOUT_B3F_HIDDEN_NUGGET
+
+; Gen1 ROCKET_HIDEOUT_B4F hidden SUPER_POTION (RocketHideoutB4F.asm, issue #9).
+	const EVENT_ROCKET_HIDEOUT_B4F_HIDDEN_SUPER_POTION
+
+; Gen1 SILPH_CO_5F hidden ELIXER (SilphCo5F.asm, issue #9).
+	const EVENT_SILPH_CO_5F_HIDDEN_ELIXER
+
+; Gen1 SAFARI_ZONE_WEST hidden REVIVE (SafariZoneWest.asm, issue #9).
+	const EVENT_SAFARI_ZONE_WEST_HIDDEN_REVIVE
+
+; Gen1 CERULEAN_CAVE_B1F hidden ULTRA_BALL (CeruleanCaveB1F.asm, issue #9).
+	const EVENT_CERULEAN_CAVE_B1F_HIDDEN_ULTRA_BALL
+
+; Gen1 CERULEAN_CAVE_1F hidden RARE_CANDY (CeruleanCave1F.asm, issue #9).
+	const EVENT_CERULEAN_CAVE_1F_HIDDEN_RARE_CANDY
+
+; Gen1 SILPH_CO_9F hidden MAX_POTION (SilphCo9F.asm, issue #9).
+	const EVENT_SILPH_CO_9F_HIDDEN_MAX_POTION
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

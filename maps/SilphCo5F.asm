@@ -235,6 +235,9 @@ SilphCo5FPokemonReport3Text:
 	cont "by link-cable."
 	done
 
+SilphCo5FHiddenElixer:
+	hiddenitem ELIXER, EVENT_SILPH_CO_5F_HIDDEN_ELIXER
+
 SilphCo5F_MapEvents:
 	db 0, 0 ; filler
 
@@ -250,6 +253,7 @@ SilphCo5F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 12,  3, BGEVENT_ITEM, SilphCo5FHiddenElixer
 
 	def_object_events
 	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo5FSilphWorkerMScript, -1

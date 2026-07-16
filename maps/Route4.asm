@@ -86,6 +86,9 @@ Route4SignText:
 	line "CERULEAN CITY"
 	done
 
+Route4HiddenGreatBall:
+	hiddenitem GREAT_BALL, EVENT_ROUTE_4_HIDDEN_GREAT_BALL
+
 Route4_MapEvents:
 	db 0, 0 ; filler
 
@@ -99,6 +102,7 @@ Route4_MapEvents:
 	bg_event 17,  7, BGEVENT_READ, Route4MtMoonSign
 	bg_event 27,  7, BGEVENT_READ, Route4Sign
 	bg_event 10,  3, BGEVENT_ITEM, Route4HiddenUltraBall
+	bg_event 40,  3, BGEVENT_ITEM, Route4HiddenGreatBall
 
 	def_object_events
 	object_event  9,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route4CooltrainerFScript, -1

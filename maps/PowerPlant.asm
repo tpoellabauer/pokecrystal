@@ -552,6 +552,12 @@ PowerPlantManagerMyBelovedGeneratorText:
 	line "electricity out!"
 	done
 
+PowerPlantHiddenMaxElixer:
+	hiddenitem MAX_ELIXER, EVENT_POWER_PLANT_HIDDEN_MAX_ELIXER
+
+PowerPlantHiddenPpUp:
+	hiddenitem PP_UP, EVENT_POWER_PLANT_HIDDEN_PP_UP
+
 PowerPlant_MapEvents:
 	db 0, 0 ; filler
 
@@ -569,6 +575,8 @@ PowerPlant_MapEvents:
 	bg_event 34,  3, BGEVENT_ITEM, PowerPlantRareCandy
 	bg_event 26, 32, BGEVENT_ITEM, PowerPlantTMThunder
 	bg_event 20, 32, BGEVENT_ITEM, PowerPlantTMReflect
+	bg_event 17, 16, BGEVENT_ITEM, PowerPlantHiddenMaxElixer
+	bg_event 12,  1, BGEVENT_ITEM, PowerPlantHiddenPpUp
 
 	def_object_events
 	object_event  4, 14, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PowerPlantOfficerScript, -1

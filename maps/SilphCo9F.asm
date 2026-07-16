@@ -149,6 +149,9 @@ SilphCo9FRocket2AfterBattleText:
 	line "avenge me!"
 	done
 
+SilphCo9FHiddenMaxPotion:
+	hiddenitem MAX_POTION, EVENT_SILPH_CO_9F_HIDDEN_MAX_POTION
+
 SilphCo9F_MapEvents:
 	db 0, 0 ; filler
 
@@ -162,6 +165,7 @@ SilphCo9F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  2, 15, BGEVENT_ITEM, SilphCo9FHiddenMaxPotion
 
 	def_object_events
 	object_event  3, 14, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo9FNurseScript, -1

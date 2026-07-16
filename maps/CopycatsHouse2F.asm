@@ -137,6 +137,9 @@ CopycatsHouse2FPCText:
 	cont "CLEFAIRY!"
 	done
 
+CopycatsHouse2FHiddenNugget:
+	hiddenitem NUGGET, EVENT_COPYCATS_HOUSE_2F_HIDDEN_NUGGET
+
 CopycatsHouse2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -148,6 +151,7 @@ CopycatsHouse2F_MapEvents:
 	def_bg_events
 	bg_event  3,  5, BGEVENT_READ, CopycatsHouse2FSNES
 	bg_event  0,  1, BGEVENT_READ, CopycatsHouse2FPC
+	bg_event  1,  1, BGEVENT_ITEM, CopycatsHouse2FHiddenNugget
 
 	def_object_events
 	object_event  4,  3, SPRITE_COPYCAT, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CopycatScript, -1

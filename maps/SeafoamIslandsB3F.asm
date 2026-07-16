@@ -8,6 +8,9 @@ SeafoamIslandsB3F_MapScripts:
 
 	def_callbacks
 
+SeafoamIslandsB3FHiddenMaxElixer:
+	hiddenitem MAX_ELIXER, EVENT_SEAFOAM_ISLANDS_B3F_HIDDEN_MAX_ELIXER
+
 SeafoamIslandsB3F_MapEvents:
 	db 0, 0 ; filler
 
@@ -23,5 +26,6 @@ SeafoamIslandsB3F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  9, 16, BGEVENT_ITEM, SeafoamIslandsB3FHiddenMaxElixer
 
 	def_object_events

@@ -93,6 +93,9 @@ RocketHideoutB3FTMDoubleEdge:
 RocketHideoutB3FRareCandy:
 	itemball RARE_CANDY
 
+RocketHideoutB3FHiddenNugget:
+	hiddenitem NUGGET, EVENT_ROCKET_HIDEOUT_B3F_HIDDEN_NUGGET
+
 RocketHideoutB3F_MapEvents:
 	db 0, 0 ; filler
 
@@ -103,6 +106,7 @@ RocketHideoutB3F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 27, 17, BGEVENT_ITEM, RocketHideoutB3FHiddenNugget
 
 	def_object_events
 	object_event 10, 22, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket1Script, -1

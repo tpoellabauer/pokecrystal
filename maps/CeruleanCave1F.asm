@@ -23,6 +23,9 @@ CeruleanCave1FMaxElixerBall:
 CeruleanCave1FNuggetBall:
 	itemball NUGGET
 
+CeruleanCave1FHiddenRareCandy:
+	hiddenitem RARE_CANDY, EVENT_CERULEAN_CAVE_1F_HIDDEN_RARE_CANDY
+
 CeruleanCave1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -40,6 +43,7 @@ CeruleanCave1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 14, 11, BGEVENT_ITEM, CeruleanCave1FHiddenRareCandy
 
 	def_object_events
 	object_event  7, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CeruleanCave1FFullRestoreBall, EVENT_CERULEAN_CAVE_1F_FULL_RESTORE

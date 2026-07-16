@@ -291,6 +291,9 @@ Route11DiglettsCaveSignText:
 	text "DIGLETT's CAVE"
 	done
 
+Route11HiddenEscapeRope:
+	hiddenitem ESCAPE_ROPE, EVENT_ROUTE_11_HIDDEN_ESCAPE_ROPE
+
 Route11_MapEvents:
 	db 0, 0 ; filler
 
@@ -302,6 +305,7 @@ Route11_MapEvents:
 	def_bg_events
 	bg_event 32,  5, BGEVENT_ITEM, Route11HiddenRevive
 	bg_event  1,  5, BGEVENT_READ, Route11DiglettsCaveSign
+	bg_event 48,  5, BGEVENT_ITEM, Route11HiddenEscapeRope
 
 	def_object_events
 	object_event 10, 14, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerRoute11Gambler1, -1

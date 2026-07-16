@@ -14,6 +14,9 @@ SeafoamIslandsB2F_MapScripts:
 SeafoamIslandsB2FBoulder:
 	jumpstd StrengthBoulderScript
 
+SeafoamIslandsB2FHiddenNugget:
+	hiddenitem NUGGET, EVENT_SEAFOAM_ISLANDS_B2F_HIDDEN_NUGGET
+
 SeafoamIslandsB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -29,6 +32,7 @@ SeafoamIslandsB2F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 15, 15, BGEVENT_ITEM, SeafoamIslandsB2FHiddenNugget
 
 	def_object_events
 	object_event 18,  6, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamIslandsB2FBoulder, -1

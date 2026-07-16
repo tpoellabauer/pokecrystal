@@ -219,6 +219,9 @@ CeladonCityPrizeExchangeSignText:
 	cont "PRIZE EXCHANGE"
 	done
 
+CeladonCityHiddenPpUp:
+	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
+
 CeladonCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -246,6 +249,7 @@ CeladonCity_MapEvents:
 	bg_event 33, 21, BGEVENT_READ, CeladonCityPrizeExchangeSign
 	bg_event 39, 21, BGEVENT_READ, CeladonCityTrainerTips2
 	bg_event 42,  9, BGEVENT_READ, CeladonCityPokecenterSign
+	bg_event 48, 15, BGEVENT_ITEM, CeladonCityHiddenPpUp
 
 	def_object_events
 	object_event  8, 17, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCityLittleGirlScript, -1
