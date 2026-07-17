@@ -1296,4 +1296,7 @@ ViridianSchoolHouse_Blocks:
 FuchsiaGoodRodHouse_Blocks:
 	INCBIN "maps/FuchsiaGoodRodHouse.blk"
 
+Route5DayCare_Blocks:
+	INCBIN "maps/Route5DayCare.blk"
+
 ENDSECTION

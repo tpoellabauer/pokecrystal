@@ -26,10 +26,11 @@ PokemonFanClubChairmanScript:
 .HeardSpeechButBagFull:
 	writetext PokemonFanClubChairmanIWantYouToHaveThisText
 	promptbutton
-	verbosegiveitem RARE_CANDY
+	verbosegiveitem BIKE_VOUCHER
 	iffalse .BagFull
 	setevent EVENT_LISTENED_TO_FAN_CLUB_PRESIDENT
-	writetext PokemonFanClubChairmanItsARareCandyText
+	setevent EVENT_GOT_BIKE_VOUCHER
+	writetext PokemonFanClubChairmanItsABikeVoucherText
 	waitbutton
 	closetext
 	end
@@ -167,16 +168,19 @@ PokemonFanClubChairmanIWantYouToHaveThisText:
 	cont "to have this!"
 	done
 
-PokemonFanClubChairmanItsARareCandyText:
-	text "It's a RARE CANDY"
-	line "that makes #MON"
-	cont "stronger."
+PokemonFanClubChairmanItsABikeVoucherText:
+	text "Exchange that for"
+	line "a BICYCLE!"
 
-	para "I prefer making my"
-	line "#MON stronger"
+	para "Don't worry, my"
+	line "FEAROW will FLY"
+	cont "me anywhere!"
 
-	para "by battling, so"
-	line "you can have it."
+	para "So, I don't need a"
+	line "BICYCLE!"
+
+	para "I hope you like"
+	line "cycling!"
 	done
 
 PokemonFanClubChairmanMoreTalesToTellText:
@@ -309,7 +313,7 @@ PokemonFanClub_MapEvents:
 
 	def_object_events
 	object_event  3,  1, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubChairmanScript, -1
-	object_event  5,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokemonFanClubReceptionistScript, -1
+	object_event  5,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokemonFanClubReceptionistScript, -1
 	object_event  1,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubClefairyGuyScript, -1
 	object_event  6,  3, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubTeacherScript, -1
 	object_event  1,  4, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubClefairyDollScript, EVENT_VERMILION_FAN_CLUB_DOLL

@@ -862,3 +862,5 @@ ENDM
 	map_attributes ViridianSchoolHouse, VIRIDIAN_SCHOOL_HOUSE, $0a
 
 	map_attributes FuchsiaGoodRodHouse, FUCHSIA_GOOD_ROD_HOUSE, $0c
+
+	map_attributes Route5DayCare, ROUTE_5_DAY_CARE, $00

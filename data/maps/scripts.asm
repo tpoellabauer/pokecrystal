@@ -570,5 +570,6 @@ INCLUDE "maps/CinnabarLabMetronomeRoom.asm"
 INCLUDE "maps/CinnabarLabFossilRoom.asm"
 INCLUDE "maps/ViridianSchoolHouse.asm"
 INCLUDE "maps/FuchsiaGoodRodHouse.asm"
+INCLUDE "maps/Route5DayCare.asm"
 
 ENDSECTION
