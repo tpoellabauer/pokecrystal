@@ -289,6 +289,7 @@ Route8_MapEvents:
 	warp_event  1, 10, ROUTE_8_SAFFRON_GATE, 4
 	warp_event  8,  9, ROUTE_8_SAFFRON_GATE, 3
 	warp_event  8, 10, ROUTE_8_SAFFRON_GATE, 4
+	warp_event 13,  3, ROUTE_8_UNDERGROUND_PATH_ENTRANCE, 1
 
 	def_coord_events
 

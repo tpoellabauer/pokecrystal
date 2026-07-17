@@ -157,6 +157,7 @@ ENDM
 	map_const VIRIDIAN_FOREST,                             17, 24 ; 92
 	map_const DIGLETTS_CAVE_ROUTE_2,                        4,  4 ; 93
 	map_const DIGLETTS_CAVE_ROUTE_11,                       4,  4 ; 94
+	map_const UNDERGROUND_PATH_ROUTE_78,                    5,  4 ; 95
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -427,6 +428,7 @@ ENDM
 	map_const POKEMON_TOWER_6F,                            10,  9 ; 20
 	map_const POKEMON_TOWER_7F,                            10,  9 ; 21
 	map_const ROUTE_12_GATE,                                5,  4 ; 22
+	map_const ROUTE_8_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 23
 	endgroup
 
 	newgroup SILVER                                               ; 19
@@ -478,6 +480,7 @@ ENDM
 	map_const ROCKET_HIDEOUT_B4F,                          15, 12 ; 30
 	map_const ROCKET_HIDEOUT_ELEVATOR,                      3,  4 ; 31
 	map_const ROUTE_7_GATE,                                 5,  4 ; 32
+	map_const ROUTE_7_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 33
 	endgroup
 
 	newgroup CIANWOOD                                             ; 22
