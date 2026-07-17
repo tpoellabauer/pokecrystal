@@ -817,14 +817,25 @@ EscapeRopeOrDig:
 	ld a, [hl]
 	and a
 	jr z, .fail
+	; Gen 1 semantics (issue #63): Escape Rope/field-Dig return to the last visited Pokemon
+	; Center (pokeredDisassembly/engine/overworld/special_warps.asm's .escapeWarp reads
+	; wLastBlackoutMap -- the same map blackout/whiteout respawns to), not the dungeon's own
+	; entrance. wLastSpawnMapGroup/Number is that same "last heal point" concept in Gen 2
+	; (TeleportFunction's .CheckIfSpawnPoint below already relies on it identically) -- resolved
+	; here (not re-resolved in .DoDig, which the jumptable always calls next with no
+	; intervening state change) so this gate and the actual destination can't disagree.
+	ld hl, wLastSpawnMapGroup
+	ld d, [hl]
+	inc hl
+	ld e, [hl]
+	farcall IsSpawnPoint
+	jr nc, .fail
+	ld a, c
+	ld [wDefaultSpawnpoint], a
 	ld a, $1
 	ret
 
 .DoDig:
-	ld hl, wDigWarpNumber
-	ld de, wNextWarp
-	ld bc, 3
-	call CopyBytes
 	call GetPartyNickname
 	ld a, [wEscapeRopeOrDigType]
 	cp $2
@@ -885,7 +896,7 @@ EscapeRopeOrDig:
 	farscall Script_AbortBugContest
 	special WarpToSpawnPoint
 	loadvar VAR_MOVEMENT, PLAYER_NORMAL
-	newloadmap MAPSETUP_DOOR
+	newloadmap MAPSETUP_TELEPORT
 	playsound SFX_WARP_FROM
 	applymovement PLAYER, .DigReturn
 	end

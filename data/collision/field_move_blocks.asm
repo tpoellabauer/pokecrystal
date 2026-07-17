@@ -1,11 +1,12 @@
 ; these blocks all use COLL_CUT_TREE in one quadrant
 CutTreeBlockPointers:
 ; tileset, block list pointer
-	dbw TILESET_JOHTO,        .johto
-	dbw TILESET_JOHTO_MODERN, .johto_modern
-	dbw TILESET_KANTO,        .kanto
-	dbw TILESET_PARK,         .park
-	dbw TILESET_FOREST,       .forest
+	dbw TILESET_JOHTO,          .johto
+	dbw TILESET_JOHTO_MODERN,   .johto_modern
+	dbw TILESET_KANTO,          .kanto
+	dbw TILESET_PARK,           .park
+	dbw TILESET_FOREST,         .forest
+	dbw TILESET_GEN1_OVERWORLD, .gen1_overworld
 	db -1 ; end
 
 .johto:
@@ -41,6 +42,19 @@ CutTreeBlockPointers:
 .forest:
 ; facing block, replacement block, animation
 	db $0f, $17, 0
+	db -1 ; end
+
+.gen1_overworld:
+; facing block, replacement block, animation -- ported 1:1 from pokeredDisassembly's
+; CutTreeBlockSwaps (data/tilesets/cut_tree_blocks.asm), the Overworld-tileset subset
+; (issue #70: TILESET_GEN1_OVERWORLD had no entry at all, so Cut silently no-op'd on
+; every ported Kanto tree despite correct collision + badge -- CheckOverworldTileArrays'
+; dictionary lookup on wMapTileset failed outright)
+	db $32, $6d, 0 ; tree
+	db $33, $6c, 0 ; tree
+	db $34, $6f, 0 ; tree
+	db $35, $4c, 0 ; tree
+	db $60, $6e, 0 ; tree
 	db -1 ; end
 
 
