@@ -269,6 +269,9 @@ Route12_MapEvents:
 
 	def_warp_events
 	warp_event 11, 77, ROUTE_12_SUPER_ROD_HOUSE, 1
+	warp_event 10, 15, ROUTE_12_GATE, 1
+	warp_event 11, 15, ROUTE_12_GATE, 2
+	warp_event 10, 21, ROUTE_12_GATE, 3
 
 	def_coord_events
 

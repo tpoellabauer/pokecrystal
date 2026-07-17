@@ -864,3 +864,11 @@ ENDM
 	map_attributes FuchsiaGoodRodHouse, FUCHSIA_GOOD_ROD_HOUSE, $0c
 
 	map_attributes Route5DayCare, ROUTE_5_DAY_CARE, $00
+
+	map_attributes Route7Gate, ROUTE_7_GATE, $00
+
+	map_attributes Route11Gate, ROUTE_11_GATE, $00
+
+	map_attributes Route12Gate, ROUTE_12_GATE, $00
+
+	map_attributes Route15Gate, ROUTE_15_GATE, $00

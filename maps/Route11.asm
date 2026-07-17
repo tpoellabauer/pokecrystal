@@ -299,6 +299,10 @@ Route11_MapEvents:
 
 	def_warp_events
 	warp_event  4,  5, DIGLETTS_CAVE_ROUTE_11, 1
+	warp_event 49,  8, ROUTE_11_GATE, 1
+	warp_event 49,  9, ROUTE_11_GATE, 2
+	warp_event 58,  8, ROUTE_11_GATE, 3
+	warp_event 58,  9, ROUTE_11_GATE, 4
 
 	def_coord_events
 

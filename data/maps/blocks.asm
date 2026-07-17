@@ -1299,4 +1299,16 @@ FuchsiaGoodRodHouse_Blocks:
 Route5DayCare_Blocks:
 	INCBIN "maps/Route5DayCare.blk"
 
+Route7Gate_Blocks:
+	INCBIN "maps/Route7Gate.blk"
+
+Route11Gate_Blocks:
+	INCBIN "maps/Route11Gate.blk"
+
+Route12Gate_Blocks:
+	INCBIN "maps/Route12Gate.blk"
+
+Route15Gate_Blocks:
+	INCBIN "maps/Route15Gate.blk"
+
 ENDSECTION
