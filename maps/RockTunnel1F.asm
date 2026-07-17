@@ -209,12 +209,17 @@ RockTunnel1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 15,  3, ROUTE_9, 1
+	warp_event 15,  3, ROUTE_10_NORTH, 3
 	warp_event 15, 33, ROUTE_10_SOUTH, 1
 	warp_event 37,  3, ROCK_TUNNEL_B1F, 1
 	warp_event  5,  3, ROCK_TUNNEL_B1F, 2
 	warp_event 17, 11, ROCK_TUNNEL_B1F, 3
 	warp_event 37, 17, ROCK_TUNNEL_B1F, 4
+	; Gen 1 geometry (issue #65): both entrances are 2-tile-wide cave mouths
+	; (pokeredDisassembly warp_event 15,0/15,3 -> LAST_MAP,2; 15,33/15,35 ->
+	; LAST_MAP,3) -- the second tile of each pair was never carried over.
+	warp_event 15,  0, ROUTE_10_NORTH, 3
+	warp_event 15, 35, ROUTE_10_SOUTH, 1
 
 	def_coord_events
 

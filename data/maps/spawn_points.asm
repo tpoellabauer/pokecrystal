@@ -23,6 +23,7 @@ SpawnPoints:
 	spawn FUCHSIA_CITY,               19, 28
 	spawn CINNABAR_ISLAND,            11, 12
 	spawn ROUTE_23,                    9,  6
+	spawn ROUTE_4,                    11,  6 ; Gen 1 pokecenter (Mt Moon respawn-only, not fly menu)
 
 	spawn NEW_BARK_TOWN,              13,  6
 	spawn CHERRYGROVE_CITY,           29,  4
