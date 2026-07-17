@@ -3,16 +3,16 @@
 
 MountMoon_MapScripts:
 	def_scene_scripts
-	scene_script MountMoonRivalEncounterScene, SCENE_MOUNTMOON_RIVAL_BATTLE
 	scene_script MountMoonNoopScene,           SCENE_MOUNTMOON_NOOP
+	scene_script MountMoonRivalEncounterScene, SCENE_MOUNTMOON_RIVAL_BATTLE
 
 	def_callbacks
 
-MountMoonRivalEncounterScene:
-	sdefer MountMoonRivalBattleScript
+MountMoonNoopScene:
 	end
 
-MountMoonNoopScene:
+MountMoonRivalEncounterScene:
+	sdefer MountMoonRivalBattleScript
 	end
 
 MountMoonRivalBattleScript:
