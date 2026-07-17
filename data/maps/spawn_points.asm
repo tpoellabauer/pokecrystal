@@ -16,6 +16,7 @@ SpawnPoints:
 	spawn PEWTER_CITY,                13, 26
 	spawn CERULEAN_CITY,              19, 18 ; Gen 1 pokecenter
 	spawn ROUTE_10_NORTH,             11,  2
+	spawn ROUTE_4,                    11,  6 ; Gen 1 Mt Moon Pokecenter (respawn only, not fly menu)
 	spawn VERMILION_CITY,             11,  4 ; Gen 1 pokecenter
 	spawn LAVENDER_TOWN,               3,  6 ; Gen 1 pokecenter
 	spawn SAFFRON_CITY,                9, 30
