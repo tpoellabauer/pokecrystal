@@ -878,3 +878,5 @@ ENDM
 	map_attributes Route8UndergroundPathEntrance, ROUTE_8_UNDERGROUND_PATH_ENTRANCE, $00
 
 	map_attributes UndergroundPathRoute78, UNDERGROUND_PATH_ROUTE_78, $00
+
+	map_attributes Museum2F, MUSEUM_2F, $00
