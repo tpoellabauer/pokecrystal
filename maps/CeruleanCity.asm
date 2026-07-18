@@ -494,6 +494,8 @@ CeruleanCity_MapEvents:
 	warp_event 30, 19, CERULEAN_GYM, 1
 	warp_event 25, 25, CERULEAN_MART, 2
 	warp_event  4, 11, CERULEAN_CAVE_1F, 1
+	warp_event  9, 11, CERULEAN_GYM_BADGE_SPEECH_HOUSE, 1
+	warp_event 27,  9, CERULEAN_POLICE_STATION, 1
 
 	def_coord_events
 

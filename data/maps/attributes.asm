@@ -862,3 +862,19 @@ ENDM
 	map_attributes ViridianSchoolHouse, VIRIDIAN_SCHOOL_HOUSE, $0a
 
 	map_attributes FuchsiaGoodRodHouse, FUCHSIA_GOOD_ROD_HOUSE, $0c
+
+	map_attributes Route5DayCare, ROUTE_5_DAY_CARE, $00
+
+	map_attributes Route7Gate, ROUTE_7_GATE, $00
+
+	map_attributes Route11Gate, ROUTE_11_GATE, $00
+
+	map_attributes Route12Gate, ROUTE_12_GATE, $00
+
+	map_attributes Route15Gate, ROUTE_15_GATE, $00
+
+	map_attributes Route7UndergroundPathEntrance, ROUTE_7_UNDERGROUND_PATH_ENTRANCE, $00
+
+	map_attributes Route8UndergroundPathEntrance, ROUTE_8_UNDERGROUND_PATH_ENTRANCE, $00
+
+	map_attributes UndergroundPathRoute78, UNDERGROUND_PATH_ROUTE_78, $00

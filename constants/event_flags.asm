@@ -2096,6 +2096,9 @@
 ; Gen1 SILPH_CO_9F hidden MAX_POTION (SilphCo9F.asm, issue #9).
 	const EVENT_SILPH_CO_9F_HIDDEN_MAX_POTION
 
+; Gen1 Vermilion Fan Club Chairman gives BIKE_VOUCHER (PokemonFanClub.asm, issue #58).
+	const EVENT_GOT_BIKE_VOUCHER
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

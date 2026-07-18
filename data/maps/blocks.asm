@@ -408,6 +408,8 @@ NationalParkBugContest_Blocks:
 
 Route5UndergroundPathEntrance_Blocks:
 Route6UndergroundPathEntrance_Blocks:
+Route7UndergroundPathEntrance_Blocks:
+Route8UndergroundPathEntrance_Blocks:
 	INCBIN "maps/UndergroundPathEntrance.blk"
 
 BetaCapsuleHouse_Blocks: ; unreferenced
@@ -1295,5 +1297,23 @@ ViridianSchoolHouse_Blocks:
 
 FuchsiaGoodRodHouse_Blocks:
 	INCBIN "maps/FuchsiaGoodRodHouse.blk"
+
+Route5DayCare_Blocks:
+	INCBIN "maps/Route5DayCare.blk"
+
+Route7Gate_Blocks:
+	INCBIN "maps/Route7Gate.blk"
+
+Route11Gate_Blocks:
+	INCBIN "maps/Route11Gate.blk"
+
+Route12Gate_Blocks:
+	INCBIN "maps/Route12Gate.blk"
+
+Route15Gate_Blocks:
+	INCBIN "maps/Route15Gate.blk"
+
+UndergroundPathRoute78_Blocks:
+	INCBIN "maps/UndergroundPathRoute78.blk"
 
 ENDSECTION
