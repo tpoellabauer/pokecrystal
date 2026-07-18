@@ -94,6 +94,7 @@ DEF NUM_FISHGROUPS EQU const_value - 1
 	const SPAWN_FUCHSIA
 	const SPAWN_CINNABAR
 	const SPAWN_INDIGO
+	const SPAWN_ROUTE_4 ; Gen 1 pokecenter (Mt Moon respawn-only, not fly menu)
 ; johto
 	const SPAWN_NEW_BARK
 	const SPAWN_CHERRYGROVE
