@@ -829,8 +829,17 @@ EscapeRopeOrDig:
 	inc hl
 	ld e, [hl]
 	farcall IsSpawnPoint
-	jr nc, .fail
 	ld a, c
+	jr c, .found_spawn
+	; Issue #71: a fresh game has never triggered .SetSpawn (only fires on an outdoor->
+	; Pokecenter warp, engine/overworld/warp_connection.asm), so wLastSpawnMapGroup/Number
+	; still reads (0,0) and IsSpawnPoint finds no match -- the rope silently no-op'd here
+	; instead of firing. Gen 1's wLastBlackoutMap defaults to PALLET_TOWN (outdoors) before
+	; any Center visit -- not SPAWN_HOME, which this project points at Red's bedroom
+	; (GetWhiteoutSpawn's identical fallback, engine/events/whiteout.asm, uses SPAWN_HOME;
+	; left alone here since whiteout's own target isn't this issue's scope).
+	ld a, SPAWN_PALLET
+.found_spawn
 	ld [wDefaultSpawnpoint], a
 	ld a, $1
 	ret
