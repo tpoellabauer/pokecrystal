@@ -188,6 +188,8 @@ Route35GoldenrodGate_Blocks:
 Route36RuinsOfAlphGate_Blocks:
 Route34IlexForestGate_Blocks:
 Route6SaffronGate_Blocks:
+	INCBIN "maps/Route6SaffronGate.blk"
+
 Route40BattleTowerGate_Blocks:
 Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
