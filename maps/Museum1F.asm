@@ -14,8 +14,9 @@ Museum1F_MapScripts:
 ; docs/DIVERGENCE_BACKLOG.md Bug 1). Gen 1's Scientist1 gate-keeps entry
 ; behind a 50-coin ticket purchase and its Scientist2 hands over OLD_AMBER
 ; (no Gen 2 item/event-flag equivalent exists yet); both are simplified to
-; flavor-only dialogue here. The upstairs fossil hall (MUSEUM_2F) and its Old
-; Amber pickup are not ported — follow-up scope, not part of this fix.
+; flavor-only dialogue here. The upstairs fossil hall (MUSEUM_2F) is ported
+; (issue #79) via the (7,7) warp below; Old Amber itself stays flavor-only
+; here on 1F -- Gen 1's pickup is on this floor, not 2F.
 Museum1FScientist1Script:
 	jumptextfaceplayer Museum1FScientist1Text
 
@@ -81,6 +82,7 @@ Museum1F_MapEvents:
 	warp_event 11,  7, PEWTER_CITY, 6
 	warp_event 16,  7, PEWTER_CITY, 7
 	warp_event 17,  7, PEWTER_CITY, 7
+	warp_event  7,  7, MUSEUM_2F, 1
 
 	def_coord_events
 

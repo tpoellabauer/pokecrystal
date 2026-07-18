@@ -1316,4 +1316,7 @@ Route15Gate_Blocks:
 UndergroundPathRoute78_Blocks:
 	INCBIN "maps/UndergroundPathRoute78.blk"
 
+Museum2F_Blocks:
+	INCBIN "maps/Museum2F.blk"
+
 ENDSECTION
