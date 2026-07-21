@@ -23,8 +23,8 @@
 ; - Simplifications made because this task is STATIC-VERIFICATION-ONLY (no PyBoy/screenshot check
 ;   is available to confirm on-screen correctness of pixel-precise raster effects) — see
 ;   docs/PORT_BACKLOG.md §2 for the full list and rationale:
-;     * the copyright/GAME FREAK PRESENTS splash drops the shooting-star OAM sprite flourish and
-;       Gengar's progressive multi-stage BG reveal, keeping the real ported art displayed statically;
+;     * the copyright/GAME FREAK mascot splash keeps its mascot and three shooting-star tiles static,
+;       dropping only their animation, and drops Gengar's progressive multi-stage BG reveal;
 ;     * the title screen drops the attract-mode random-mon showcase and the rLY-raster-split version
 ;       text wipe, keeping the logo bounce-in (which pokecrystal's own title already does the same
 ;       way) and a static "RED VERSION" caption;
@@ -75,62 +75,39 @@ RedSplashScreen:
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 
-; Copyright strip: 19 tiles, single row, compiled with no --columns/dedup flags, so a
-; plain sequential placement reproduces the source image exactly.
+; Red's copyright uses the special tiles from copyright.2bpp plus gamefreak_inc.2bpp
+; as three font rows. Keep tile IDs and layout from LoadCopyrightTiles exactly.
 	ld de, RedCopyrightGFX
-	ld hl, vTiles2
+	ld hl, vTiles2 tile $60
 	lb bc, BANK(RedCopyrightGFX), RED_COPYRIGHT_TILES
 	call Get2bpp
-	hlcoord 6, 8
-	ld b, RED_COPYRIGHT_TILES
-	xor a
-.copyright_loop
-	ld [hli], a
-	inc a
-	dec b
-	jr nz, .copyright_loop
+	ld de, RedGameFreakIncGFX
+	ld hl, vTiles2 tile ($60 + RED_COPYRIGHT_TILES)
+	lb bc, BANK(RedGameFreakIncGFX), RED_GAMEFREAK_INC_TILES
+	call Get2bpp
+	hlcoord 2, 7
+	ld de, RedCopyrightText
+	call PlaceString
 	call WaitBGMap
 	ld c, 90
 	call RedIntro_WaitFrames
 	call ClearTilemap
 	call ClearScreen
 
-; GAME FREAK PRESENTS: 13-tile wordmark strip + 6-tile (2x3) mascot icon, same reasoning
-; (no --columns/dedup on either asset -> sequential placement is exact).
-	ld de, RedGameFreakPresentsGFX
-	ld hl, vTiles2
-	lb bc, BANK(RedGameFreakPresentsGFX), RED_GAMEFREAK_PRESENTS_TILES
-	call Get2bpp
+; English Red never displays the unused Japanese PRESENTS wordmark. Display its actual
+; 2x3 mascot and three small falling-star tiles statically instead.
 	ld de, RedGameFreakLogoGFX
-	ld hl, vTiles2 tile RED_GAMEFREAK_PRESENTS_TILES
+	ld hl, vTiles0
 	lb bc, BANK(RedGameFreakLogoGFX), RED_GAMEFREAK_LOGO_TILES
 	call Get2bpp
-
-	hlcoord 4, 9
-	ld b, RED_GAMEFREAK_PRESENTS_TILES
-	xor a
-.wordmark_loop
-	ld [hli], a
-	inc a
-	dec b
-	jr nz, .wordmark_loop
-
-	hlcoord 9, 6
-	ld a, RED_GAMEFREAK_PRESENTS_TILES
-	ld b, 3
-.logo_row
-	push hl
-	ld c, 2
-.logo_col
-	ld [hli], a
-	inc a
-	dec c
-	jr nz, .logo_col
-	pop hl
-	ld de, SCREEN_WIDTH
-	add hl, de
-	dec b
-	jr nz, .logo_row
+	ld de, RedFallingStarGFX
+	ld hl, vTiles0 tile RED_GAMEFREAK_LOGO_TILES
+	lb bc, BANK(RedFallingStarGFX), RED_FALLING_STAR_TILES
+	call Get2bpp
+	ld hl, RedGameFreakMascotOAM
+	ld de, wShadowOAM
+	ld bc, RedGameFreakMascotOAMEnd - RedGameFreakMascotOAM
+	call CopyBytes
 
 	ld de, SFX_GAME_FREAK_PRESENTS
 	call PlaySFX
@@ -185,6 +162,7 @@ RedIntroBattle:
 ; Place Gengar's first pose (base tile id 0, matching CopyTileIDsFromList_ZeroBaseTileID).
 	ld hl, RedGengarTilemap1
 	call RedIntro_PlaceGengar
+	call WaitBGMap
 
 ; Resting position (skips Gen1's IntroMoveMon camera-pan slide-in ANIMATION -- see file
 ; header -- but keeps its net FRAMING: over its 40 steps, Gen1's slide accumulates +80
@@ -205,6 +183,12 @@ RedIntroBattle:
 	ld [wRedIntroBaseCoordY], a
 	lb bc, 6, 6
 	call RedIntro_InitNidorinoOAM
+	; Init consumes the seeded display coordinates. Animation tables are incremental
+	; offsets, as in Gen1 after its omitted 40-step slide-in, so reset them before
+	; RedIntro_UpdateNidorinoOAM starts adding them to existing OAM positions.
+	xor a
+	ld [wRedIntroBaseCoordX], a
+	ld [wRedIntroBaseCoordY], a
 
 	ld c, 40
 	call RedIntro_WaitFrames
@@ -232,6 +216,7 @@ RedIntroBattle:
 ; Gengar raises up (second pose).
 	ld hl, RedGengarTilemap2
 	call RedIntro_PlaceGengar
+	call WaitBGMap
 	ld c, 30
 	call RedIntro_WaitFrames
 	ret c
@@ -239,6 +224,7 @@ RedIntroBattle:
 ; Gengar slashes (third pose); Nidorino reels back and lunges.
 	ld hl, RedGengarTilemap3
 	call RedIntro_PlaceGengar
+	call WaitBGMap
 	ld a, RED_NIDORINO_FRAME_TILES * 2
 	ld [wRedIntroNidorinoBaseTile], a
 	ld de, RedIntroNidorinoAnim3
@@ -249,6 +235,7 @@ RedIntroBattle:
 
 	ld hl, RedGengarTilemap1
 	call RedIntro_PlaceGengar
+	call WaitBGMap
 	ld c, 40
 	call RedIntro_WaitFrames
 	ret c
@@ -289,10 +276,8 @@ RedIntro_PlaceGengar:
 	ld b, 7
 .row
 	push bc
-	push de
 	ld bc, 7
 	call CopyBytes ; hl (source) += 7; de (dest, within-row) += 7
-	pop de
 	ld a, e
 	add SCREEN_WIDTH - 7 ; skip to column 13 of the next BG row
 	ld e, a
@@ -513,6 +498,28 @@ RedTitleScreen:
 
 RedVersionText:
 	db "RED VERSION@"
+
+; Tile IDs $60-$7b are staged at vTiles2 by RedSplashScreen. This is Red's original
+; three-line tile layout, not a 19-tile sequential strip.
+RedCopyrightText:
+	db   $60,$61,$62,$61,$63,$61,$64,$7f,$65,$66,$67,$68,$69,$6a
+	next $60,$61,$62,$61,$63,$61,$64,$7f,$6b,$6c,$6d,$6e,$6f,$70,$71,$72
+	next $60,$61,$62,$61,$63,$61,$64,$7f,$73,$74,$75,$76,$77,$78,$79,$7a,$7b
+	db "@"
+
+; Static English-Red mascot layout, based on GameFreakLogoOAMData. Three star tiles
+; stand in for its animated shooting-star/falling-star flourish.
+RedGameFreakMascotOAM:
+	dbsprite 10,  9, 0, 0, 0, 0
+	dbsprite 11,  9, 0, 0, 1, 0
+	dbsprite 10, 10, 0, 0, 2, 0
+	dbsprite 11, 10, 0, 0, 3, 0
+	dbsprite 10, 11, 0, 0, 4, 0
+	dbsprite 11, 11, 0, 0, 5, 0
+	dbsprite  6, 12, 0, 0, 6, OAM_PAL1
+	dbsprite  8, 12, 0, 0, 6, OAM_PAL1
+	dbsprite 14, 12, 0, 0, 6, OAM_PAL1
+RedGameFreakMascotOAMEnd:
 
 ; ---------------------------------------------------------------------------
 ; Oak's speech (VANILLA_RED replacement for pokecrystal's own Wooper-based OakSpeech,
@@ -771,13 +778,13 @@ DEF RED_COPYRIGHT_TILES EQU 19
 RedCopyrightGFX:
 	INCBIN "gfx/red_splash/copyright.2bpp"
 
-DEF RED_GAMEFREAK_PRESENTS_TILES EQU 13
-RedGameFreakPresentsGFX:
-	INCBIN "gfx/red_splash/gamefreak_presents.2bpp"
-
 DEF RED_GAMEFREAK_LOGO_TILES EQU 6
 RedGameFreakLogoGFX:
 	INCBIN "gfx/red_splash/gamefreak_logo.2bpp"
+
+DEF RED_FALLING_STAR_TILES EQU 1
+RedFallingStarGFX:
+	INCBIN "gfx/red_splash/falling_star.2bpp"
 
 DEF RED_GENGAR_TILES EQU 95
 RedGengarGFX:
