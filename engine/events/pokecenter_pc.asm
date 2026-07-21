@@ -136,8 +136,9 @@ PC_CheckPartyForPokemon:
 	const PLAYERSPCITEM_TOSS_ITEM     ; 2
 	const PLAYERSPCITEM_MAIL_BOX      ; 3
 	const PLAYERSPCITEM_DECORATION    ; 4
-	const PLAYERSPCITEM_LOG_OFF       ; 5
-	const PLAYERSPCITEM_TURN_OFF      ; 6
+	const PLAYERSPCITEM_CHEATS        ; 5
+	const PLAYERSPCITEM_LOG_OFF       ; 6
+	const PLAYERSPCITEM_TURN_OFF      ; 7
 
 BillsPC:
 	call PC_PlayChoosePCSound
@@ -278,6 +279,7 @@ PlayersPCMenuData:
 	dw PlayerTossItemMenu,     .TossItem
 	dw PlayerMailBoxMenu,      .MailBox
 	dw PlayerDecorationMenu,   .Decoration
+	dw PlayerCheatsMenu,       .Cheats
 	dw PlayerLogOffMenu,       .LogOff
 	dw PlayerLogOffMenu,       .TurnOff
 
@@ -286,6 +288,7 @@ PlayersPCMenuData:
 .TossItem:     db "TOSS ITEM@"
 .MailBox:      db "MAIL BOX@"
 .Decoration:   db "DECORATION@"
+.Cheats:       db "CHEATS@"
 .TurnOff:      db "TURN OFF@"
 .LogOff:       db "LOG OFF@"
 
@@ -293,21 +296,23 @@ PlayersPCMenuData:
 ; entries correspond to PLAYERSPC_* constants
 
 	; PLAYERSPC_NORMAL
-	db 5
-	db PLAYERSPCITEM_WITHDRAW_ITEM
-	db PLAYERSPCITEM_DEPOSIT_ITEM
-	db PLAYERSPCITEM_TOSS_ITEM
-	db PLAYERSPCITEM_MAIL_BOX
-	db PLAYERSPCITEM_LOG_OFF
-	db -1 ; end
-
-	; PLAYERSPC_HOUSE
 	db 6
 	db PLAYERSPCITEM_WITHDRAW_ITEM
 	db PLAYERSPCITEM_DEPOSIT_ITEM
 	db PLAYERSPCITEM_TOSS_ITEM
 	db PLAYERSPCITEM_MAIL_BOX
+	db PLAYERSPCITEM_CHEATS
+	db PLAYERSPCITEM_LOG_OFF
+	db -1 ; end
+
+	; PLAYERSPC_HOUSE
+	db 7
+	db PLAYERSPCITEM_WITHDRAW_ITEM
+	db PLAYERSPCITEM_DEPOSIT_ITEM
+	db PLAYERSPCITEM_TOSS_ITEM
+	db PLAYERSPCITEM_MAIL_BOX
 	db PLAYERSPCITEM_DECORATION
+	db PLAYERSPCITEM_CHEATS
 	db PLAYERSPCITEM_TURN_OFF
 	db -1 ; end
 
@@ -423,6 +428,90 @@ PlayerDecorationMenu:
 	ret z
 	scf
 	ret
+
+PlayerCheatsMenu:
+	xor a
+	ld [wWhichIndexSet], a
+	ld hl, .MenuHeader
+	call LoadMenuHeader
+.loop
+	call DoNthMenu
+	jr c, .quit
+	ld a, [wMenuSelection]
+	ld hl, .Jumptable
+	call MenuJumptable
+	jr .loop
+
+.quit
+	call ExitMenu
+	xor a
+	ret
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 15, 3
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR | STATICMENU_WRAP ; flags
+	db 0 ; items
+	dw .WhichPC
+	dw PlaceNthMenuStrings
+	dw .Jumptable
+
+.Jumptable:
+	dw .GiveRareCandy, .String_RareCandy
+	dw .GiveNugget,    .String_Nugget
+
+.String_RareCandy: db "10 RARE CANDY@"
+.String_Nugget:    db "10 NUGGETS@"
+
+.WhichPC:
+	db 2
+	db 0 ; .GiveRareCandy
+	db 1 ; .GiveNugget
+	db -1 ; end
+
+.GiveRareCandy:
+	ld a, RARE_CANDY
+	ld hl, .ReceivedRareCandyText
+	jr .GiveItem
+
+.GiveNugget:
+	ld a, NUGGET
+	ld hl, .ReceivedNuggetText
+
+.GiveItem:
+	push hl
+	ld [wCurItem], a
+	ld a, 10
+	ld [wItemQuantityChange], a
+	ld hl, wNumItems
+	call ReceiveItem
+	pop hl
+	jr nc, .PackFull
+	call MenuTextboxBackup
+	and a
+	ret
+
+.PackFull:
+	ld hl, .NoRoomText
+	call MenuTextboxBackup
+	and a
+	ret
+
+.ReceivedRareCandyText:
+	text_far _ReceivedRareCandyCheatText
+	text_end
+
+.ReceivedNuggetText:
+	text_far _ReceivedNuggetCheatText
+	text_end
+
+.NoRoomText:
+	text_far _PlayersPCNoRoomWithdrawText
+	text_end
 
 PlayerLogOffMenu:
 	xor a
