@@ -113,11 +113,40 @@ RedSplashScreen:
 	ld de, SFX_GAME_FREAK_PRESENTS
 	call PlaySFX
 	call WaitBGMap
-	ld c, 80
-	call RedIntro_WaitFrames
+	call RedIntro_AnimateFallingStars
 	call ClearTilemap
 	call ClearScreen
 	call ClearSprites
+	ret
+
+; Falls the mascot's three static star sprites (RedGameFreakMascotOAM's last 3 OAM
+; entries, tile RED_GAMEFREAK_LOGO_TILES) down-left, restoring real per-frame motion
+; for Red's shooting-star flourish (previously a fully static display -- issue #137).
+; wShadowOAM entries are 4 bytes (Y, X, tile, attributes); skip the 6 mascot-body
+; entries ahead of the 3 star entries.
+RedIntro_AnimateFallingStars:
+	ld c, 20
+.loop
+	ld hl, wShadowOAM + 6 * 4
+	ld b, 3
+.inner
+	ld a, [hl]
+	add 2
+	ld [hli], a ; Y
+	ld a, [hl]
+	dec a
+	ld [hli], a ; X
+	inc hl
+	inc hl
+	dec b
+	jr nz, .inner
+	push bc
+	ld c, 3
+	call RedIntro_WaitFrames
+	pop bc
+	ret c
+	dec c
+	jr nz, .loop
 	ret
 
 ; ---------------------------------------------------------------------------
@@ -400,8 +429,9 @@ RedTitleScreen:
 
 ; POKEMON logo, 7 rows x 16 cols, sequential placement (pokemon_logo.2bpp has no
 ; --columns/--remove-duplicates reorder flag in pokered's own Makefile either, so a plain
-; row-major placement reproduces the source image).
-	hlcoord 2, 3
+; row-major placement reproduces the source image). Row 1, not 3 (issue #137: the extra
+; 2-row offset pushed the logo down into the "RED VERSION" caption row below it).
+	hlcoord 2, 1
 	xor a
 	ld b, 7
 .logo_row

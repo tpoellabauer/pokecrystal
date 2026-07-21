@@ -1,6 +1,7 @@
 DefaultOptions:
-; wOptions: med text speed
-	db TEXT_DELAY_MED
+; wOptions: med text speed, Red music+sfx on by default (Gen 1 Kanto on Crystal,
+; issue #137: new games silently started on Crystal's own soundtrack)
+	db TEXT_DELAY_MED | 1 << MUSIC_SOURCE
 ; wSaveFileExists: no
 	db FALSE
 ; wTextboxFrame: frame 1
