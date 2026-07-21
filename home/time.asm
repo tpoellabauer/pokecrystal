@@ -41,9 +41,28 @@ GetClock::
 	ldh [hRTCMinutes], a
 
 ; hours = wGameTimeHours (16-bit) split into hour-of-day (mod 24) and day count (/24)
-	ld a, [wGameTimeHours]     ; low
+;
+; wGameTimeHours is stored big-endian (byte 0 = high, byte 1 = low), matching both its
+; writer (GameTimer's .hour block in home/game_time.asm, which loads h from byte 0 and l
+; from byte 1 before `inc hl`) and every other reader (TrainerCard_Page1_PrintGameTime /
+; intro_menu.asm / halloffame.asm / diploma.asm, which all hand `wGameTimeHours` straight
+; to PrintNum's big-endian multi-byte convention -- see compare/events.py's "GSC stats/HP
+; are big-endian 16-bit" note for the same convention elsewhere in this codebase).
+; Reading it little-endian here (as an earlier version of this routine did) reinterprets
+; an ordinary hour count as a value up to 256x too large: e.g. 1 real hour played (stored
+; as 0x00,0x01) read back as 0x0100 (256) instead of 1. Two knock-on bugs followed: (1)
+; the .divloop below is O(hl/24) -- called every frame via UpdateTime, itself called every
+; frame by HandleMapTimeAndJoypad while in the overworld (VBlank is hijacked as the main
+; loop, see home/vblank.asm) -- so the bogus 256x-inflated value made this loop eat a
+; growing, eventually multi-thousand-T-state chunk of a single ~70224 T-state frame,
+; visible as the game "running slower the longer you play." (2) the resulting day count
+; was inflated by the same ~256x, tripping FixDays' day-count-overflow path (and its
+; SetClock call, which pokes RTC-register-select values into rRAMB -- a real MBC5 register
+; that actually selects an external-RAM bank on this cart's mapper, since MBC5 has no RTC)
+; far sooner and far more often than the real number of days played ever would.
+	ld a, [wGameTimeHours + 1] ; low
 	ld l, a
-	ld a, [wGameTimeHours + 1] ; high
+	ld a, [wGameTimeHours]     ; high
 	ld h, a                    ; hl = total play hours
 	ld bc, 0                   ; bc = day count
 .divloop
