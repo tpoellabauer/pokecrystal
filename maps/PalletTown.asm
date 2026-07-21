@@ -15,7 +15,13 @@ PalletTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_PALLET
 	endcallback
 
+; Oak's object (PALLETTOWN_OAK) defaults visible (its own EVENT_OAK_IN_PALLET_TOWN
+; visibility mask evaluates "shown" since that flag is never set), so keep him
+; disappeared whenever this scene is idle-polled -- otherwise he stands around town
+; as a duplicate, always-talkable Oak instead of only appearing for the cutscene
+; below (which explicitly `appear`s/`disappear`s him around the encounter itself).
 PalletTownOakStopScene:
+	disappear PALLETTOWN_OAK
 	end
 
 PalletTownNoopScene:
@@ -28,6 +34,7 @@ PalletTownNoopScene:
 PalletTownOakStopsYouScript:
 	turnobject PLAYER, UP
 	showemote EMOTE_SHOCK, PLAYER, 20
+	playmusic MUSIC_PROF_OAK ; "oak appears" cutscene music, like Red's MUSIC_MEET_PROF_OAK
 	appear PALLETTOWN_OAK
 	applymovement PALLETTOWN_OAK, PalletTownOakApproachMovement
 	opentext
@@ -36,9 +43,13 @@ PalletTownOakStopsYouScript:
 	closetext
 	applymovement PALLETTOWN_OAK, PalletTownOakLeaveMovement
 	disappear PALLETTOWN_OAK
-	; Oak leads you into the lab: arm the lab intro and warp inside (Gen 1 walks you
-	; there literally; a fade-warp is the robust GSC equivalent). The Pallet north gate
-	; stays armed until you actually get a starter (Oak's Lab clears it after the battle).
+	; Oak leads you into the lab: walk the player in (Red literally walks you there),
+	; then fade-warp inside. The Pallet north gate stays armed until you actually get
+	; a starter (Oak's Lab clears it after the battle).
+	applymovement PLAYER, PalletTownPlayerWalkToLabMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
 	setmapscene OAKS_LAB, SCENE_OAKSLAB_INTRO
 	warp OAKS_LAB, 5, 11
 	end
@@ -54,8 +65,23 @@ PalletTownOakLeaveMovement:
 	step DOWN
 	step_end
 
-PalletTownPlayerStepBackMovement:
+; Walks the player from the north grass gate ((10,1)/(11,1)) down to the Lab door
+; (12,11) -- ported from Red's RLEList_PlayerWalkToLab (PAD_UP2/RIGHT3/DOWN5/LEFT1/
+; DOWN6), simplified to straight DOWN+RIGHT since the actual landing tile is still
+; the fixed `warp OAKS_LAB, 5, 11` right after this movement finishes.
+PalletTownPlayerWalkToLabMovement:
 	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step RIGHT
+	step RIGHT
 	step_end
 
 PalletTownTeacherScript:

@@ -36,7 +36,7 @@ RedMusic::
 	dba Music_RedGym
 	dba Music_RedPalletTown
 	dba Music_ProfOaksPokemonTalk
-	dba Music_RedOaksLab
+	dba Music_RedMeetProfOak
 	dba Music_RedMeetRival
 	dba Music_AfterTheRivalFight
 	dba Music_RedSurfing

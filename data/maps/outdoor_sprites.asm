@@ -56,6 +56,7 @@ PalletGroupSprites:
 	db SPRITE_SWIMMER_GUY
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_OAK
 
 ViridianGroupSprites:
 	db SPRITE_SUICUNE
@@ -80,6 +81,7 @@ ViridianGroupSprites:
 	db SPRITE_SWIMMER_GIRL
 	db SPRITE_SWIMMER_GUY
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 PewterGroupSprites:
@@ -106,6 +108,7 @@ PewterGroupSprites:
 	db SPRITE_SWIMMER_GUY
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_FRUIT_TREE
 
 CinnabarGroupSprites:
 	db SPRITE_SUICUNE
@@ -130,6 +133,7 @@ CinnabarGroupSprites:
 	db SPRITE_SWIMMER_GIRL
 	db SPRITE_SWIMMER_GUY
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 CeruleanGroupSprites:
@@ -156,6 +160,7 @@ CeruleanGroupSprites:
 	db SPRITE_MISTY
 	db SPRITE_POKE_BALL
 	db SPRITE_SLOWPOKE
+	db SPRITE_SLOWPOKE
 
 SaffronGroupSprites:
 	db SPRITE_SUICUNE
@@ -180,6 +185,7 @@ SaffronGroupSprites:
 	db SPRITE_ROCKET
 	db SPRITE_MISTY
 	db SPRITE_POKE_BALL
+	db SPRITE_SLOWPOKE
 	db SPRITE_SLOWPOKE
 
 CeladonGroupSprites:
@@ -206,6 +212,7 @@ CeladonGroupSprites:
 	db SPRITE_BLUE
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_FRUIT_TREE
 
 LavenderGroupSprites:
 	db SPRITE_SUICUNE
@@ -230,6 +237,7 @@ LavenderGroupSprites:
 	db SPRITE_BIG_SNORLAX
 	db SPRITE_BIKER
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 VermilionGroupSprites:
@@ -256,6 +264,7 @@ VermilionGroupSprites:
 	db SPRITE_BIKER
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_FRUIT_TREE
 
 FuchsiaGroupSprites:
 	db SPRITE_SUICUNE
@@ -280,6 +289,7 @@ FuchsiaGroupSprites:
 	db SPRITE_BIG_SNORLAX
 	db SPRITE_BIKER
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 IndigoGroupSprites:
@@ -306,6 +316,7 @@ IndigoGroupSprites:
 	db SPRITE_BIKER
 	db SPRITE_POKE_BALL
 	db SPRITE_BOULDER
+	db SPRITE_BOULDER
 
 NewBarkGroupSprites:
 	db SPRITE_SUICUNE
@@ -330,6 +341,7 @@ NewBarkGroupSprites:
 	db SPRITE_BUG_CATCHER
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 CherrygroveGroupSprites:
@@ -356,6 +368,7 @@ CherrygroveGroupSprites:
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_FRUIT_TREE
 
 SilverGroupSprites:
 	db SPRITE_SUICUNE
@@ -380,6 +393,7 @@ SilverGroupSprites:
 	db SPRITE_BUG_CATCHER
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 VioletGroupSprites:
@@ -406,6 +420,7 @@ VioletGroupSprites:
 	db SPRITE_WEIRD_TREE
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_FRUIT_TREE
 
 EcruteakGroupSprites:
 	db SPRITE_SUICUNE
@@ -430,6 +445,7 @@ EcruteakGroupSprites:
 	db SPRITE_SUPER_NERD
 	db SPRITE_WEIRD_TREE
 	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db SPRITE_FRUIT_TREE
 
 AzaleaGroupSprites:
@@ -456,6 +472,7 @@ AzaleaGroupSprites:
 	db SPRITE_RIVAL
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SLOWPOKE
+	db SPRITE_SLOWPOKE
 
 GoldenrodGroupSprites:
 	db SPRITE_SUICUNE
@@ -480,6 +497,7 @@ GoldenrodGroupSprites:
 	db SPRITE_LASS
 	db SPRITE_DAY_CARE_MON_2
 	db SPRITE_FRUIT_TREE
+	db SPRITE_SLOWPOKE
 	db SPRITE_SLOWPOKE
 
 CianwoodGroupSprites:
@@ -506,6 +524,7 @@ CianwoodGroupSprites:
 	db SPRITE_TAUROS
 	db SPRITE_FRUIT_TREE
 	db SPRITE_ROCK
+	db SPRITE_ROCK
 
 OlivineGroupSprites:
 	db SPRITE_SUICUNE
@@ -530,6 +549,7 @@ OlivineGroupSprites:
 	db SPRITE_SUPER_NERD
 	db SPRITE_TAUROS
 	db SPRITE_FRUIT_TREE
+	db SPRITE_ROCK
 	db SPRITE_ROCK
 
 LakeOfRageGroupSprites:
@@ -556,6 +576,7 @@ LakeOfRageGroupSprites:
 	db SPRITE_GYARADOS
 	db SPRITE_FRUIT_TREE
 	db SPRITE_POKE_BALL
+	db SPRITE_POKE_BALL
 
 MahoganyGroupSprites:
 	db SPRITE_SUICUNE
@@ -580,6 +601,7 @@ MahoganyGroupSprites:
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_FISHER
 	db SPRITE_FRUIT_TREE
+	db SPRITE_POKE_BALL
 	db SPRITE_POKE_BALL
 
 BlackthornGroupSprites:
@@ -606,6 +628,7 @@ BlackthornGroupSprites:
 	db SPRITE_FISHER
 	db SPRITE_FRUIT_TREE
 	db SPRITE_POKE_BALL
+	db SPRITE_POKE_BALL
 
 DungeonsGroupSprites:
 	db SPRITE_SUICUNE
@@ -631,6 +654,7 @@ DungeonsGroupSprites:
 	db SPRITE_SCIENTIST
 	db SPRITE_POKE_BALL
 	db SPRITE_BOULDER
+	db SPRITE_BOULDER
 
 FastShipGroupSprites:
 	db SPRITE_SUICUNE
@@ -655,6 +679,7 @@ FastShipGroupSprites:
 	db SPRITE_YOUNGSTER
 	db SPRITE_FAIRY
 	db SPRITE_POKE_BALL
+	db SPRITE_ROCK
 	db SPRITE_ROCK
 
 CableClubGroupSprites:
