@@ -1147,6 +1147,16 @@ _PlayersPCNoRoomDepositText::
 	line "store items."
 	prompt
 
+_ReceivedRareCandyCheatText::
+	text "10 RARE CANDY"
+	line "added to Bag!"
+	prompt
+
+_ReceivedNuggetCheatText::
+	text "10 NUGGETs"
+	line "added to Bag!"
+	prompt
+
 _PokecenterPCTurnOnText::
 	text "<PLAYER> turned on"
 	line "the PC."
