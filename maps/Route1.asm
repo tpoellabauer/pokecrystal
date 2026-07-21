@@ -55,6 +55,7 @@ Route1Youngster1MartSampleText:
 Route1Youngster1GotPotionText:
 	text "<PLAYER> got"
 	line "POTION!@"
+	sound_item
 	text_end
 
 Route1Youngster1AlsoGotPokeballsText:
