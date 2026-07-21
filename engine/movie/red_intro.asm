@@ -70,8 +70,9 @@ RedSplashScreen:
 ; uniform blank screen (confirmed via PyBoy: this was the actual bug, not a tile/
 ; tilemap/window issue -- those were all already correct). SetDefaultBGPAndOBP is
 ; the DmgToCgbBGPals/ObjPals pair below, done for us; pairing it with GetSGBLayout
-; matches pokecrystal's own SplashScreen (engine/movie/splash.asm).
-	ld b, SCGB_GAMEFREAK_LOGO
+; `SCGB_GAMEFREAK_LOGO` is black-to-white for Crystal's Ditto bumper. Red's
+; `%11100100` palette needs white-to-black source colors.
+	ld b, SCGB_BATTLE_GRAYSCALE
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 
@@ -132,7 +133,7 @@ RedIntroBattle:
 
 ; See RedSplashScreen's comment above: GetSGBLayout must run before DmgToCgbBGPals/
 ; ObjPals populate wBGPals1/wOBPals1, or these reorder stale/blank data.
-	ld b, SCGB_GAMEFREAK_LOGO
+	ld b, SCGB_BATTLE_GRAYSCALE
 	call GetSGBLayout
 	ld a, %11100100
 	call DmgToCgbBGPals
@@ -371,7 +372,7 @@ RedTitleScreen:
 	call ClearScreen
 
 ; See RedSplashScreen's comment above.
-	ld b, SCGB_GAMEFREAK_LOGO
+	ld b, SCGB_BATTLE_GRAYSCALE
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 
