@@ -305,24 +305,47 @@ OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
 EcruteakPokecenter1F_Blocks:
 BlackthornPokecenter1F_Blocks:
-CinnabarPokecenter1F_Blocks:
-CeruleanPokecenter1F_Blocks:
 Route10Pokecenter1F_Blocks:
 AzaleaPokecenter1F_Blocks:
 VioletPokecenter1F_Blocks:
 Route32Pokecenter1F_Blocks:
 GoldenrodPokecenter1F_Blocks:
-VermilionPokecenter1F_Blocks:
-PewterPokecenter1F_Blocks:
-FuchsiaPokecenter1F_Blocks:
-LavenderPokecenter1F_Blocks:
 SilverCavePokecenter1F_Blocks:
-CeladonPokecenter1F_Blocks:
 CianwoodPokecenter1F_Blocks:
-ViridianPokecenter1F_Blocks:
-SaffronPokecenter1F_Blocks:
 CherrygrovePokecenter1F_Blocks:
 	INCBIN "maps/Pokecenter1F.blk"
+
+; The 9 Kanto Pokemon Centers are ported from Red (7x4 blocks, TILESET_GEN1_POKECENTER,
+; 46 metatiles) and each have their own byte-identical .blk. They must NOT fall through to
+; the generic GSC Pokecenter1F.blk (5x4, authored against the vanilla POKECENTER tileset):
+; that layout references metatile ids up to $2f, out of range for gen1_pokecenter's 46-tile
+; table, which corrupts the map load and crashes on entry (issue #148).
+CinnabarPokecenter1F_Blocks:
+	INCBIN "maps/CinnabarPokecenter1F.blk"
+
+CeruleanPokecenter1F_Blocks:
+	INCBIN "maps/CeruleanPokecenter1F.blk"
+
+VermilionPokecenter1F_Blocks:
+	INCBIN "maps/VermilionPokecenter1F.blk"
+
+PewterPokecenter1F_Blocks:
+	INCBIN "maps/PewterPokecenter1F.blk"
+
+FuchsiaPokecenter1F_Blocks:
+	INCBIN "maps/FuchsiaPokecenter1F.blk"
+
+LavenderPokecenter1F_Blocks:
+	INCBIN "maps/LavenderPokecenter1F.blk"
+
+CeladonPokecenter1F_Blocks:
+	INCBIN "maps/CeladonPokecenter1F.blk"
+
+ViridianPokecenter1F_Blocks:
+	INCBIN "maps/ViridianPokecenter1F.blk"
+
+SaffronPokecenter1F_Blocks:
+	INCBIN "maps/SaffronPokecenter1F.blk"
 
 BetaPewterMuseumOfScience1F_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaPewterMuseumOfScience1F.blk"
