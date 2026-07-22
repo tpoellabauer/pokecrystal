@@ -107,4 +107,7 @@ Music:
 	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
 	dba Music_MobileCenter
+; Gen 1 Kanto on Crystal: MUSIC_INTRO_BATTLE (issue #169) has no stock Crystal
+; equivalent; fall back to the title theme rather than silence.
+	dba Music_TitleScreen
 	assert_table_length NUM_MUSIC_SONGS
