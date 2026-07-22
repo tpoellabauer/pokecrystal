@@ -1,20 +1,25 @@
 #define PROGRAM_NAME "gbcpal"
-#define USAGE_OPTS "[-h|--help] [-r|--reverse] out.gbcpal in.gbcpal..."
+#define USAGE_OPTS "[-h|--help] [-r|--reverse] [-g|--grayscale] out.gbcpal in.gbcpal..."
 
 #include "common.h"
 
 bool reverse;
+bool grayscale;
 
 void parse_args(int argc, char *argv[]) {
 	struct option long_options[] = {
 		{"reverse", no_argument, 0, 'r'},
+		{"grayscale", no_argument, 0, 'g'},
 		{"help", no_argument, 0, 'h'},
 		{0}
 	};
-	for (int opt; (opt = getopt_long(argc, argv, "rh", long_options)) != -1;) {
+	for (int opt; (opt = getopt_long(argc, argv, "rgh", long_options)) != -1;) {
 		switch (opt) {
 		case 'r':
 			reverse = true;
+			break;
+		case 'g':
+			grayscale = true;
 			break;
 		case 'h':
 			usage_exit(0);
@@ -57,6 +62,15 @@ int compare_luminance(const void *color1, const void *color2) {
 	double lum2 = luminance(*(const struct Color *)color2);
 	// sort lightest to darkest, or darkest to lightest if reversed
 	return ((lum1 < lum2) - (lum1 > lum2)) * (reverse ? -1 : 1);
+}
+
+// Gen 1 Kanto on Crystal: snap to the same DMG 4-shade ramp as the RGB macro
+// (macros/gfx.asm) -- gray = (R+G+B)/3, then rounded to the nearest of the canonical
+// DMG levels {0,10,21,31} (white/light/dark/black), replicated to all channels.
+struct Color to_grayscale(struct Color color) {
+	uint8_t gray = (color.r + color.g + color.b) / 3;
+	uint8_t snapped = gray < 5 ? 0 : gray < 16 ? 10 : gray < 26 ? 21 : 31;
+	return (struct Color){snapped, snapped, snapped};
 }
 
 void read_gbcpal(const char *filename, struct Color **colors, size_t *num_colors) {
@@ -121,6 +135,12 @@ int main(int argc, char *argv[]) {
 	};
 	if (num_colors > 2) {
 		error_exit("%s: more than 2 colors besides black and white (%zu)\n", out_filename, num_colors);
+	}
+
+	if (grayscale) {
+		for (size_t i = 0; i < COUNTOF(pal_colors); i++) {
+			pal_colors[i] = to_grayscale(pal_colors[i]);
+		}
 	}
 
 	uint8_t bytes[COUNTOF(pal_colors) * 2] = {0};

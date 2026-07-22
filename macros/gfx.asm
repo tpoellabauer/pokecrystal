@@ -7,10 +7,20 @@ MACRO? assert_valid_rgb
 	endr
 ENDM
 
+; Gen 1 Kanto on Crystal: bake grayscale into every RGB triple at build time (see
+; constants/grayscale_config.asm). gray = (R+G+B)/3, snapped to the nearest of the 4
+; canonical DMG levels {0,10,21,31} (white/light/dark/black), replicated to all 3
+; channels. Must match the identical snap in tools/gbcpal.c (pic palettes) exactly.
+; snap = 10*(gray>=5) + 11*(gray>=16) + 10*(gray>=26): 0/10/21/31 for gray in
+; [0,4]/[5,15]/[16,25]/[26,93].
 MACRO? RGB
 	rept? _NARG / 3
 		assert_valid_rgb \1, \2, \3
+	if GRAYSCALE
+		dw palred ((((\1) + (\2) + (\3)) / 3 >= 5) * 10 + (((\1) + (\2) + (\3)) / 3 >= 16) * 11 + (((\1) + (\2) + (\3)) / 3 >= 26) * 10) + palgreen ((((\1) + (\2) + (\3)) / 3 >= 5) * 10 + (((\1) + (\2) + (\3)) / 3 >= 16) * 11 + (((\1) + (\2) + (\3)) / 3 >= 26) * 10) + palblue ((((\1) + (\2) + (\3)) / 3 >= 5) * 10 + (((\1) + (\2) + (\3)) / 3 >= 16) * 11 + (((\1) + (\2) + (\3)) / 3 >= 26) * 10)
+	else
 		dw palred (\1) + palgreen (\2) + palblue (\3)
+	endc
 		shift 3
 	endr
 ENDM

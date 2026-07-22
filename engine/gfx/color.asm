@@ -581,15 +581,15 @@ ApplyPals:
 	ld bc, 16 palettes
 	ld a, BANK(wGBCPalettes)
 	call FarCopyWRAM
-; Gen 1 Kanto on Crystal: fresh raw CGB color just landed in wBGPals2/wOBPals2 --
-; restart the grayscale sweep (_GrayscaleColorRamp) from scratch. Without this, a
-; retrigger before the previous sweep reached wGrayscaleCursor==64 leaves the slots
-; behind the old cursor holding this new raw data forever (never revisited that sweep),
-; which is the "player/textbox stuck in color" bug: ApplyPals is the ~40-call-site
-; choke point for practically every menu/map palette load, so retriggers well inside
-; the 8-VBlank sweep window are routine, not an edge case.
+; Gen 1 Kanto on Crystal: fresh raw CGB color just landed in wBGPals2/wOBPals2 -- restart
+; the chunked hardware push (ForceUpdateCGBPals, home/palettes.asm) from scratch. Without
+; this, a retrigger before the previous push reached wPalPushCursor==64 leaves the slots
+; behind the old cursor holding this new data forever (never revisited this push), which
+; is the "stuck in stale palette" bug: ApplyPals is the ~40-call-site choke point for
+; practically every menu/map palette load, so retriggers well inside the multi-VBlank
+; push window are routine, not an edge case.
 	xor a
-	ld [wGrayscaleCursor], a
+	ld [wPalPushCursor], a
 	ret
 
 ApplyAttrmap:
@@ -1347,141 +1347,3 @@ INCLUDE "gfx/beta_poker/beta_poker.pal"
 
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"
-
-DEF GRAYSCALE_COLORS_PER_VBLANK EQU 8
-
-_GrayscaleColorRamp::
-; Gen 1 Kanto on Crystal — grayscale-only look. Convert the staged CGB palettes
-; (wBGPals2 + wOBPals2, 64 contiguous colors) to grayscale in place: each RGB555 color
-; becomes gray = (R + G + B) / 3, then snapped to the nearest of the 4 canonical DMG
-; levels {0,10,21,31} (white/light/dark/black) and replicated to all three channels.
-; The snap matters: plain (R+G+B)/3 of the tilesets' source colors never reaches pure
-; black or white (it compressed on hardware to ~56..224), washing the DMG look out and
-; breaking the Red-vs-port render match; snapping restores the full 0..255 Gen 1 ramp.
-;
-; Spread across VBlanks, GRAYSCALE_COLORS_PER_VBLANK colors at a time (wGrayscaleCursor
-; tracks progress, wrapping to 0 once a sweep finishes) instead of converting all 64 in
-; one call. Doing all 64 in a single VBlank overruns the real ~4560-cycle VBlank window
-; -- confirmed on a real repro cart: the whole screen got stuck white (palette RAM's
-; power-on default) because the overrun pushed the BGPD/OBPD writes past VBlank, where
-; real CGB hardware silently drops them (PyBoy doesn't enforce that Mode-3 write block,
-; so this looked fine in emulation). The caller (ForceUpdateCGBPals) only pushes to
-; hardware and clears hCGBPalUpdate once a full sweep completes (returned via carry); a
-; few-VBlank pop-in beats a screen stuck blank/white.
-; Called (via farcall) from ForceUpdateCGBPals with rWBK already set to BANK(wBGPals2).
-	ld a, [wGrayscaleCursor]
-	cp 64
-	jr nz, .haveCursor
-	xor a                ; wrap 64 -> 0: start a fresh sweep
-.haveCursor
-	ld e, a
-	ld d, 0
-	ld hl, wBGPals2
-	add hl, de
-	add hl, de            ; hl -> first unconverted color (wBGPals2 + cursor*2)
-
-	ld a, 64
-	sub e                 ; a = colors remaining this sweep
-	cp GRAYSCALE_COLORS_PER_VBLANK + 1
-	jr c, .gotBatchSize   ; remaining <= bound -> this call finishes the sweep
-	ld a, GRAYSCALE_COLORS_PER_VBLANK
-.gotBatchSize
-	ld c, a               ; c = colors to process this call
-	add e
-	ld [wGrayscaleCursor], a ; persist progress (may land exactly on 64 = "done")
-.loop
-	ld a, [hl]
-	ld e, a
-	inc hl
-	ld a, [hl]
-	ld d, a
-	dec hl               ; hl -> low byte of this color
-	; R = color & $1f
-	ld a, e
-	and $1f
-	ld b, a
-	; de >>= 5 -> G in low 5 bits
-	ld a, 5
-.shiftG
-	srl d
-	rr e
-	dec a
-	jr nz, .shiftG
-	ld a, e
-	and $1f
-	add b
-	ld b, a              ; b = R + G
-	; de >>= 5 -> B in low 5 bits
-	ld a, 5
-.shiftB
-	srl d
-	rr e
-	dec a
-	jr nz, .shiftB
-	ld a, e
-	and $1f
-	add b                ; a = R + G + B (0..93)
-	; gray = a / 3 (floor) via repeated subtraction
-	ld b, 0
-.div3
-	sub 3
-	jr c, .div3done
-	inc b
-	jr .div3
-.div3done
-	; snap gray (b) to the nearest canonical DMG level {0,10,21,31} (thresholds at the
-	; midpoints 5/16/26) so the ramp spans pure black..white like Gen 1's DMG shades.
-	ld a, b
-	cp 5
-	jr c, .snap0
-	cp 16
-	jr c, .snap10
-	cp 26
-	jr c, .snap21
-	ld b, 31
-	jr .snapped
-.snap21
-	ld b, 21
-	jr .snapped
-.snap10
-	ld b, 10
-	jr .snapped
-.snap0
-	ld b, 0
-.snapped
-	ld a, b              ; a = gray (0..31), snapped to a canonical level
-	; low byte = (gray & $1f) | ((gray & $07) << 5)
-	and $07
-	swap a               ; << 4
-	add a                ; << 1  -> (gray & 7) << 5
-	ld d, a
-	ld a, b
-	and $1f
-	or d
-	ld [hl], a
-	inc hl
-	; high byte = (gray >> 3) | (gray << 2)
-	ld a, b
-	srl a
-	srl a
-	srl a
-	ld d, a              ; gray >> 3
-	ld a, b
-	add a
-	add a                ; gray << 2
-	or d
-	ld [hl], a
-	inc hl
-	dec c
-	jr nz, .loop
-
-	ld a, [wGrayscaleCursor]
-	cp 64
-	jr z, .sweepDone
-	; Not done: `cp 64` on a<64 sets carry (it's a subtraction/borrow), so returning here
-	; without clearing it would report "done" on every partial batch -- explicitly clear it.
-	and a
-	ret
-.sweepDone
-	scf
-	ret

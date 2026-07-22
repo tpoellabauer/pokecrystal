@@ -1745,7 +1745,7 @@ wMoreMenuDataEnd::
 wOverworldDelay:: db
 wTextDelayFrames:: db
 wVBlankOccurred:: db
-wGrayscaleCursor:: db ; _GrayscaleColorRamp's progress (0..64) through the current sweep
+wPalPushCursor:: db ; ForceUpdateCGBPals's progress (0..64) through the current chunked push
 
 wPredefID:: db
 wPredefHL:: dw

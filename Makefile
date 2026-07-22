@@ -126,6 +126,12 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
+# Gen 1 Kanto on Crystal: bake grayscale into palettes at build time (default). Pass
+# GRAYSCALE=0 for a full-color build (GSC regression comparisons against stock Crystal).
+GRAYSCALE ?= 1
+RGBASMFLAGS += -D GRAYSCALE=$(GRAYSCALE)
+export GRAYSCALE
+
 $(pokecrystal_obj):         RGBASMFLAGS +=
 $(pokecrystal11_obj):       RGBASMFLAGS += -D _CRYSTAL11
 $(pokecrystal_au_obj):      RGBASMFLAGS += -D _CRYSTAL11 -D _CRYSTAL_AU
@@ -378,6 +384,13 @@ gfx/mobile/stadium2_n64.2bpp: tools/gfx += --trim-whitespace
 %.gbcpal: %.png
 	$(RGBGFX) -p $@ $<
 	tools/gbcpal $(tools/gbcpal) $@ $@ || $$($(RM) $@ && false)
+
+# Gen 1 Kanto on Crystal: the raw-color .gbcpal above still drives rgbgfx tile-color
+# matching for the sprite's own .2bpp (its colors must exactly match the source PNG's
+# pixels). The palette actually embedded in ROM (INCBIN'd via middle_colors) is this
+# derived, build-time-grayscaled copy instead -- see constants/grayscale_config.asm.
+%.final.gbcpal: %.gbcpal
+	tools/gbcpal $(if $(filter 1,$(GRAYSCALE)),--grayscale) $@ $<
 
 %.dimensions: %.png
 	tools/png_dimensions $< $@

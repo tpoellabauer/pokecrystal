@@ -18,43 +18,43 @@ UpdateCGBPals::
 	ret z
 	; fallthrough
 
+DEF PAL_PUSH_COLORS_PER_VBLANK EQU 8
+
 ForceUpdateCGBPals::
 	ldh a, [rWBK]
 	push af
 	ld a, BANK(wBGPals2)
 	ldh [rWBK], a
 
-	; Gen 1 Kanto on Crystal: overworld is grayscale-only. Convert every staged CGB
-	; color to a gray of equal luminance right before it is pushed to hardware, so the
-	; whole game renders in the DMG monochrome ramp despite the CGB palettes. The
-	; routine lives in a ROMX bank (home is full); rWBK is already set to wBGPals2.
-	; It converts only a few colors per call (real-hardware VBlank timing -- see its
-	; comment) and reports carry only once a full 64-color sweep is done. Push to
-	; hardware on *every* call regardless -- if the push were gated on full completion,
-	; a run of busy VBlanks (UpdateBGMapBuffer has priority -- see VBlank_Normal) could
-	; starve the sweep indefinitely, leaving BGPD/OBPD at whatever they last held (cold
-	; boot default white, if this is the first load) instead of the real palette -- the
-	; "player/Oak/rival pure white" report. A part-converted mix flashing for a few
-	; VBlanks beats hardware staying stuck white. The producers reset wGrayscaleCursor
-	; on retrigger (see ApplyPals/DmgToCgb*), so any raw color pushed mid-sweep is
-	; transient -- the sweep always restarts from 0 and fully grays within ~8 VBlanks;
-	; nothing stays colored (that was the separate stale-cursor bug).
-	farcall _GrayscaleColorRamp
-	push af
+; Gen 1 Kanto on Crystal: the grayscale look is baked into every palette at build time
+; (constants/grayscale_config.asm, macros/gfx.asm, tools/gbcpal.c) -- wBGPals2/wOBPals2
+; already hold the DMG-snapped colors, so there is no runtime color math anymore. The
+; hardware push is still done in bounded PAL_PUSH_COLORS_PER_VBLANK-color chunks per
+; VBlank, though, tracked by wPalPushCursor (0..64, wraps to 0 to start a fresh push):
+; a full 64-color push (128 BGPD/OBPD writes) does not fit the real ~4560-cycle VBlank
+; window, and real CGB hardware silently drops writes made past it, leaving palette RAM
+; stuck at the cold-boot white default (confirmed on a repro cart). Producers
+; (ApplyPals/DmgToCgb*) reset wPalPushCursor to 0 on every retrigger, so a restage is
+; always (re-)pushed from the top; each call pushes [0, cursor), so the not-yet-reached
+; tail simply keeps whatever hardware already has from the previous completed push
+; (already gray) -- never anything wrong, just a few-VBlank pop-in on a fast retrigger.
+	ld a, [wPalPushCursor]
+	cp 64
+	jr nz, .haveCursor
+	xor a                ; wrap 64 -> 0: start a fresh push
+.haveCursor
+	ld e, a               ; e = cursor before this call's chunk (0..64)
 
-; Gen 1 Kanto on Crystal: push ONLY the colors the sweep has already grayscaled this pass
-; -- indices [0, wGrayscaleCursor) -- and leave the rest of CGB palette RAM untouched.
-; wBGPals2/wOBPals2 still hold this sweep's raw tail in [cursor, 64); pushing that tail is
-; exactly the transition/menu "runs in color" flash. Palette RAM retains any index we don't
-; overwrite, so the un-swept tail keeps the *previous completed sweep's* gray until this
-; sweep reaches it -- a brief gray pop-in, never raw color. The push still runs every VBlank
-; and always makes forward progress, so it can't strand hardware at the cold-boot white under
-; sweep starvation (the separate "player/Oak/rival white" bug). BG colors are the first 32
-; (wBGPals2), OBJ the next 32 (wOBPals2), so the cursor splits 32/32.
-	ld a, [wGrayscaleCursor] ; colors grayscaled so far (0..64)
-	ld e, a                  ; stash cursor for the OBJ half
+	ld a, 64
+	sub e
+	cp PAL_PUSH_COLORS_PER_VBLANK + 1
+	jr c, .gotBatchSize
+	ld a, PAL_PUSH_COLORS_PER_VBLANK
+.gotBatchSize
+	add e
+	ld [wPalPushCursor], a ; new cursor (0..64); persists progress
 
-; push the converted BG colors: min(cursor, 32)
+; push BG colors: min(new cursor, 32)
 	cp 32 + 1
 	jr c, .gotBGCount
 	ld a, 32
@@ -67,18 +67,18 @@ ForceUpdateCGBPals::
 	ld c, LOW(rBGPD)
 	ld a, b
 	and a
-	jr z, .objPush           ; nothing converted yet -> leave BG palette RAM as-is
+	jr z, .objPush           ; nothing to push yet -> leave BG palette RAM as-is
 .bgp
 	ld a, [hli]
 	ldh [c], a
 	dec b
 	jr nz, .bgp
 
-; push the converted OBJ colors: max(0, cursor - 32)
+; push OBJ colors: max(0, new cursor - 32)
 .objPush
-	ld a, e
+	ld a, [wPalPushCursor]
 	sub 32
-	jr c, .pushDone          ; cursor <= 32 -> no OBJ color converted yet
+	jr c, .pushDone          ; cursor <= 32 -> no OBJ color to push yet
 	jr z, .pushDone
 	add a                    ; a = (cursor - 32) * 2 bytes
 	ld b, a
@@ -93,13 +93,14 @@ ForceUpdateCGBPals::
 	jr nz, .obp
 .pushDone
 
-; clear pal update queue -- only once the sweep is actually fully converted+pushed
-	pop af
-	jr nc, .notDoneYet
+; clear pal update queue -- only once the push has actually reached the full 64
+	ld a, [wPalPushCursor]
+	cp 64
+	jr nz, .notDone
 	xor a
 	ldh [hCGBPalUpdate], a
+.notDone
 
-.notDoneYet
 	pop af
 	ldh [rWBK], a
 
@@ -141,11 +142,9 @@ DmgToCgbBGPals::
 ; request pal update
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-; Gen 1 Kanto on Crystal: fresh raw color just landed in wBGPals2 -- restart the
-; grayscale sweep so a retrigger doesn't strand un-converted color behind a stale
-; wGrayscaleCursor (see ApplyPals, engine/gfx/color.asm).
+; Gen 1 Kanto on Crystal: restart the chunked push (see ApplyPals, engine/gfx/color.asm).
 	xor a
-	ld [wGrayscaleCursor], a
+	ld [wPalPushCursor], a
 
 	pop af
 	ldh [rWBK], a
@@ -194,9 +193,9 @@ DmgToCgbObjPals::
 ; request pal update
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-; Gen 1 Kanto on Crystal: restart the grayscale sweep (see DmgToCgbBGPals above).
+; Gen 1 Kanto on Crystal: restart the chunked push (see ApplyPals, engine/gfx/color.asm).
 	xor a
-	ld [wGrayscaleCursor], a
+	ld [wPalPushCursor], a
 
 	pop af
 	ldh [rWBK], a
@@ -232,9 +231,9 @@ DmgToCgbObjPal0::
 	call CopyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-; Gen 1 Kanto on Crystal: restart the grayscale sweep (see DmgToCgbBGPals above).
+; Gen 1 Kanto on Crystal: restart the chunked push (see ApplyPals, engine/gfx/color.asm).
 	xor a
-	ld [wGrayscaleCursor], a
+	ld [wPalPushCursor], a
 
 	pop af
 	ldh [rWBK], a
@@ -272,9 +271,9 @@ DmgToCgbObjPal1::
 	call CopyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-; Gen 1 Kanto on Crystal: restart the grayscale sweep (see DmgToCgbBGPals above).
+; Gen 1 Kanto on Crystal: restart the chunked push (see ApplyPals, engine/gfx/color.asm).
 	xor a
-	ld [wGrayscaleCursor], a
+	ld [wPalPushCursor], a
 
 	pop af
 	ldh [rWBK], a

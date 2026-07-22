@@ -693,26 +693,24 @@ AnimateWaterPalette:
 	cp %100
 	jr z, .color2
 
-; Copy one color from hl to rBGPI via rBGPD, converted to grayscale so this
-; animation doesn't punch raw CGB color into hardware behind _GrayscaleColorRamp's back
+; Copy one color from hl to rBGPI via rBGPD
 
 ; color1
 	ld hl, wBGPals1 palette PAL_BG_WATER color 1
-	jr .writeGray
+	jr .write
 
 .color0
 	ld hl, wBGPals1 palette PAL_BG_WATER color 0
-	jr .writeGray
+	jr .write
 
 .color2
 	ld hl, wBGPals1 palette PAL_BG_WATER color 2
 
-.writeGray
+.write
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	call GrayscaleAnimColor
 	ld a, e
 	ldh [rBGPD], a
 	ld a, d
@@ -767,7 +765,6 @@ FlickeringCaveEntrancePalette:
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	call GrayscaleAnimColor
 	ld a, e
 	ldh [rBGPD], a
 	ld a, d
@@ -775,80 +772,6 @@ FlickeringCaveEntrancePalette:
 
 	pop af
 	ldh [rWBK], a
-	ret
-
-GrayscaleAnimColor:
-; Convert one raw RGB555 color in de (e=low byte, d=high byte) to grayscale,
-; using the same gray=(R+G+B)/3-snapped-to-canonical-DMG-level algorithm as
-; _GrayscaleColorRamp (engine/gfx/color.asm). Duplicated (rather than farcalled)
-; because this runs on the hot per-VBlank tileset-animation path in a different
-; bank; out: de = grayscale color. Clobbers a, b.
-	ld a, e
-	and $1f
-	ld b, a
-	ld a, 5
-.shiftG
-	srl d
-	rr e
-	dec a
-	jr nz, .shiftG
-	ld a, e
-	and $1f
-	add b
-	ld b, a
-	ld a, 5
-.shiftB
-	srl d
-	rr e
-	dec a
-	jr nz, .shiftB
-	ld a, e
-	and $1f
-	add b            ; a = R + G + B (0..93)
-	ld b, 0
-.div3
-	sub 3
-	jr c, .div3done
-	inc b
-	jr .div3
-.div3done
-	ld a, b
-	cp 5
-	jr c, .snap0
-	cp 16
-	jr c, .snap10
-	cp 26
-	jr c, .snap21
-	ld b, 31
-	jr .snapped
-.snap21
-	ld b, 21
-	jr .snapped
-.snap10
-	ld b, 10
-	jr .snapped
-.snap0
-	ld b, 0
-.snapped
-	ld a, b
-	and $07
-	swap a
-	add a
-	ld d, a
-	ld a, b
-	and $1f
-	or d
-	ld e, a          ; low byte
-	ld a, b
-	srl a
-	srl a
-	srl a
-	ld d, a
-	ld a, b
-	add a
-	add a
-	or d             ; high byte
-	ld d, a
 	ret
 
 TowerPillarTilePointer1:  dw vTiles2 tile $2d, TowerPillarTile1

@@ -9,6 +9,9 @@
 ; the remaining engine behaviors that still differ from Red to their Gen 1 values, and
 ; (as they land) disables mod-only extras that Red never had:
 ;
+; (Grayscale rendering is a separate, orthogonal flag -- GRAYSCALE, see
+; constants/grayscale_config.asm -- not gated by VANILLA_RED.)
+;
 ;   * Day/night: Red has no time-of-day cycle -> time of day is pinned to DAY, so
 ;     overworld palettes and time-gated encounters never shift (engine/rtc/rtc.asm).
 ;   * (planned) trainer auto-scaling and universal rematches are mod-only; VANILLA_RED
