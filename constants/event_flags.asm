@@ -2118,6 +2118,12 @@
 	const EVENT_GOT_SILPH_SCOPE
 	const EVENT_GOT_LIFT_KEY
 
+; Gen1 Cinnabar Lab fossil revival (issue #164). One-time gate: the fossil-room scientist
+; revives a DOME_FOSSIL/HELIX_FOSSIL/OLD_AMBER key item into KABUTO/OMANYTE/AERODACTYL and
+; never again (Gen1's EVENT_GAVE_FOSSIL_TO_LAB give/walk/hand-over three-state chain, collapsed
+; into one faithful talk-triggered interaction per this port's simplification precedent).
+	const EVENT_REVIVED_FOSSIL_AT_LAB
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 

@@ -135,9 +135,9 @@ ItemDescriptions:
 	dw StarPieceDesc
 	dw BasementKeyDesc
 	dw PassDesc
-	dw TeruSama9Desc
-	dw TeruSama10Desc
-	dw TeruSama11Desc
+	dw DomeFossilDesc
+	dw HelixFossilDesc
+	dw OldAmberDesc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
@@ -781,14 +781,17 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-TeruSama9Desc:
-	db   "?@"
+DomeFossilDesc:
+	db   "A #MON fossil."
+	next "Extinct species.@"
 
-TeruSama10Desc:
-	db   "?@"
+HelixFossilDesc:
+	db   "A #MON fossil."
+	next "Extinct species.@"
 
-TeruSama11Desc:
-	db   "?@"
+OldAmberDesc:
+	db   "Amber holding"
+	next "ancient #MON DNA.@"
 
 CharcoalDesc:
 	db   "Powers up fire-"

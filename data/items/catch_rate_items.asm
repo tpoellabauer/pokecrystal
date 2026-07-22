@@ -5,7 +5,6 @@
 TimeCapsule_CatchRateItems:
 	db SILPH_SCOPE, BERRY
 	db LIFT_KEY, BERRY
-	db ITEM_87, BERRY
 	db ITEM_BE, BERRY
 	db ITEM_C3, BERRY
 	db ITEM_FA, BERRY
