@@ -8,6 +8,7 @@
 	const CELADONGAMECORNER_FISHER2
 	const CELADONGAMECORNER_GYM_GUIDE
 	const CELADONGAMECORNER_GRAMPS
+	const CELADONGAMECORNER_ROCKET
 
 CeladonGameCorner_MapScripts:
 	def_scene_scripts
@@ -100,6 +101,31 @@ CeladonGameCornerGrampsScript:
 	waitbutton
 	closetext
 	turnobject CELADONGAMECORNER_GRAMPS, LEFT
+	end
+
+; Gen 1 GameCornerRocketText (GameCorner.asm): a Team Rocket grunt (OPP_ROCKET 7, sprite
+; GAMECORNER_ROCKET, EngageMapTrainer) guards the poster hiding the Rocket Hideout secret
+; staircase -- a real battle the player must win before the staircase becomes accessible
+; (issue #155). Ported here as a standard blocking trainer, standing on the corridor tile
+; leading to the ROCKET_HIDEOUT_B1F warp_event; once beaten it stops spawning (its own
+; EVENT_BEAT_CELADON_GAME_CORNER_ROCKET), clearing the way to the staircase.
+CeladonGameCornerRocketScript:
+	faceplayer
+	opentext
+	writetext CeladonGameCornerRocketBattleText
+	waitbutton
+	closetext
+	loadtrainer GRUNTM, GRUNTM_67
+	startbattle
+	dontrestartmapmusic
+	reloadmap
+	setevent EVENT_BEAT_CELADON_GAME_CORNER_ROCKET
+	opentext
+	writetext CeladonGameCornerRocketEndBattleText
+	promptbutton
+	writetext CeladonGameCornerRocketAfterBattleText
+	waitbutton
+	closetext
 	end
 
 CeladonGameCornerPoster1Script:
@@ -288,6 +314,22 @@ else
 	done
 endc
 
+CeladonGameCornerRocketBattleText:
+	text "I'm guarding this"
+	line "poster for TEAM"
+	cont "ROCKET!"
+	done
+
+CeladonGameCornerRocketEndBattleText:
+	text "Oof!"
+	done
+
+CeladonGameCornerRocketAfterBattleText:
+	text "Fine, look all you"
+	line "want. There's"
+	cont "nothing here!"
+	done
+
 CeladonGameCornerPoster1Text:
 	text "Hey!"
 
@@ -380,3 +422,4 @@ CeladonGameCorner_MapEvents:
 	object_event  8, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, NITE, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFisherScript, -1
 	object_event 11,  3, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1
 	object_event  2,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerGrampsScript, -1
+	object_event 17,  5, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerRocketScript, EVENT_BEAT_CELADON_GAME_CORNER_ROCKET

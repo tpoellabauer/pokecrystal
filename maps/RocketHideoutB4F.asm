@@ -19,15 +19,36 @@ RocketHideoutB4F_MapScripts:
 ; (pokeredDisassembly/data/maps/toggleable_objects.asm: both OFF for ROCKET_HIDEOUT_B4F).
 ; The SILPH SCOPE appears once GIOVANNI is beaten (he leaves it behind); the LIFT KEY
 ; appears once ROCKET3 drops it in his after-battle text.
+;
+; Each ball has THREE states -- hidden pre-reveal, shown once its reveal event fires, and
+; hidden again once collected (issue #157). A single flag cannot encode all three, so the
+; ball's own object_event flag (EVENT_ROCKET_HIDEOUT_B4F_SILPH_SCOPE / _LIFT_KEY) is used
+; ONLY as the visibility mask, driven authoritatively by this callback, while a separate
+; EVENT_GOT_* flag (set by the pickup script) records that the item was actually taken.
+; Visibility = reveal-event-set AND NOT-yet-collected; this callback fully recomputes it on
+; every map load, so pre-reveal hiding never leaves the mask stuck set the way the old
+; imperative `disappear`-only callback did (which reused the pickup flag and made both items
+; permanently uncollectible).
 RocketHideoutB4FHiddenItemsCallback:
+	checkevent EVENT_GOT_SILPH_SCOPE
+	iftrue .hide_silph_scope
 	checkevent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI
-	iftrue .silph_scope_dropped
+	iftrue .show_silph_scope
+.hide_silph_scope
 	disappear ROCKETHIDEOUTB4F_SILPH_SCOPE
-.silph_scope_dropped
+	sjump .lift_key
+.show_silph_scope
+	appear ROCKETHIDEOUTB4F_SILPH_SCOPE
+.lift_key
+	checkevent EVENT_GOT_LIFT_KEY
+	iftrue .hide_lift_key
 	checkevent EVENT_ROCKET_DROPPED_LIFT_KEY
-	iftrue .lift_key_dropped
+	iftrue .show_lift_key
+.hide_lift_key
 	disappear ROCKETHIDEOUTB4F_LIFT_KEY
-.lift_key_dropped
+	endcallback
+.show_lift_key
+	appear ROCKETHIDEOUTB4F_LIFT_KEY
 	endcallback
 
 RocketHideoutB4FGiovanniScript:
@@ -131,11 +152,29 @@ RocketHideoutB4FTMRazorWind:
 RocketHideoutB4FIron:
 	itemball IRON
 
+; Scripted pickups (not plain `itemball`) so a genuine pickup sets a dedicated EVENT_GOT_*
+; flag distinct from the object's visibility mask -- see RocketHideoutB4FHiddenItemsCallback
+; and issue #157. `disappear` here sets the visibility mask (hidden = collected); the callback
+; keeps it hidden on every later load because EVENT_GOT_* is now set.
 RocketHideoutB4FSilphScope:
-	itemball SILPH_SCOPE
+	opentext
+	verbosegiveitem SILPH_SCOPE
+	iffalse .silph_scope_bag_full
+	setevent EVENT_GOT_SILPH_SCOPE
+	disappear ROCKETHIDEOUTB4F_SILPH_SCOPE
+.silph_scope_bag_full
+	closetext
+	end
 
 RocketHideoutB4FLiftKey:
-	itemball LIFT_KEY
+	opentext
+	verbosegiveitem LIFT_KEY
+	iffalse .lift_key_bag_full
+	setevent EVENT_GOT_LIFT_KEY
+	disappear ROCKETHIDEOUTB4F_LIFT_KEY
+.lift_key_bag_full
+	closetext
+	end
 
 RocketHideoutB4FGiovanniImpressedYouGotHereText:
 	text "So! I must say, I"
@@ -238,5 +277,5 @@ RocketHideoutB4F_MapEvents:
 	object_event 10, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB4FHPUp, EVENT_ROCKET_HIDEOUT_B4F_HP_UP
 	object_event  9,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB4FTMRazorWind, EVENT_ROCKET_HIDEOUT_B4F_TM_RAZOR_WIND
 	object_event 12, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB4FIron, EVENT_ROCKET_HIDEOUT_B4F_IRON
-	object_event 25,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB4FSilphScope, EVENT_ROCKET_HIDEOUT_B4F_SILPH_SCOPE
-	object_event 10,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB4FLiftKey, EVENT_ROCKET_HIDEOUT_B4F_LIFT_KEY
+	object_event 25,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB4FSilphScope, EVENT_ROCKET_HIDEOUT_B4F_SILPH_SCOPE
+	object_event 10,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB4FLiftKey, EVENT_ROCKET_HIDEOUT_B4F_LIFT_KEY

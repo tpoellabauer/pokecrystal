@@ -29,10 +29,43 @@ VermilionCityBeautyScript:
 	jumptextfaceplayer VermilionCityBeautyText
 
 VermilionCityGambler1Script:
-	jumptextfaceplayer VermilionCityGambler1Text
+	faceplayer
+	opentext
+	checkevent EVENT_SS_ANNE_LEFT
+	iftrue .ShipDeparted
+	writetext VermilionCityGambler1Text
+	waitbutton
+	closetext
+	end
 
+.ShipDeparted:
+	writetext VermilionCityGambler1DepartedText
+	waitbutton
+	closetext
+	end
+
+; Gen1's guard/gate mechanic (VermilionCityLeftSSAnneCallbackScript, VermilionCitySailor1Text
+; guard-coord check in pokeredDisassembly/scripts/VermilionCity.asm, issue #158) forced the
+; player away from the dock and permanently swapped this NPC's line once EVENT_SS_ANNE_LEFT
+; was set. This port's ticket/boarding gate already lives at VermilionPort (see that map's
+; comment), so there's no dock coordinate left to guard here -- what's ported is the flavor-
+; text half of the mechanic: once the ship has left (VermilionPort.asm sets
+; EVENT_SS_ANNE_LEFT), this sailor's line permanently changes to reflect it.
 VermilionCitySailor1Script:
-	jumptextfaceplayer VermilionCitySailor1Text
+	faceplayer
+	opentext
+	checkevent EVENT_SS_ANNE_LEFT
+	iftrue .ShipDeparted
+	writetext VermilionCitySailor1Text
+	waitbutton
+	closetext
+	end
+
+.ShipDeparted:
+	writetext VermilionCitySailor1DepartedText
+	waitbutton
+	closetext
+	end
 
 VermilionMachopOwner:
 	jumptextfaceplayer VermilionMachopOwnerText
@@ -150,6 +183,14 @@ VermilionCityGambler1Text:
 	cont "in the harbor?"
 	done
 
+VermilionCityGambler1DepartedText:
+	text "Aw, the S.S.ANNE"
+	line "already set sail."
+
+	para "I wanted to see it"
+	line "one more time…"
+	done
+
 VermilionCitySailor1Text:
 	text "Welcome to S.S."
 	line "ANNE!"
@@ -157,6 +198,14 @@ VermilionCitySailor1Text:
 	para "Show the sailor at"
 	line "the dock your S.S."
 	cont "TICKET to board."
+	done
+
+VermilionCitySailor1DepartedText:
+	text "The S.S.ANNE has"
+	line "already set sail."
+
+	para "Thanks for sailing"
+	line "with us!"
 	done
 
 VermilionMachopOwnerText:

@@ -21,12 +21,24 @@ VermilionPortLeaveShipScene:
 
 VermilionPortFlypointCallback:
 	setflag ENGINE_FLYPOINT_VERMILION
+; Gen1's S.S. Anne departure (VermilionDock.asm VermilionDockSSAnneLeavesScript, issue #158):
+; once the player has gotten HM01 Cut from the Captain (the ship's story content is done) and
+; comes back through this map, the ship sets sail for good. EVENT_SS_ANNE_LEFT is the port's
+; permanent equivalent -- set once here, it also masks VERMILIONPORT_SAILOR3 forever via that
+; object_event's event-flag param (see below), so the sailor/gangway is simply gone from then
+; on instead of the original's animated smoke/erase sequence (out of scope to port pixel-for-
+; pixel here).
+	checkevent EVENT_GOT_HM01_CUT
+	iffalse .ShipStillHere
+	setevent EVENT_SS_ANNE_LEFT
+.ShipStillHere:
 ; The S.S. Anne sailor (VERMILIONPORT_SAILOR3) disappears mid-boarding-script and
 ; is only re-shown by that same script on a scripted return trip (see the Fast
 ; Ship's VermilionPortLeaveShipScene precedent). The S.S. Anne has no such
 ; departure/return scene of its own (SSAnne1F.asm's exit is a plain warp_event,
 ; not a scene script, and is out of scope to touch here), so re-show the sailor
-; unconditionally on every map (re)load instead.
+; unconditionally on every map (re)load instead -- once EVENT_SS_ANNE_LEFT is set,
+; the object_event's event-flag param masks him back out regardless.
 	appear VERMILIONPORT_SAILOR3
 	endcallback
 
@@ -388,4 +400,4 @@ VermilionPort_MapEvents:
 	object_event  7, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorAtGangwayScript, EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
 	object_event  6, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorScript, -1
 	object_event 11, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
-	object_event  3, 14, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSSAnneSailorScript, -1
+	object_event  3, 14, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSSAnneSailorScript, EVENT_SS_ANNE_LEFT

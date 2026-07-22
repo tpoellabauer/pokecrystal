@@ -2099,6 +2099,25 @@
 ; Gen1 Vermilion Fan Club Chairman gives BIKE_VOUCHER (PokemonFanClub.asm, issue #58).
 	const EVENT_GOT_BIKE_VOUCHER
 
+; Gen1 Celadon Game Corner Rocket grunt guarding the poster/secret staircase to the Rocket
+; Hideout (GameCorner.asm GameCornerRocketText, EngageMapTrainer; port slot:
+; CeladonGameCorner.asm, issue #155).
+	const EVENT_BEAT_CELADON_GAME_CORNER_ROCKET
+
+; Gen1 S.S. Anne departure (VermilionDock.asm VermilionDockSSAnneLeavesScript, set once the
+; player -- having already gotten HM01 Cut from the Captain -- returns from the ship to the
+; dock; permanently hides the ship). Port slot: VermilionPort.asm (Gen1's VermilionDock,
+; where the S.S. Anne's boarding sailor stands) + VermilionCity.asm dialogue, issue #158.
+	const EVENT_SS_ANNE_LEFT
+
+; Gen1 Rocket Hideout B4F reveal-gated key items (issue #157). Each ball needs THREE states
+; -- hidden pre-reveal, shown-once-revealed, and hidden-once-collected -- which a single flag
+; cannot encode. The object_event's own flag (EVENT_ROCKET_HIDEOUT_B4F_SILPH_SCOPE / _LIFT_KEY)
+; is the callback-driven VISIBILITY mask; these two are the separate permanent "already taken"
+; markers set by the pickup scripts, so pre-reveal hiding never corrupts the collected state.
+	const EVENT_GOT_SILPH_SCOPE
+	const EVENT_GOT_LIFT_KEY
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
