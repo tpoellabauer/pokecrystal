@@ -2099,6 +2099,10 @@
 ; Gen1 Vermilion Fan Club Chairman gives BIKE_VOUCHER (PokemonFanClub.asm, issue #58).
 	const EVENT_GOT_BIKE_VOUCHER
 
+; Gen1 Celadon Game Corner Rocket guard beaten -- gates the poster/staircase reveal into
+; ROCKET_HIDEOUT_B1F (CeladonGameCorner.asm, issue #155/#165).
+	const EVENT_BEAT_CELADON_GAME_CORNER_ROCKET
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
