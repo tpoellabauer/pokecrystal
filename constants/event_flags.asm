@@ -2101,7 +2101,7 @@
 
 ; Gen1 Celadon Game Corner Rocket grunt guarding the poster/secret staircase to the Rocket
 ; Hideout (GameCorner.asm GameCornerRocketText, EngageMapTrainer; port slot:
-; CeladonGameCorner.asm, issue #155).
+; CeladonGameCorner.asm, issue #155/#165).
 	const EVENT_BEAT_CELADON_GAME_CORNER_ROCKET
 
 ; Gen1 S.S. Anne departure (VermilionDock.asm VermilionDockSSAnneLeavesScript, set once the
