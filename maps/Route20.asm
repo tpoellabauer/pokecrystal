@@ -295,11 +295,6 @@ Route20_MapEvents:
 	def_warp_events
 	warp_event 48,  5, SEAFOAM_ISLANDS_1F, 1
 	warp_event 58,  9, SEAFOAM_ISLANDS_1F, 3
-	; SEAFOAM_GYM has no Gen 1 basis (Blaine's gym is Cinnabar Gym in Gen 1) but is this
-	; project's only warp into SeafoamGym, which is where Blaine's real badge fight lives
-	; (CinnabarGym.asm is flavor-only, to avoid double-granting VOLCANOBADGE). Removing this
-	; warp orphans a required gym -- keep it despite the overworld_parity 'extra warp' flag.
-	warp_event 38,  7, SEAFOAM_GYM, 1
 
 	def_coord_events
 

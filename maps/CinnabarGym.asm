@@ -9,19 +9,46 @@
 	const CINNABARGYM_SUPER_NERD7
 	const CINNABARGYM_GYM_GUIDE
 
-; Gen 1 Cinnabar Gym, ported from pokered data/maps/objects/CinnabarGym.asm. GSC's
-; Blaine already relocated to SEAFOAM_GYM (see CinnabarIsland's sign + girl NPC text);
-; that badge fight stays there so this doesn't double-grant VOLCANOBADGE. Blaine and
-; the Gym Guide are here as talk-only flavor confirming the move; the 7 Super Nerds are
-; ordinary (non-badge) trainer battles, simplified from Gen1's sequential gym-gate
-; unlock mechanic (CinnabarGymOpenGateScript/AdjustEventBit) to standalone fights.
+; Gen 1 Cinnabar Gym, ported from pokered data/maps/objects/CinnabarGym.asm.
+; Blaine is the gym leader (badge fight). The 7 Super Nerds are ordinary
+; (non-badge) trainer battles, simplified from Gen1's sequential gym-gate
+; unlock mechanic to standalone fights.
 CinnabarGym_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
 CinnabarGymBlaineScript:
-	jumptextfaceplayer CinnabarGymBlaineText
+	faceplayer
+	opentext
+	checkflag ENGINE_VOLCANOBADGE
+	iftrue .FightDone
+	writetext CinnabarGymBlaineIntroText
+	waitbutton
+	closetext
+	winlosstext CinnabarGymBlaineLossText, 0
+	loadtrainer BLAINE, BLAINE1
+	startbattle
+	iftrue .ReturnAfterBattle
+	appear CINNABARGYM_GYM_GUIDE
+.ReturnAfterBattle:
+	reloadmapafterbattle
+	setevent EVENT_BEAT_BLAINE
+	opentext
+	writetext CinnabarGymReceivedBadgeText
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_VOLCANOBADGE
+	writetext CinnabarGymBlaineAfterBattleText
+	waitbutton
+	closetext
+	end
+
+.FightDone:
+	writetext CinnabarGymBlaineFightDoneText
+	waitbutton
+	closetext
+	end
 
 CinnabarGymGymGuideScript:
 	jumptextfaceplayer CinnabarGymGymGuideText
@@ -166,31 +193,74 @@ CinnabarGymSuperNerd7Script:
 	closetext
 	end
 
-CinnabarGymBlaineText:
+CinnabarGymBlaineIntroText:
 	text "BLAINE: Waaah!"
 
-	para "My original GYM"
-	line "here burned down"
-	cont "with the volcano."
+	para "My GYM in CINNABAR"
+	line "burned down."
 
-	para "I set up shop at"
-	line "SEAFOAM ISLANDS"
-	cont "now. Come find me"
-	cont "there for a BADGE!"
+	para "My fire-breathing"
+	line "#MON and I are"
+
+	para "homeless because"
+	line "of the volcano."
+
+	para "Waaah!"
+
+	para "But I'm back in"
+	line "business as a GYM"
+
+	para "LEADER here."
+
+	para "If you can beat"
+	line "me, I'll give you"
+	cont "a BADGE."
+
+	para "Ha! You'd better"
+	line "have BURN HEAL!"
+	done
+
+CinnabarGymBlaineLossText:
+	text "BLAINE: Awesome."
+	line "I've burned out…"
+
+	para "You've earned"
+	line "VOLCANOBADGE!"
+	done
+
+CinnabarGymReceivedBadgeText:
+	text "<PLAYER> received"
+	line "VOLCANOBADGE."
+	done
+
+CinnabarGymBlaineAfterBattleText:
+	text "BLAINE: I did lose"
+	line "this time, but I'm"
+
+	para "going to win the"
+	line "next time."
+
+	para "Keep training your"
+	line "#MON!"
+	done
+
+CinnabarGymBlaineFightDoneText:
+	text "BLAINE: My fire"
+	line "#MON will be"
+
+	para "even stronger."
+	line "Just you watch!"
 	done
 
 CinnabarGymGymGuideText:
-	text "This used to be"
+	text "BLAINE runs the"
 	line "CINNABAR GYM."
 
-	para "BLAINE's fire"
-	line "#MON pro now, so"
-	cont "he moved his GYM"
-	cont "to SEAFOAM ISLANDS."
+	para "His fire-type"
+	line "#MON are very"
+	cont "hot-tempered!"
 
-	para "His old students"
-	line "still train here,"
-	cont "though!"
+	para "Be careful!"
 	done
 
 CinnabarGymSuperNerd1BattleText:
