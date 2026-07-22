@@ -485,8 +485,23 @@ ArrangeUsedSprites:
 
 ; There are only two tables, so don't go any further than that.
 	add b
-	jr c, .quit
+	jr nc, .fits
 
+; Gen 1 Kanto on Crystal (issue #167): this sprite (and any after it in the
+; list) doesn't fit in the two-table VRAM tile budget. [hl] still holds its
+; pre-Arrange sprite *type* (1-3, see LoadSpriteGFX/GetSpriteLength), not a
+; tile base -- if left as-is, GetUsedSprites would treat that leftover type
+; byte as a real VRAM tile id and DMA this sprite's graphics on top of
+; whichever already-arranged sprite (often the player) owns that low tile
+; id, corrupting its walking-animation frames. Zero the id byte of this
+; entry instead, terminating the used-sprites list here so GetUsedSprites
+; never reaches it (or anything after it).
+	dec hl
+	xor a
+	ld [hl], a
+	jr .quit
+
+.fits
 	ld [hl], b
 	ld b, a
 	inc hl
