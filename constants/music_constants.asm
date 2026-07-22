@@ -105,6 +105,11 @@
 	const MUSIC_SUICUNE_BATTLE               ; 64
 	const MUSIC_BATTLE_TOWER_LOBBY           ; 65
 	const MUSIC_MOBILE_CENTER                ; 66
+; Gen 1 Kanto on Crystal: ported Red boot-cinematic battle cue (issue #169). Crystal has
+; no equivalent, so the stock Music table entry (audio/music_pointers.asm) falls back to
+; Music_TitleScreen; RedMusic (audio/music_red_pointers.asm) points at the real ported
+; Music_RedIntroBattle (audio/music/red_introbattle.asm, already compiled in but unused).
+	const MUSIC_INTRO_BATTLE                 ; 67
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)

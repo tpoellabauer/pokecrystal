@@ -31,8 +31,8 @@
 ;     * no new SFX assets were ported for the per-beat Nidorino hip/hop/lunge cries or the title
 ;       screen's crash/whoosh stings (audio-music-skill territory, out of scope here); the existing
 ;       MUSIC_TITLE (-> RedMusic's Music_RedTitleScreen when MUSIC_SOURCE is set) is reused for the
-;       title screen; the Nidorino/Gengar battle and splash play without a dedicated music cue since
-;       Gen1's MUSIC_INTRO_BATTLE was never part of the original 46-track RedMusic port.
+;       title screen; the Nidorino/Gengar battle plays MUSIC_INTRO_BATTLE (-> RedMusic's
+;       Music_RedIntroBattle), matching Gen1's own PlayShootingStar cue (issue #169).
 ;   None of this has been confirmed visually correct on real hardware or in an emulator — this is a
 ;   known limitation of the static-only verification available for this change.
 
@@ -155,6 +155,12 @@ RedIntro_AnimateFallingStars:
 ; 40-OAM-sprite hardware budget once Nidorino's 36-sprite 6x6 grid is also on screen).
 ; Nidorino is animated via OAM using the exact original per-frame pixel-offset tables.
 RedIntroBattle:
+; Issue #169: Gen1's own intro starts MUSIC_INTRO_BATTLE right here, after the falling-
+; star animation and before the battle choreography (pokeredDisassembly's PlayShootingStar,
+; engine/movie/intro.asm); this was ported as Music_RedIntroBattle but never wired to a
+; PlayMusic call, so the whole battle beat played in silence.
+	ld de, MUSIC_INTRO_BATTLE
+	call PlayMusic
 	call ClearTilemap
 	call ClearScreen
 	call ClearSprites
