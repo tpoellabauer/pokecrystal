@@ -3906,11 +3906,12 @@ BikerGroup:
 	db -1 ; end
 
 BlaineGroup:
-	; BLAINE (1)
-	db "BLAINE@", TRAINERTYPE_MOVES
-	db 45, MAGCARGO,   CURSE, SMOG, FLAMETHROWER, ROCK_SLIDE
-	db 45, MAGMAR,     THUNDERPUNCH, FIRE_PUNCH, SUNNY_DAY, CONFUSE_RAY
-	db 50, RAPIDASH,   QUICK_ATTACK, FIRE_SPIN, FURY_ATTACK, FIRE_BLAST
+	; BLAINE (1) ; Seafoam Gym (Gen 1 fidelity, pokeredDisassembly/data/trainers/parties.asm BlaineData): GROWLITHE 42 / PONYTA 40 / RAPIDASH 42 / ARCANINE 47 -- Kanto is the start region now, so this uses Gen 1's own roster instead of Crystal's postgame-scaled MAGCARGO/MAGMAR/RAPIDASH team.
+	db "BLAINE@", TRAINERTYPE_NORMAL
+	db 42, GROWLITHE
+	db 40, PONYTA
+	db 42, RAPIDASH
+	db 47, ARCANINE
 	db -1 ; end
 
 BurglarGroup:

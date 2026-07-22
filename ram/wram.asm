@@ -3129,8 +3129,9 @@ wMobileBattleRoomSceneID::                        db
 wPalletTownSceneID::                              db ; Gen 1 Kanto (ported)
 wOaksLabSceneID::                                 db ; Gen 1 Kanto (ported)
 wRoute22SceneID::                                 db ; Gen 1 Kanto (ported)
+wCinnabarIslandSceneID::                          db ; Gen 1 Kanto (ported)
 
-	ds 46
+	ds 45 ; 1 byte reclaimed for wCinnabarIslandSceneID (issue #163)
 
 ; fight counts
 wJackFightCount::    db

@@ -88,4 +88,5 @@ MapScenes::
 	scene_var PALLET_TOWN,                                 wPalletTownSceneID ; Gen 1 Kanto (ported)
 	scene_var OAKS_LAB,                                    wOaksLabSceneID ; Gen 1 Kanto (ported)
 	scene_var ROUTE_22,                                    wRoute22SceneID ; Gen 1 Kanto (ported)
+	scene_var CINNABAR_ISLAND,                             wCinnabarIslandSceneID ; Gen 1 Kanto (ported)
 	db -1 ; end
