@@ -3130,8 +3130,10 @@ wPalletTownSceneID::                              db ; Gen 1 Kanto (ported)
 wOaksLabSceneID::                                 db ; Gen 1 Kanto (ported)
 wRoute22SceneID::                                 db ; Gen 1 Kanto (ported)
 wCinnabarIslandSceneID::                          db ; Gen 1 Kanto (ported)
+wPokemonTower2FSceneID::                          db ; Gen 1 Kanto (ported)
+wPokemonTower5FSceneID::                          db ; Gen 1 Kanto (ported)
 
-	ds 45 ; 1 byte reclaimed for wCinnabarIslandSceneID (issue #163)
+	ds 43 ; 2 bytes reclaimed for wPokemonTower2FSceneID/wPokemonTower5FSceneID (issue #161)
 
 ; fight counts
 wJackFightCount::    db

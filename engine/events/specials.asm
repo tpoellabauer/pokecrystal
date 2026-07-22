@@ -325,6 +325,11 @@ SnorlaxAwake:
 ; Check if the Poké Flute channel is playing, and if the player is standing
 ; next to Snorlax.
 
+; This special is shared by all three sleeping-Snorlax roadblocks (Vermilion
+; City, Route 12, Route 16), each at its own map coordinates, so the
+; proximity table has to be picked based on the current map rather than
+; hardcoded to a single location.
+
 ; outputs:
 ; wScriptVar is 1 if the conditions are met, otherwise 0.
 
@@ -338,7 +343,25 @@ SnorlaxAwake:
 	ld a, [wYCoord]
 	ld c, a
 
-	ld hl, .ProximityCoords
+	ld hl, .VermilionCityProximityCoords
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_12
+	jr nz, .checkroute16
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_12
+	jr nz, .checkroute16
+	ld hl, .Route12ProximityCoords
+	jr .loop
+
+.checkroute16
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_16
+	jr nz, .loop
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_16
+	jr nz, .loop
+	ld hl, .Route16ProximityCoords
+
 .loop
 	ld a, [hli]
 	cp -1
@@ -362,13 +385,32 @@ SnorlaxAwake:
 	ld [wScriptVar], a
 	ret
 
-.ProximityCoords:
+.VermilionCityProximityCoords:
+	; Vermilion City's Snorlax is a 2x2 sprite at (34,8)-(35,9).
 	;   x,  y
 	db 33,  8 ; left
 	db 34, 10 ; below
 	db 35, 10 ; below
 	db 36,  8 ; right
 	db 36,  9 ; right
+	db -1
+
+.Route12ProximityCoords:
+	; Route 12's Snorlax is a 1x1 sprite at (10,62).
+	;   x,  y
+	db  9, 62 ; left
+	db 11, 62 ; right
+	db 10, 61 ; above
+	db 10, 63 ; below
+	db -1
+
+.Route16ProximityCoords:
+	; Route 16's Snorlax is a 1x1 sprite at (26,10).
+	;   x,  y
+	db 25, 10 ; left
+	db 27, 10 ; right
+	db 26,  9 ; above
+	db 26, 11 ; below
 	db -1
 
 PlayCurMonCry:

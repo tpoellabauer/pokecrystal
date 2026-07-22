@@ -1,7 +1,6 @@
 	object_const_def
 	const POWERPLANT_OFFICER1
 	const POWERPLANT_GYM_GUIDE1
-	const POWERPLANT_GYM_GUIDE2
 	const POWERPLANT_OFFICER2
 	const POWERPLANT_GYM_GUIDE3
 	const POWERPLANT_MANAGER
@@ -36,7 +35,6 @@ PowerPlantGuardPhoneScript:
 	pause 30
 	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ApproachGymGuide2Movement
 	turnobject POWERPLANT_GYM_GUIDE1, DOWN
-	turnobject POWERPLANT_GYM_GUIDE2, DOWN
 	opentext
 	writetext PowerPlantOfficer1CeruleanShadyCharacterText
 	waitbutton
@@ -88,22 +86,6 @@ PowerPlantGymGuide1Script:
 
 .ReturnedMachinePart:
 	writetext PowerPlantGymGuide1GeneratorUpAndRunningText
-	waitbutton
-	closetext
-	end
-
-PowerPlantGymGuide2Script:
-	faceplayer
-	opentext
-	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .ReturnedMachinePart
-	writetext PowerPlantGymGuide2PowerPlantUpAndRunningText
-	waitbutton
-	closetext
-	end
-
-.ReturnedMachinePart:
-	writetext PowerPlantGymGuide2GeneratorIsRunningAgainText
 	waitbutton
 	closetext
 	end
@@ -428,23 +410,6 @@ PowerPlantGymGuide1GeneratorUpAndRunningText:
 	line "to spare."
 	done
 
-PowerPlantGymGuide2PowerPlantUpAndRunningText:
-	text "This POWER PLANT"
-	line "had been abandoned"
-	cont "in the past."
-
-	para "We got it back up"
-	line "and running to"
-
-	para "provide power to"
-	line "the MAGNET TRAIN."
-	done
-
-PowerPlantGymGuide2GeneratorIsRunningAgainText:
-	text "The generator's"
-	line "running again!"
-	done
-
 PowerPlantOfficer2ManagerHasBeenSadAndFuriousText:
 	text "The POWER PLANT's"
 	line "MANAGER is up"
@@ -581,7 +546,6 @@ PowerPlant_MapEvents:
 	def_object_events
 	object_event  4, 14, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PowerPlantOfficerScript, -1
 	object_event  2,  9, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantGymGuide1Script, -1
-	object_event  6, 11, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantGymGuide2Script, -1
 	object_event  9,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PowerPlantOfficer2Script, -1
 	object_event  7,  2, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantGymGuide4Script, -1
 	object_event 14, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantManager, -1

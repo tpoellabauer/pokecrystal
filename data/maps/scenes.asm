@@ -89,4 +89,6 @@ MapScenes::
 	scene_var OAKS_LAB,                                    wOaksLabSceneID ; Gen 1 Kanto (ported)
 	scene_var ROUTE_22,                                    wRoute22SceneID ; Gen 1 Kanto (ported)
 	scene_var CINNABAR_ISLAND,                             wCinnabarIslandSceneID ; Gen 1 Kanto (ported)
+	scene_var POKEMON_TOWER_2F,                            wPokemonTower2FSceneID ; Gen 1 Kanto (ported)
+	scene_var POKEMON_TOWER_5F,                            wPokemonTower5FSceneID ; Gen 1 Kanto (ported)
 	db -1 ; end
