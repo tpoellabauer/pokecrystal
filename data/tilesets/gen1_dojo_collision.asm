@@ -4,7 +4,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 03
 	tilecoll DOOR, WALL, FLOOR, WALL ; 04
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 05
-	tilecoll FLOOR, FLOOR, WALL, WALL ; 06
+	tilecoll DOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 06
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 07
 	tilecoll WALL, WALL, WALL, FLOOR ; 08
 	tilecoll WALL, WALL, FLOOR, WALL ; 09
