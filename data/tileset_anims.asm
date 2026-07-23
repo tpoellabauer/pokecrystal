@@ -259,6 +259,16 @@ TilesetAerodactylWordRoomAnim:
 	tileframe DoneTileAnimation
 
 TilesetGen1OverworldAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe AnimateFlowerTile
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1RedsHouseAnim:
@@ -274,18 +284,61 @@ TilesetGen1PokecenterAnim:
 	tileframe DoneTileAnimation
 
 TilesetGen1GymAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe AnimateFlowerTile
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1ForestAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1GateAnim:
 	tileframe DoneTileAnimation
 
 TilesetGen1ShipAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1ShipPortAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1CemeteryAnim:
@@ -295,6 +348,17 @@ TilesetGen1InteriorAnim:
 	tileframe DoneTileAnimation
 
 TilesetGen1CavernAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1LobbyAnim:
@@ -307,9 +371,31 @@ TilesetGen1ClubAnim:
 	tileframe DoneTileAnimation
 
 TilesetGen1FacilityAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1PlateauAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1UndergroundAnim:
@@ -319,6 +405,16 @@ TilesetGen1MartAnim:
 	tileframe DoneTileAnimation
 
 TilesetGen1DojoAnim:
+	tileframe AnimateWaterTile,        vTiles2 tile $14
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe AnimateWaterPalette
+	tileframe WaitTileAnimation
+	tileframe AnimateFlowerTile
+	tileframe WaitTileAnimation
+	tileframe WaitTileAnimation
+	tileframe StandingTileFrame8
 	tileframe DoneTileAnimation
 
 TilesetGen1MuseumAnim:
