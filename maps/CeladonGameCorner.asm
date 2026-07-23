@@ -14,6 +14,22 @@ CeladonGameCorner_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, CeladonGameCornerRevealStaircaseCallback
+
+; Issue #165: the poster/staircase tile (17, 4) carries plain FLOOR/COUNTER collision by
+; default (metatile $08), so walking onto it never triggers CheckWarpCollision's
+; warp_event to ROCKET_HIDEOUT_B1F -- even once the guarding Rocket grunt is beaten
+; (EVENT_BEAT_CELADON_GAME_CORNER_ROCKET). Once that flag is set, swap the tile to
+; metatile $39, a copy of $08's graphics with COLL_STAIRCASE collision on every quadrant
+; (game_corner_collision.asm), matching Gen 1's poster-flip-reveals-staircase reload.
+CeladonGameCornerRevealStaircaseCallback:
+	checkevent EVENT_BEAT_CELADON_GAME_CORNER_ROCKET
+	iftrue .Revealed
+	endcallback
+
+.Revealed:
+	changeblock 17, 4, $39 ; poster -> staircase
+	endcallback
 
 CeladonGameCornerClerkScript:
 	jumpstd GameCornerCoinVendorScript
