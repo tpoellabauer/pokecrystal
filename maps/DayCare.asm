@@ -1,3 +1,8 @@
+; issue #178 audit: DAYCARE_GRANNY ("Day Care Lady") has no Gen1 Red equivalent (Red's Daycare
+; has only a single Gentleman NPC -- Gen1 has no breeding). She is not GSC decorative filler:
+; her script calls `special DayCareLady`, wired into engine/events/daycare.asm +
+; engine/pokemon/breeding.asm, and is required for Gen2's two-parent egg/breeding mechanic that
+; this project retains. Keep, won't-fix.
 	object_const_def
 	const DAYCARE_GRAMPS
 	const DAYCARE_GRANNY

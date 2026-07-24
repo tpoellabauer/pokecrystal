@@ -1,3 +1,8 @@
+; issue #178 audit: SILPHCO1F_OFFICER has no Red equivalent (Red's original SilphCo1F object
+; list is just a Link Receptionist, cable-club-only, out of scope here). Confirmed load-bearing
+; anyway: this Officer's UP_GRADE giveitem is the *only* source of UP_GRADE in the whole tree
+; (grep -rl UP_GRADE pokecrystal/ -- also referenced by evos_attacks.asm as the Porygon->Porygon2
+; evolution item). Removing it would make that evolution unobtainable. Keep, won't-fix.
 	object_const_def
 	const SILPHCO1F_RECEPTIONIST
 	const SILPHCO1F_OFFICER

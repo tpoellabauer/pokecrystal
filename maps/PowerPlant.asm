@@ -1,3 +1,13 @@
+; issue #178 audit (see also CeruleanCity/CeruleanGym/Route25/Route6): none of Red's original
+; PowerPlant_Object has any human NPCs (wild Voltorb/Electrode/Zapdos + hidden items only), so
+; all six human NPCs here are GSC-era additions -- but they are the functional heart of the
+; cross-map Machine Part / Power Plant restoration questline, not decorative filler. MANAGER's
+; script is what actually sets EVENT_RETURNED_MACHINE_PART (read by 10 maps incl.
+; SaffronMagnetTrainStation/LavRadioTower1F/PokemonFanClub) and
+; EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH (Route6's blocker payoff), plus
+; EVENT_CERULEAN_GYM_ROCKET / EVENT_ROUTE_24_ROCKET / EVENT_RESTORED_POWER_TO_KANTO (14+ more
+; maps) and EVENT_SAFFRON_TRAIN_STATION_POPULATION / EVENT_GOLDENROD_TRAIN_STATION_GENTLEMAN --
+; all confirmed referenced outside this single map. Keep all six, won't-fix.
 	object_const_def
 	const POWERPLANT_OFFICER1
 	const POWERPLANT_GYM_GUIDE1

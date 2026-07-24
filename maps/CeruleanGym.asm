@@ -1,3 +1,7 @@
+; issue #178 audit: CERULEANGYM_ROCKET (added vs Red) sets EVENT_MET_ROCKET_GRUNT_AT_CERULEAN_GYM
+; and clears EVENT_ROUTE_25_MISTY_BOYFRIEND -- cross-map Power Plant questline wiring, see the
+; full writeup in maps/PowerPlant.asm. GYM_GUIDE here is a 1:1 port of Red's own GYM_GUIDE NPC,
+; not an addition. Keep, won't-fix.
 	object_const_def
 	const CERULEANGYM_ROCKET
 	const CERULEANGYM_MISTY

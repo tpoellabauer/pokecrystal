@@ -1,3 +1,7 @@
+; issue #178 audit: CERULEANCITY_FISHER (added vs Red) checks EVENT_RETURNED_MACHINE_PART /
+; EVENT_MET_ROCKET_GRUNT_AT_CERULEAN_GYM -- part of the cross-map Power Plant questline, see the
+; full writeup in maps/PowerPlant.asm. Keep, won't-fix. (CERULEANCITY_YOUNGSTER has its own,
+; separate rationale -- see comment at its script label below.)
 	object_const_def
 	const CERULEANCITY_COOLTRAINER_M
 	const CERULEANCITY_SUPER_NERD1
@@ -113,6 +117,12 @@ CeruleanCityFisherScript:
 	closetext
 	end
 
+; issue #178 audit: CERULEANCITY_YOUNGSTER has no Red equivalent. His gate,
+; EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY, greps to only this map file (self-contained --
+; it's the same map's own BERSERK_GENE hiddenitem, see below), unlike the Fisher's questline
+; flags. Keep anyway: he's a same-map flavor reaction to a same-map hidden-item pickup (the
+; standard "comment on a nearby hiddenitem" NPC pattern used elsewhere in this port), not
+; dangling/orphaned GSC content -- no evidence he's a broken reference needing removal.
 CeruleanCityYoungsterScript:
 	faceplayer
 	opentext
