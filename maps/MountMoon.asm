@@ -1,5 +1,8 @@
 	object_const_def
 	const MOUNTMOON_RIVAL
+	const MOUNTMOON_FOSSIL_SUPER_NERD
+	const MOUNTMOON_DOME_FOSSIL
+	const MOUNTMOON_HELIX_FOSSIL
 
 MountMoon_MapScripts:
 	def_scene_scripts
@@ -158,6 +161,168 @@ MountMoonRivalTextLoss:
 	cont "greatest trainer."
 	done
 
+; Gen1 Mt Moon fossil-pickup room (issue #170), ported from pokered scripts/MtMoonB2F.asm +
+; text/MtMoonB2F.asm. Gen1's separate B2F floor was dropped when Mt Moon collapsed into this
+; single GSC map, so the scene is re-hosted here: a Super Nerd blocks two fossils (SPRITE_ROCK
+; stand-ins for Gen1's SPRITE_FOSSIL) and demands a rival-for-the-fossil battle; after he loses
+; the player may take exactly ONE fossil -- picking either sets the shared EVENT_GOT_MT_MOON_
+; FOSSIL flag, which is both fossil objects' visibility flag, so the other is hidden ("the Super
+; Nerd grabs it"), enforcing the mutually-exclusive choice. The chosen fossil is a key item
+; carried to Cinnabar Lab for revival (#164's already-ported checkitem flow).
+MountMoonFossilSuperNerdScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_MT_MOON_FOSSIL_SUPER_NERD
+	iftrue .Beaten
+	writetext MountMoonSuperNerdBothMineText
+	waitbutton
+	closetext
+	winlosstext MountMoonSuperNerdWinText, MountMoonSuperNerdLossText
+	setlasttalked MOUNTMOON_FOSSIL_SUPER_NERD
+	loadtrainer SUPER_NERD, STAN
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_MT_MOON_FOSSIL_SUPER_NERD
+	opentext
+	writetext MountMoonSuperNerdShareText
+	waitbutton
+	closetext
+	end
+
+.Beaten:
+	checkevent EVENT_GOT_MT_MOON_FOSSIL
+	iftrue .GotOne
+	writetext MountMoonSuperNerdEachTakeOneText
+	waitbutton
+	closetext
+	end
+
+.GotOne:
+	writetext MountMoonSuperNerdPokeLabText
+	waitbutton
+	closetext
+	end
+
+MountMoonDomeFossilScript:
+	opentext
+	checkevent EVENT_GOT_MT_MOON_FOSSIL
+	iftrue .Done
+	checkevent EVENT_BEAT_MT_MOON_FOSSIL_SUPER_NERD
+	iffalse .Guarded
+	writetext MountMoonDomeFossilOfferText
+	yesorno
+	iffalse .Done
+	verbosegiveitem DOME_FOSSIL
+	iffalse .Done
+	setevent EVENT_GOT_MT_MOON_FOSSIL
+	writetext MountMoonSuperNerdTakesOtherText
+	waitbutton
+	disappear MOUNTMOON_DOME_FOSSIL
+	disappear MOUNTMOON_HELIX_FOSSIL
+	closetext
+	end
+
+.Guarded:
+	writetext MountMoonFossilGuardedText
+	waitbutton
+.Done:
+	closetext
+	end
+
+MountMoonHelixFossilScript:
+	opentext
+	checkevent EVENT_GOT_MT_MOON_FOSSIL
+	iftrue .Done
+	checkevent EVENT_BEAT_MT_MOON_FOSSIL_SUPER_NERD
+	iffalse .Guarded
+	writetext MountMoonHelixFossilOfferText
+	yesorno
+	iffalse .Done
+	verbosegiveitem HELIX_FOSSIL
+	iffalse .Done
+	setevent EVENT_GOT_MT_MOON_FOSSIL
+	writetext MountMoonSuperNerdTakesOtherText
+	waitbutton
+	disappear MOUNTMOON_DOME_FOSSIL
+	disappear MOUNTMOON_HELIX_FOSSIL
+	closetext
+	end
+
+.Guarded:
+	writetext MountMoonFossilGuardedText
+	waitbutton
+.Done:
+	closetext
+	end
+
+MountMoonSuperNerdBothMineText:
+	text "Hey, stop!"
+
+	para "I found these"
+	line "fossils! They're"
+	cont "both mine!"
+	done
+
+MountMoonSuperNerdWinText:
+	text "Rgh!"
+	line "You beat me!"
+	done
+
+MountMoonSuperNerdLossText:
+	text "Heh! These"
+	line "fossils are mine!"
+	done
+
+MountMoonSuperNerdShareText:
+	text "OK! I'll share!"
+
+	para "We'll each take"
+	line "one!"
+	cont "No being greedy!"
+	done
+
+MountMoonSuperNerdEachTakeOneText:
+	text "We'll each take"
+	line "one!"
+	cont "No being greedy!"
+	done
+
+MountMoonSuperNerdPokeLabText:
+	text "Far away, on"
+	line "CINNABAR ISLAND,"
+	cont "there's a #MON"
+	cont "LAB."
+
+	para "They do research"
+	line "on regenerating"
+	cont "fossils."
+	done
+
+MountMoonFossilGuardedText:
+	text "A SUPER NERD is"
+	line "guarding the"
+
+	para "fossils. Better"
+	line "settle it with"
+	cont "him first!"
+	done
+
+MountMoonDomeFossilOfferText:
+	text "You want the"
+	line "DOME FOSSIL?"
+	done
+
+MountMoonHelixFossilOfferText:
+	text "You want the"
+	line "HELIX FOSSIL?"
+	done
+
+MountMoonSuperNerdTakesOtherText:
+	text "The SUPER NERD"
+	line "grabbed the other"
+	cont "fossil and ran!"
+	done
+
 MountMoon_MapEvents:
 	db 0, 0 ; filler
 
@@ -177,3 +342,6 @@ MountMoon_MapEvents:
 
 	def_object_events
 	object_event  7,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_RIVAL
+	object_event 12,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonFossilSuperNerdScript, -1
+	object_event 11,  7, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonDomeFossilScript, EVENT_GOT_MT_MOON_FOSSIL
+	object_event 13,  7, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonHelixFossilScript, EVENT_GOT_MT_MOON_FOSSIL

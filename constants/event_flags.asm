@@ -2124,6 +2124,14 @@
 ; into one faithful talk-triggered interaction per this port's simplification precedent).
 	const EVENT_REVIVED_FOSSIL_AT_LAB
 
+; Gen1 Mt Moon fossil-pickup room (issue #170). Gen1's MtMoonB2F let the player take exactly
+; one of the DOME/HELIX fossils, gated behind a Super Nerd rival-for-the-fossil battle; the
+; other fossil is then lost (the Super Nerd grabs it). Ported into the consolidated MountMoon
+; map: BEAT_..._SUPER_NERD gates the one-time battle; GOT_MT_MOON_FOSSIL is the shared "chose
+; one" flag that hides BOTH fossil objects, enforcing the mutually-exclusive choice.
+	const EVENT_BEAT_MT_MOON_FOSSIL_SUPER_NERD
+	const EVENT_GOT_MT_MOON_FOSSIL
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 
