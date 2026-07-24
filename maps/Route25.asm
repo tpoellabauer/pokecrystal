@@ -1,3 +1,7 @@
+; issue #178 audit: ROUTE25_MISTY / ROUTE25_COOLTRAINER_M1 ("Misty's boyfriend" pair, added vs
+; Red) are gated on EVENT_ROUTE_25_MISTY_BOYFRIEND, cross-wired directly into maps/CeruleanGym.asm
+; -- cross-map Power Plant questline wiring, see the full writeup in maps/PowerPlant.asm. Keep,
+; won't-fix.
 	object_const_def
 	const ROUTE25_MISTY
 	const ROUTE25_COOLTRAINER_M1

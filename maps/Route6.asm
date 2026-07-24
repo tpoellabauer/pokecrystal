@@ -1,3 +1,7 @@
+; issue #178 audit: ROUTE6_POKEFAN_M1 (added vs Red) blocks the underground path, gated on
+; EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH -- exactly the flag PowerPlant's Manager sets
+; on machine-part return, i.e. this NPC is the questline's payoff. See maps/PowerPlant.asm. Keep,
+; won't-fix.
 	object_const_def
 	const ROUTE6_POKEFAN_M1
 	const ROUTE6_COOLTRAINER_M1
