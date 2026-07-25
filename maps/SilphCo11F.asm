@@ -9,6 +9,17 @@ SilphCo11F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, SilphCo11FObjectsCallback
+
+SilphCo11FObjectsCallback:
+	checkevent EVENT_BEAT_SILPH_CO_ROCKETSROCK
+	iftrue .hideTeamRocket
+	endcallback
+.hideTeamRocket:
+	disappear SILPHCO11F_GIOVANNI
+	disappear SILPHCO11F_ROCKET1
+	disappear SILPHCO11F_ROCKET2
+	endcallback
 
 ; Gen 1: gives the MASTER BALL the first time you talk to him (no Giovanni gate
 ; in the source - the boardroom is unreachable without going through him
@@ -63,6 +74,9 @@ SilphCo11FGiovanniScript:
 	writetext SilphCo11FGiovanniAfterBattleText
 	waitbutton
 	closetext
+	disappear SILPHCO11F_GIOVANNI
+	disappear SILPHCO11F_ROCKET1
+	disappear SILPHCO11F_ROCKET2
 	end
 
 SilphCo11FRocket1Script:
@@ -82,6 +96,7 @@ SilphCo11FRocket1Script:
 	writetext SilphCo11FRocket1AfterBattleText
 	waitbutton
 	closetext
+	disappear SILPHCO11F_ROCKET1
 	end
 
 SilphCo11FRocket2Script:
@@ -101,6 +116,7 @@ SilphCo11FRocket2Script:
 	writetext SilphCo11FRocket2AfterBattleText
 	waitbutton
 	closetext
+	disappear SILPHCO11F_ROCKET2
 	end
 
 SilphCo11FPresidentThankYouText:
@@ -238,6 +254,6 @@ SilphCo11F_MapEvents:
 	def_object_events
 	object_event  7,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCo11FPresidentScript, -1
 	object_event 10,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SilphCo11FBeautyScript, -1
-	object_event  6,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SilphCo11FGiovanniScript, -1
+	object_event  6,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SilphCo11FGiovanniScript, EVENT_BEAT_SILPH_CO_ROCKETSROCK
 	object_event  3, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo11FRocket1Script, EVENT_BEAT_SILPH_CO_11F_ROCKET_1
 	object_event 15,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCo11FRocket2Script, EVENT_BEAT_SILPH_CO_11F_ROCKET_2

@@ -26,6 +26,7 @@ DaisySittingScript:
 	closetext
 	verbosegiveitem TOWN_MAP
 	setevent EVENT_GOT_TOWN_MAP
+	disappear BLUESHOUSE_TOWN_MAP
 	end
 
 .GotTownMap:
@@ -85,4 +86,4 @@ BluesHouse_MapEvents:
 	def_object_events
 	object_event  2,  3, SPRITE_DAISY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DaisySittingScript, -1
 	object_event  6,  4, SPRITE_DAISY, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DaisyWalkingScript, -1
-	object_event  3,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TownMapScript, -1
+	object_event  3,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TownMapScript, EVENT_GOT_TOWN_MAP

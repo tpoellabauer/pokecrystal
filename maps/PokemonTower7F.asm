@@ -26,6 +26,7 @@ TrainerGruntmPokemontower7f1:
 	writetext GruntmPokemontower7f1AfterBattleText
 	waitbutton
 	closetext
+	disappear POKEMONTOWER7F_ROCKET1
 	end
 
 TrainerGruntmPokemontower7f2:
@@ -37,6 +38,7 @@ TrainerGruntmPokemontower7f2:
 	writetext GruntmPokemontower7f2AfterBattleText
 	waitbutton
 	closetext
+	disappear POKEMONTOWER7F_ROCKET2
 	end
 
 TrainerGruntmPokemontower7f3:
@@ -48,6 +50,7 @@ TrainerGruntmPokemontower7f3:
 	writetext GruntmPokemontower7f3AfterBattleText
 	waitbutton
 	closetext
+	disappear POKEMONTOWER7F_ROCKET3
 	end
 
 PokemonTower7FMrFujiScript:
@@ -61,6 +64,7 @@ PokemonTower7FMrFujiScript:
 	writetext PokemonTower7FMrFujiRescueText
 	waitbutton
 	closetext
+	disappear POKEMONTOWER7F_MR_FUJI
 	end
 
 .StillTrapped:
@@ -172,7 +176,7 @@ PokemonTower7F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9, 11, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 19, TrainerGruntmPokemontower7f1, -1
-	object_event 12,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 20, TrainerGruntmPokemontower7f2, -1
-	object_event  9,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 21, TrainerGruntmPokemontower7f3, -1
-	object_event 10,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokemonTower7FMrFujiScript, -1
+	object_event  9, 11, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 19, TrainerGruntmPokemontower7f1, EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_0
+	object_event 12,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 20, TrainerGruntmPokemontower7f2, EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_1
+	object_event  9,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 21, TrainerGruntmPokemontower7f3, EVENT_BEAT_POKEMON_TOWER_7F_TRAINER_2
+	object_event 10,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokemonTower7FMrFujiScript, EVENT_RESCUED_MR_FUJI

@@ -497,6 +497,12 @@ INCLUDE "maps/SilphCo9F.asm"
 INCLUDE "maps/SilphCo10F.asm"
 INCLUDE "maps/SilphCo11F.asm"
 INCLUDE "maps/SilphCoElevator.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 26", ROMX
+
 INCLUDE "maps/SSAnne1F.asm"
 INCLUDE "maps/SSAnne2F.asm"
 INCLUDE "maps/SSAnne3F.asm"
@@ -504,12 +510,6 @@ INCLUDE "maps/SSAnneB1F.asm"
 INCLUDE "maps/SSAnneBow.asm"
 INCLUDE "maps/SSAnneKitchen.asm"
 INCLUDE "maps/SSAnneCaptainsRoom.asm"
-
-ENDSECTION
-
-
-SECTION "Map Scripts 26", ROMX
-
 INCLUDE "maps/SSAnne1FRooms.asm"
 INCLUDE "maps/SSAnneB1FRooms.asm"
 INCLUDE "maps/SSAnne2FRooms.asm"
@@ -538,6 +538,12 @@ INCLUDE "maps/SeafoamIslandsB4F.asm"
 INCLUDE "maps/CeruleanCave1F.asm"
 INCLUDE "maps/CeruleanCave2F.asm"
 INCLUDE "maps/CeruleanCaveB1F.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27", ROMX
+
 INCLUDE "maps/CinnabarGym.asm"
 INCLUDE "maps/CinnabarLab.asm"
 INCLUDE "maps/CinnabarMart.asm"
@@ -550,12 +556,6 @@ INCLUDE "maps/Route2Gate.asm"
 INCLUDE "maps/VictoryRoadGate.asm"
 INCLUDE "maps/DiglettsCaveRoute2.asm"
 INCLUDE "maps/DiglettsCaveRoute11.asm"
-
-ENDSECTION
-
-
-SECTION "Map Scripts 27", ROMX
-
 INCLUDE "maps/SaffronPidgeyHouse.asm"
 INCLUDE "maps/Museum1F.asm"
 INCLUDE "maps/VermilionPidgeyHouse.asm"

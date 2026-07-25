@@ -14,6 +14,16 @@ LancesRoom_MapScripts:
 	scene_script LancesRoomNoopScene, SCENE_LANCESROOM_LOCK_DOOR
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, LancesRoomObjectsCallback
+
+LancesRoomObjectsCallback:
+	checkevent EVENT_BEAT_CHAMPION_LANCE
+	iftrue .showOak
+	disappear LANCESROOM_OAK
+	endcallback
+.showOak:
+	appear LANCESROOM_OAK
+	endcallback
 
 LancesRoomNoopScene:
 	end
@@ -45,6 +55,7 @@ ChampionScript_Battle:
 	dontrestartmapmusic
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHAMPION_LANCE
+	appear LANCESROOM_OAK
 	opentext
 	writetext ChampionScript_DefeatText
 	waitbutton
