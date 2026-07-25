@@ -1,8 +1,8 @@
 	object_const_def
 	const CELADONPOKECENTER1F_NURSE
 	const CELADONPOKECENTER1F_GENTLEMAN
-	const CELADONPOKECENTER1F_PHARMACIST
-	const CELADONPOKECENTER1F_COOLTRAINER_F
+	const CELADONPOKECENTER1F_BEAUTY
+	const CELADONPOKECENTER1F_LINK_RECEPTIONIST
 
 CeladonPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -47,7 +47,6 @@ CeladonPokecenter1F_MapEvents:
 	def_warp_events
 	warp_event  3,  7, CELADON_CITY, 6
 	warp_event  4,  7, CELADON_CITY, 6
-	warp_event  0,  7, POKECENTER_2F, 1
 
 	def_coord_events
 
@@ -55,6 +54,6 @@ CeladonPokecenter1F_MapEvents:
 
 	def_object_events
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FNurseScript, -1
-	object_event  1,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FGentlemanScript, -1
-	object_event  0,  3, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FPharmacistScript, -1
-	object_event  8,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FCooltrainerFScript, -1
+	object_event  7,  3, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FGentlemanScript, -1
+	object_event 10,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FCooltrainerFScript, -1
+	object_event 11,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FGentlemanScript, -1

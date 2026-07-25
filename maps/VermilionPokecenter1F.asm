@@ -2,7 +2,7 @@
 	const VERMILIONPOKECENTER1F_NURSE
 	const VERMILIONPOKECENTER1F_FISHING_GURU
 	const VERMILIONPOKECENTER1F_SAILOR
-	const VERMILIONPOKECENTER1F_BUG_CATCHER
+	const VERMILIONPOKECENTER1F_LINK_RECEPTIONIST
 
 VermilionPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -80,7 +80,6 @@ VermilionPokecenter1F_MapEvents:
 	def_warp_events
 	warp_event  3,  7, VERMILION_CITY, 1
 	warp_event  4,  7, VERMILION_CITY, 1
-	warp_event  0,  7, POKECENTER_2F, 1
 
 	def_coord_events
 
@@ -88,6 +87,6 @@ VermilionPokecenter1F_MapEvents:
 
 	def_object_events
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FNurseScript, -1
-	object_event  7,  2, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FFishingGuruScript, -1
-	object_event  6,  5, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FSailorScript, -1
-	object_event  1,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FBugCatcherScript, -1
+	object_event 10,  5, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FFishingGuruScript, -1
+	object_event  5,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FSailorScript, -1
+	object_event 11,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPokecenter1FSailorScript, -1
