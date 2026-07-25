@@ -241,7 +241,8 @@ INCLUDE "gfx/overworld/heal_machine.pal"
 	bcpixel 2, 4
 	cp HEALMACHINE_ELMS_LAB
 	jr z, .okay
-	bcpixel 0, 0
+	; Gen 1 Pokecenters are two metatiles wider than their Gen 2 counterparts.
+	bcpixel 2, 0
 
 .okay
 	ld a, [de]
