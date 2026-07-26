@@ -38,8 +38,13 @@ CeladonGymErikaScript:
 	iftrue .GotSolarbeam
 	writetext ErikaExplainTMText
 	promptbutton
-	verbosegiveitem TM_SOLARBEAM
+	giveitem TM_SOLARBEAM
 	iffalse .GotSolarbeam
+	getitemname STRING_BUFFER_3, TM_SOLARBEAM
+	writetext CeladonGymReceivedTM22Text
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	setevent EVENT_GOT_TM22_SOLARBEAM
 .GotSolarbeam:
 	writetext ErikaAfterBattleText
@@ -92,7 +97,7 @@ TrainerTwinsJoAndZoe1:
 	end
 
 TrainerTwinsJoAndZoe2:
-	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe2SeenText, TwinsJoAndZoe2BeatenText, 0, .Script
+	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, CeladonGymBattleText8, TwinsJoAndZoe2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -140,13 +145,13 @@ ErikaBeforeBattleText:
 
 ErikaBeatenText:
 	text "ERIKA: Oh!"
-	line "I concede defeat…"
+	line "I concede defeat."
 
 	para "You are remarkably"
-	line "strong…"
+	line "strong."
 
-	para "I shall give you"
-	line "RAINBOWBADGE…"
+	para "I must confer you"
+	line "the RAINBOWBADGE."
 	done
 
 PlayerReceivedRainbowBadgeText:
@@ -175,6 +180,13 @@ ErikaExplainTMText:
 	line "it pleases you…"
 	done
 
+CeladonGymReceivedTM22Text:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
 ErikaAfterBattleText:
 	text "ERIKA: Losing"
 	line "leaves a bitter"
@@ -188,9 +200,9 @@ ErikaAfterBattleText:
 	done
 
 LassMichelleSeenText:
-	text "Do you think a"
-	line "girls-only GYM"
-	cont "is rare?"
+	text "Oh, you weren't"
+	line "peeping? We get a"
+	cont "lot of gawkers!"
 	done
 
 LassMichelleBeatenText:
@@ -221,25 +233,27 @@ PicnickerTanyaAfterBattleText:
 	done
 
 BeautyJuliaSeenText:
-	text "Were you looking"
-	line "at these flowers"
-	cont "or at me?"
+	text "Aren't you the"
+	line "peeping Tom?"
 	done
 
 BeautyJuliaBeatenText:
-	text "How annoying!"
+	text "No!"
 	done
 
 BeautyJuliaAfterBattleText:
-	text "How do I go about"
-	line "becoming ladylike"
-	cont "like ERIKA?"
+	text "I have a blind"
+	line "date coming up."
+	cont "I have to learn"
+	cont "to be polite."
 	done
 
 TwinsJoAndZoe1SeenText:
-	text "We'll show you"
-	line "#MON moves that"
-	cont "ERIKA taught us!"
+	text "Look at my grass"
+	line "#MON!"
+
+	para "They're so easy"
+	line "to raise!"
 	done
 
 TwinsJoAndZoe1BeatenText:
@@ -247,13 +261,18 @@ TwinsJoAndZoe1BeatenText:
 	done
 
 TwinsJoAndZoe1AfterBattleText:
-	text "ERIKA will get you"
-	line "back for us!"
+	text "Bleaah!"
+	line "I hope ERIKA"
+	cont "wipes you out!"
 	done
 
-TwinsJoAndZoe2SeenText:
-	text "We're going to"
-	line "protect ERIKA!"
+CeladonGymBattleText8:
+	text "Welcome to"
+	line "CELADON GYM!"
+
+	para "You better not"
+	line "underestimate"
+	cont "girl power!"
 	done
 
 TwinsJoAndZoe2BeatenText:

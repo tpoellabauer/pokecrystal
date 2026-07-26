@@ -102,7 +102,7 @@ OaksLabOakScript:
 	closetext
 	end
 .PostDex:
-	writetext OaksLabOakPostDexText
+	writetext OaksLabOakHowIsYourPokedexComingText
 	waitbutton
 	closetext
 	end
@@ -137,9 +137,11 @@ OaksLabCharmanderBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHARMANDER, 5
+	writetext OaksLabOakYourPokemonCanFightText
+	waitbutton
 	closetext
 	disappear OAKSLAB_SQUIRTLE_BALL
-	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	winlosstext OaksLabRivalIPickedTheWrongPokemonText, OaksLabRivalLossText
 	setlasttalked OAKSLAB_RIVAL
 	loadtrainer RIVAL1, RIVAL1_KANTO_SQUIRTLE
 	sjump OaksLabRivalTakesAndBattles
@@ -170,9 +172,11 @@ OaksLabSquirtleBallScript:
 	waitsfx
 	promptbutton
 	givepoke SQUIRTLE, 5
+	writetext OaksLabOakYourPokemonCanFightText
+	waitbutton
 	closetext
 	disappear OAKSLAB_BULBASAUR_BALL
-	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	winlosstext OaksLabRivalIPickedTheWrongPokemonText, OaksLabRivalLossText
 	setlasttalked OAKSLAB_RIVAL
 	loadtrainer RIVAL1, RIVAL1_KANTO_BULBASAUR
 	sjump OaksLabRivalTakesAndBattles
@@ -203,9 +207,11 @@ OaksLabBulbasaurBallScript:
 	waitsfx
 	promptbutton
 	givepoke BULBASAUR, 5
+	writetext OaksLabOakYourPokemonCanFightText
+	waitbutton
 	closetext
 	disappear OAKSLAB_CHARMANDER_BALL
-	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	winlosstext OaksLabRivalIPickedTheWrongPokemonText, OaksLabRivalLossText
 	setlasttalked OAKSLAB_RIVAL
 	loadtrainer RIVAL1, RIVAL1_KANTO_CHARMANDER
 	sjump OaksLabRivalTakesAndBattles
@@ -333,7 +339,7 @@ OaksLabPC:
 
 ; --- text -------------------------------------------------------------------
 OaksLabRivalFedUpText:
-	text "GARY: Gramps! I'm"
+	text "<RIVAL>: Gramps! I'm"
 	line "fed up with"
 	cont "waiting!"
 	done
@@ -365,13 +371,13 @@ OaksLabOakChooseMonText:
 	done
 
 OaksLabRivalWhatAboutMeText:
-	text "GARY: Hey! Gramps!"
+	text "<RIVAL>: Hey! Gramps!"
 	line "What about me?"
 	done
 
 OaksLabOakBePatientText:
 	text "OAK: Be patient,"
-	line "GARY. You can have"
+	line "<RIVAL>. You can have"
 	cont "one, too!"
 	done
 
@@ -379,7 +385,7 @@ OaksLabOakHelloText:
 	text "OAK: The #MON on"
 	line "the table are for"
 
-	para "you and GARY."
+	para "you and <RIVAL>."
 	line "Go on, choose!"
 	done
 
@@ -402,10 +408,17 @@ OaksLabOakDeliverParcelHintText:
 	line "there for me."
 	done
 
-OaksLabOakPostDexText:
-	text "OAK: <PLAY_G>!"
-	line "How is my #-"
-	cont "DEX coming?"
+OaksLabOakHowIsYourPokedexComingText:
+	text "OAK: Good to see you!"
+	line "How is your #DEX"
+	cont "coming? Here, let me"
+	cont "take a look!"
+	done
+
+OaksLabOakYourPokemonCanFightText:
+	text "OAK: If a wild #MON"
+	line "appears, your #MON"
+	cont "can fight against it!"
 	done
 
 OaksLabOakParcelThanksText:
@@ -417,7 +430,7 @@ OaksLabOakParcelThanksText:
 	done
 
 OaksLabRivalWhatDidYouCallMeForText:
-	text "GARY: What did"
+	text "<RIVAL>: What did"
 	line "you call me for?"
 	done
 
@@ -434,7 +447,7 @@ OaksLabOakPokedexSpeechText:
 
 OaksLabOakGotPokedexText:
 	text "OAK: <PLAY_G> and"
-	line "GARY! Take these"
+	line "<RIVAL>! Take these"
 	cont "with you!"
 
 	para "<PLAY_G> got"
@@ -442,7 +455,7 @@ OaksLabOakGotPokedexText:
 	done
 
 OaksLabRivalLeaveItAllToMeText:
-	text "GARY: Alright"
+	text "<RIVAL>: Alright"
 	line "Gramps! Leave it"
 	cont "all to me!"
 	done
@@ -499,34 +512,34 @@ OaksLabStarterAlreadyTakenText:
 	done
 
 OaksLabRivalIllTakeThisOneText:
-	text "GARY: I'll take"
+	text "<RIVAL>: I'll take"
 	line "this one, then!"
 	done
 
 OaksLabRivalIllTakeYouOnText:
-	text "GARY: Wait,"
-	line "<PLAY_G>! Let's"
-
-	para "check out our #-"
-	line "MON!"
+	text "<RIVAL>: Wait,"
+	line "<PLAY_G>!"
+	cont "Let's check out"
+	cont "our #MON!"
 
 	para "Come on, I'll take"
 	line "you on!"
 	done
 
-OaksLabRivalWinText:
-	text "GARY: Why did I"
-	line "pick this dumb"
-	cont "#MON?"
+OaksLabRivalIPickedTheWrongPokemonText:
+	text "WHAT?"
+	line "Unbelievable!"
+	cont "I picked the wrong"
+	cont "#MON!"
 	done
 
 OaksLabRivalLossText:
-	text "GARY: Yeah! Am I"
+	text "<RIVAL>: Yeah! Am I"
 	line "great or what?"
 	done
 
 OaksLabRivalSmellYouLaterText:
-	text "GARY: Okay! I'll"
+	text "<RIVAL>: Okay! I'll"
 	line "make my #MON"
 
 	para "fight to toughen"
@@ -537,12 +550,12 @@ OaksLabRivalSmellYouLaterText:
 	done
 
 OaksLabRivalGoAheadChooseText:
-	text "GARY: Hurry up and"
+	text "<RIVAL>: Hurry up and"
 	line "choose one!"
 	done
 
 OaksLabRivalMineLooksStrongerText:
-	text "GARY: My #MON"
+	text "<RIVAL>: My #MON"
 	line "looks a lot"
 	cont "stronger. Heh!"
 	done
