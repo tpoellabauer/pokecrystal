@@ -13,12 +13,19 @@ SSAnneCaptainsRoomCaptainScript:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_HM01_CUT
-	iftrue .Done
-	writetext SSAnneCaptainsRoomCaptainText
+	iftrue .NotSickAnymore
+	writetext SSAnneCaptainsRoomRubCaptainsBackText
+	waitbutton
+	writetext SSAnneCaptainsRoomCaptainIFeelMuchBetterText
 	waitbutton
 	verbosegiveitem HM_CUT
 	setevent EVENT_GOT_HM01_CUT
-.Done:
+	closetext
+	end
+
+.NotSickAnymore:
+	writetext SSAnneCaptainsRoomCaptainNotSickAnymoreText
+	waitbutton
 	closetext
 	end
 
@@ -26,22 +33,47 @@ TrashScript:
 	jumptext TrashText
 
 BookScript:
-	jumptext BookText
+	jumptext SSAnneCaptainsRoomSeasickBookText
 
-SSAnneCaptainsRoomCaptainText:
-	text "Captain: Ahoy,"
-	line "young sailor!"
+SSAnneCaptainsRoomRubCaptainsBackText:
+	text "CAPTAIN: Ooargh..."
+	line "I feel hideous..."
+	cont "Urrp! Seasick..."
 
-	para "My back is so"
-	line "stiff from all"
-	cont "this sailing."
+	para "<PLAYER> rubbed"
+	line "the CAPTAIN's"
+	cont "back!"
 
-	para "Would you rub my"
-	line "back for me?"
+	para "Rub-rub..."
+	line "Rub-rub..."
+	done
 
-	para "If you do, I'll"
-	line "teach you how to"
-	cont "use Cut!"
+SSAnneCaptainsRoomCaptainIFeelMuchBetterText:
+	text "CAPTAIN: Whew!"
+	line "Thank you! I"
+	cont "feel much better!"
+
+	para "You want to see"
+	line "my CUT technique?"
+
+	para "I could show you"
+	line "if I wasn't ill..."
+
+	para "I know! You can"
+	line "have this!"
+
+	para "Teach it to your"
+	line "#MON and you"
+	cont "can see it CUT"
+	cont "any time!"
+	done
+
+SSAnneCaptainsRoomCaptainNotSickAnymoreText:
+	text "CAPTAIN: Whew!"
+
+	para "Now that I'm not"
+	line "sick any more, I"
+	cont "guess it's time."
 	done
 
 TrashText:
@@ -49,9 +81,11 @@ TrashText:
 	line "full of rubbish."
 	done
 
-BookText:
-	text "It's a book about"
-	line "sailing."
+SSAnneCaptainsRoomSeasickBookText:
+	text "How to Conquer"
+	line "Seasickness..."
+	cont "The CAPTAIN's"
+	cont "reading this!"
 	done
 
 SSAnneCaptainsRoom_MapEvents:
