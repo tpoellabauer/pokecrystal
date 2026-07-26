@@ -35,7 +35,7 @@ RocketHideoutB2FRocket1PreBattleText:
 	done
 
 RocketHideoutB2FRocket1DefeatedText:
-	text "I'm down!"
+	text "I surrender!"
 	done
 
 RocketHideoutB2FRocket1VictoryText:
