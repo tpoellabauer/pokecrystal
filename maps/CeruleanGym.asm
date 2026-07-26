@@ -238,6 +238,10 @@ MistyIntroText:
 	cont "to have a policy"
 	cont "about #MON!"
 
+	para "What is your"
+	line "approach when you"
+	cont "catch #MON?"
+
 	para "My policy is an"
 	line "all-out offensive"
 	cont "with water-type"

@@ -16,8 +16,7 @@ SSAnneCaptainsRoomCaptainScript:
 	iftrue .Done
 	writetext SSAnneCaptainsRoomCaptainText
 	waitbutton
-	giveitem HM_CUT
-	iffalse .Done
+	verbosegiveitem HM_CUT
 	setevent EVENT_GOT_HM01_CUT
 .Done:
 	closetext

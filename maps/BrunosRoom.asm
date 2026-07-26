@@ -64,8 +64,8 @@ AgathaScript_BeforeText:
 	done
 
 AgathaScript_BeatenText:
-	text "Nyoho? You're"
-	line "great, I say!"
+	text "Someone's voice:"
+	line "Don't run away!"
 	done
 
 AgathaScript_DefeatText:
