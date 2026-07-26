@@ -65,19 +65,21 @@ SafariZoneGateWorker1Text:
 	done
 
 SafariZoneGateWorker1PaidText:
-	text "Have fun! Use"
-	line "SAFARI BALLs to"
-	cont "catch #MON."
+	text "We'll call you on"
+	line "the PA when you"
+	cont "run out of time"
+	cont "or SAFARI BALLs!"
 	done
 
 SafariZoneGateWorker1WelcomeBackText:
-	text "OK! Please come"
-	line "again!"
+	text "Did you get a"
+	line "good haul?"
+	cont "Come again!"
 	done
 
 SafariZoneGateWorker1NotEnoughMoneyText:
-	text "You don't have"
-	line "enough money."
+	text "Oops! Not enough"
+	line "money!"
 	done
 
 SafariZoneGateWorker1RefusedText:
