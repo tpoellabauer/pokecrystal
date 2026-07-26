@@ -505,10 +505,9 @@ OaksLabRivalIllTakeThisOneText:
 
 OaksLabRivalIllTakeYouOnText:
 	text "GARY: Wait,"
-	line "<PLAY_G>! Let's"
-
-	para "check out our #-"
-	line "MON!"
+	line "<PLAY_G>!"
+	cont "Let's check out"
+	cont "our #MON!"
 
 	para "Come on, I'll take"
 	line "you on!"
