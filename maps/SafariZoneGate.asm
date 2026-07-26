@@ -71,8 +71,8 @@ SafariZoneGateWorker1PaidText:
 	done
 
 SafariZoneGateWorker1WelcomeBackText:
-	text "Welcome back to"
-	line "the SAFARI ZONE!"
+	text "OK! Please come"
+	line "again!"
 	done
 
 SafariZoneGateWorker1NotEnoughMoneyText:
