@@ -102,7 +102,7 @@ OaksLabOakScript:
 	closetext
 	end
 .PostDex:
-	writetext OaksLabOakPostDexText
+	writetext OaksLabOakHowIsYourPokedexComingText
 	waitbutton
 	closetext
 	end
@@ -137,9 +137,11 @@ OaksLabCharmanderBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHARMANDER, 5
+	writetext OaksLabOakYourPokemonCanFightText
+	waitbutton
 	closetext
 	disappear OAKSLAB_SQUIRTLE_BALL
-	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	winlosstext OaksLabRivalIPickedTheWrongPokemonText, OaksLabRivalLossText
 	setlasttalked OAKSLAB_RIVAL
 	loadtrainer RIVAL1, RIVAL1_KANTO_SQUIRTLE
 	sjump OaksLabRivalTakesAndBattles
@@ -170,9 +172,11 @@ OaksLabSquirtleBallScript:
 	waitsfx
 	promptbutton
 	givepoke SQUIRTLE, 5
+	writetext OaksLabOakYourPokemonCanFightText
+	waitbutton
 	closetext
 	disappear OAKSLAB_BULBASAUR_BALL
-	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	winlosstext OaksLabRivalIPickedTheWrongPokemonText, OaksLabRivalLossText
 	setlasttalked OAKSLAB_RIVAL
 	loadtrainer RIVAL1, RIVAL1_KANTO_BULBASAUR
 	sjump OaksLabRivalTakesAndBattles
@@ -203,9 +207,11 @@ OaksLabBulbasaurBallScript:
 	waitsfx
 	promptbutton
 	givepoke BULBASAUR, 5
+	writetext OaksLabOakYourPokemonCanFightText
+	waitbutton
 	closetext
 	disappear OAKSLAB_CHARMANDER_BALL
-	winlosstext OaksLabRivalWinText, OaksLabRivalLossText
+	winlosstext OaksLabRivalIPickedTheWrongPokemonText, OaksLabRivalLossText
 	setlasttalked OAKSLAB_RIVAL
 	loadtrainer RIVAL1, RIVAL1_KANTO_CHARMANDER
 	sjump OaksLabRivalTakesAndBattles
@@ -402,10 +408,17 @@ OaksLabOakDeliverParcelHintText:
 	line "there for me."
 	done
 
-OaksLabOakPostDexText:
-	text "OAK: <PLAY_G>!"
-	line "How is my #-"
-	cont "DEX coming?"
+OaksLabOakHowIsYourPokedexComingText:
+	text "OAK: Good to see you!"
+	line "How is your #DEX"
+	cont "coming? Here, let me"
+	cont "take a look!"
+	done
+
+OaksLabOakYourPokemonCanFightText:
+	text "OAK: If a wild #MON"
+	line "appears, your #MON"
+	cont "can fight against it!"
 	done
 
 OaksLabOakParcelThanksText:
@@ -513,10 +526,11 @@ OaksLabRivalIllTakeYouOnText:
 	line "you on!"
 	done
 
-OaksLabRivalWinText:
-	text "<RIVAL>: Why did I"
-	line "pick this dumb"
-	cont "#MON?"
+OaksLabRivalIPickedTheWrongPokemonText:
+	text "WHAT?"
+	line "Unbelievable!"
+	cont "I picked the wrong"
+	cont "#MON!"
 	done
 
 OaksLabRivalLossText:
