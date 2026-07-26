@@ -38,8 +38,13 @@ CeladonGymErikaScript:
 	iftrue .GotSolarbeam
 	writetext ErikaExplainTMText
 	promptbutton
-	verbosegiveitem TM_SOLARBEAM
+	giveitem TM_SOLARBEAM
 	iffalse .GotSolarbeam
+	getitemname STRING_BUFFER_3, TM_SOLARBEAM
+	writetext CeladonGymReceivedTM22Text
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	setevent EVENT_GOT_TM22_SOLARBEAM
 .GotSolarbeam:
 	writetext ErikaAfterBattleText
@@ -92,7 +97,7 @@ TrainerTwinsJoAndZoe1:
 	end
 
 TrainerTwinsJoAndZoe2:
-	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe2SeenText, TwinsJoAndZoe2BeatenText, 0, .Script
+	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, CeladonGymBattleText8, TwinsJoAndZoe2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -175,6 +180,13 @@ ErikaExplainTMText:
 	line "it pleases you…"
 	done
 
+CeladonGymReceivedTM22Text:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
 ErikaAfterBattleText:
 	text "ERIKA: Losing"
 	line "leaves a bitter"
@@ -251,9 +263,13 @@ TwinsJoAndZoe1AfterBattleText:
 	line "back for us!"
 	done
 
-TwinsJoAndZoe2SeenText:
-	text "We're going to"
-	line "protect ERIKA!"
+CeladonGymBattleText8:
+	text "Welcome to"
+	line "CELADON GYM!"
+
+	para "You better not"
+	line "underestimate"
+	cont "girl power!"
 	done
 
 TwinsJoAndZoe2BeatenText:
