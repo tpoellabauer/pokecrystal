@@ -116,28 +116,27 @@ CeladonGymStatue:
 	jumpstd GymStatue2Script
 
 ErikaBeforeBattleText:
-	text "ERIKA: Hello…"
-	line "Lovely weather,"
+	text "Hello. Lovely"
+	line "weather isn't it?"
+	cont "It's so pleasant."
 
-	para "isn't it?"
-	line "It's so pleasant…"
-
-	para "…I'm afraid I may"
-	line "doze off…"
+	para "...Oh dear..."
+	line "I must have dozed"
+	cont "off. Welcome."
 
 	para "My name is ERIKA."
-	line "I am the LEADER of"
-	cont "CELADON GYM."
+	line "I am the LEADER"
+	cont "of CELADON GYM."
 
-	para "…Oh? All the way"
-	line "from JOHTO, you"
-	cont "say? How nice…"
+	para "I teach the art of"
+	line "flower arranging."
+	cont "My #MON are of"
+	cont "the grass-type."
 
-	para "Oh. I'm sorry, I"
-	line "didn't realize"
-
-	para "that you wished to"
-	line "challenge me."
+	para "Oh, I'm sorry, I"
+	line "had no idea that"
+	cont "you wished to"
+	cont "challenge me."
 
 	para "Very well, but I"
 	line "shall not lose."
