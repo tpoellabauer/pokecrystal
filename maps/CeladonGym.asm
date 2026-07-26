@@ -145,13 +145,13 @@ ErikaBeforeBattleText:
 
 ErikaBeatenText:
 	text "ERIKA: Oh!"
-	line "I concede defeat…"
+	line "I concede defeat."
 
 	para "You are remarkably"
-	line "strong…"
+	line "strong."
 
-	para "I shall give you"
-	line "RAINBOWBADGE…"
+	para "I must confer you"
+	line "the RAINBOWBADGE."
 	done
 
 PlayerReceivedRainbowBadgeText:
@@ -200,9 +200,9 @@ ErikaAfterBattleText:
 	done
 
 LassMichelleSeenText:
-	text "Do you think a"
-	line "girls-only GYM"
-	cont "is rare?"
+	text "Oh, you weren't"
+	line "peeping? We get a"
+	cont "lot of gawkers!"
 	done
 
 LassMichelleBeatenText:
@@ -233,25 +233,27 @@ PicnickerTanyaAfterBattleText:
 	done
 
 BeautyJuliaSeenText:
-	text "Were you looking"
-	line "at these flowers"
-	cont "or at me?"
+	text "Aren't you the"
+	line "peeping Tom?"
 	done
 
 BeautyJuliaBeatenText:
-	text "How annoying!"
+	text "No!"
 	done
 
 BeautyJuliaAfterBattleText:
-	text "How do I go about"
-	line "becoming ladylike"
-	cont "like ERIKA?"
+	text "I have a blind"
+	line "date coming up."
+	cont "I have to learn"
+	cont "to be polite."
 	done
 
 TwinsJoAndZoe1SeenText:
-	text "We'll show you"
-	line "#MON moves that"
-	cont "ERIKA taught us!"
+	text "Look at my grass"
+	line "#MON!"
+
+	para "They're so easy"
+	line "to raise!"
 	done
 
 TwinsJoAndZoe1BeatenText:
@@ -259,8 +261,9 @@ TwinsJoAndZoe1BeatenText:
 	done
 
 TwinsJoAndZoe1AfterBattleText:
-	text "ERIKA will get you"
-	line "back for us!"
+	text "Bleaah!"
+	line "I hope ERIKA"
+	cont "wipes you out!"
 	done
 
 CeladonGymBattleText8:
