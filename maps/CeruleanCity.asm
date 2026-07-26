@@ -263,18 +263,10 @@ CeruleanCityHiddenBerserkGene:
 	hiddenitem BERSERK_GENE, EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY
 
 CeruleanCityCooltrainerMText1:
-	text "KANTO's POWER"
-	line "PLANT?"
-
-	para "It's near the end"
-	line "of ROUTE 9, the"
-
-	para "road that heads"
-	line "east from here."
-
-	para "I think there was"
-	line "an accident of"
-	cont "some sort there."
+	text "You're a trainer"
+	line "too? Collecting,"
+	cont "fighting, it's a"
+	cont "tough life."
 	done
 
 CeruleanCityCooltrainerMText2:
@@ -317,7 +309,8 @@ CeruleanCityGuardText:
 	done
 
 CeruleanCitySlowbroText:
-	text "SLOWBRO: Yarah?"
+	text "SLOWBRO took a"
+	line "snooze..."
 	done
 
 CeruleanCityCooltrainerF1Text1:
@@ -327,8 +320,9 @@ CeruleanCityCooltrainerF1Text1:
 	done
 
 CeruleanCityCooltrainerF1Text2:
-	text "SLOWBRO, show me"
-	line "your CONFUSION!"
+	text "SLOWBRO punch!"
+	line "No! You blew it"
+	cont "again!"
 	done
 
 CeruleanCityCooltrainerF1Text3:
