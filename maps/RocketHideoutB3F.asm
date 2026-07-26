@@ -52,7 +52,8 @@ RocketHideoutB3FRocket1PreBattleText:
 	done
 
 RocketHideoutB3FRocket1DefeatedText:
-	text "Argh!"
+	text "Oof!"
+	line "Taken down!"
 	done
 
 RocketHideoutB3FRocket1VictoryText:
@@ -61,8 +62,10 @@ RocketHideoutB3FRocket1VictoryText:
 	done
 
 RocketHideoutB3FRocket1AfterBattleText:
-	text "You got lucky that"
-	line "time!"
+	text "SILPH SCOPE?"
+	line "The machine the"
+	cont "BOSS stole. It's"
+	cont "here somewhere."
 	done
 
 RocketHideoutB3FRocket2PreBattleText:
@@ -71,7 +74,8 @@ RocketHideoutB3FRocket2PreBattleText:
 	done
 
 RocketHideoutB3FRocket2DefeatedText:
-	text "No way!"
+	text "What?"
+	line "I lost? No!"
 	done
 
 RocketHideoutB3FRocket2VictoryText:
@@ -80,9 +84,10 @@ RocketHideoutB3FRocket2VictoryText:
 	done
 
 RocketHideoutB3FRocket2AfterBattleText:
-	text "Hah! You're just"
-	line "delaying the"
-	cont "inevitable!"
+	text "Go ahead and go!"
+	line "But, you need the"
+	cont "LIFT KEY to run"
+	cont "the elevator!"
 	done
 
 ; Gen1 field itemballs. TM_DOUBLE_EDGE has no Gen2 equivalent -> TM_RETURN substitute
