@@ -35,13 +35,18 @@ Museum1FOldAmberScript:
 	jumptext Museum1FOldAmberText
 
 Museum1FScientist1Text:
-	text "Welcome to the"
-	line "PEWTER MUSEUM of"
-	cont "SCIENCE!"
+	text "Take plenty of"
+	line "time to look!"
+	done
 
-	para "Take plenty of"
-	line "time to look"
-	cont "around!"
+Museum1FScientist1ThankYouText:
+	text "Right, ¥50!"
+	line "Thank you!"
+	done
+
+Museum1FScientist1AmberIsFossilizedTreeSapText:
+	text "AMBER is fossil-"
+	line "ized tree sap."
 	done
 
 Museum1FGamblerText:
@@ -61,6 +66,11 @@ Museum1FScientist2Text:
 	cont "be resurrected"
 	cont "from it!"
 	done
+
+Museum1FScientist2ReceivedOldAmberText:
+	text "<PLAYER> received"
+	line "OLD AMBER!@"
+	text_end
 
 Museum1FScientist3Text:
 	text "We are proud of 2"
