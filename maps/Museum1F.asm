@@ -35,13 +35,8 @@ Museum1FOldAmberScript:
 	jumptext Museum1FOldAmberText
 
 Museum1FScientist1Text:
-	text "Welcome to the"
-	line "PEWTER MUSEUM of"
-	cont "SCIENCE!"
-
-	para "Take plenty of"
-	line "time to look"
-	cont "around!"
+	text "Take plenty of"
+	line "time to look!"
 	done
 
 Museum1FGamblerText:
