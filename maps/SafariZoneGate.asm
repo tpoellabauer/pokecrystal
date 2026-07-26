@@ -72,9 +72,8 @@ SafariZoneGateWorker1PaidText:
 	done
 
 SafariZoneGateWorker1WelcomeBackText:
-	text "Did you get a"
-	line "good haul?"
-	cont "Come again!"
+	text "OK! Please come"
+	line "again!"
 	done
 
 SafariZoneGateWorker1NotEnoughMoneyText:
