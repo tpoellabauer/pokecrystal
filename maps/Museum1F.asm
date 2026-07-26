@@ -39,16 +39,6 @@ Museum1FScientist1Text:
 	line "time to look!"
 	done
 
-Museum1FScientist1ThankYouText:
-	text "Right, ¥50!"
-	line "Thank you!"
-	done
-
-Museum1FScientist1AmberIsFossilizedTreeSapText:
-	text "AMBER is fossil-"
-	line "ized tree sap."
-	done
-
 Museum1FGamblerText:
 	text "That is one"
 	line "magnificent"
@@ -66,11 +56,6 @@ Museum1FScientist2Text:
 	cont "be resurrected"
 	cont "from it!"
 	done
-
-Museum1FScientist2ReceivedOldAmberText:
-	text "<PLAYER> received"
-	line "OLD AMBER!@"
-	text_end
 
 Museum1FScientist3Text:
 	text "We are proud of 2"
