@@ -195,10 +195,8 @@ PokemonFanClubChairmanMoreTalesToTellText:
 	done
 
 PokemonFanClubChairmanHowDisappointingText:
-	text "How disappointing…"
-
-	para "Come back if you"
-	line "want to listen."
+	text "PIKACHU: Chu!"
+	line "Pikachu!"
 	done
 
 PokemonFanClubReceptionistText:
