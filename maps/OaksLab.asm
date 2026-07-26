@@ -103,7 +103,7 @@ OaksLabOakScript:
 	closetext
 	end
 .PostDex:
-	writetext OaksLabOak1ComeSeeMeSometimesText
+	writetext OaksLabOakHowIsYourPokedexComingText
 	waitbutton
 	closetext
 	end
@@ -447,13 +447,11 @@ OaksLabOakDeliverParcelHintText:
 	line "there for me."
 	done
 
-OaksLabOak1ComeSeeMeSometimesText:
-	text "OAK: Come see me"
-	line "sometimes."
-
-	para "I want to know how"
-	line "your #DEX is"
-	cont "coming along."
+OaksLabOakHowIsYourPokedexComingText:
+	text "OAK: Good to see you!"
+	line "How is your #DEX"
+	cont "coming? Here, let me"
+	cont "take a look!"
 	done
 
 OaksLabOakYourPokemonCanFightText:
