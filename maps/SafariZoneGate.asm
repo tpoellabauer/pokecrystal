@@ -83,8 +83,8 @@ SafariZoneGateWorker1NotEnoughMoneyText:
 	done
 
 SafariZoneGateWorker1RefusedText:
-	text "Welcome to the"
-	line "SAFARI ZONE!"
+	text "Come back if you"
+	line "change your mind!"
 	done
 
 SafariZoneGateWorker2Text:
