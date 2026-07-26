@@ -16,8 +16,9 @@
 
 OaksLab_MapScripts:
 	def_scene_scripts
-	scene_script OaksLabNoopScene,  SCENE_OAKSLAB_NOOP  ; default (wandered in early)
-	scene_script OaksLabIntroScene, SCENE_OAKSLAB_INTRO ; armed by the Pallet Oak event
+	scene_script OaksLabNoopScene,  SCENE_OAKSLAB_NOOP      ; default (wandered in early)
+	scene_script OaksLabIntroScene, SCENE_OAKSLAB_INTRO     ; armed by the Pallet Oak event
+	scene_script OaksLabNoopScene,  SCENE_OAKSLAB_CANT_LEAVE
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, OaksLabObjectsCallback
@@ -64,7 +65,7 @@ OaksLabIntroScript:
 	waitbutton
 	closetext
 	setevent EVENT_OAK_ASKED_TO_CHOOSE_MON
-	setscene SCENE_OAKSLAB_NOOP
+	setscene SCENE_OAKSLAB_CANT_LEAVE
 	end
 
 OaksLabPlayerWalkInMovement:
@@ -102,7 +103,7 @@ OaksLabOakScript:
 	closetext
 	end
 .PostDex:
-	writetext OaksLabOakHowIsYourPokedexComingText
+	writetext OaksLabOak1ComeSeeMeSometimesText
 	waitbutton
 	closetext
 	end
@@ -129,6 +130,7 @@ OaksLabCharmanderBallScript:
 	disappear OAKSLAB_CHARMANDER_BALL
 	setevent EVENT_GOT_STARTER
 	setevent EVENT_CHOSE_CHARMANDER
+	setscene SCENE_OAKSLAB_NOOP
 	writetext OaksLabChoseStarterText
 	promptbutton
 	getmonname STRING_BUFFER_3, CHARMANDER
@@ -164,6 +166,7 @@ OaksLabSquirtleBallScript:
 	disappear OAKSLAB_SQUIRTLE_BALL
 	setevent EVENT_GOT_STARTER
 	setevent EVENT_CHOSE_SQUIRTLE
+	setscene SCENE_OAKSLAB_NOOP
 	writetext OaksLabChoseStarterText
 	promptbutton
 	getmonname STRING_BUFFER_3, SQUIRTLE
@@ -199,6 +202,7 @@ OaksLabBulbasaurBallScript:
 	disappear OAKSLAB_BULBASAUR_BALL
 	setevent EVENT_GOT_STARTER
 	setevent EVENT_CHOSE_BULBASAUR
+	setscene SCENE_OAKSLAB_NOOP
 	writetext OaksLabChoseStarterText
 	promptbutton
 	getmonname STRING_BUFFER_3, BULBASAUR
@@ -223,6 +227,22 @@ OaksLabRivalTakesAndBattles:
 	opentext
 	writetext OaksLabRivalIllTakeThisOneText
 	waitbutton
+	checkevent EVENT_CHOSE_CHARMANDER
+	iftrue .RivalTakesSquirtle
+	checkevent EVENT_CHOSE_SQUIRTLE
+	iftrue .RivalTakesBulbasaur
+	getmonname STRING_BUFFER_3, CHARMANDER
+	sjump .RivalReceivedMon
+.RivalTakesSquirtle:
+	getmonname STRING_BUFFER_3, SQUIRTLE
+	sjump .RivalReceivedMon
+.RivalTakesBulbasaur:
+	getmonname STRING_BUFFER_3, BULBASAUR
+.RivalReceivedMon:
+	writetext OaksLabRivalReceivedMonText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
 	closetext
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
@@ -268,19 +288,35 @@ OaksLabPickAgainScript:
 
 OaksLabStarterAlreadyTakenScript:
 	opentext
-	writetext OaksLabStarterAlreadyTakenText
+	writetext OaksLabLastMonText
 	waitbutton
 	closetext
 	end
 
+OaksLabDontGoAwayYetScript:
+	turnobject OAKSLAB_OAK, DOWN
+	turnobject OAKSLAB_RIVAL, DOWN
+	opentext
+	writetext OaksLabOakDontGoAwayYetText
+	waitbutton
+	closetext
+	applymovement PLAYER, OaksLabPlayerWalkBackMovement
+	end
+
+OaksLabPlayerWalkBackMovement:
+	step UP
+	step_end
+
 ; --- Oak's Parcel delivery -> Pokedex + rival-returns cameo -----------------
 OaksLabPokedexScene:
 	opentext
-	writetext OaksLabOakParcelThanksText
+	writetext OaksLabOak1DeliverParcelText
 	promptbutton
 	takeitem OAKS_PARCEL
 	appear OAKSLAB_RIVAL
 	turnobject OAKSLAB_RIVAL, LEFT
+	writetext OaksLabRivalGrampsText
+	waitbutton
 	writetext OaksLabRivalWhatDidYouCallMeForText
 	waitbutton
 	writetext OaksLabOakPokedexSpeechText
@@ -288,6 +324,9 @@ OaksLabPokedexScene:
 	waitsfx
 	setflag ENGINE_POKEDEX
 	writetext OaksLabOakGotPokedexText
+	waitbutton
+	giveitem POKE_BALL, 5
+	writetext OaksLabOak1ReceivedPokeballsText
 	waitbutton
 	writetext OaksLabRivalLeaveItAllToMeText
 	waitbutton
@@ -408,11 +447,13 @@ OaksLabOakDeliverParcelHintText:
 	line "there for me."
 	done
 
-OaksLabOakHowIsYourPokedexComingText:
-	text "OAK: Good to see you!"
-	line "How is your #DEX"
-	cont "coming? Here, let me"
-	cont "take a look!"
+OaksLabOak1ComeSeeMeSometimesText:
+	text "OAK: Come see me"
+	line "sometimes."
+
+	para "I want to know how"
+	line "your #DEX is"
+	cont "coming along."
 	done
 
 OaksLabOakYourPokemonCanFightText:
@@ -421,13 +462,40 @@ OaksLabOakYourPokemonCanFightText:
 	cont "can fight against it!"
 	done
 
-OaksLabOakParcelThanksText:
+OaksLabOak1DeliverParcelText:
 	text "OAK: Oh, <PLAY_G>!"
 
-	para "Ah! This is the"
-	line "#DEX parts I"
-	cont "ordered! Thanks!"
+	para "How is my old"
+	line "#MON?"
+
+	para "Well, it seems to"
+	line "like you a lot."
+
+	para "You must be"
+	line "talented as a"
+	cont "#MON trainer!"
+
+	para "What? You have"
+	line "something for me?"
+
+	para "<PLAY_G> delivered"
+	line "OAK's PARCEL."
 	done
+
+OaksLabOak1ReceivedPokeballsText:
+	text "OAK: You can't get"
+	line "detailed data on"
+	cont "#MON by just"
+	cont "seeing them."
+
+	para "You must catch"
+	line "them! Use these"
+	cont "to capture wild"
+	cont "#MON."
+
+	para "<PLAY_G> got 5"
+	line "# BALLs!@"
+	text_end
 
 OaksLabRivalWhatDidYouCallMeForText:
 	text "<RIVAL>: What did"
@@ -506,15 +574,22 @@ OaksLabPickAgainText:
 	line "choose."
 	done
 
-OaksLabStarterAlreadyTakenText:
-	text "You already have a"
-	line "#MON! Get going!"
+OaksLabLastMonText:
+	text "That's PROF.OAK's"
+	line "last #MON!"
 	done
 
 OaksLabRivalIllTakeThisOneText:
 	text "<RIVAL>: I'll take"
 	line "this one, then!"
 	done
+
+OaksLabRivalReceivedMonText:
+	text "<RIVAL> received"
+	line "a @"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
 
 OaksLabRivalIllTakeYouOnText:
 	text "<RIVAL>: Wait,"
@@ -552,6 +627,15 @@ OaksLabRivalSmellYouLaterText:
 OaksLabRivalGoAheadChooseText:
 	text "<RIVAL>: Hurry up and"
 	line "choose one!"
+	done
+
+OaksLabRivalGrampsText:
+	text "<RIVAL>: Gramps!"
+	done
+
+OaksLabOakDontGoAwayYetText:
+	text "OAK: Hey! Don't go"
+	line "away yet!"
 	done
 
 OaksLabRivalMineLooksStrongerText:
@@ -605,6 +689,8 @@ OaksLab_MapEvents:
 	warp_event  5, 11, PALLET_TOWN, 3
 
 	def_coord_events
+	coord_event  4,  6, SCENE_OAKSLAB_CANT_LEAVE, OaksLabDontGoAwayYetScript
+	coord_event  5,  6, SCENE_OAKSLAB_CANT_LEAVE, OaksLabDontGoAwayYetScript
 
 	def_bg_events
 	bg_event  6,  1, BGEVENT_READ, OaksLabBookshelf
