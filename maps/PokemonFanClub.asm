@@ -192,8 +192,8 @@ PokemonFanClubChairmanHowDisappointingText:
 
 PokemonFanClubReceptionistText:
 	text "Our CHAIRMAN is"
-	line "very vocal when it"
-	cont "comes to #MON…"
+	line "very vocal about"
+	cont "#MON."
 	done
 
 PokemonFanClubPikachuFanNormalText:
