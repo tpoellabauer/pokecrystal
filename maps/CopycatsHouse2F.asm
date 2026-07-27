@@ -28,8 +28,13 @@ CopycatScript:
 .HasDoll:
 	writetext CopycatDollText
 	promptbutton
-	verbosegiveitem TM_MIMIC
+	giveitem TM_MIMIC
 	iffalse .NoRoom
+	getitemname STRING_BUFFER_3, TM_MIMIC
+	writetext CopycatReceivedTM31Text
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	takeitem POKE_DOLL
 	setevent EVENT_GOT_TM_MIMIC
 	writetext CopycatThanksText
@@ -65,25 +70,43 @@ CopycatText:
 	done
 
 CopycatDollText:
-	text "COPYCAT: Oh! That"
-	line "DOLL! I've always"
-	cont "wanted one!"
+	text "Oh wow!"
+	line "A # DOLL!"
 
-	para "I know! Let's"
-	line "trade for my TM!"
+	para "For me?"
+	line "Thank you!"
+
+	para "You can have"
+	line "this, then!"
+	done
+
+CopycatReceivedTM31Text:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
 	done
 
 CopycatThanksText:
-	text "COPYCAT: Thanks!"
-	line "This DOLL is so"
-	cont "me!"
+	text "TM31 contains my"
+	line "favorite, MIMIC!"
+
+	para "Use it on a good"
+	line "#MON!"
 	done
 
 CopycatMimicText:
-	text "COPYCAT: MIMIC"
-	line "copies the foe's"
-	cont "move. Just like"
-	cont "me! Hee hee!"
+	text "<PLAYER>: Hi!"
+	line "Thanks for TM31!"
+
+	para "<PLAYER>: Pardon?"
+
+	para "<PLAYER>: Is it"
+	line "that fun to mimic"
+	cont "my every move?"
+
+	para "COPYCAT: You bet!"
+	line "It's a scream!"
 	done
 
 CopycatsHouse2FDoduoScript:
@@ -123,7 +146,19 @@ CopycatsHouse2FSNESText:
 	done
 
 CopycatsHouse2FPC:
-	jumptext CopycatsHouse2FPCText
+	opentext
+	readvar VAR_FACING
+	ifequal UP, .MySecrets
+	writetext CopycatsHouse2FPCCantSeeText
+	sjump .Done
+
+.MySecrets:
+	writetext CopycatsHouse2FPCText
+
+.Done:
+	waitbutton
+	closetext
+	end
 
 CopycatsHouse2FPCText:
 	text "..."
@@ -135,6 +170,10 @@ CopycatsHouse2FPCText:
 	cont "dolls!"
 	cont "Favorite #MON:"
 	cont "CLEFAIRY!"
+	done
+
+CopycatsHouse2FPCCantSeeText:
+	text "Huh? Can't see!"
 	done
 
 CopycatsHouse2FHiddenNugget:
