@@ -57,6 +57,18 @@ VermilionCitySailor1Script:
 	checkevent EVENT_SS_ANNE_LEFT
 	iftrue .ShipDeparted
 	writetext VermilionCitySailor1Text
+	promptbutton
+	writetext VermilionCitySailor1DoYouHaveATicketText
+	promptbutton
+	checkitem S_S_TICKET
+	iffalse .NoTicket
+	writetext VermilionCitySailor1FlashedTicketText
+	waitbutton
+	closetext
+	end
+
+.NoTicket:
+	writetext VermilionCitySailor1YouNeedATicketText
 	waitbutton
 	closetext
 	end
@@ -178,55 +190,73 @@ VermilionCityBeautyText:
 	done
 
 VermilionCityGambler1Text:
-	text "Did you see the"
-	line "S.S.ANNE moored"
-	cont "in the harbor?"
+	text "Did you see S.S."
+	line "ANNE moored in"
+	cont "the harbor?"
 	done
 
 VermilionCityGambler1DepartedText:
-	text "Aw, the S.S.ANNE"
-	line "already set sail."
+	text "So, S.S.ANNE has"
+	line "departed!"
 
-	para "I wanted to see it"
-	line "one more time…"
+	para "She'll be back in"
+	line "about a year."
 	done
 
 VermilionCitySailor1Text:
 	text "Welcome to S.S."
 	line "ANNE!"
+	done
 
-	para "Show the sailor at"
-	line "the dock your S.S."
-	cont "TICKET to board."
+VermilionCitySailor1DoYouHaveATicketText:
+	text "Welcome to S.S."
+	line "ANNE!"
+
+	para "Excuse me, do you"
+	line "have a ticket?"
+	done
+
+VermilionCitySailor1FlashedTicketText:
+	text "<PLAYER> flashed"
+	line "the S.S.TICKET!"
+
+	para "Great! Welcome to"
+	line "S.S.ANNE!"
+	done
+
+VermilionCitySailor1YouNeedATicketText:
+	text "<PLAYER> doesn't"
+	line "have the needed"
+	cont "S.S.TICKET."
+
+	para "Sorry!"
+
+	para "You need a ticket"
+	line "to get aboard."
 	done
 
 VermilionCitySailor1DepartedText:
-	text "The S.S.ANNE has"
-	line "already set sail."
-
-	para "Thanks for sailing"
-	line "with us!"
+	text "The ship set sail."
 	done
 
 VermilionMachopOwnerText:
-	text "My #MON is"
-	line "preparing the land"
-	cont "for construction."
+	text "I'm putting up a"
+	line "building on this"
+	cont "plot of land."
 
-	para "But I have no"
-	line "money to start the"
-	cont "project…"
+	para "My #MON is"
+	line "tamping the land."
 	done
 
 VermilionMachopText1:
-	text "MACHOP: Guooh"
-	line "gogogoh!"
+	text "MACHOP: Guoh!"
+	line "Gogogoh!"
 	done
 
 VermilionMachopText2:
-	text "A MACHOP is growl-"
-	line "ing while stomping"
-	cont "the ground flat."
+	text "A MACHOP is"
+	line "stomping the land"
+	cont "flat."
 	done
 
 VermilionCitySailor2Text:
@@ -334,8 +364,8 @@ VermilionGymSignText:
 	line "#MON GYM"
 	cont "LEADER: LT.SURGE"
 
-	para "The Lightning"
-	line "American"
+	para "The Lightning "
+	line "American!"
 	done
 
 PokemonFanClubSignText:
