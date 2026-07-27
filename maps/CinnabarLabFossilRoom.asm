@@ -37,31 +37,43 @@ CinnabarLabFossilRoomScientist1Script:
 .ReviveDome:
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, .PartyFull
+	getitemname STRING_BUFFER_3, DOME_FOSSIL
+	writetext CinnabarLabFossilRoomScientist1SeesFossilText
+	waitbutton
 	writetext CinnabarLabFossilRoomTakesFossilText
 	waitbutton
 	takeitem DOME_FOSSIL
 	setevent EVENT_REVIVED_FOSSIL_AT_LAB
 	givepoke KABUTO, 30
+	getmonname STRING_BUFFER_3, KABUTO
 	sjump .Revived
 
 .ReviveHelix:
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, .PartyFull
+	getitemname STRING_BUFFER_3, HELIX_FOSSIL
+	writetext CinnabarLabFossilRoomScientist1SeesFossilText
+	waitbutton
 	writetext CinnabarLabFossilRoomTakesFossilText
 	waitbutton
 	takeitem HELIX_FOSSIL
 	setevent EVENT_REVIVED_FOSSIL_AT_LAB
 	givepoke OMANYTE, 30
+	getmonname STRING_BUFFER_3, OMANYTE
 	sjump .Revived
 
 .ReviveAmber:
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, .PartyFull
+	getitemname STRING_BUFFER_3, OLD_AMBER
+	writetext CinnabarLabFossilRoomScientist1SeesFossilText
+	waitbutton
 	writetext CinnabarLabFossilRoomTakesFossilText
 	waitbutton
 	takeitem OLD_AMBER
 	setevent EVENT_REVIVED_FOSSIL_AT_LAB
 	givepoke AERODACTYL, 30
+	getmonname STRING_BUFFER_3, AERODACTYL
 	sjump .Revived
 
 .Revived:
@@ -104,28 +116,49 @@ CinnabarLabFossilRoomScientist1Text:
 	done
 
 CinnabarLabFossilRoomNoFossilText:
-	text "Aww, no fossil?"
-
-	para "Bring me one and"
-	line "I bring it to"
-	cont "life again!"
+	text "No! Is too bad!"
 	done
 
 CinnabarLabFossilRoomTakesFossilText:
-	text "Ooh! A fossil!"
+	text "So! You hurry and"
+	line "give me that!"
 
-	para "Leave it to me!"
+	para "<PLAYER> handed"
+	line "over "
+	text_ram wStringBuffer3
+	text "!"
+	prompt
 
-	para "…"
+CinnabarLabFossilRoomScientist1SeesFossilText:
+	text "Oh! That is"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
 
-	para "There! Your fossil"
-	line "is #MON again!"
+	para "It is fossil of"
+	line "@"
+	text_ram wStringBuffer3
+	text ", a"
+	cont "#MON that is"
+	cont "already extinct!"
+
+	para "My Resurrection"
+	line "Machine will make"
+	cont "that #MON live"
+	cont "again!"
 	done
 
 CinnabarLabFossilRoomRevivedText:
-	text "Take good care of"
-	line "it, now!"
-	done
+	text "Where were you?"
+
+	para "Your fossil is"
+	line "back to life!"
+
+	para "It was @"
+	text_ram wStringBuffer3
+	text ""
+	line "like I think!"
+	prompt
 
 CinnabarLabFossilRoomPartyFullText:
 	text "You have too many"
@@ -136,11 +169,16 @@ CinnabarLabFossilRoomPartyFullText:
 	done
 
 CinnabarLabFossilRoomAlreadyRevivedText:
-	text "How's that revived"
-	line "#MON doing?"
+	text "Aiyah! You come"
+	line "again!"
+	done
 
-	para "That's the only"
-	line "fossil I can do!"
+CinnabarLabFossilRoomScientist1GoForAWalkText:
+	text "I take a little"
+	line "time!"
+
+	para "You go for walk a"
+	line "little while!"
 	done
 
 CinnabarLabFossilRoom_MapEvents:
@@ -155,5 +193,5 @@ CinnabarLabFossilRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarLabFossilRoomScientist1Script, -1
+	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarLabFossilRoomScientist1Script, -1
 	object_event  7,  6, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarLabFossilRoomScientist2Script, -1
