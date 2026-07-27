@@ -427,8 +427,8 @@ CeruleanCityYoungsterText2:
 CeruleanCitySignText:
 	text "CERULEAN CITY"
 
-	para "A Mysterious Blue"
-	line "Aura"
+	para "A Mysterious,"
+	line "Blue Aura"
 	cont "Surrounds It"
 	done
 
