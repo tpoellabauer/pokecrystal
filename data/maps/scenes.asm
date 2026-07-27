@@ -91,4 +91,5 @@ MapScenes::
 	scene_var CINNABAR_ISLAND,                             wCinnabarIslandSceneID ; Gen 1 Kanto (ported)
 	scene_var POKEMON_TOWER_2F,                            wPokemonTower2FSceneID ; Gen 1 Kanto (ported)
 	scene_var POKEMON_TOWER_5F,                            wPokemonTower5FSceneID ; Gen 1 Kanto (ported)
+	scene_var VIRIDIAN_MART,                               wViridianMartSceneID ; Gen 1 Kanto (ported), issue #241
 	db -1 ; end

@@ -3133,8 +3133,10 @@ wRoute22SceneID::                                 db ; Gen 1 Kanto (ported)
 wCinnabarIslandSceneID::                          db ; Gen 1 Kanto (ported)
 wPokemonTower2FSceneID::                          db ; Gen 1 Kanto (ported)
 wPokemonTower5FSceneID::                          db ; Gen 1 Kanto (ported)
+wViridianMartSceneID::                            db ; Gen 1 Kanto (ported), issue #241
 
-	ds 43 ; 2 bytes reclaimed for wPokemonTower2FSceneID/wPokemonTower5FSceneID (issue #161)
+	ds 42 ; 3 bytes reclaimed for wPokemonTower2FSceneID/wPokemonTower5FSceneID (issue #161)
+	      ; + wViridianMartSceneID (issue #241)
 
 ; fight counts
 wJackFightCount::    db
