@@ -578,6 +578,12 @@ INCLUDE "maps/Route15Gate.asm"
 INCLUDE "maps/Route7UndergroundPathEntrance.asm"
 INCLUDE "maps/Route8UndergroundPathEntrance.asm"
 INCLUDE "maps/UndergroundPathRoute78.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 28", ROMX
+
 INCLUDE "maps/Museum2F.asm"
 
 ENDSECTION
