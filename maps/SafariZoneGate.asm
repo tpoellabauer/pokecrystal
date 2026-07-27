@@ -117,5 +117,5 @@ SafariZoneGate_MapEvents:
 	bg_event 10,  1, BGEVENT_ITEM, SafariZoneGateHiddenNugget
 
 	def_object_events
-	object_event  6,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneGateWorker1Script, -1
-	object_event  1,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneGateWorker2Script, -1
+	object_event  6,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneGateWorker1Script, -1
+	object_event  1,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneGateWorker2Script, -1
