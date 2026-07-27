@@ -43,7 +43,6 @@ CeruleanCityCooltrainerMScript:
 	closetext
 	end
 
-; Gen 1 "bush blocking shop, there might be a way around" hint NPC.
 CeruleanCitySuperNerd1Script:
 	jumptextfaceplayer CeruleanCitySuperNerd1Text
 
@@ -61,7 +60,25 @@ CeruleanCityGuard2Script:
 
 CeruleanCitySlowbro:
 	opentext
-	writetext CeruleanCitySlowbroText
+	random 4
+	ifequal 0, .TookASnooze
+	ifequal 1, .IsLoafingAround
+	ifequal 2, .TurnedAway
+	writetext CeruleanCitySlowbroIgnoredOrdersText
+	sjump .Done
+
+.TookASnooze:
+	writetext CeruleanCitySlowbroTookASnoozeText
+	sjump .Done
+
+.IsLoafingAround:
+	writetext CeruleanCitySlowbroIsLoafingAroundText
+	sjump .Done
+
+.TurnedAway:
+	writetext CeruleanCitySlowbroTurnedAwayText
+
+.Done:
 	cry SLOWBRO
 	waitbutton
 	closetext
@@ -70,21 +87,20 @@ CeruleanCitySlowbro:
 CeruleanCityCooltrainerF1Script:
 	faceplayer
 	opentext
-	writetext CeruleanCityCooltrainerF1Text1
-	waitbutton
-	closetext
-	turnobject CERULEANCITY_COOLTRAINER_F1, LEFT
-	opentext
-	writetext CeruleanCityCooltrainerF1Text2
-	waitbutton
-	closetext
-	opentext
-	writetext CeruleanCitySlowbroText
-	cry SLOWBRO
-	waitbutton
-	closetext
-	opentext
-	writetext CeruleanCityCooltrainerF1Text3
+	random 3
+	ifequal 0, .UseSonicboom
+	ifequal 1, .Punch
+	writetext CeruleanCityCooltrainerF1SlowbroWithdrawText
+	sjump .Done
+
+.UseSonicboom:
+	writetext CeruleanCityCooltrainerF1SlowbroUseSonicboomText
+	sjump .Done
+
+.Punch:
+	writetext CeruleanCityCooltrainerF1SlowbroPunchText
+
+.Done:
 	waitbutton
 	closetext
 	end
@@ -221,11 +237,14 @@ TrainerCeruleanCityRocket:
 	checkevent EVENT_GOT_CERULEAN_TM28
 	iftrue .AlreadyReturned
 	writetext CeruleanCityRocketReturnText
-	verbosegiveitem TM_DIG
+	giveitem TM_DIG
 	iffalse .NoRoom
+	writetext CeruleanCityRocketReceivedTM28Text
 	setevent EVENT_GOT_CERULEAN_TM28
+	writetext CeruleanCityRocketIBetterGetMovingText
 	waitbutton
 	closetext
+	disappear CERULEANCITY_ROCKET
 	end
 
 .AlreadyReturned:
@@ -235,6 +254,8 @@ TrainerCeruleanCityRocket:
 	end
 
 .NoRoom:
+	writetext CeruleanCityRocketTM28NoRoomText
+	waitbutton
 	closetext
 	end
 
@@ -280,11 +301,12 @@ CeruleanCityCooltrainerMText2:
 	done
 
 CeruleanCitySuperNerd1Text:
-	text "The CAPE in the"
-	line "north is a good"
+	text "That bush in"
+	line "front of the shop"
+	cont "is in the way."
 
-	para "place for dates."
-	line "Girls like it!"
+	para "There might be a"
+	line "way around."
 	done
 
 CeruleanCitySuperNerd2Text:
@@ -308,25 +330,50 @@ CeruleanCityGuardText:
 	cont "with the ROCKETs!"
 	done
 
-CeruleanCitySlowbroText:
+CeruleanCitySlowbroTookASnoozeText:
 	text "SLOWBRO took a"
 	line "snooze..."
 	done
 
-CeruleanCityCooltrainerF1Text1:
-	text "My SLOWBRO and I"
-	line "make an awesome"
-	cont "combination!"
+CeruleanCitySlowbroIsLoafingAroundText:
+	text "SLOWBRO is"
+	line "loafing around..."
 	done
 
-CeruleanCityCooltrainerF1Text2:
+CeruleanCitySlowbroTurnedAwayText:
+	text "SLOWBRO turned"
+	line "away..."
+	done
+
+CeruleanCitySlowbroIgnoredOrdersText:
+	text "SLOWBRO"
+	line "ignored orders..."
+	done
+
+CeruleanCityCooltrainerF1SlowbroUseSonicboomText:
+	text "OK! SLOWBRO!"
+	line "Use SONICBOOM!"
+	cont "Come on, SLOWBRO"
+	cont "pay attention!"
+	done
+
+CeruleanCityCooltrainerF1SlowbroPunchText:
 	text "SLOWBRO punch!"
 	line "No! You blew it"
 	cont "again!"
 	done
 
-CeruleanCityCooltrainerF1Text3:
-	text "…"
+CeruleanCityCooltrainerF1SlowbroWithdrawText:
+	text "SLOWBRO, WITHDRAW!"
+	line "No! That's wrong!"
+
+	para "It's so hard to"
+	line "control #MON!"
+
+	para "Your #MON's"
+	line "obedience depends"
+	cont "on your abilities"
+	cont "as a trainer!"
 	done
 
 CeruleanCityCooltrainerF2Text:
@@ -381,7 +428,8 @@ CeruleanCitySignText:
 	text "CERULEAN CITY"
 
 	para "A Mysterious Blue"
-	line "Aura Surrounds It"
+	line "Aura"
+	cont "Surrounds It"
 	done
 
 CeruleanGymSignText:
@@ -390,7 +438,7 @@ CeruleanGymSignText:
 	cont "LEADER: MISTY"
 
 	para "The Tomboyish"
-	line "Mermaid"
+	line "Mermaid!"
 	done
 
 CeruleanBikeShopSignText:
@@ -457,6 +505,22 @@ CeruleanCityRivalAfterText:
 	para "That added a lot"
 	line "of pages to my"
 	cont "#DEX!"
+
+	para "After all, BILL's"
+	line "world famous as a"
+	cont "#MANIAC!"
+
+	para "He invented the"
+	line "#MON Storage"
+	cont "System on PC!"
+
+	para "Since you're using"
+	line "his system, go"
+	cont "thank him!"
+
+	para "Well, I better"
+	line "get rolling!"
+	cont "Smell ya later!"
 	done
 
 CeruleanCityRocketSeenText:
@@ -478,6 +542,24 @@ CeruleanCityRocketBeatenText:
 CeruleanCityRocketReturnText:
 	text "OK! I'll return"
 	line "the TM I stole!"
+	done
+
+CeruleanCityRocketReceivedTM28Text:
+	text "<PLAYER> recovered"
+	line "TM28!"
+	done
+
+CeruleanCityRocketIBetterGetMovingText:
+	para "I better get"
+	line "moving! Bye!"
+	done
+
+CeruleanCityRocketTM28NoRoomText:
+	text "Make room for"
+	line "this!"
+
+	para "I can't run until"
+	line "I give it to you!"
 	done
 
 CeruleanCityRocketAfterText:
