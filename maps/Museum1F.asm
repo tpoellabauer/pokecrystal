@@ -9,22 +9,80 @@ Museum1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Museum1FOldAmberCallback
 
-; Minimal viable port of Gen 1's PEWTER_CITY museum (structural-bug fix, see
-; docs/DIVERGENCE_BACKLOG.md Bug 1). Gen 1's Scientist1 gate-keeps entry
-; behind a 50-coin ticket purchase and its Scientist2 hands over OLD_AMBER
-; (no Gen 2 item/event-flag equivalent exists yet); both are simplified to
-; flavor-only dialogue here. The upstairs fossil hall (MUSEUM_2F) is ported
-; (issue #79) via the (7,7) warp below; Old Amber itself stays flavor-only
-; here on 1F -- Gen 1's pickup is on this floor, not 2F.
+Museum1FOldAmberCallback:
+	checkevent EVENT_GOT_OLD_AMBER
+	iftrue .HideOldAmber
+	endcallback
+
+.HideOldAmber:
+	disappear MUSEUM1F_OLD_AMBER
+	endcallback
+
 Museum1FScientist1Script:
-	jumptextfaceplayer Museum1FScientist1Text
+	faceplayer
+	opentext
+	checkevent EVENT_BOUGHT_MUSEUM_TICKET
+	iftrue .AlreadyBoughtTicket
+	writetext Museum1FScientist1WouldYouLikeToComeInText
+	yesorno
+	iffalse .ComeAgain
+	checkmoney YOUR_MONEY, 50
+	ifequal HAVE_LESS, .NotEnoughMoney
+	takemoney YOUR_MONEY, 50
+	setevent EVENT_BOUGHT_MUSEUM_TICKET
+	writetext Museum1FScientist1ThankYouText
+	waitbutton
+	closetext
+	end
+
+.AlreadyBoughtTicket:
+	writetext Museum1FScientist1TakePlentyOfTimeText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext Museum1FScientist1DontHaveEnoughMoneyText
+	waitbutton
+	closetext
+	end
+
+.ComeAgain:
+	writetext Museum1FScientist1ComeAgainText
+	waitbutton
+	closetext
+	end
 
 Museum1FGamblerScript:
 	jumptextfaceplayer Museum1FGamblerText
 
 Museum1FScientist2Script:
-	jumptextfaceplayer Museum1FScientist2Text
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_OLD_AMBER
+	iftrue .GotOldAmber
+	writetext Museum1FScientist2TakeThisToAPokemonLabText
+	promptbutton
+	verbosegiveitem OLD_AMBER
+	iffalse .NoSpace
+	setevent EVENT_GOT_OLD_AMBER
+	disappear MUSEUM1F_OLD_AMBER
+	closetext
+	end
+
+.GotOldAmber:
+	writetext Museum1FScientist2GetTheOldAmberCheckText
+	waitbutton
+	closetext
+	end
+
+.NoSpace:
+	writetext Museum1FScientist2YouDontHaveSpaceText
+	waitbutton
+	closetext
+	end
 
 Museum1FScientist3Script:
 	jumptextfaceplayer Museum1FScientist3Text
@@ -34,7 +92,56 @@ Museum1FScientist3Script:
 Museum1FOldAmberScript:
 	jumptext Museum1FOldAmberText
 
-Museum1FScientist1Text:
+Museum1FScientist1ComeAgainText:
+	text "Come again!"
+	done
+
+Museum1FScientist1WouldYouLikeToComeInText:
+	text "It's ¥50 for a"
+	line "child's ticket."
+
+	para "Would you like to"
+	line "come in?"
+	done
+
+Museum1FScientist1ThankYouText:
+	text "Right, ¥50!"
+	line "Thank you!"
+	done
+
+Museum1FScientist1DontHaveEnoughMoneyText:
+	text "You don't have"
+	line "enough money."
+	done
+
+Museum1FScientist1DoYouKnowWhatAmberIsText:
+	text "You can't sneak"
+	line "in the back way!"
+
+	para "Oh, whatever!"
+	line "Do you know what"
+	cont "AMBER is?"
+	done
+
+Museum1FScientist1TheresALabSomewhereText:
+	text "There's a lab"
+	line "somewhere trying"
+	cont "to resurrect"
+	cont "ancient #MON"
+	cont "from AMBER."
+	done
+
+Museum1FScientist1AmberIsFossilizedTreeSapText:
+	text "AMBER is fossil-"
+	line "ized tree sap."
+	done
+
+Museum1FScientist1GoToOtherSideText:
+	text "Please go to the"
+	line "other side!"
+	done
+
+Museum1FScientist1TakePlentyOfTimeText:
 	text "Take plenty of"
 	line "time to look!"
 	done
@@ -45,7 +152,7 @@ Museum1FGamblerText:
 	cont "fossil!"
 	done
 
-Museum1FScientist2Text:
+Museum1FScientist2TakeThisToAPokemonLabText:
 	text "Ssh! I think that"
 	line "this chunk of"
 	cont "AMBER contains"
@@ -55,6 +162,32 @@ Museum1FScientist2Text:
 	line "if #MON could"
 	cont "be resurrected"
 	cont "from it!"
+
+	para "But, my colleagues"
+	line "just ignore me!"
+
+	para "So I have a favor"
+	line "to ask!"
+
+	para "Take this to a"
+	line "#MON LAB and"
+	cont "get it examined!"
+	done
+
+; `verbosegiveitem OLD_AMBER` prints this same receipt at runtime.
+Museum1FScientist2ReceivedOldAmberText:
+	text "<PLAYER> received"
+	line "OLD AMBER!@"
+	text_end
+
+Museum1FScientist2GetTheOldAmberCheckText:
+	text "Ssh! Get the OLD"
+	line "AMBER checked!"
+	done
+
+Museum1FScientist2YouDontHaveSpaceText:
+	text "You don't have"
+	line "space for this!"
 	done
 
 Museum1FScientist3Text:
