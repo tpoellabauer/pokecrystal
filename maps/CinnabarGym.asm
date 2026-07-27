@@ -215,7 +215,7 @@ CinnabarGymSuperNerd1AfterBattleText:
 
 CinnabarGymSuperNerd2BattleText:
 	text "I was a thief, but"
-	line "I went straight as"
+	line "I became straight"
 	cont "a trainer!"
 	done
 
@@ -312,8 +312,57 @@ CinnabarGymSuperNerd7EndBattleText:
 
 CinnabarGymSuperNerd7AfterBattleText:
 	text "Water beats fire!"
-	line "But fire melts"
+	line "But, fire melts"
 	cont "ice #MON!"
+	done
+
+; Gen 1 source text retained with the original gym content. Blaine's active badge
+; battle moved to SEAFOAM_GYM after the volcano, but these remain canonical Kanto text.
+CinnabarGymBlainePostBattleAdviceText:
+	text "FIRE BLAST is the"
+	line "ultimate fire"
+	cont "technique!"
+
+	para "Don't waste it on"
+	line "water #MON!"
+	done
+
+CinnabarGymBlaineVolcanoBadgeInfoText:
+	text "Hah!"
+
+	para "The VOLCANOBADGE"
+	line "heightens the"
+	cont "SPECIAL abilities"
+	cont "of your #MON!"
+
+	para "Here, you can"
+	line "have this too!"
+	done
+
+CinnabarGymBlaineReceivedTM38Text:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
+
+CinnabarGymBlaineTM38ExplanationText:
+	text_start
+
+	para "TM38 contains"
+	line "FIRE BLAST!"
+
+	para "Teach it to fire-"
+	line "type #MON!"
+
+	para "CHARMELEON or"
+	line "PONYTA would be"
+	cont "good bets!"
+	done
+
+CinnabarGymBlaineTM38NoRoomText:
+	text "Make room for my"
+	line "gift!"
 	done
 
 CinnabarGym_MapEvents:
