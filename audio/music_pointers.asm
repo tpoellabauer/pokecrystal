@@ -113,4 +113,6 @@ Music:
 	dba Music_ViridianCity
 	dba Music_ViridianCity
 	dba Music_ViridianCity
+; Gen 1 Fuchsia City: Crystal fallback keeps Celadon; RedMusic uses Cities2.
+	dba Music_CeladonCity
 	assert_table_length NUM_MUSIC_SONGS
