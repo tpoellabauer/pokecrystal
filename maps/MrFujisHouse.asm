@@ -27,8 +27,14 @@ MrFujisHouseMrFujiScript:
 	checkevent EVENT_GOT_POKE_FLUTE
 	iftrue .HasFluteHelpedYou
 	writetext MrFujisHouseMrFujiGiveFluteText
-	verbosegiveitem POKE_FLUTE
+	giveitem POKE_FLUTE
 	iffalse .BagFull
+	getitemname STRING_BUFFER_3, POKE_FLUTE
+	writetext MrFujisHouseMrFujiReceivedPokeFluteText
+	waitsfx
+	specialsound
+	waitbutton
+	itemnotify
 	setevent EVENT_GOT_POKE_FLUTE
 	writetext MrFujisHouseMrFujiFluteExplanationText
 	waitbutton
@@ -42,6 +48,8 @@ MrFujisHouseMrFujiScript:
 	end
 
 .BagFull:
+	writetext MrFujisHouseMrFujiPokeFluteNoRoomText
+	waitbutton
 	closetext
 	end
 
@@ -91,7 +99,7 @@ MrFujisHouseLassText:
 	done
 
 MrFujisPsyduckText:
-	text "PSYDUCK: Gu-guwa?"
+	text "PSYDUCK: Gwappa!"
 	done
 
 MrFujisNidorinoText:
@@ -110,6 +118,18 @@ MrFujisHouseMrFujiGiveFluteText:
 
 	para "I think this may"
 	line "help your quest."
+	done
+
+MrFujisHouseMrFujiReceivedPokeFluteText:
+	text "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+MrFujisHouseMrFujiPokeFluteNoRoomText:
+	text "You must make"
+	line "room for this!"
 	done
 
 MrFujisHouseMrFujiFluteExplanationText:
