@@ -112,4 +112,5 @@ RedMusic::
 ; MUSIC_INTRO_BATTLE (issue #169): the ported Nidorino/Gengar boot-cinematic battle cue.
 	dba Music_RedIntroBattle
 	dba Music_RedCinnabar
+	dba Music_RedSSAnne
 	assert_table_length NUM_MUSIC_SONGS
