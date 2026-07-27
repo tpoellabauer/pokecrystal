@@ -1529,6 +1529,7 @@ wRedIntroBaseCoordX:: db
 wRedIntroBaseCoordY:: db
 wRedIntroNidorinoBaseTile:: db
 wRedIntroTitleTile:: db
+wRedIntroTitleMonSpecies:: db
 
 NEXTU
 ; credits data

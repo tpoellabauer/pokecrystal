@@ -416,10 +416,10 @@ RedTitleScreen:
 	ld a, 64
 	ldh [hSCY], a
 
-; POKEMON logo + "GAME FREAK inc." caption share vTiles2 (BG, base tile id 0 -- the same
-; signed-addressing convention Intro_PrepTrainerPic/PrepMonFrontpic already rely on
-; elsewhere in this codebase). The player sprite goes in vTiles0 (OAM tiles are always
-; unsigned-addressed from tile 0, independent of the BG addressing mode).
+; POKEMON logo + "GAME FREAK inc." caption use vTiles2's original tile IDs. The title mon is
+; loaded through PrepMonFrontpic, then copied into vTiles1 before this logo is restored. The
+; player sprite goes in vTiles0 (OAM tiles are always unsigned-addressed from tile 0,
+; independent of the BG addressing mode).
 	ld de, RedPokemonLogoGFX
 	ld hl, vTiles2
 	lb bc, BANK(RedPokemonLogoGFX), RED_POKEMON_LOGO_TILES
@@ -520,18 +520,180 @@ RedTitleScreen:
 	ld de, MUSIC_TITLE
 	call PlayMusic
 
-.wait_for_start
-	call DelayFrame
-	call GetJoypad
-	ldh a, [hJoyDown]
-	and PAD_START | PAD_A
-	jr z, .wait_for_start
+	ld a, BULBASAUR ; Red's STARTER1
+	ld [wRedIntroTitleMonSpecies], a
+	call RedTitle_LoadMon
+
+.title_mon_loop
+	ld c, 120
+	call RedIntro_WaitFrames
+	jr c, .exit
+	call RedTitle_ScrollOutMon
+	jr c, .exit
+	call RedTitle_PickNewMon
+	call RedTitle_ScrollInMon
+	jr nc, .title_mon_loop
+
+.exit
 
 	call ClearSprites
 	call ClearBGPalettes
 	call ClearTilemap
 	call ClearScreen
 	ret
+
+; Draw one Gen 1 title-screen frontpic at the left of Red and the Poke Ball. PrepMonFrontpic
+; loads its tiles into vTiles2 and places the matching 7x7 tilemap at hl.
+RedTitle_LoadMon:
+	ld a, [wRedIntroTitleMonSpecies]
+	ld [wCurSpecies], a
+	ld [wCurPartySpecies], a
+	call GetBaseData
+	hlcoord 1, 10
+	call PrepMonFrontpic
+	ld hl, vTiles1
+	ld de, vTiles2
+	ld bc, 49 tiles
+	call CopyBytes
+	ld de, RedPokemonLogoGFX
+	ld hl, vTiles2
+	lb bc, BANK(RedPokemonLogoGFX), RED_POKEMON_LOGO_TILES
+	call Get2bpp
+	ld de, RedGameFreakIncGFX
+	ld hl, vTiles2 tile RED_POKEMON_LOGO_TILES
+	lb bc, BANK(RedGameFreakIncGFX), RED_GAMEFREAK_INC_TILES
+	call Get2bpp
+	ld a, $80
+	ldh [hGraphicStartTile], a
+	hlcoord 1, 10
+	lb bc, 7, 7
+	predef PlaceGraphic
+	ret
+
+; Pick from Red's 16-mon table, retrying until species differs from current title mon.
+RedTitle_PickNewMon:
+.pick
+	call Random
+	and $f
+	ld e, a
+	ld d, 0
+	ld hl, RedTitleMons
+	add hl, de
+	ld a, [hl]
+	ld b, a
+	ld a, [wRedIntroTitleMonSpecies]
+	cp b
+	jr z, .pick
+	ld a, b
+	ld [wRedIntroTitleMonSpecies], a
+	call RedTitle_LoadMon
+	ret
+
+; Scroll only the mon's tilemap region. The title's logo, GAME FREAK caption, and version
+; text share this BG, so changing hSCX would visibly shift all of them every title-mon cycle.
+; RedIntro_WaitFrames keeps Start/A interruptible on every step.
+RedTitle_ScrollOutMon:
+	ld b, 0
+.loop
+	push bc
+	call RedTitle_BlankMonColumn
+	pop bc
+	ld c, 2
+	push bc
+	call RedIntro_WaitFrames
+	pop bc
+	jr c, .interrupted
+	inc b
+	ld a, b
+	cp 7
+	jr nz, .loop
+	and a
+	ret
+.interrupted
+	scf
+	ret
+
+RedTitle_ScrollInMon:
+	call RedTitle_BlankMon
+	ld b, 0
+.loop
+	push bc
+	call RedTitle_RestoreMonColumn
+	pop bc
+	ld c, 2
+	push bc
+	call RedIntro_WaitFrames
+	pop bc
+	jr c, .interrupted
+	inc b
+	ld a, b
+	cp 7
+	jr nz, .loop
+	and a
+	ret
+.interrupted
+	scf
+	ret
+
+; Input: b = title-mon column (0-6). Blank one 7-tile column with the normal text-space tile.
+RedTitle_BlankMonColumn:
+	hlcoord 1, 10
+	ld a, b
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld de, SCREEN_WIDTH
+	ld b, 7
+	ld a, ' '
+.loop
+	ld [hl], a
+	add hl, de
+	dec b
+	jr nz, .loop
+	ret
+
+RedTitle_BlankMon:
+	ld b, 0
+.loop
+	push bc
+	call RedTitle_BlankMonColumn
+	pop bc
+	inc b
+	ld a, b
+	cp 7
+	jr nz, .loop
+	ret
+
+; Input: b = title-mon column (0-6). PlaceGraphic's column-major $80-$b0 sequence is
+; restored directly, without redrawing any title tiles outside the mon's 7x7 rectangle.
+RedTitle_RestoreMonColumn:
+	hlcoord 1, 10
+	ld a, b
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, c
+	add a
+	add a
+	add c
+	add c
+	add c
+	add $80
+	ld de, SCREEN_WIDTH
+	ld b, 7
+.loop
+	ld [hl], a
+	inc a
+	add hl, de
+	dec b
+	jr nz, .loop
+	ret
+
+RedTitleMons:
+	db BULBASAUR, CHARMANDER, SQUIRTLE, WEEDLE
+	db NIDORAN_M, SCYTHER, PIKACHU, CLEFAIRY
+	db RHYDON, ABRA, GASTLY, DITTO
+	db PIDGEOTTO, ONIX, PONYTA, MAGIKARP
 
 RedVersionText:
 	db "RED VERSION@"
