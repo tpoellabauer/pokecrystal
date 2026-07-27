@@ -34,7 +34,6 @@ ViridianGymGiovanniScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
 	opentext
-	writetext Text_ReceivedEarthBadge
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_EARTHBADGE
@@ -43,7 +42,13 @@ ViridianGymGiovanniScript:
 	verbosegiveitem TM_EARTHQUAKE
 	iffalse .NoRoomForEarthquake
 	setevent EVENT_GOT_TM_EARTHQUAKE_FROM_VIRIDIAN_GYM
+	writetext GiovanniReceivedTM27Text
+	promptbutton
+	writetext GiovanniTM27ExplanationText
+	jump .Flee
 .NoRoomForEarthquake:
+	writetext GiovanniTM27NoRoomText
+.Flee:
 	writetext GiovanniFleeText
 	waitbutton
 	closetext
@@ -61,6 +66,9 @@ ViridianGymGiovanniScript:
 	verbosegiveitem TM_EARTHQUAKE
 	iffalse .AlreadyGotEarthquake
 	setevent EVENT_GOT_TM_EARTHQUAKE_FROM_VIRIDIAN_GYM
+	writetext GiovanniReceivedTM27Text
+	promptbutton
+	writetext GiovanniTM27ExplanationText
 .AlreadyGotEarthquake:
 	writetext GiovanniEpilogueText
 	waitbutton
@@ -174,7 +182,7 @@ GiovanniPreBattleText:
 	line "resurrect TEAM"
 	cont "ROCKET here!"
 
-	para "But you have"
+	para "But, you have"
 	line "caught me again!"
 	cont "So be it! This"
 	cont "time, I'm not"
@@ -187,16 +195,13 @@ GiovanniPreBattleText:
 	done
 
 GiovanniWinLossText:
-	text "GIOVANNI: Ha!"
+	text "Ha!"
 
 	para "That was a truly"
 	line "intense fight!"
 	cont "You have won!"
-	done
-
-Text_ReceivedEarthBadge:
-	text "<PLAYER> received"
-	line "EARTHBADGE."
+	cont "As proof, here is"
+	cont "the EARTHBADGE!"
 	done
 
 GiovanniEarthBadgeInfoText:
@@ -204,9 +209,38 @@ GiovanniEarthBadgeInfoText:
 	line "makes #MON of"
 	cont "any level obey!"
 
-	para "It is proof of"
+	para "It is evidence of"
 	line "your mastery as a"
 	cont "#MON trainer!"
+
+	para "With it, you can"
+	line "enter the #MON"
+	cont "LEAGUE!"
+
+	para "It is my gift for"
+	line "your #MON"
+	cont "LEAGUE challenge!"
+	done
+
+GiovanniReceivedTM27Text:
+	text "<PLAYER> received"
+	line "TM27!"
+	done
+
+GiovanniTM27ExplanationText:
+	para "TM27 is FISSURE!"
+	line "It will take out"
+	cont "#MON with just"
+	cont "one hit!"
+
+	para "I made it when I"
+	line "ran the GYM here,"
+	cont "too long ago..."
+	done
+
+GiovanniTM27NoRoomText:
+	text "You do not have"
+	line "space for this!"
 	done
 
 GiovanniFleeText:
@@ -358,7 +392,7 @@ ViridianGymCooltrainerM3BeatenText:
 	prompt
 
 ViridianGymCooltrainerM3AfterBattleText:
-	text "You can go on to"
+	text "You can go onto"
 	line "#MON LEAGUE"
 	cont "only by defeating"
 	cont "our GYM LEADER!"
@@ -376,9 +410,10 @@ ViridianGymGuideText:
 	line "toughest of all"
 	cont "the GYM LEADERs!"
 
-	para "I heard the"
-	line "trainers here like"
-	cont "ground-type #MON!"
+	para "I heard that the"
+	line "trainers here"
+	cont "like ground-type"
+	cont "#MON!"
 	done
 
 ViridianGymGuideWinText:
