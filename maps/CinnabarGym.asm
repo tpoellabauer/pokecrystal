@@ -278,9 +278,9 @@ CinnabarGymSuperNerd5AfterBattleText:
 	cont "when a fiery bird"
 	cont "#MON appeared."
 
-	para "Its light showed"
-	line "BLAINE the way"
-	cont "back down!"
+	para "Its light enabled"
+	line "BLAINE to find his"
+	cont "way down!"
 	done
 
 CinnabarGymSuperNerd6BattleText:
