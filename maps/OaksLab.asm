@@ -378,14 +378,14 @@ OaksLabPC:
 
 ; --- text -------------------------------------------------------------------
 OaksLabRivalFedUpText:
-	text "<RIVAL>: Gramps! I'm"
-	line "fed up with"
+	text "<RIVAL>: Gramps!"
+	line "I'm fed up with"
 	cont "waiting!"
 	done
 
 OaksLabOakChooseMonText:
 	text "OAK: <PLAY_G>?"
-	line "Let me think…"
+	line "Let me think..."
 
 	para "Oh, that's right, I"
 	line "told you to come!"
@@ -396,7 +396,10 @@ OaksLabOakChooseMonText:
 	line "There are 3 #-"
 	cont "MON here."
 
-	para "Ha, ha, ha!"
+	para "Haha!"
+
+	para "They are inside"
+	line "the # BALLs."
 
 	para "When I was young, I"
 	line "was a serious #-"
@@ -406,45 +409,37 @@ OaksLabOakChooseMonText:
 	line "have only 3 left,"
 
 	para "but you can have"
-	line "one! Choose!"
+	cont "one! Choose!"
 	done
 
 OaksLabRivalWhatAboutMeText:
-	text "<RIVAL>: Hey! Gramps!"
-	line "What about me?"
+	text "<RIVAL>: Hey!"
+	line "Gramps! What"
+	cont "about me?"
 	done
 
 OaksLabOakBePatientText:
-	text "OAK: Be patient,"
-	line "<RIVAL>. You can have"
-	cont "one, too!"
+	text "OAK: Be patient!"
+	line "<RIVAL>, you can"
+	cont "have one too!"
 	done
 
 OaksLabOakHelloText:
-	text "OAK: The #MON on"
-	line "the table are for"
-
-	para "you and <RIVAL>."
-	line "Go on, choose!"
+	text "#MON around the"
+	line "world wait for"
+	cont "you, <PLAY_G>!"
 	done
 
 OaksLabOakWhichMonText:
-	text "OAK: Which #MON"
-	line "will you choose?"
+	text "OAK: Now, <PLAY_G>,"
+	line "which #MON do"
+	cont "you want?"
 	done
 
 OaksLabOakDeliverParcelHintText:
-	text "OAK: Now that you"
-	line "have a #MON,"
-
-	para "run an errand for"
-	line "me, would you?"
-
-	para "There's a #MART"
-	line "in VIRIDIAN CITY."
-
-	para "Pick up my order"
-	line "there for me."
+	text "OAK: Oh right! I"
+	line "have a request"
+	cont "of you two."
 	done
 
 OaksLabOakHowIsYourPokedexComingText:
@@ -509,6 +504,9 @@ OaksLabOakPokedexSpeechText:
 	line "records data on"
 	cont "#MON you've"
 	cont "seen or caught!"
+
+	para "It's a hi-tech"
+	line "encyclopedia!"
 	done
 
 OaksLabOakGotPokedexText:
@@ -524,12 +522,24 @@ OaksLabRivalLeaveItAllToMeText:
 	text "<RIVAL>: Alright"
 	line "Gramps! Leave it"
 	cont "all to me!"
+
+	para "<PLAY_G>, I hate to"
+	line "say it, but I"
+	cont "don't need you!"
+
+	para "I know! I'll"
+	line "borrow a TOWN MAP"
+	cont "from my sis!"
+
+	para "I'll tell her not"
+	line "to lend you one,"
+	cont "<PLAY_G>! Hahaha!"
 	done
 
 OaksLabThosePokeBallsText:
 	text "Those are #"
-	line "BALLS. They contain"
-	cont "#MON."
+	line "BALLs. They"
+	cont "contain #MON!"
 	done
 
 OaksLabYouWantCharmanderText:
@@ -590,7 +600,7 @@ OaksLabRivalReceivedMonText:
 	text_end
 
 OaksLabRivalIllTakeYouOnText:
-	text "<RIVAL>: Wait,"
+	text "<RIVAL>: Wait"
 	line "<PLAY_G>!"
 	cont "Let's check out"
 	cont "our #MON!"
@@ -623,8 +633,12 @@ OaksLabRivalSmellYouLaterText:
 	done
 
 OaksLabRivalGoAheadChooseText:
-	text "<RIVAL>: Hurry up and"
-	line "choose one!"
+	text "<RIVAL>: Heh, I"
+	line "don't need to be"
+	cont "greedy like you!"
+
+	para "Go ahead and"
+	line "choose, <PLAY_G>!"
 	done
 
 OaksLabRivalGrampsText:
@@ -639,7 +653,7 @@ OaksLabOakDontGoAwayYetText:
 OaksLabRivalMineLooksStrongerText:
 	text "<RIVAL>: My #MON"
 	line "looks a lot"
-	cont "stronger. Heh!"
+	cont "stronger."
 	done
 
 OaksLabGirlText:
@@ -676,7 +690,73 @@ OaksLabTrashcanText:
 	done
 
 OaksLabPCText:
-	text "It's the lab's PC."
+	text "It's encyclopedia-"
+	line "like, but the"
+	cont "pages are blank!"
+	done
+
+; Red dialogue retained for Oak's Lab story beats not currently script-reachable.
+OaksLabMonEnergeticText:
+	text "This #MON is"
+	line "really energetic!"
+	prompt
+
+OaksLabOak1RaiseYourYoungPokemonText:
+	text "OAK: <PLAY_G>,"
+	line "raise your young"
+	cont "#MON by making"
+	cont "it fight!"
+	done
+
+OaksLabOak2Text:
+	text "?"
+	done
+
+OaksLabGivePokeballsExplanationText:
+	para "When a wild"
+	line "#MON appears,"
+	cont "it's fair game."
+
+	para "Just throw a #"
+	line "BALL at it and try"
+	line "to catch it!"
+
+	para "This won't always"
+	line "work, though."
+
+	para "A healthy #MON"
+	line "could escape. You"
+	cont "have to be lucky!"
+	done
+
+OaksLabOak1ParcelThanksText:
+	para "Ah! This is the"
+	line "custom # BALL"
+	cont "I ordered!"
+	cont "Thank you!"
+	done
+
+OaksLabOakThatWasMyDreamText:
+	text "To make a complete"
+	line "guide on all the"
+	cont "#MON in the"
+	cont "world..."
+
+	para "That was my dream!"
+
+	para "But, I'm too old!"
+	line "I can't do it!"
+
+	para "So, I want you two"
+	line "to fulfill my"
+	cont "dream for me!"
+
+	para "Get moving, you"
+	line "two!"
+
+	para "This is a great"
+	line "undertaking in"
+	cont "#MON history!"
 	done
 
 OaksLab_MapEvents:
