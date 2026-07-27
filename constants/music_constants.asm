@@ -110,6 +110,7 @@
 ; Music_TitleScreen; RedMusic (audio/music_red_pointers.asm) points at the real ported
 ; Music_RedIntroBattle (audio/music/red_introbattle.asm, already compiled in but unused).
 	const MUSIC_INTRO_BATTLE                 ; 67
+	const MUSIC_CINNABAR                     ; 68
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)
