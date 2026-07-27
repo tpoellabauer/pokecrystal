@@ -2132,6 +2132,10 @@
 	const EVENT_BEAT_MT_MOON_FOSSIL_SUPER_NERD
 	const EVENT_GOT_MT_MOON_FOSSIL
 
+; Gen1 Pewter Museum ticket and Old Amber gift (issue #258).
+	const EVENT_BOUGHT_MUSEUM_TICKET
+	const EVENT_GOT_OLD_AMBER
+
 ; Unused: remaining slots before the next checkpoint (flag_array sizes wEventFlags
 ; to NUM_EVENTS automatically, so this is bookkeeping, not a hard cap)
 	const EVENT_GOT_TM11_BUBBLEBEAM
