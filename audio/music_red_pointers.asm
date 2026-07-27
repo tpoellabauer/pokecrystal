@@ -76,7 +76,7 @@ RedMusic::
 	dba Music_BurnedTower
 	dba Music_Lighthouse
 	dba Music_LakeOfRage
-	dba Music_IndigoPlateau
+	dba Music_RedIndigoPlateau
 	dba Music_Route37
 	dba Music_RocketHideout
 	dba Music_DragonsDen
