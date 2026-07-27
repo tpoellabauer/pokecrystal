@@ -573,17 +573,17 @@ INCLUDE "maps/FuchsiaGoodRodHouse.asm"
 INCLUDE "maps/Route5DayCare.asm"
 INCLUDE "maps/Route7Gate.asm"
 INCLUDE "maps/Route11Gate.asm"
-INCLUDE "maps/Route12Gate.asm"
-INCLUDE "maps/Route15Gate.asm"
-INCLUDE "maps/Route7UndergroundPathEntrance.asm"
-INCLUDE "maps/Route8UndergroundPathEntrance.asm"
-INCLUDE "maps/UndergroundPathRoute78.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 28", ROMX
 
+INCLUDE "maps/Route12Gate.asm"
+INCLUDE "maps/Route15Gate.asm"
+INCLUDE "maps/Route7UndergroundPathEntrance.asm"
+INCLUDE "maps/Route8UndergroundPathEntrance.asm"
+INCLUDE "maps/UndergroundPathRoute78.asm"
 INCLUDE "maps/Museum2F.asm"
 
 ENDSECTION
