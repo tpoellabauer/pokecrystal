@@ -143,7 +143,7 @@ ErikaBeforeBattleText:
 	done
 
 ErikaBeatenText:
-	text "ERIKA: Oh!"
+	text "Oh!"
 	line "I concede defeat."
 
 	para "You are remarkably"
