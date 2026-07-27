@@ -79,6 +79,24 @@ CeruleanGymMistyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
+	checkevent EVENT_GOT_TM11_BUBBLEBEAM
+	iftrue .GotTM11
+	writetext MistyCascadeBadgeInfoText
+	promptbutton
+	verbosegiveitem TM_SUNNY_DAY ; Gen2 TM11; Red's TM11 was BUBBLEBEAM
+	iffalse .TM11NoRoom
+	setevent EVENT_GOT_TM11_BUBBLEBEAM
+.GotTM11:
+	writetext MistyTM11ExplanationText
+	waitbutton
+	closetext
+	end
+
+.TM11NoRoom:
+	writetext MistyTM11NoRoomText
+	waitbutton
+	closetext
+	end
 .FightDone:
 	writetext MistyFightDoneText
 	waitbutton
@@ -230,8 +248,8 @@ CeruleanGymNote2Text:
 	done
 
 MistyIntroText:
-	text "MISTY: Hi, you're"
-	line "a new face!"
+	text "Hi, you're a new"
+	line "face!"
 
 	para "Trainers who want"
 	line "to turn pro have"
@@ -249,19 +267,63 @@ MistyIntroText:
 	done
 
 MistyWinLossText:
-	text "MISTY: You really"
-	line "are good…"
+	text "Wow!"
+	line "You're too much!"
 
-	para "I'll admit that"
-	line "you are skilled…"
+	para "All right!"
 
-	para "Here you go. It's"
-	line "CASCADEBADGE."
+	para "You can have the"
+	line "CASCADEBADGE to"
+	cont "show you beat me!"
 	done
 
 ReceivedCascadeBadgeText:
+	text "Wow!"
+	line "You're too much!"
+
+	para "All right!"
+
+	para "You can have the"
+	line "CASCADEBADGE to"
+	cont "show you beat me!"
+	done
+
+MistyCascadeBadgeInfoText:
+	text "The CASCADEBADGE"
+	line "makes all #MON"
+	cont "up to L30 obey!"
+
+	para "That includes"
+	line "even outsiders!"
+
+	para "There's more, you"
+	line "can now use CUT"
+	cont "any time!"
+
+	para "You can CUT down"
+	line "small bushes to"
+	cont "open new paths!"
+
+	para "You can also have"
+	line "my favorite TM!"
+	done
+
+MistyTM11ExplanationText:
+	text "TM11 teaches"
+	line "BUBBLEBEAM!"
+
+	para "Use it on an"
+	line "aquatic #MON!"
+	done
+
+MistyTM11NoRoomText:
+	text "You better make"
+	line "room for this!"
+	done
+
+MistyReceivedTM11Text:
 	text "<PLAYER> received"
-	line "CASCADEBADGE."
+	line "TM11!"
 	done
 
 MistyFightDoneText:
@@ -318,23 +380,30 @@ SwimmermParkerAfterBattleText:
 	done
 
 CeruleanGymGuideText:
-	text "Yo! CHAMP in"
+	text "Yo! Champ in"
 	line "making!"
 
-	para "Since MISTY was"
-	line "away, I went out"
+	para "Here's my advice!"
 
-	para "for some fun too."
-	line "He-he-he."
+	para "The LEADER, MISTY,"
+	line "is a pro who uses"
+	cont "water #MON!"
+
+	para "You can drain all"
+	line "their water with"
+	cont "plant #MON!"
+
+	para "Or, zap them with"
+	line "electricity!"
 	done
 
 CeruleanGymGuideWinText:
-	text "Hoo, you showed me"
-	line "how tough you are."
+	text "You beat MISTY!"
+	line "What'd I tell ya?"
 
-	para "As always, that"
-	line "was one heck of a"
-	cont "great battle!"
+	para "You and me kid,"
+	line "we make a pretty"
+	cont "darn good team!"
 	done
 
 CeruleanGym_MapEvents:
