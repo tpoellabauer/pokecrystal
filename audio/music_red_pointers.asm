@@ -113,4 +113,5 @@ RedMusic::
 	dba Music_RedIntroBattle
 	dba Music_RedCinnabar
 	dba Music_RedSSAnne
+	dba Music_RedSafariZone
 	assert_table_length NUM_MUSIC_SONGS

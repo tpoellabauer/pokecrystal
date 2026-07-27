@@ -112,4 +112,5 @@ Music:
 	dba Music_TitleScreen
 	dba Music_ViridianCity
 	dba Music_ViridianCity
+	dba Music_ViridianCity
 	assert_table_length NUM_MUSIC_SONGS
