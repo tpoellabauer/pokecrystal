@@ -22,10 +22,7 @@ PokemonFanClubChairmanScript:
 	yesorno
 	iffalse .NotListening
 	writetext PokemonFanClubChairmanRapidashText
-	promptbutton
 .HeardSpeechButBagFull:
-	writetext PokemonFanClubChairmanIWantYouToHaveThisText
-	promptbutton
 	verbosegiveitem BIKE_VOUCHER
 	iffalse .BagFull
 	setevent EVENT_LISTENED_TO_FAN_CLUB_PRESIDENT
@@ -45,6 +42,8 @@ PokemonFanClubChairmanScript:
 	writetext PokemonFanClubChairmanHowDisappointingText
 	waitbutton
 .BagFull:
+	writetext PokemonFanClubChairmanBagFullText
+	waitbutton
 	closetext
 	end
 
@@ -110,20 +109,21 @@ PokemonFanClubBraggingSign:
 	jumptext PokemonFanClubBraggingSignText
 
 PokemonFanClubChairmanDidYouVisitToHearAboutMyMonText:
-	text "I'm the CHAIRMAN"
-	line "of the #MON FAN"
-	cont "CLUB."
+	text "I chair the"
+	line "#MON FAN CLUB!"
 
-	para "I've raised over"
-	line "150 #MON."
+	para "I have collected"
+	line "over 100 #MON!"
 
 	para "I'm very fussy"
 	line "when it comes to"
-	cont "#MON."
+	cont "#MON!"
 
-	para "Did you visit just"
-	line "to hear about my"
-	cont "#MON?"
+	para "So..."
+
+	para "Did you come"
+	line "visit to hear"
+	cont "about my #MON?"
 	done
 
 PokemonFanClubChairmanRapidashText:
@@ -150,13 +150,19 @@ PokemonFanClubChairmanRapidashText:
 	cont "...Oops! Look at"
 	cont "the time! I kept"
 	cont "you too long!"
-	done
 
-PokemonFanClubChairmanIWantYouToHaveThisText:
-	text "Thanks for hearing"
-	line "me out. I want you"
-	cont "to have this!"
-	done
+	para "Thanks for hearing"
+	line "me out! I want"
+	cont "you to have this!"
+	prompt
+
+PokemonFanClubReceivedBikeVoucherText:
+	; `verbosegiveitem BIKE_VOUCHER` prints this receipt at runtime.
+	text "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer4
+	text "!@"
+	text_end
 
 PokemonFanClubChairmanItsABikeVoucherText:
 	text "Exchange that for"
@@ -177,17 +183,21 @@ PokemonFanClubChairmanMoreTalesToTellText:
 	text "Hello, <PLAY_G>!"
 
 	para "Did you come see"
-	line "me about my #-"
-	cont "MON again?"
+	line "me about my"
+	cont "#MON again?"
 
-	para "No? Oh… I had more"
-	line "tales to tell…"
+	para "No? Too bad!"
 	done
 
 PokemonFanClubChairmanHowDisappointingText:
 	text "Oh. Come back"
 	line "when you want to"
 	cont "hear my story!"
+	done
+
+PokemonFanClubChairmanBagFullText:
+	text "Make room for"
+	line "this!"
 	done
 
 PokemonFanClubReceptionistText:
@@ -235,7 +245,7 @@ PokemonFanClubSeelText:
 PokemonFanClubListenSignText:
 	text "Let's all listen"
 	line "politely to other"
-	cont "trainers."
+	cont "trainers!"
 	done
 
 PokemonFanClubBraggingSignText:
