@@ -495,14 +495,14 @@ INCLUDE "maps/SilphCo7F.asm"
 INCLUDE "maps/SilphCo8F.asm"
 INCLUDE "maps/SilphCo9F.asm"
 INCLUDE "maps/SilphCo10F.asm"
-INCLUDE "maps/SilphCo11F.asm"
-INCLUDE "maps/SilphCoElevator.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 26", ROMX
 
+INCLUDE "maps/SilphCo11F.asm"
+INCLUDE "maps/SilphCoElevator.asm"
 INCLUDE "maps/SSAnne1F.asm"
 INCLUDE "maps/SSAnne2F.asm"
 INCLUDE "maps/SSAnne3F.asm"
@@ -529,6 +529,12 @@ INCLUDE "maps/SafariZoneSecretHouse.asm"
 INCLUDE "maps/PokemonMansion1F.asm"
 INCLUDE "maps/PokemonMansion2F.asm"
 INCLUDE "maps/PokemonMansion3F.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27", ROMX
+
 INCLUDE "maps/PokemonMansionB1F.asm"
 INCLUDE "maps/SeafoamIslands1F.asm"
 INCLUDE "maps/SeafoamIslandsB1F.asm"
@@ -538,12 +544,6 @@ INCLUDE "maps/SeafoamIslandsB4F.asm"
 INCLUDE "maps/CeruleanCave1F.asm"
 INCLUDE "maps/CeruleanCave2F.asm"
 INCLUDE "maps/CeruleanCaveB1F.asm"
-
-ENDSECTION
-
-
-SECTION "Map Scripts 27", ROMX
-
 INCLUDE "maps/CinnabarGym.asm"
 INCLUDE "maps/CinnabarLab.asm"
 INCLUDE "maps/CinnabarMart.asm"
@@ -567,16 +567,16 @@ INCLUDE "maps/RocketHideoutB1F.asm"
 INCLUDE "maps/RocketHideoutB4F.asm"
 INCLUDE "maps/CinnabarLabTradeRoom.asm"
 INCLUDE "maps/CinnabarLabMetronomeRoom.asm"
-INCLUDE "maps/CinnabarLabFossilRoom.asm"
-INCLUDE "maps/ViridianSchoolHouse.asm"
-INCLUDE "maps/FuchsiaGoodRodHouse.asm"
-INCLUDE "maps/Route5DayCare.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 28", ROMX
 
+INCLUDE "maps/CinnabarLabFossilRoom.asm"
+INCLUDE "maps/ViridianSchoolHouse.asm"
+INCLUDE "maps/FuchsiaGoodRodHouse.asm"
+INCLUDE "maps/Route5DayCare.asm"
 INCLUDE "maps/Route7Gate.asm"
 INCLUDE "maps/Route11Gate.asm"
 INCLUDE "maps/Route12Gate.asm"
