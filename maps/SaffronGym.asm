@@ -44,9 +44,17 @@ SaffronGymSabrinaScript:
 	writetext SabrinaMarshBadgeText
 	promptbutton
 	verbosegiveitem TM_PSYCHIC_M
-	iffalse .AfterTM
+	iffalse .NoRoom
 	setevent EVENT_GOT_TM_PSYCHIC_SAFFRON_GYM
+	writetext SabrinaTMExplanationText
+	waitbutton
 .AfterTM:
+	closetext
+	end
+
+.NoRoom:
+	writetext SabrinaTMNoRoomText
+	waitbutton
 	closetext
 	end
 
@@ -158,13 +166,12 @@ SaffronGymStatue:
 	jumpstd GymStatue2Script
 
 SabrinaIntroText:
-	text "SABRINA: I had a"
-	line "vision of your"
-	cont "arrival!"
+	text "I had a vision of"
+	line "your arrival!"
 
-	para "I have had psy-"
-	line "chic powers since"
-	cont "I was a child."
+	para "I have had psychic"
+	line "powers since I"
+	cont "was a child."
 
 	para "I first learned"
 	line "to bend spoons"
@@ -177,9 +184,9 @@ SabrinaIntroText:
 	done
 
 SabrinaWinLossText:
-	text "SABRINA: I'm"
+	text "I'm"
 	line "shocked!"
-	cont "But a loss is a"
+	cont "But, a loss is a"
 	cont "loss."
 
 	para "I admit I didn't"
@@ -196,32 +203,45 @@ ReceivedMarshBadgeText:
 	done
 
 SabrinaMarshBadgeText:
-	text "SABRINA: The"
-	line "MARSHBADGE makes"
-	cont "#MON up to L70"
-	cont "obey you!"
+	text "The MARSHBADGE"
+	line "makes #MON up"
+	cont "to L70 obey you!"
 
 	para "Stronger #MON"
 	line "will become wild,"
 	cont "ignoring your"
 	cont "orders in battle!"
 
+	para "Just don't raise"
+	line "your #MON too"
+	cont "much!"
+
 	para "Wait, please take"
-	line "this too!"
+	line "this TM with you!"
 	done
 
 SabrinaFightDoneText:
-	text "SABRINA: Your love"
-	line "for your #MON"
+	text "Everyone has"
+	line "psychic power!"
+	cont "People just don't"
+	cont "realize it!"
+	done
 
-	para "overwhelmed my"
-	line "psychic power…"
+SabrinaReceivedTMText:
+	text "<PLAYER> received"
+	line "TM46!"
+	done
 
-	para "The power of love,"
-	line "I think, is also a"
+SabrinaTMExplanationText:
+	para "TM46 is PSYWAVE!"
+	line "It uses powerful"
+	cont "psychic waves to"
+	cont "inflict damage!"
+	done
 
-	para "kind of psychic"
-	line "power…"
+SabrinaTMNoRoomText:
+	text "Your pack is full"
+	line "of other items!"
 	done
 
 ChannelerIreneSeenText:
