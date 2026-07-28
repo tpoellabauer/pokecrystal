@@ -115,6 +115,9 @@
 	const MUSIC_SAFARI_ZONE                  ; 6a
 ; Gen 1 Fuchsia uses Cities2, distinct from Crystal's Celadon City track.
 	const MUSIC_FUCHSIA_CITY                 ; 6b
+; Gen 1 Kanto on Crystal: MUSIC_DUNGEON2 (issue #219) and MUSIC_CITIES2 (issue #217).
+	const MUSIC_DUNGEON2                     ; 6c
+	const MUSIC_CITIES2                      ; 6d
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)

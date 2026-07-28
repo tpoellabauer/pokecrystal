@@ -115,4 +115,7 @@ RedMusic::
 	dba Music_RedSSAnne
 	dba Music_RedSafariZone
 	dba Music_RedCities2
+; Gen 1 Kanto on Crystal: MUSIC_DUNGEON2 (issue #219) and MUSIC_CITIES2 (issue #217).
+	dba Music_RedDungeon2
+	dba Music_RedCities2
 	assert_table_length NUM_MUSIC_SONGS

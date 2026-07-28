@@ -115,4 +115,7 @@ Music:
 	dba Music_ViridianCity
 ; Gen 1 Fuchsia City: Crystal fallback keeps Celadon; RedMusic uses Cities2.
 	dba Music_CeladonCity
+; Gen 1 Kanto on Crystal: MUSIC_DUNGEON2 (issue #219) and MUSIC_CITIES2 (issue #217).
+	dba Music_ViridianCity
+	dba Music_ViridianCity
 	assert_table_length NUM_MUSIC_SONGS

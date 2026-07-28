@@ -3,6 +3,8 @@
 	const CELADONGYM_LASS1
 	const CELADONGYM_LASS2
 	const CELADONGYM_BEAUTY
+	const CELADONGYM_COOLTRAINER_F1
+	const CELADONGYM_COOLTRAINER_F2
 	const CELADONGYM_TWIN1
 	const CELADONGYM_TWIN2
 
@@ -27,6 +29,8 @@ CeladonGymErikaScript:
 	setevent EVENT_BEAT_LASS_MICHELLE
 	setevent EVENT_BEAT_PICNICKER_TANYA
 	setevent EVENT_BEAT_BEAUTY_JULIA
+	setevent EVENT_BEAT_COOLTRAINERF_BETH2
+	setevent EVENT_BEAT_COOLTRAINERF_REENA2
 	setevent EVENT_BEAT_TWINS_JO_AND_ZOE
 	opentext
 	writetext PlayerReceivedRainbowBadgeText
@@ -103,6 +107,28 @@ TrainerTwinsJoAndZoe2:
 	endifjustbattled
 	opentext
 	writetext TwinsJoAndZoe2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerfBeth2CeladonGym:
+	trainer COOLTRAINERF, BETH2, EVENT_BEAT_COOLTRAINERF_BETH2, CooltrainerfBeth2SeenText, CooltrainerfBeth2BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainerfBeth2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerfReena2CeladonGym:
+	trainer COOLTRAINERF, REENA2, EVENT_BEAT_COOLTRAINERF_REENA2, CooltrainerfReena2SeenText, CooltrainerfReena2BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainerfReena2AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -265,6 +291,22 @@ TwinsJoAndZoe1AfterBattleText:
 	cont "wipes you out!"
 	done
 
+CooltrainerfBeth2SeenText:
+	text "Aren't you the"
+	line "peeping Tom?"
+	done
+
+CooltrainerfBeth2BeatenText:
+	text "I'm"
+	line "in shock!"
+	prompt
+
+CooltrainerfBeth2AfterBattleText:
+	text "Oh, you weren't"
+	line "peeping? We get a"
+	cont "lot of gawkers!"
+	done
+
 CeladonGymBattleText8:
 	text "Welcome to"
 	line "CELADON GYM!"
@@ -272,6 +314,28 @@ CeladonGymBattleText8:
 	para "You better not"
 	line "underestimate"
 	cont "girl power!"
+	done
+
+CooltrainerfReena2SeenText:
+	text "Welcome to"
+	line "CELADON GYM!"
+
+	para "You better not"
+	line "underestimate"
+	cont "girl power!"
+	done
+
+CooltrainerfReena2BeatenText:
+	text "Oh!"
+	line "Beaten!"
+	prompt
+
+CooltrainerfReena2AfterBattleText:
+	text "I didn't bring my"
+	line "best #MON!"
+
+	para "Wait 'til next"
+	line "time!"
 	done
 
 TwinsJoAndZoe2BeatenText:
@@ -299,5 +363,7 @@ CeladonGym_MapEvents:
 	object_event  2, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerLassMichelle, -1
 	object_event  6,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTanya, -1
 	object_event  7, 10, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBeautyJulia, -1
+	object_event  5,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfBeth2CeladonGym, -1
+	object_event  9,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfReena2CeladonGym, -1
 	object_event  1,  5, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe1, -1
 	object_event  3,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe2, -1
