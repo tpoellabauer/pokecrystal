@@ -102,6 +102,45 @@ PewterCityCooltrainerMText:
 	cont "into it!"
 	done
 
+PewterCitySuperNerd1DidYouCheckOutMuseumText:
+	text "DID YOU CHECK OUT"
+	line "MUSEUM?"
+	done
+
+PewterCitySuperNerd1WerentThoseFossilsAmazingText:
+	text "WEREN'T THOSE"
+	line "FOSSILS FROM MT."
+	cont "MOON AMAZING?"
+	done
+
+PewterCitySuperNerd1YouHaveToGoText:
+	text "REALLY?"
+	line "YOU ABSOLUTELY"
+	cont "HAVE TO GO!"
+	done
+
+PewterCitySuperNerd1ItsRightHereText:
+	text "IT'S RIGHT HERE!"
+	line "YOU HAVE TO PAY"
+	cont "TO GET IN, BUT"
+	cont "IT'S WORTH IT!"
+	cont "SEE YOU AROUND!"
+	done
+
+PewterCityYoungsterYoureATrainerFollowMeText:
+	text "YOU'RE A TRAINER"
+	line "RIGHT? BROCK'S"
+	cont "LOOKING FOR NEW"
+	cont "CHALLENGERS!"
+	cont "FOLLOW ME!"
+	done
+
+PewterCityYoungsterGoTakeOnBrockText:
+	text "IF YOU HAVE THE"
+	line "RIGHT STUFF, GO"
+	cont "TAKE ON BROCK!"
+	done
+
 PewterCityGrampsText:
 	text "Ah, you came all"
 	line "the way out here"
@@ -217,4 +256,4 @@ PewterCity_MapEvents:
 	object_event 17, 25, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerMScript, -1
 	object_event 27, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 26, 25, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCitySuperNerd2Script, -1
-	object_event 35, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
+	object_event 35, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
