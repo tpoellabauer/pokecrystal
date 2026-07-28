@@ -11,31 +11,55 @@ MrPsychic:
 	opentext
 	checkevent EVENT_GOT_TM29_PSYCHIC
 	iftrue .GotItem
-	writetext MrPsychicText
+	writetext MrPsychicYouWantedThisText
 	waitbutton
-	verbosegiveitem TM_PSYCHIC_M
+	giveitem TM_PSYCHIC_M
+	iffalse .BagFull
+	getitemname STRING_BUFFER_3, TM_PSYCHIC_M
+	writetext MrPsychicReceivedTM29Text
+	playsound SFX_ITEM
+	waitsfx
+	waitbutton
+	itemnotify
 	setevent EVENT_GOT_TM29_PSYCHIC
 	closetext
 	end
+.BagFull:
+	writetext MrPsychicTM29NoRoomText
+	waitbutton
+	closetext
+	end
 .GotItem:
-	writetext MrPsychicAfterText
+	writetext MrPsychicTM29ExplanationText
 	waitbutton
 	closetext
 	end
 
-MrPsychicText:
+MrPsychicYouWantedThisText:
+	text "...Wait! Don't"
+	line "say a word!"
+
+	para "You wanted this!"
+	done
+
+MrPsychicReceivedTM29Text:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+MrPsychicTM29NoRoomText:
+	text "Where do you plan"
+	line "to put this?"
+	done
+
+MrPsychicTM29ExplanationText:
 	text "TM29 is PSYCHIC!"
 
 	para "It can lower the"
 	line "target's SPECIAL"
 	cont "abilities."
-
-	para "Take it!"
-	done
-
-MrPsychicAfterText:
-	text "TM29 PSYCHIC."
-	line "I hope it helps!"
 	done
 
 MrPsychicsHouse_MapEvents:
