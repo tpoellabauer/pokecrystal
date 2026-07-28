@@ -178,7 +178,7 @@ SilphCo7FRivalScript:
 	opentext
 	checkevent EVENT_BEAT_SILPH_CO_RIVAL
 	iftrue .AlreadyBattled
-	writetext SilphCo7FRivalText
+	writetext SilphCo7FRivalWaitedHereText
 	waitbutton
 	closetext
 	checkevent EVENT_CHOSE_CHARMANDER
@@ -196,6 +196,7 @@ SilphCo7FRivalScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmap
+	ifequal LOSE, .Lost
 	setevent EVENT_BEAT_SILPH_CO_RIVAL
 	opentext
 	writetext SilphCo7FRivalDefeatedText
@@ -204,6 +205,12 @@ SilphCo7FRivalScript:
 	waitbutton
 	closetext
 	disappear SILPHCO7F_RIVAL
+	end
+.Lost:
+	opentext
+	writetext SilphCo7FRivalVictoryText
+	waitbutton
+	closetext
 	end
 .AlreadyBattled:
 	writetext SilphCo7FRivalGoodLuckToYouText
@@ -239,9 +246,13 @@ SilphCo7FSilphWorkerM1LaprasDescriptionText:
 	line "very intelligent."
 
 	para "We kept it in our"
-	line "lab, but it'll be"
-	cont "better off with"
-	cont "you!"
+	line "lab, but it will"
+	cont "be much better"
+	cont "off with you!"
+
+	para "I think you will"
+	line "be a good trainer"
+	cont "for LAPRAS!"
 
 	para "It's a good"
 	line "swimmer. It'll"
@@ -263,7 +274,7 @@ SilphCo7FSilphWorkerM1SavedText:
 SilphCo7FSilphWorkerM2AfterTheMasterBallText:
 	text "TEAM ROCKET was"
 	line "after the MASTER"
-	cont "BALL, which will"
+	cont "BALL which will"
 	cont "catch any #MON!"
 	done
 
@@ -296,7 +307,7 @@ SilphCo7FSilphWorkerFItsReallyDangerousHereText:
 
 SilphCo7FSilphWorkerFSafeAtLastText:
 	text "Safe at last!"
-	line "Oh, thank you!"
+	line "Oh thank you!"
 	done
 
 SilphCo7FRocket1BattleText:
@@ -374,12 +385,49 @@ SilphCo7FRivalText:
 
 SilphCo7FRivalDefeatedText:
 	text "Oh ho!"
-	line "So you are ready"
+	line "So, you are ready"
 	cont "for BOSS ROCKET!"
+	prompt
+
+SilphCo7FRivalVictoryText:
+	text "<RIVAL>: How can"
+	line "I put this?"
+
+	para "You're not good"
+	line "enough to play"
+	cont "with us big boys!"
+	prompt
+
+SilphCo7FRivalWaitedHereText:
+	text "<RIVAL>: Hahaha!"
+	line "I thought you'd"
+	cont "turn up if I"
+	cont "waited here!"
+
+	para "I guess TEAM"
+	line "ROCKET slowed you"
+	cont "down! Not that I"
+	cont "care!"
+
+	para "I saw you in"
+	line "SAFFRON, so I"
+	cont "decided to see if"
+	cont "you got better!"
 	done
 
 SilphCo7FRivalGoodLuckToYouText:
-	text "I'm going to the"
+	text "Well, <PLAYER>!"
+
+	para "I'm moving on up"
+	line "and ahead!"
+
+	para "By checking my"
+	line "#DEX, I'm"
+	cont "starting to see"
+	cont "what's strong and"
+	cont "how they evolve!"
+
+	para "I'm going to the"
 	line "#MON LEAGUE"
 	cont "to boot out the"
 	cont "ELITE FOUR!"
