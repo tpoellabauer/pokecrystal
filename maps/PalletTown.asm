@@ -59,7 +59,7 @@ PalletTownOakStopsYouScript:
 	end
 
 PalletTownOakScript:
-	jumptextfaceplayer PalletTownOakStopText
+	jumptextfaceplayer PalletTownOakHeyWaitDontGoOutText
 
 PalletTownOakApproachMovement:
 	step UP
