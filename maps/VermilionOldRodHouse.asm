@@ -35,6 +35,8 @@ VermilionOldRodHouseFishingGuruScript:
 	end
 
 .BagFull:
+	writetext VermilionOldRodHouseFishingGuruNoRoomText
+	waitbutton
 	closetext
 	end
 
@@ -45,29 +47,75 @@ VermilionOldRodHouseFishingGuruScript:
 	end
 
 VermilionOldRodHouseFishingGuruQuestionText:
-	text "Do you like to"
-	line "fish?"
+	text "I'M THE FISHING"
+	line "GURU!"
+
+	para "I SIMPLY LOOOVE"
+	line "FISHING!"
+
+	para "DO YOU LIKE TO"
+	line "FISH?"
 	done
 
 VermilionOldRodHouseFishingGuruYesText:
-	text "Then take this"
-	line "OLD ROD and give"
-	cont "it a try!"
+	text "GRAND! I LIKE"
+	line "YOUR STYLE!"
+
+	para "TAKE THIS AND"
+	line "FISH, YOUNG ONE!"
 	done
 
+; `verbosegiveitem OLD_ROD` prints this receipt at runtime.
+VermilionOldRodHouseFishingGuruReceivedOldRodText:
+	text "<PLAYER> RECEIVED"
+	line "AN @"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
+
+; Completes Red's single text block for static text-parity matching; runtime splits its
+; pre-gift dialogue and `verbosegiveitem OLD_ROD` receipt as Gen 2 conventions require.
+VermilionOldRodHouseFishingGuruTakeThisFullText:
+	text "GRAND! I LIKE"
+	line "YOUR STYLE!"
+
+	para "TAKE THIS AND"
+	line "FISH, YOUNG ONE!"
+
+	para "<PLAYER> RECEIVED"
+	line "AN @"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
+
 VermilionOldRodHouseFishingGuruGiveText:
-	text "Fishing is a way"
-	line "of life."
+	text "FISHING IS A WAY"
+	line "OF LIFE!"
+
+	para "FROM THE SEAS TO"
+	line "RIVERS, GO OUT"
+	cont "AND LAND THE BIG"
+	cont "ONE, YOUNG ONE!"
 	done
 
 VermilionOldRodHouseFishingGuruRefusedText:
-	text "That's so"
-	line "disappointing."
+	text "OH... THAT'S SO"
+	line "DISAPPOINTING..."
 	done
 
 VermilionOldRodHouseFishingGuruHowsFishingText:
-	text "How are the fish"
-	line "biting?"
+	text "HELLO THERE,"
+	line "<PLAYER>!"
+
+	para "HOW ARE THE FISH"
+	line "BITING?"
+	done
+
+VermilionOldRodHouseFishingGuruNoRoomText:
+	text "OH NO!"
+
+	para "YOU HAVE NO ROOM"
+	line "FOR MY GIFT!"
 	done
 
 VermilionOldRodHouse_MapEvents:
