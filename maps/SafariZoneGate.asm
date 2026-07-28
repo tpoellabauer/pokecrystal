@@ -19,7 +19,7 @@ SafariZoneGateWorker1Script:
 	checkevent EVENT_PAID_SAFARI_ZONE_ENTRANCE_FEE
 	iftrue .AlreadyPaid
 	opentext
-	writetext SafariZoneGateWorker1Text
+	writetext SafariZoneGateWorker1WouldYouLikeToJoinText
 	yesorno
 	iffalse .Refused
 	checkmoney YOUR_MONEY, SAFARI_ZONE_ENTRANCE_FEE
@@ -50,21 +50,50 @@ SafariZoneGateWorker1Script:
 	end
 
 SafariZoneGateWorker2Script:
-	jumptextfaceplayer SafariZoneGateWorker2Text
+	faceplayer
+	opentext
+	writetext SafariZoneGateWorker2FirstTimeHereText
+	yesorno
+	iftrue .ExplainSafariZone
+	writetext SafariZoneGateWorker2YoureARegularHereText
+	waitbutton
+	closetext
+	end
+
+.ExplainSafariZone:
+	writetext SafariZoneGateWorker2SafariZoneExplanationText
+	waitbutton
+	closetext
+	end
 
 SafariZoneGateWorker1Text:
 	text "Welcome to the"
 	line "SAFARI ZONE!"
+	done
 
-	para "For ¥{d:SAFARI_ZONE_ENTRANCE_FEE}, you"
-	line "can catch rare"
-	cont "#MON inside."
+SafariZoneGateWorker1WouldYouLikeToJoinText:
+	text "For just ¥500,"
+	line "you can catch all"
+	cont "the <PKMN> you"
+	cont "want in the park!"
 
-	para "Would you like"
-	line "to play?"
+	para "Would you like to"
+	line "join the hunt?"
 	done
 
 SafariZoneGateWorker1PaidText:
+	text "That'll be ¥500"
+	line "please!"
+
+	para "We only use a"
+	line "special # BALL"
+	cont "here."
+
+	para "<PLAYER> received"
+	line "30 SAFARI BALLs!"
+	done
+
+SafariZoneGateWorker1CallYouOnThePAText:
 	text "We'll call you on"
 	line "the PA when you"
 	cont "run out of time"
@@ -82,11 +111,30 @@ SafariZoneGateWorker1NotEnoughMoneyText:
 	done
 
 SafariZoneGateWorker1RefusedText:
-	text "Come back if you"
-	line "change your mind!"
+	text "Sorry, you're a"
+	line "regular here!"
 	done
 
-SafariZoneGateWorker2Text:
+SafariZoneGateWorker1LeavingEarlyText:
+	text "Leaving early?"
+	done
+
+SafariZoneGateWorker1ReturnSafariBallsText:
+	text "Please return any"
+	line "SAFARI BALLs you"
+	cont "have left."
+	done
+
+SafariZoneGateWorker1GoodLuckText:
+	text "Good Luck!"
+	done
+
+SafariZoneGateWorker2FirstTimeHereText:
+	text "Hi! Is it your"
+	line "first time here?"
+	done
+
+SafariZoneGateWorker2SafariZoneExplanationText:
 	text "SAFARI ZONE has 4"
 	line "zones in it."
 
@@ -95,6 +143,22 @@ SafariZoneGateWorker2Text:
 	cont "of #MON. Use"
 	cont "SAFARI BALLs to"
 	cont "catch them!"
+
+	para "When you run out"
+	line "of time or SAFARI"
+	cont "BALLs, it's game"
+	cont "over for you!"
+
+	para "Before you go,"
+	line "open an unused"
+	cont "<PKMN> BOX so"
+	cont "there's room for"
+	cont "new <PKMN>!"
+	done
+
+SafariZoneGateWorker2YoureARegularHereText:
+	text "Sorry, you're a"
+	line "regular here!"
 	done
 
 SafariZoneGateHiddenNugget:
