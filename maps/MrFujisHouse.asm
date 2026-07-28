@@ -3,7 +3,7 @@
 	const MRFUJISHOUSE_LASS
 	const MRFUJISHOUSE_PSYDUCK
 	const MRFUJISHOUSE_NIDORINO
-	const MRFUJISHOUSE_PIDGEY
+	const MRFUJISHOUSE_POKEDEX
 	const MRFUJISHOUSE_MR_FUJI
 
 ; Gen 1 Mr. Fuji already home + gives the Poke Flute outright; the Team Rocket
@@ -16,10 +16,36 @@ MrFujisHouse_MapScripts:
 	def_callbacks
 
 MrFujisHouseSuperNerdScript:
-	jumptextfaceplayer MrFujisHouseSuperNerdText
+	faceplayer
+	opentext
+	checkevent EVENT_RESCUED_MR_FUJI
+	iftrue .MrFujiHadBeenPraying
+	writetext MrFujisHouseSuperNerdMrFujiIsntHereText
+	waitbutton
+	closetext
+	end
+
+.MrFujiHadBeenPraying:
+	writetext MrFujisHouseSuperNerdMrFujiHadBeenPrayingText
+	waitbutton
+	closetext
+	end
 
 MrFujisHouseLassScript:
-	jumptextfaceplayer MrFujisHouseLassText
+	faceplayer
+	opentext
+	checkevent EVENT_RESCUED_MR_FUJI
+	iftrue .PokemonAreNiceToHug
+	writetext MrFujisHouseLassThisIsMrFujisHouseText
+	waitbutton
+	closetext
+	end
+
+.PokemonAreNiceToHug:
+	writetext MrFujisHouseLassPokemonAreNiceToHugText
+	waitbutton
+	closetext
+	end
 
 MrFujisHouseMrFujiScript:
 	faceplayer
@@ -69,33 +95,39 @@ MrFujisNidorino:
 	closetext
 	end
 
-MrFujisPidgey:
-	opentext
-	writetext MrFujisPidgeyText
-	cry PIDGEY
-	waitbutton
-	closetext
-	end
+MrFujisHousePokedexScript:
+	jumptext MrFujisHousePokedexText
 
 MrFujisHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-MrFujisHouseSuperNerdText:
+MrFujisHouseSuperNerdMrFujiIsntHereText:
+	text "That's odd, MR.FUJI"
+	line "isn't here."
+	cont "Where'd he go?"
+	done
+
+MrFujisHouseSuperNerdMrFujiHadBeenPrayingText:
 	text "MR.FUJI had been"
 	line "praying alone for"
 	cont "CUBONE's mother."
 	done
 
-MrFujisHouseLassText:
-	text "Some cold-hearted"
-	line "people stop caring"
-	cont "for their #MON."
+MrFujisHouseLassThisIsMrFujisHouseText:
+	text "This is really"
+	line "MR.FUJI's house."
 
-	para "Grandpa takes in"
-	line "the poor homeless"
+	para "He's really kind!"
 
-	para "#MON and takes"
-	line "care of them."
+	para "He looks after"
+	line "abandoned and"
+	cont "orphaned #MON!"
+	done
+
+MrFujisHouseLassPokemonAreNiceToHugText:
+	text "It's so warm!"
+	line "#MON are so"
+	cont "nice to hug!"
 	done
 
 MrFujisPsyduckText:
@@ -103,18 +135,16 @@ MrFujisPsyduckText:
 	done
 
 MrFujisNidorinoText:
-	text "NIDORINO: Gyun!"
-	done
-
-MrFujisPidgeyText:
-	text "PIDGEY: Pijji!"
+	text "NIDORINO: Gaoo!"
 	done
 
 MrFujisHouseMrFujiGiveFluteText:
-	text "MR.FUJI: Your"
-	line "#DEX quest may"
-	cont "fail without love"
-	cont "for your #MON."
+	text "MR.FUJI: <PLAYER>."
+
+	para "Your #DEX quest"
+	line "may fail without"
+	cont "love for your"
+	cont "#MON."
 
 	para "I think this may"
 	line "help your quest."
@@ -147,6 +177,18 @@ MrFujisHouseMrFujiHasFluteHelpedYouText:
 	line "FLUTE helped you?"
 	done
 
+MrFujisHousePokedexText:
+	text "#MON Monthly"
+	line "Grand Prize"
+	cont "Drawing!"
+
+	para "The application"
+	line "form is..."
+
+	para "Gone! It's been"
+	line "clipped out!"
+	done
+
 MrFujisHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -163,5 +205,5 @@ MrFujisHouse_MapEvents:
 	object_event  6,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MrFujisHouseLassScript, -1
 	object_event  6,  4, SPRITE_RHYDON, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MrFujisPsyduck, -1
 	object_event  1,  3, SPRITE_GROWLITHE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MrFujisNidorino, -1
-	object_event  3,  3, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MrFujisPidgey, -1
+	object_event  3,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MrFujisHousePokedexScript, -1
 	object_event  3,  1, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MrFujisHouseMrFujiScript, -1
