@@ -31,10 +31,8 @@ CeladonCityGirlScript:
 CeladonCityGramps2Script:
 	jumptextfaceplayer CeladonCityGramps2Text
 
-; Gen 1 gives a TM41 (Softboiled) here; Gen 2's TM41 is a completely
-; different move (Sandstorm), so there is no transferable item reward
-; (same class of skip as Route 25's Seismic Toss TM -- see PORT_BACKLOG).
-; Kept the NPC and greeting, dropped the "here's a gift" promise/giveitem.
+; Gen 1 gives TM41 (Softboiled) here. Gen 2 TM41 is Sandstorm, so no
+; transferable item reward (same class of skip as Route 25's Seismic Toss TM).
 CeladonCityGramps3Script:
 	jumptextfaceplayer CeladonCityGramps3Text
 
@@ -118,6 +116,32 @@ CeladonCityGramps3Text:
 	para "I've seen you,"
 	line "but I never had a"
 	cont "chance to talk!"
+
+	para "HERE'S A GIFT FOR"
+	line "DROPPING BY!"
+	done
+
+CeladonCityGramps3ReceivedTM41Text:
+	text "<PLAYER> RECEIVED"
+	line ""
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+CeladonCityGramps3TM41ExplanationText:
+	text "TM41 TEACHES"
+	line "SOFTBOILED!"
+
+	para "Only one <PKMN>"
+	line "CAN USE IT!"
+
+	para "That <PKMN> is"
+	line "CHANSEY!"
+	done
+
+CeladonCityGramps3TM41NoRoomText:
+	text "Oh, your pack is"
+	line "FULL OF ITEMS!"
 	done
 
 CeladonCityFisherText:
@@ -156,14 +180,14 @@ CeladonGymSignText:
 	line "#MON GYM"
 	cont "LEADER: ERIKA"
 
-	para "The Nature-Loving"
-	line "Princess"
+	para "THE NATURE LOVING"
+	line "PRINCESS!"
 	done
 
 CeladonCityDeptStoreSignText:
-	text "Find What You"
-	line "Need at CELADON"
-	cont "DEPT.STORE!"
+	text "FIND WHAT YOU"
+	line "NEED AT CELADON"
+	cont "DEPT. STORE!"
 	done
 
 CeladonCityMansionSignText:
@@ -171,17 +195,10 @@ CeladonCityMansionSignText:
 	done
 
 CeladonCityGameCornerSignText:
-if DEF(_CRYSTAL_AU)
-	text "The Game Area for"
-	line "Grown-ups--CELADON"
-	cont "GAME CORNER"
+	text "ROCKET GAME CORNER"
+	line "THE PLAYGROUND"
+	cont "FOR GROWN-UPS!"
 	done
-else
-	text "The Playground for"
-	line "Everybody--CELADON"
-	cont "GAME CORNER"
-	done
-endc
 
 CeladonCityTrainerTips1Text:
 	text "TRAINER TIPS"
