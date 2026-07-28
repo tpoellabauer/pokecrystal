@@ -128,7 +128,7 @@ SSAnne2FRoomsFisherAfterBattleText:
 SSAnne2FRoomsGentleman2BattleText:
 	text "Which do you like,"
 	line "a strong or a"
-	cont "rare Pokemon?"
+	cont "rare <PKMN>?"
 	done
 
 SSAnne2FRoomsGentleman2EndBattleText:
@@ -138,7 +138,7 @@ SSAnne2FRoomsGentleman2EndBattleText:
 
 SSAnne2FRoomsGentleman2AfterBattleText:
 	text "I prefer strong"
-	line "and rare Pokemon."
+	line "and rare <PKMN>."
 	done
 
 SSAnne2FRoomsCooltrainerFBattleText:
@@ -153,25 +153,28 @@ SSAnne2FRoomsCooltrainerFEndBattleText:
 
 SSAnne2FRoomsCooltrainerFAfterBattleText:
 	text "Oh, I adore your"
-	line "strong Pokemon!"
+	line "strong <PKMN>!"
 	done
 
 SSAnne2FRoomsGentleman3Text:
 	text "In all my travels"
 	line "I've never seen"
-	cont "any Pokemon sleep"
+	cont "any <PKMN> sleep"
 	cont "like this one!"
+
+	para "It was something"
+	line "like this!"
 	done
 
 SSAnne2FRoomsGentleman4Text:
 	text "Ah yes, I have"
-	line "seen some Pokemon"
+	line "seen some <PKMN>"
 	cont "ferry people"
 	cont "across the water!"
 	done
 
 SSAnne2FRoomsGrampsText:
-	text "Pokemon can Cut"
+	text "<PKMN> can CUT"
 	line "down small bushes."
 	done
 
@@ -181,7 +184,7 @@ SSAnne2FRoomsGentleman5Text:
 	cont "in Fuchsia City?"
 
 	para "It had many rare"
-	line "kinds of Pokemon!"
+	line "kinds of <PKMN>!!"
 	done
 
 SSAnne2FRoomsLittleBoyText:
