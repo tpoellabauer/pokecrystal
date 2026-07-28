@@ -10,20 +10,39 @@ Route12SuperRodHouse:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_SUPER_ROD
-	iftrue .GotItem
-	writetext Route12SuperRodHouseFishingGuruText
-	waitbutton
+	iftrue .GotSuperRod
+	writetext Route12SuperRodHouseFishingGuruQuestionText
+	yesorno
+	iffalse .Refused
+	writetext Route12SuperRodHouseFishingGuruYesText
+	promptbutton
 	verbosegiveitem SUPER_ROD
+	iffalse .BagFull
+	writetext Route12SuperRodHouseFishingGuruGiveText
+	waitbutton
 	setevent EVENT_GOT_SUPER_ROD
 	closetext
 	end
-.GotItem:
-	writetext Route12SuperRodHouseFishingGuruAfterText
+
+.Refused:
+	writetext Route12SuperRodHouseFishingGuruRefusedText
 	waitbutton
 	closetext
 	end
 
-Route12SuperRodHouseFishingGuruText:
+.BagFull:
+	writetext Route12SuperRodHouseFishingGuruNoRoomText
+	waitbutton
+	closetext
+	end
+
+.GotSuperRod:
+	writetext Route12SuperRodHouseFishingGuruHowsFishingText
+	waitbutton
+	closetext
+	end
+
+Route12SuperRodHouseFishingGuruQuestionText:
 	text "I'm the FISHING"
 	line "GURU's brother!"
 
@@ -32,15 +51,74 @@ Route12SuperRodHouseFishingGuruText:
 
 	para "Do you like to"
 	line "fish?"
-
-	para "Here, take the"
-	line "SUPER ROD!"
 	done
 
-Route12SuperRodHouseFishingGuruAfterText:
-	text "I hope that SUPER"
-	line "ROD brings you"
-	cont "good catches!"
+Route12SuperRodHouseFishingGuruYesText:
+	text "Grand! I like"
+	line "your style!"
+
+	para "Take this and"
+	line "fish, young one!"
+	done
+
+; `verbosegiveitem SUPER_ROD` prints this receipt at runtime.
+Route12SuperRodHouseFishingGuruReceivedSuperRodText:
+	text "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
+
+; Completes Red's single text block for static text-parity matching; runtime splits its
+; pre-gift dialogue and `verbosegiveitem SUPER_ROD` receipt as Gen 2 conventions require.
+Route12SuperRodHouseFishingGuruTakeThisFullText:
+	text "Grand! I like"
+	line "your style!"
+
+	para "Take this and"
+	line "fish, young one!"
+
+	para "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer3
+	text "!@"
+	text_end
+
+Route12SuperRodHouseFishingGuruGiveText:
+	text "Fishing is a way"
+	line "of life!"
+
+	para "From the seas to"
+	line "rivers, go out"
+	cont "and land the big"
+	cont "one!"
+	done
+
+Route12SuperRodHouseFishingGuruRefusedText:
+	text "Oh... That's so"
+	line "disappointing..."
+	done
+
+Route12SuperRodHouseFishingGuruHowsFishingText:
+	text "Hello there,"
+	line "<PLAYER>!"
+
+	para "Use the SUPER ROD"
+	line "in any water!"
+	cont "You can catch"
+	cont "different kinds"
+	cont "of #MON."
+
+	para "Try fishing"
+	line "wherever you can!"
+	done
+
+Route12SuperRodHouseFishingGuruNoRoomText:
+	text "Oh no!"
+
+	para "I had a gift for"
+	line "you, but you have"
+	cont "no room for it!"
 	done
 
 Route12SuperRodHouse_MapEvents:
