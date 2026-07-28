@@ -36,9 +36,13 @@ PalletTownOakStopsYouScript:
 	showemote EMOTE_SHOCK, PLAYER, 20
 	playmusic MUSIC_PROF_OAK ; "oak appears" cutscene music, like Red's MUSIC_MEET_PROF_OAK
 	appear PALLETTOWN_OAK
+	opentext
+	writetext PalletTownOakHeyWaitDontGoOutText
+	waitbutton
+	closetext
 	applymovement PALLETTOWN_OAK, PalletTownOakApproachMovement
 	opentext
-	writetext PalletTownOakStopText
+	writetext PalletTownOakItsUnsafeText
 	waitbutton
 	closetext
 	applymovement PALLETTOWN_OAK, PalletTownOakLeaveMovement
@@ -103,31 +107,33 @@ BluesHouseSign:
 	jumptext BluesHouseSignText
 
 PalletTownTeacherText:
-	text "I'm raising #-"
-	line "MON too."
+	text "I'm raising"
+	line "#MON too!"
 
-	para "They serve as my"
-	line "private guards."
+	para "When they get"
+	line "strong, they can"
+	cont "protect me!"
 	done
 
 PalletTownFisherText:
 	text "Technology is"
 	line "incredible!"
 
-	para "You can now trade"
-	line "#MON across"
-	cont "time like e-mail."
+	para "You can now store"
+	line "and recall items"
+	cont "and #MON as"
+	cont "data via PC!"
 	done
 
 PalletTownSignText:
 	text "PALLET TOWN"
 
-	para "A Tranquil Setting"
-	line "of Peace & Purity"
+	line "Shades of your"
+	cont "journey await!"
 	done
 
 RedsHouseSignText:
-	text "RED'S HOUSE"
+	text "<PLAYER>'s house"
 	done
 
 OaksLabSignText:
@@ -136,14 +142,16 @@ OaksLabSignText:
 	done
 
 BluesHouseSignText:
-	text "BLUE'S HOUSE"
+	text "<RIVAL>'s house"
 	done
 
-PalletTownOakStopText:
-	text "Hey! Wait!"
+PalletTownOakHeyWaitDontGoOutText:
+	text "OAK: Hey! Wait!"
 	line "Don't go out!"
+	done
 
-	para "It's unsafe!"
+PalletTownOakItsUnsafeText:
+	text "OAK: It's unsafe!"
 	line "Wild #MON live"
 	cont "in tall grass!"
 
@@ -151,7 +159,7 @@ PalletTownOakStopText:
 	line "#MON for your"
 	cont "protection."
 
-	para "I know!"
+	cont "I know!"
 	line "Here, come with"
 	cont "me!"
 	done
@@ -176,5 +184,5 @@ PalletTown_MapEvents:
 
 	def_object_events
 	object_event  3,  8, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PalletTownTeacherScript, -1
-	object_event 11, 14, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PalletTownFisherScript, -1
+	object_event 11, 14, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 2, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PalletTownFisherScript, -1
 	object_event 10,  3, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PalletTownOakScript, EVENT_OAK_IN_PALLET_TOWN
