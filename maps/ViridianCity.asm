@@ -104,10 +104,20 @@ ViridianCityDreamEaterFisher:
 	verbosegiveitem TM_DREAM_EATER
 	iffalse .NoRoomForDreamEater
 	setevent EVENT_GOT_TM42_DREAM_EATER
-.GotDreamEater:
-	writetext ViridianCityDreamEaterFisherGotDreamEaterText
+	writetext ViridianCityDreamEaterFisherReceivedTM42Text
 	waitbutton
+	closetext
+	end
+
+.GotDreamEater:
+	writetext ViridianCityDreamEaterFisherTM42ExplanationText
+	waitbutton
+	closetext
+	end
+
 .NoRoomForDreamEater:
+	writetext ViridianCityDreamEaterFisherTM42NoRoomText
+	waitbutton
 	closetext
 	end
 
@@ -140,6 +150,21 @@ ViridianCitySign:
 
 ViridianGymSign:
 	jumptext ViridianGymSignText
+
+ViridianCityGymLocked:
+	checkflag ENGINE_EARTHBADGE
+	iftrue .Open
+	opentext
+	writetext ViridianCityGymLockedText
+	waitbutton
+	closetext
+	applymovement PLAYER, ViridianCityGymLockedPushbackMovement
+.Open:
+	end
+
+ViridianCityGymLockedPushbackMovement:
+	step DOWN
+	step_end
 
 ViridianCityTrainerTips1:
 	jumptext ViridianCityTrainerTips1Text
@@ -246,32 +271,37 @@ ViridianCityGrampsNearGymBlueReturnedText:
 
 ViridianCityDreamEaterFisherText:
 	text "Yawn!"
+	line "I must have dozed"
+	cont "off in the sun."
 
-	para "I must have dozed"
-	line "off in the sun."
-
-	para "…I had this dream"
+	para "I had this dream"
 	line "about a DROWZEE"
+	cont "eating my dream."
 
-	para "eating my dream."
-	line "Weird, huh?"
-
-	para "Huh?"
-	line "What's this?"
-
-	para "Where did this TM"
-	line "come from?"
+	para "What's this?"
+	line "Where did this TM"
+	cont "come from?"
 
 	para "This is spooky!"
-	line "Here, you can have"
-	cont "this TM."
+	line "Here, you can"
+	cont "have this TM."
 	done
 
-ViridianCityDreamEaterFisherGotDreamEaterText:
-	text "TM42 contains"
-	line "DREAM EATER…"
+ViridianCityDreamEaterFisherReceivedTM42Text:
+	text "<PLAYER> received"
+	line "TM42!@"
+	text_end
 
-	para "…Zzzzz…"
+ViridianCityDreamEaterFisherTM42ExplanationText:
+	text "TM42 contains"
+	line "DREAM EATER..."
+
+	para "...Snore..."
+	done
+
+ViridianCityDreamEaterFisherTM42NoRoomText:
+	text "You have too much"
+	line "stuff already."
 	done
 
 ViridianCityYoungsterText:
@@ -304,10 +334,11 @@ ViridianCitySignText:
 ViridianGymSignText:
 	text "VIRIDIAN CITY"
 	line "#MON GYM"
-	cont "LEADER: …"
+	done
 
-	para "The rest of the"
-	line "text is illegible…"
+ViridianCityGymLockedText:
+	text "The GYM's doors"
+	line "are locked..."
 	done
 
 ViridianCityTrainerTips1Text:
@@ -359,6 +390,7 @@ ViridianCity_MapEvents:
 	coord_event 17,  9, SCENE_ALWAYS, ViridianCityPokedexGate
 	coord_event 18,  9, SCENE_ALWAYS, ViridianCityPokedexGate
 	coord_event 19,  9, SCENE_ALWAYS, ViridianCityPokedexGate
+	coord_event 32,  8, SCENE_ALWAYS, ViridianCityGymLocked
 
 	def_bg_events
 	bg_event 17, 17, BGEVENT_READ, ViridianCitySign
