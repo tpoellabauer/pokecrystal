@@ -12,7 +12,8 @@
 ; existing Route24Rocket machine-part quest NPC rather than replacing it (that NPC is wired into a
 ; real cross-map quest with PowerPlant/CeruleanGym/Route25 -- see EVENT_ROUTE_24_ROCKET). The Gen 1
 ; leader's forced-walk-after-reward trick isn't replicated; the Nugget is a normal post-battle
-; verbosegiveitem instead.
+; giveitem with a custom received-item line (ported verbatim from
+; _Route24CooltrainerM1ReceivedNuggetText) instead of the battle-tower-style default.
 Route24_MapScripts:
 	def_scene_scripts
 
@@ -26,9 +27,18 @@ TrainerNuggetLeaderRoute24:
 	opentext
 	checkevent EVENT_GOT_ROUTE_24_NUGGET
 	iftrue .AlreadyGot
-	writetext NuggetLeaderRoute24PrizeText
-	verbosegiveitem NUGGET
+	writetext NuggetLeaderRoute24YouBeatOurContestText
+	promptbutton
+	writetext NuggetLeaderRoute24YouJustEarnedAPrizeText
+	promptbutton
+	giveitem NUGGET
 	iffalse .NoRoom
+	getitemname STRING_BUFFER_3, NUGGET
+	writetext NuggetLeaderRoute24ReceivedNuggetText
+	playsound SFX_ITEM
+	waitsfx
+	waitbutton
+	itemnotify
 	setevent EVENT_GOT_ROUTE_24_NUGGET
 	writetext NuggetLeaderRoute24JoinRocketText
 	waitbutton
@@ -42,6 +52,8 @@ TrainerNuggetLeaderRoute24:
 	end
 
 .NoRoom:
+	writetext NuggetLeaderRoute24NoRoomText
+	waitbutton
 	closetext
 	end
 
@@ -121,13 +133,29 @@ NuggetLeaderRoute24BeatenText:
 	line "good!"
 	done
 
-NuggetLeaderRoute24PrizeText:
+NuggetLeaderRoute24YouBeatOurContestText:
 	text "Congratulations!"
 	line "You beat our 5"
 	cont "contest trainers!"
+	done
+
+NuggetLeaderRoute24YouJustEarnedAPrizeText:
+	text_start
 
 	para "You just earned a"
 	line "fabulous prize!"
+	done
+
+NuggetLeaderRoute24ReceivedNuggetText:
+	text "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+NuggetLeaderRoute24NoRoomText:
+	text "You don't have"
+	line "any room!"
 	done
 
 NuggetLeaderRoute24JoinRocketText:
@@ -139,8 +167,21 @@ NuggetLeaderRoute24JoinRocketText:
 	line "dedicated to evil"
 	cont "using #MON!"
 
-	para "...Just kidding!"
-	line "Get going!"
+	para "Want to join?"
+
+	para "Are you sure?"
+
+	para "Come on, join us!"
+
+	para "I'm telling you"
+	line "to join!"
+
+	para "OK, you need"
+	line "convincing!"
+
+	para "I'll make you an"
+	line "offer you can't"
+	cont "refuse!"
 	done
 
 NuggetLeaderRoute24TopLeaderText:
