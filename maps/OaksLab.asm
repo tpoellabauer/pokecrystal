@@ -383,32 +383,37 @@ OaksLabRivalFedUpText:
 	cont "waiting!"
 	done
 
+OaksLabRivalGrampsIsntAroundText:
+	text "<RIVAL>: Yo"
+	line "<PLAY_G>! Gramps"
+	cont "isn't around!"
+	done
+
 OaksLabOakChooseMonText:
-	text "OAK: <PLAY_G>?"
+	text "OAK: <RIVAL>?"
 	line "Let me think..."
 
-	para "Oh, that's right, I"
-	line "told you to come!"
-
-	para "Just wait!"
+	para "Oh, that's right,"
+	line "I told you to"
+	cont "come! Just wait!"
 
 	para "Here, <PLAY_G>!"
-	line "There are 3 #-"
-	cont "MON here."
+
+	para "There are 3"
+	line "#MON here!"
 
 	para "Haha!"
 
 	para "They are inside"
 	line "the # BALLs."
 
-	para "When I was young, I"
-	line "was a serious #-"
-	cont "MON trainer!"
+	para "When I was young,"
+	line "I was a serious"
+	cont "#MON trainer!"
 
 	para "In my old age, I"
 	line "have only 3 left,"
-
-	para "but you can have"
+	cont "but you can have"
 	cont "one! Choose!"
 	done
 
@@ -496,9 +501,9 @@ OaksLabRivalWhatDidYouCallMeForText:
 	done
 
 OaksLabOakPokedexSpeechText:
-	text "OAK: On the desk"
-	line "there is my"
-	cont "invention, #DEX!"
+	text "On the desk there"
+	line "is my invention,"
+	cont "#DEX!"
 
 	para "It automatically"
 	line "records data on"
