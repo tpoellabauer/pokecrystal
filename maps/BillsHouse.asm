@@ -52,11 +52,19 @@ BillsHouseBill:
 	iftrue .GotTicket
 	writetext BillsHouseBillThankYouText
 	promptbutton
-	verbosegiveitem S_S_TICKET
+	giveitem S_S_TICKET
 	iffalse .BagFull
+	getitemname STRING_BUFFER_3, S_S_TICKET
+	writetext BillsHouseSSTicketReceivedText
+	playsound SFX_ITEM
+	waitsfx
+	waitbutton
+	itemnotify
 	setevent EVENT_GOT_SS_TICKET_FROM_BILL
 .GotTicket:
 	writetext BillsHouseBillWhyDontYouGoInsteadOfMeText
+	promptbutton
+	writetext BillsHouseBillCheckOutMyRarePokemonText
 	waitbutton
 	closetext
 	end
@@ -74,10 +82,13 @@ BillsHouseBillImNotAPokemonText:
 
 	para "Call me BILL!"
 	line "I'm a true blue"
-	cont "#MANIAC!"
+	cont "#MANIAC! Hey!"
+	cont "What's with that"
+	cont "skeptical look?"
 
-	para "I screwed up an"
-	line "experiment and"
+	para "I'm not joshing"
+	line "you, I screwed up"
+	cont "an experiment and"
 	cont "got combined with"
 	cont "a #MON!"
 
@@ -126,22 +137,33 @@ BillsHouseBillNoRoomText:
 	line "much stuff, bud!"
 	done
 
+BillsHouseSSTicketReceivedText:
+	text "<PLAYER> received"
+	line "an @"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
 BillsHouseBillWhyDontYouGoInsteadOfMeText:
 	text "That cruise ship,"
-	line "S.S.AQUA, is in"
-
-	para "VERMILION CITY."
-	line "Its passengers"
+	line "S.S.ANNE, is in"
+	cont "VERMILION CITY."
+	cont "Its passengers"
 	cont "are all trainers!"
 
 	para "They invited me"
 	line "to their party,"
+	cont "but I can't stand"
+	cont "fancy do's. Why"
+	cont "don't you go"
+	cont "instead of me?"
+	done
 
-	para "but I can't stand"
-	line "fancy do's."
-
-	para "Why don't you go"
-	line "instead of me?"
+BillsHouseBillCheckOutMyRarePokemonText:
+	text "BILL: Look, bud,"
+	line "just check out"
+	cont "some of my rare"
+	cont "#MON on my PC!"
 	done
 
 BillsHouse_MapEvents:
