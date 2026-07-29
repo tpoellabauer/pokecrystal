@@ -125,8 +125,8 @@ HikerRocktunnelb1f1SeenText:
 	done
 
 HikerRocktunnelb1f1BeatenText:
-	text "Oops! Out-"
-	line "muscled!"
+	text "Oops!"
+	line "Out-muscled!"
 	done
 
 HikerRocktunnelb1f1AfterBattleText:
