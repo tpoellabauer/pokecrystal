@@ -129,6 +129,9 @@ SilphCo11FPresidentThankYouText:
 	cont "us in our moment"
 	cont "of peril!"
 
+	para "I have to thank"
+	line "you in some way!"
+
 	para "Because I am"
 	line "rich, I can give"
 	cont "you anything!"
