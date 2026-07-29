@@ -31,13 +31,13 @@ AgathaScript_Battle:
 	writetext AgathaScript_BeforeText
 	waitbutton
 	closetext
-	winlosstext AgathaScript_BeatenText, 0
+	winlosstext AgathaScript_EndBattleText, 0
 	loadtrainer AGATHA, AGATHA1
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_BRUNO
 	opentext
-	writetext AgathaScript_DefeatText
+	writetext AgathaScript_AfterBattleText
 	waitbutton
 	closetext
 	playsound SFX_ENTER_DOOR
@@ -49,34 +49,49 @@ AgathaScript_Battle:
 	end
 
 AgathaScript_AfterBattle:
-	writetext AgathaScript_DefeatText
+	writetext AgathaScript_AfterBattleText
 	waitbutton
 	closetext
 	end
 
 AgathaScript_BeforeText:
-	text "AGATHA: Nyahaha!"
+	text "I am AGATHA of"
+	line "the ELITE FOUR!"
 
-	para "Young whippersnap-"
-	line "per! I'll show you"
-	cont "how a real trainer"
-	cont "#MON battles!"
+	para "OAK's taken a lot"
+	line "of interest in"
+	cont "you, child!"
+
+	para "That old duff was"
+	line "once tough and"
+	cont "handsome! That"
+	cont "was decades ago!"
+
+	para "Now he just wants"
+	line "to fiddle with"
+	cont "his #DEX! He's"
+	cont "wrong! #MON"
+	cont "are for fighting!"
+
+	para "<PLAYER>! I'll show"
+	line "you how a real"
+	cont "trainer fights!"
 	done
 
-AgathaScript_BeatenText:
-	text "Someone's voice:"
-	line "Don't run away!"
+AgathaScript_EndBattleText:
+	text "Oh ho!"
+	line "You're something"
+	cont "special, child!"
 	done
 
-AgathaScript_DefeatText:
-	text "There is a saying"
-	line "that #MON grow"
-	cont "with their trainer."
+AgathaScript_AfterBattleText:
+	text "You win! I see"
+	line "what the old duff"
+	cont "sees in you now!"
 
-	para "Perhaps you're"
-	line "still growing too."
-
-	para "Go on, and see LANCE."
+	para "I have nothing"
+	line "else to say! Run"
+	cont "along now, child!"
 	done
 
 BrunosRoom_MapEvents:
