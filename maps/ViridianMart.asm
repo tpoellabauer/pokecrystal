@@ -30,12 +30,13 @@ ViridianMartGreetAndGiveParcelScript:
 	opentext
 	writetext ViridianMartClerkYouCameFromPalletTownText
 	waitbutton
+	writetext ViridianMartClerkSayHiToOakText
+	waitbutton
 	closetext
 	opentext
-	writetext ViridianMartClerkParcelText
+	writetext ViridianMartClerkParcelQuestText
 	promptbutton
 	giveitem OAKS_PARCEL
-	writetext ViridianMartClerkGaveParcelText
 	playsound SFX_KEY_ITEM
 	waitsfx
 	itemnotify
@@ -48,10 +49,9 @@ ViridianMartClerkScript:
 	opentext
 	checkevent EVENT_GOT_OAKS_PARCEL
 	iftrue .Mart
-	writetext ViridianMartClerkParcelText
+	writetext ViridianMartClerkParcelQuestText
 	promptbutton
 	giveitem OAKS_PARCEL
-	writetext ViridianMartClerkGaveParcelText
 	playsound SFX_KEY_ITEM
 	waitsfx
 	itemnotify
@@ -84,25 +84,20 @@ ViridianMartClerkYouCameFromPalletTownText:
 	line "PALLET TOWN?"
 	done
 
-ViridianMartClerkParcelText:
-	text "CLERK: Hey, you!"
-	line "You're from"
-	cont "PALLET TOWN, right?"
-
-	para "PROF.OAK asked us"
-	line "to order something"
-	cont "for him."
-
-	para "It's in, but we"
-	line "haven't got the"
-	cont "time to deliver it."
-
-	para "Could you take it"
-	line "to him?"
+ViridianMartClerkSayHiToOakText:
+	text "Okay! Say hi to"
+	line "PROF.OAK for me!"
 	done
 
-ViridianMartClerkGaveParcelText:
-	text "<PLAY_G> received"
+ViridianMartClerkParcelQuestText:
+	text "You know PROF."
+	line "OAK, right?"
+
+	para "His order came in."
+	line "Will you take it"
+	cont "to him?"
+
+	para "<PLAYER> got"
 	line "OAK'S PARCEL!"
 	done
 
