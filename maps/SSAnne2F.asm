@@ -85,39 +85,67 @@ SSAnne2FRivalExitMovement:
 	step_end
 
 SSAnne2FWaiterText:
-	text "The Captain would"
-	line "like to see you"
-	cont "on the deck."
+	text "This ship, she is"
+	line "a luxury liner"
+	cont "for trainers!"
+
+	para "At every port, we"
+	line "hold parties with"
+	cont "invited trainers!"
 	done
 
 SSAnne2FRivalBeforeText:
-	text "<RIVAL>: Huh?"
+	text "<RIVAL>: Bonjour!"
 	line "<PLAYER>!"
 
-	para "Long time, no"
-	line "see!"
+	para "Imagine seeing"
+	line "you here!"
 
-	para "I'm taking a ship"
-	line "cruise."
+	para "<PLAYER>, were you"
+	line "really invited?"
 
-	para "Let's battle!"
+	para "So how's your"
+	line "#DEX coming?"
+
+	para "I already caught"
+	line "40 kinds, pal!"
+
+	para "Different kinds"
+	line "are everywhere!"
+
+	para "Crawl around in"
+	line "grassy areas!"
 	done
 
 SSAnne2FRivalAfterText:
-	text "<RIVAL>: You"
-	line "better hurry!"
+	text "<RIVAL>: I heard"
+	line "there was a CUT"
+	cont "master on board."
 
-	para "We're about to"
-	line "set sail!"
+	para "But, he was just a"
+	line "seasick, old man!"
+
+	para "But, CUT itself is"
+	line "really useful!"
+
+	para "You should go see"
+	line "him! Smell ya!"
 	done
 
 SSAnne2FRivalDefeatedText:
-	text "Already?"
+	text "Humph!"
+
+	para "At least you're"
+	line "raising your"
+	cont "#MON!"
 	done
 
 SSAnne2FRivalVictoryText:
-	text "See you around,"
-	line "<PLAYER>!"
+	text "<PLAYER>! What are"
+	line "you, seasick?"
+
+	para "You should shape"
+	line "up, pal!"
 	done
 
 SSAnne2F_MapEvents:
