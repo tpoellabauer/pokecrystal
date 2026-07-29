@@ -43,8 +43,19 @@ Route16Snorlax:
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
 	loadwildmon SNORLAX, 30
 	startbattle
+	ifequal LOSE, .NotBeaten
 	disappear ROUTE16_SNORLAX
 	setevent EVENT_ROUTE_16_SNORLAX
+	reloadmapafterbattle
+	end
+
+; Gen 1: SNORLAX wasn't caught/beaten -- it goes back to sleep in the mountains, same
+; "ifequal LOSE" pattern as CeruleanCaveB1F/LakeOfRage/PowerPlant/PokemonTower6F.
+.NotBeaten:
+	opentext
+	writetext Route16SnorlaxReturnedToMountainsText
+	waitbutton
+	closetext
 	reloadmapafterbattle
 	end
 
@@ -125,6 +136,12 @@ Route16SnorlaxWokeUpText:
 
 	para "It attacked in a"
 	line "grumpy rage!"
+	done
+
+Route16SnorlaxReturnedToMountainsText:
+	text "With a big yawn,"
+	line "SNORLAX returned"
+	cont "to the mountains!"
 	done
 
 Route16Biker1SeenText:
