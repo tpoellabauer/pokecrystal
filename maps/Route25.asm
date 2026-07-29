@@ -429,10 +429,7 @@ HikerRoute25_3AfterBattleText:
 BillsHouseSignText:
 	text "SEA COTTAGE"
 	line "BILL lives here!"
-	done
-
-UnusedBillsHouseSignText: ; unreferenced
-	text "BILL'S HOUSE"
+	line "BILL'S HOUSE"
 	done
 
 ; Gen1 field itemball. TM_SEISMIC_TOSS has no Gen2 equivalent -> TM_RETURN substitute
