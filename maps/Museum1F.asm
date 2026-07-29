@@ -17,13 +17,39 @@ Museum1F_MapScripts:
 ; flavor-only dialogue here. The upstairs fossil hall (MUSEUM_2F) and its Old
 ; Amber pickup are not ported — follow-up scope, not part of this fix.
 Museum1FScientist1Script:
-	jumptextfaceplayer Museum1FScientist1Text
+	faceplayer
+	opentext
+	checkevent EVENT_BOUGHT_MUSEUM_TICKET
+	iftrue .already_bought
+	setevent EVENT_BOUGHT_MUSEUM_TICKET
+	writetext Museum1FScientist1Text
+	waitbutton
+	closetext
+	end
+.already_bought
+	writetext Museum1FScientist1Text
+	waitbutton
+	closetext
+	end
 
 Museum1FGamblerScript:
 	jumptextfaceplayer Museum1FGamblerText
 
 Museum1FScientist2Script:
-	jumptextfaceplayer Museum1FScientist2Text
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_OLD_AMBER
+	iftrue .already_got_amber
+	setevent EVENT_GOT_OLD_AMBER
+	writetext Museum1FScientist2Text
+	waitbutton
+	closetext
+	end
+.already_got_amber
+	writetext Museum1FScientist2Text
+	waitbutton
+	closetext
+	end
 
 Museum1FScientist3Script:
 	jumptextfaceplayer Museum1FScientist3Text

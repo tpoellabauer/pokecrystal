@@ -105,6 +105,14 @@
 	const MUSIC_SUICUNE_BATTLE               ; 64
 	const MUSIC_BATTLE_TOWER_LOBBY           ; 65
 	const MUSIC_MOBILE_CENTER                ; 66
+; Gen 1 Kanto on Crystal: fallback music mappings
+	const MUSIC_KANTO_INTRO_BATTLE           ; 67 (Gen 1: MUSIC_INTRO_BATTLE → MUSIC_TITLE)
+	const MUSIC_KANTO_CITY_1                 ; 68 (Gen 1 Kanto city fallback)
+	const MUSIC_KANTO_CITY_2                 ; 69 (Gen 1 Kanto city fallback)
+	const MUSIC_KANTO_CITY_3                 ; 6a (Gen 1 Kanto city fallback)
+	const MUSIC_KANTO_FUCHSIA_CITY           ; 6b (Gen 1: MUSIC_FUCHSIA_CITY → MUSIC_CELADON_CITY)
+	const MUSIC_KANTO_DUNGEON_2              ; 6c (Gen 1: MUSIC_DUNGEON2 → MUSIC_VIRIDIAN_CITY)
+	const MUSIC_KANTO_CITIES_2               ; 6d (Gen 1: MUSIC_CITIES2 → MUSIC_VIRIDIAN_CITY)
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)
