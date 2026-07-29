@@ -65,12 +65,14 @@ CopycatText:
 	done
 
 CopycatDollText:
-	text "COPYCAT: Oh! That"
-	line "DOLL! I've always"
-	cont "wanted one!"
+	text "COPYCAT: Oh wow!"
+	line "A # DOLL!"
 
-	para "I know! Let's"
-	line "trade for my TM!"
+	para "For me?"
+	line "Thank you!"
+
+	para "You can have"
+	line "this, then!"
 	done
 
 CopycatThanksText:
@@ -80,10 +82,11 @@ CopycatThanksText:
 	done
 
 CopycatMimicText:
-	text "COPYCAT: MIMIC"
-	line "copies the foe's"
-	cont "move. Just like"
-	cont "me! Hee hee!"
+	text "TM31 contains my"
+	line "favorite, MIMIC!"
+
+	para "Use it on a good"
+	line "#MON!"
 	done
 
 CopycatsHouse2FDoduoScript:
