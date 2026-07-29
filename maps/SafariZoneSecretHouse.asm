@@ -11,19 +11,31 @@ SafariZoneSecretHouseFishingGuru:
 	opentext
 	checkevent EVENT_GOT_HM03_SURF
 	iftrue .GotItem
-	writetext SafariZoneSecretHouseFishingGuruText
+	writetext SafariZoneSecretHouseFishingGuruYouHaveWonText
 	waitbutton
-	verbosegiveitem HM_SURF
+	giveitem HM_SURF
+	iffalse .BagFull
+	getitemname STRING_BUFFER_3, HM_SURF
+	writetext SafariZoneSecretHouseFishingGuruReceivedHM03Text
+	playsound SFX_ITEM
+	waitsfx
+	waitbutton
+	itemnotify
 	setevent EVENT_GOT_HM03_SURF
 	closetext
 	end
+.BagFull:
+	writetext SafariZoneSecretHouseFishingGuruHM03NoRoomText
+	waitbutton
+	closetext
+	end
 .GotItem:
-	writetext SafariZoneSecretHouseFishingGuruAfterText
+	writetext SafariZoneSecretHouseFishingGuruHM03ExplanationText
 	waitbutton
 	closetext
 	end
 
-SafariZoneSecretHouseFishingGuruText:
+SafariZoneSecretHouseFishingGuruYouHaveWonText:
 	text "Ah! Finally!"
 
 	para "You're the first"
@@ -36,14 +48,38 @@ SafariZoneSecretHouseFishingGuruText:
 	cont "campaign prize."
 
 	para "Congratulations!"
-	line "You have won"
-	cont "HM03 SURF!"
+	line "You have won!"
 	done
 
-SafariZoneSecretHouseFishingGuruAfterText:
-	text "That HM03 SURF"
-	line "will serve you"
-	cont "well."
+SafariZoneSecretHouseFishingGuruReceivedHM03Text:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+SafariZoneSecretHouseFishingGuruHM03NoRoomText:
+	text "You don't have"
+	line "room for this"
+	cont "fabulous prize!"
+	done
+
+SafariZoneSecretHouseFishingGuruHM03ExplanationText:
+	text "HM03 is SURF!"
+
+	para "#MON will be"
+	line "able to ferry you"
+	cont "across water!"
+
+	para "And, this HM"
+	line "isn't disposable!"
+	cont "You can use it"
+	cont "over and over!"
+
+	para "You're super"
+	line "lucky for winning"
+	cont "this fabulous"
+	cont "prize!"
 	done
 
 SafariZoneSecretHouse_MapEvents:
