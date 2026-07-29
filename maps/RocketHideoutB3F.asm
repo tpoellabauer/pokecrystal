@@ -48,7 +48,9 @@ RocketHideoutB3FRocket2Script:
 	end
 
 RocketHideoutB3FRocket1PreBattleText:
-	text "Stop right there!"
+	text "Stop meddling in"
+	line "TEAM ROCKET's"
+	cont "affairs!"
 	done
 
 RocketHideoutB3FRocket1DefeatedText:
@@ -69,8 +71,9 @@ RocketHideoutB3FRocket1AfterBattleText:
 	done
 
 RocketHideoutB3FRocket2PreBattleText:
-	text "You shouldn't have"
-	line "come down here!"
+	text "We got word from"
+	line "upstairs that you"
+	cont "were coming!"
 	done
 
 RocketHideoutB3FRocket2DefeatedText:
@@ -115,6 +118,6 @@ RocketHideoutB3F_MapEvents:
 
 	def_object_events
 	object_event 10, 22, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket1Script, -1
-	object_event 26, 12, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket2Script, -1
+	object_event 26, 12, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketHideoutB3FRocket2Script, -1
 	object_event 26, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB3FTMDoubleEdge, EVENT_ROCKET_HIDEOUT_B3F_TM_DOUBLE_EDGE
 	object_event 20, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RocketHideoutB3FRareCandy, EVENT_ROCKET_HIDEOUT_B3F_RARE_CANDY
