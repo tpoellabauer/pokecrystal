@@ -18,7 +18,18 @@ LavenderMartPokefanMScript:
 	jumptextfaceplayer LavenderMartBaldingGuyText
 
 LavenderMartRockerScript:
-	jumptextfaceplayer LavenderMartCooltrainerMText
+	faceplayer
+	opentext
+	checkevent EVENT_RESCUED_MR_FUJI
+	iftrue .Nugget
+	writetext LavenderMartCooltrainerMReviveText
+	closetext
+	end
+
+.Nugget:
+	writetext LavenderMartCooltrainerMNuggetText
+	closetext
+	end
 
 LavenderMartBaldingGuyText:
 	text "I'm searching for"
@@ -36,10 +47,19 @@ LavenderMartBaldingGuyText:
 	line "I can get them?"
 	done
 
-LavenderMartCooltrainerMText:
+LavenderMartCooltrainerMReviveText:
 	text "You know REVIVE?"
 	line "It revives any"
 	cont "fainted #MON!"
+	done
+
+LavenderMartCooltrainerMNuggetText:
+	text "I found a NUGGET"
+	line "in the mountains."
+
+	para "I thought it was"
+	line "useless, but it"
+	cont "sold for ¥5000!"
 	done
 
 LavenderMart_MapEvents:
