@@ -30,10 +30,26 @@ SSAnneKitchenCook5Script:
 SSAnneKitchenCook6Script:
 	jumptextfaceplayer SSAnneKitchenCook6Text
 
-; Simplified from Gen 1's 3-way random dish text to a single fixed line (content-equivalent,
-; saves bank-25 space -- see model-and-gen/maps-and-scripting "simplify where faithful").
 SSAnneKitchenCook7Script:
-	jumptextfaceplayer SSAnneKitchenCook7Text
+	faceplayer
+	opentext
+	writetext SSAnneKitchenCook7MainCourseIsText
+	random 3
+	ifequal 0, .SalmonDuSalad
+	ifequal 1, .EelsAuBarbecue
+	writetext SSAnneKitchenCook7PrimeBeefSteakText
+	sjump .Done
+
+.SalmonDuSalad:
+	writetext SSAnneKitchenCook7SalmonDuSaladText
+	sjump .Done
+
+.EelsAuBarbecue:
+	writetext SSAnneKitchenCook7EelsAuBarbecueText
+
+.Done:
+	closetext
+	end
 
 SSAnneKitchenCook1Text:
 	text "You, mon petit!"
@@ -76,12 +92,33 @@ SSAnneKitchenCook6Text:
 	cont "Snivel..."
 	done
 
-SSAnneKitchenCook7Text:
+SSAnneKitchenCook7MainCourseIsText:
 	text "Er-hem! Indeed I"
 	line "am le chef!"
 
 	para "Le main course is"
-	line "Salmon du Salad!"
+	prompt
+
+SSAnneKitchenCook7SalmonDuSaladText:
+	text "Salmon du Salad!"
+
+	para "Les guests may"
+	line "gripe it's fish"
+	cont "again, however!"
+	done
+
+SSAnneKitchenCook7EelsAuBarbecueText:
+	text "Eels au Barbecue!"
+
+	para "Les guests will"
+	line "mutiny, I fear."
+	done
+
+SSAnneKitchenCook7PrimeBeefSteakText:
+	text "Prime Beef Steak!"
+
+	para "But, have I enough"
+	line "fillets du beef?"
 	done
 
 SSAnneKitchenHiddenGreatBall:
