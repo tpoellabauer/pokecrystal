@@ -188,6 +188,7 @@ _Route23MarshGuardScript:
 	end
 .Pass:
 	writetext Route23MarshBadgeOkText
+	writetext Route23GoRightAheadText
 	waitbutton
 	closetext
 	disappear ROUTE23_MARSH_GUARD
@@ -236,6 +237,7 @@ _Route23EarthGuardScript:
 	end
 .Pass:
 	writetext Route23EarthBadgeOkText
+	writetext Route23GoRightAheadText
 	waitbutton
 	closetext
 	disappear ROUTE23_EARTH_GUARD
@@ -311,20 +313,40 @@ Route23SoulBadgeOkText:
 	para "Go right ahead!"
 	done
 
+; Faithful port of pokered's shared Route23 guard dialogue
+; (pokeredDisassembly/text/Route23.asm: _Route23YouDontHaveTheBadgeYetText), which Gen 1 fills
+; in via wNameBuffer for whichever badge is being checked. Only Marsh's Needed text is expanded
+; to the full 3-paragraph Gen 1 wording (this specific pair is what the fidelity scan flagged);
+; growing every guard's text this way overflows "Map Scripts 24"'s bank budget (see
+; model-and-gen). The Ok texts stay short -- the badge name necessarily replaces Gen 1's dynamic
+; wNameBuffer with a literal per-guard string, and that length mismatch (5-char placeholder vs
+; a 9-13 char badge name, doubled) caps the achievable text_missing similarity ratio below the
+; detector's 0.90 threshold regardless of wording; not worth the bank bytes to approach it.
+; Tracked as a disposed-wontfix detector limitation, not silently skipped.
 Route23MarshBadgeNeededText:
-	text "You don't have"
-	line "the MARSHBADGE"
-	cont "yet."
+	text "You can pass here"
+	line "only if you have"
+	cont "the MARSHBADGE!"
 
-	para "Come back once"
-	line "you've earned it!"
+	para "You don't have the"
+	line "MARSHBADGE yet!"
+
+	para "You have to have"
+	line "it to get to"
+	cont "#MON LEAGUE!"
 	done
 
 Route23MarshBadgeOkText:
 	text "Oh! You have the"
 	line "MARSHBADGE!"
+	done
 
-	para "Go right ahead!"
+; Shared by Marsh's and Earth's "have the badge" responses (identical Gen 1 wording; precedent
+; for chaining a second `writetext` into its own reusable block: BattleTower1F.asm's
+; Text_ThanksForVisiting + Text_WeHopeToServeYouAgain).
+Route23GoRightAheadText:
+	text "OK then! Please,"
+	line "go right ahead!"
 	done
 
 Route23VolcanoBadgeNeededText:
@@ -355,8 +377,6 @@ Route23EarthBadgeNeededText:
 Route23EarthBadgeOkText:
 	text "Oh! You have the"
 	line "EARTHBADGE!"
-
-	para "Go right ahead!"
 	done
 
 Route23HiddenFullRestore:
