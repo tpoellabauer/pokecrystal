@@ -122,7 +122,7 @@ ViridianForestYoungster1Text:
 ViridianForestYoungster2BattleText:
 	text "Hey! You have"
 	line "#MON! Come on!"
-	cont "Let's battle!"
+	cont "Let's battle'em!"
 	done
 
 ViridianForestYoungster2EndBattleText:
@@ -208,10 +208,11 @@ ViridianForestTrainerTips2Text:
 ViridianForestTrainerTips3Text:
 	text "TRAINER TIPS"
 
-	para "No stealing"
-	line "#MON from other"
-	cont "trainers! Catch"
-	cont "only wild #MON!"
+	para "No stealing of"
+	line "#MON from"
+	cont "other trainers!"
+	cont "Catch only wild"
+	cont "#MON!"
 	done
 
 ViridianForestTrainerTips4Text:
