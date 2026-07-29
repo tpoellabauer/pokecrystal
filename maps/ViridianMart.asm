@@ -34,6 +34,16 @@ ViridianMartLassScript:
 ViridianMartCooltrainerMScript:
 	jumptextfaceplayer ViridianMartCooltrainerMText
 
+ViridianMartClerkSayHiToOakText:
+	text "Okay! Say hi to"
+	line "PROF.OAK for me!"
+	done
+
+ViridianMartClerkYouCameFromPalletTownText:
+	text "Hey! You came from"
+	line "PALLET TOWN?"
+	done
+
 ViridianMartYoungsterText:
 	text "This shop sells"
 	line "many ANTIDOTEs."
@@ -79,5 +89,5 @@ ViridianMart_MapEvents:
 
 	def_object_events
 	object_event  0,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartClerkScript, -1
-	object_event  5,  5, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartLassScript, -1
-	object_event  3,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartCooltrainerMScript, -1
+	object_event  5,  5, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartLassScript, -1
+	object_event  3,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartCooltrainerMScript, -1
