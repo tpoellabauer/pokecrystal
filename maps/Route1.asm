@@ -19,9 +19,18 @@ Route1Youngster1Script:
 	waitbutton
 	closetext
 	giveitem POTION
+	iffalse .NoRoom
 	setevent EVENT_GOT_POTION_SAMPLE
+	getitemname STRING_BUFFER_3, POTION
 	opentext
 	writetext Route1Youngster1GotPotionText
+	waitbutton
+	closetext
+	end
+
+.NoRoom:
+	opentext
+	writetext Route1Youngster1NoRoomText
 	waitbutton
 	closetext
 	end
@@ -54,7 +63,9 @@ Route1Youngster1MartSampleText:
 
 Route1Youngster1GotPotionText:
 	text "<PLAYER> got"
-	line "POTION!@"
+	line "@"
+	text_ram wStringBuffer3
+	text "!@"
 	sound_item
 	text_end
 
@@ -62,6 +73,11 @@ Route1Youngster1AlsoGotPokeballsText:
 	text "We also carry"
 	line "# BALLs for"
 	cont "catching #MON!"
+	done
+
+Route1Youngster1NoRoomText:
+	text "You have too much"
+	line "stuff with you!"
 	done
 
 Route1Youngster2Text:
