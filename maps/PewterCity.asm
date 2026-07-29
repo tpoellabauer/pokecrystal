@@ -2,7 +2,7 @@
 	const PEWTERCITY_COOLTRAINER_F
 	const PEWTERCITY_COOLTRAINER_M
 	const PEWTERCITY_GRAMPS
-	const PEWTERCITY_FRUIT_TREE1
+	const PEWTERCITY_SUPER_NERD2
 	const PEWTERCITY_FRUIT_TREE2
 
 PewterCity_MapScripts:
@@ -158,6 +158,19 @@ PewterCityTrainerTipsSignText:
 	cont "short, earns EXP!"
 	done
 
+PewterCitySuperNerd2Script:
+	jumptextfaceplayer PewterCitySuperNerd2DoYouKnowWhatImDoingText
+
+PewterCitySuperNerd2DoYouKnowWhatImDoingText:
+	text "Psssst!"
+	line "Do you know what"
+	cont "I'm doing?"
+
+	para "I'm spraying REPEL"
+	line "to keep #MON"
+	cont "out of my garden!"
+	done
+
 PewterCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -184,6 +197,6 @@ PewterCity_MapEvents:
 	def_object_events
 	object_event  8, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerFScript, -1
 	object_event 17, 25, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerMScript, -1
-	object_event 27, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
-	object_event 26, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
-	object_event 35, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
+	object_event 27, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
+	object_event 26, 25, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCitySuperNerd2Script, -1
+	object_event 35, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
