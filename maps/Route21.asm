@@ -191,8 +191,8 @@ SwimmerStantonSeenText:
 	done
 
 SwimmerStantonBeatenText:
-	text "Pant...pant..."
-	line "pant..."
+	text "Pant..."
+	line "pant...pant..."
 	done
 
 SwimmerStantonAfterBattleText:
