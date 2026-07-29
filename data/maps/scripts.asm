@@ -528,13 +528,13 @@ INCLUDE "maps/SafariZoneWestRestHouse.asm"
 INCLUDE "maps/SafariZoneSecretHouse.asm"
 INCLUDE "maps/PokemonMansion1F.asm"
 INCLUDE "maps/PokemonMansion2F.asm"
-INCLUDE "maps/PokemonMansion3F.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 27", ROMX
 
+INCLUDE "maps/PokemonMansion3F.asm"
 INCLUDE "maps/PokemonMansionB1F.asm"
 INCLUDE "maps/SeafoamIslands1F.asm"
 INCLUDE "maps/SeafoamIslandsB1F.asm"
@@ -566,13 +566,13 @@ INCLUDE "maps/Route18.asm"
 INCLUDE "maps/RocketHideoutB1F.asm"
 INCLUDE "maps/RocketHideoutB4F.asm"
 INCLUDE "maps/CinnabarLabTradeRoom.asm"
-INCLUDE "maps/CinnabarLabMetronomeRoom.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 28", ROMX
 
+INCLUDE "maps/CinnabarLabMetronomeRoom.asm"
 INCLUDE "maps/CinnabarLabFossilRoom.asm"
 INCLUDE "maps/ViridianSchoolHouse.asm"
 INCLUDE "maps/FuchsiaGoodRodHouse.asm"
