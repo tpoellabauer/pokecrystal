@@ -24,9 +24,22 @@ DaisySittingScript:
 	writetext DaisyOfferMapText
 	waitbutton
 	closetext
-	verbosegiveitem TOWN_MAP
+	giveitem TOWN_MAP
+	iffalse .BagFull
+	getitemname STRING_BUFFER_3, TOWN_MAP
+	opentext
+	writetext GotTownMapText
+	waitbutton
 	setevent EVENT_GOT_TOWN_MAP
 	disappear BLUESHOUSE_TOWN_MAP
+	closetext
+	end
+
+.BagFull:
+	opentext
+	writetext DaisyBagFullText
+	waitbutton
+	closetext
 	end
 
 .GotTownMap:
@@ -53,6 +66,19 @@ DaisyOfferMapText:
 	cont "Here, this will"
 	cont "help you!"
 	prompt
+
+GotTownMapText:
+	text "<PLAYER> got a"
+	line "@"
+	text_ram wStringBuffer3
+	text "!@"
+	sound_item
+	text_end
+
+DaisyBagFullText:
+	text "You have too much"
+	line "stuff with you."
+	done
 
 DaisyUseMapText:
 	text "Use the TOWN MAP"
