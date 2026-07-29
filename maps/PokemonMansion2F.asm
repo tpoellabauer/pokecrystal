@@ -73,6 +73,8 @@ PokemonMansion2FSuperNerdScript:
 	reloadmap
 	setevent EVENT_BEAT_MANSION_2_TRAINER_0
 	opentext
+	writetext PokemonMansion2FSuperNerdEndBattleText
+	promptbutton
 	writetext PokemonMansion2FSuperNerdAfterBattleText
 	waitbutton
 	closetext
@@ -91,6 +93,11 @@ PokemonMansion2FSuperNerdBattleText:
 	text "I can't get out!"
 	line "This old place is"
 	cont "one big puzzle!"
+	done
+
+PokemonMansion2FSuperNerdEndBattleText:
+	text "Oh no!"
+	line "My bag of loot!"
 	done
 
 PokemonMansion2FSuperNerdAfterBattleText:
