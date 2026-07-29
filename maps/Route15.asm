@@ -245,6 +245,7 @@ Route15Biker1AfterBattleText:
 	text "You only live"
 	line "once, so I live"
 	cont "as an outlaw!"
+	cont "TEAM ROCKET RULES!"
 	done
 
 Route15Biker2SeenText:
