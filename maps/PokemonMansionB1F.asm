@@ -85,6 +85,7 @@ PokemonMansionB1FBurglarScript:
 	writetext PokemonMansionB1FBurglarBattleText
 	waitbutton
 	closetext
+	winlosstext PokemonMansionB1FBurglarEndBattleText, 0
 	loadtrainer BURGLAR, BURGLAR_POKEMON_MANSION_B1F
 	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
 	startbattle
@@ -103,6 +104,7 @@ PokemonMansionB1FScientistScript:
 	writetext PokemonMansionB1FScientistBattleText
 	waitbutton
 	closetext
+	winlosstext PokemonMansionB1FScientistEndBattleText, 0
 	loadtrainer SCIENTIST, SCIENTIST_POKEMON_MANSION_B1F
 	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
 	startbattle
@@ -141,6 +143,10 @@ PokemonMansionB1FBurglarBattleText:
 	line "I now?"
 	done
 
+PokemonMansionB1FBurglarEndBattleText:
+	text "Awooh!"
+	done
+
 PokemonMansionB1FBurglarAfterBattleText:
 	text "You can find stuff"
 	line "lying around."
@@ -151,6 +157,11 @@ PokemonMansionB1FScientistBattleText:
 	line "ideal for a lab."
 	done
 
+PokemonMansionB1FScientistEndBattleText:
+	text "What"
+	line "was that for?"
+	done
+
 PokemonMansionB1FScientistAfterBattleText:
 	text "I like it here!"
 	line "It's conducive to"
@@ -158,13 +169,13 @@ PokemonMansionB1FScientistAfterBattleText:
 	done
 
 PokemonMansionB1FDiaryText:
-	text "Diary: Sept. 1"
+	text "Diary; Sept. 1"
 	line "MEWTWO is far too"
 	cont "powerful."
 
 	para "We have failed to"
 	line "curb its vicious"
-	cont "tendencies…"
+	cont "tendencies..."
 	done
 
 PokemonMansionB1F_MapEvents:
