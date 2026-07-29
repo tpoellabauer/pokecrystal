@@ -70,7 +70,7 @@ FuchsiaGoodRodHouseThatsSoDisappointingText:
 
 FuchsiaGoodRodHouseHowAreTheFishText:
 	text "Hello there,"
-	line "trainer!"
+	line "<PLAYER>!"
 
 	para "How are the fish"
 	line "biting?"
